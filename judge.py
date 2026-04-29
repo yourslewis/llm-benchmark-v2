@@ -183,17 +183,7 @@ def main():
         existing_scores = json.loads(scores_file.read_text())
 
     all_scores = existing_scores.copy()
-    
-    # NEW: Bypass logic check
-    def has_judge_score(task_id, model_id, judge_model):
-        key = f"{task_id}/{model_id}"
-        if key not in all_scores:
-            return False
-        return any(j.get("judge") == judge_model and j.get("score") is not None 
-                   for j in all_scores[key].get("judges", []))
-
     flagged = []
-    # ... rest of main ...
     judged = 0
     skipped = 0
     errors = 0
