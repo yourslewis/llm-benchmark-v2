@@ -1,0 +1,19 @@
+{
+  "task_id": "analysis-03",
+  "model_id": "gemini-3.1-pro-preview",
+  "status": "ok",
+  "response_text": "Here is the review of your model configurations, corrected based on actual provider API specifications.\n\n*(Note: \"claude-opus-4\" and \"claude-sonnet-4\" do not currently exist. I have assumed you meant the latest available versions: Claude 3 Opus and Claude 3.5 Sonnet).*\n\n### 1. Research & Correct\n\n| Model ID | Actual Max Output Tokens | Current Setting | Recommended Setting | Action Needed |\n|----------|--------------------------|-----------------|---------------------|---------------|\n| gpt-4o | 16,384 | 16,384 | 16,384 | OK |\n| gpt-4o-mini | 16,384 | 16,384 | 16,384 | OK |\n| o3-mini | 100,000 | 16,384 | 64,000 | Increase |\n| claude-opus-3 | 4,096 | 16,384 | 4,096 | Decrease |\n| claude-sonnet-3-5| 8,192 | 16,384 | 8,192 | Decrease |\n| claude-haiku-3-5 | 8,192 | 16,384 | 8,192 | Decrease |\n| gemini-2.0-flash | 8,192 | 16,384 | 8,192 | Decrease |\n| mistral-large | 8,192 | 16,384 | 8,192 | Decrease |\n| llama-3.3-70b | 8,192 (Groq limit) | 16,384 | 8,192 | Decrease |\n| phi-3-mini-128k | 4,096 (Azure standard)| 16,384 | 4,096 | Decrease |\n\n*Note: For `o3-mini`, while the actual max output is 100,000, setting a gateway max of 64,000 is recommended as a practical cap to prevent runaway inference costs while still providing a massive upgrade over 16k.*\n\n### 2. Flag Dangerous Misconfiguration\n\n**Yes, several models are dangerously misconfigured.** \nThe Anthropic models (Claude), Google's Gemini, Groq, and Azure's Phi-3 are all set to 16,384, which exceeds their hard API limits for output tokens (usually 4,096 or 8,192).\n\n**What happens:** \nIf an application or user requests a generation and the gateway passes `max_tokens=16384` in the payload, the provider's API will immediately reject the request with a **400 Bad Request / Validation Error** before generating any text. The API will state that the requested `max_tokens` exceeds the allowable maximum for that model.\n\n### 3. Priority Order\n\n1. **Critical (Fix immediately to prevent API 400 errors):**\n   * `claude-opus-3` (Limit: 4096)\n   * `claude-sonnet-3-5` & `claude-haiku-3-5` (Limit: 8192)\n   * `gemini-2.0-flash` (Limit: 8192)\n   * `llama-3.3-70b` (Groq limit: 8192)\n   * `phi-3-mini-128k` (Limit: 4096)\n2. **Important (Fix to unlock capability):**\n   * `o3-mini` (Increase to 64k/100k for heavy reasoning tasks)\n3. **Low priority (Already correct or close enough):**\n   * `gpt-4o` and `gpt-4o-mini` (16,384 is exactly correct)\n   * `mistral-large`\n\n### 4. Config Snippet\n\nHere is the corrected configuration for three of the highest-priority (critical) models that are currently failing due to high limits:\n\n```json\n[\n  {\n    \"model\": \"claude-opus-3\",\n    \"maxTokens\": 4096,\n    \"reason\": \"Changed from 16384: actual Anthropic API output limit is 4096 to avoid validation errors\"\n  },\n  {\n    \"model\": \"claude-sonnet-3-5\",\n    \"maxTokens\": 8192,\n    \"reason\": \"Changed from 16384: actual Anthropic API output limit is 8192 to avoid validation errors\"\n  },\n  {\n    \"model\": \"gemini-2.0-flash\",\n    \"maxTokens\": 8192,\n    \"reason\": \"Changed from 16384: actual Google API output limit is 8192 to avoid validation errors\"\n  }\n]\n```",
+  "metrics": {
+    "input_tokens": 587,
+    "output_tokens": 777,
+    "ttft_ms": 12410.8,
+    "total_latency_ms": 20657.7,
+    "tokens_per_sec": 94.2,
+    "thinking_skipped": false,
+    "cost_usd": 0.010498,
+    "code_pass_rate": null
+  },
+  "category": "analysis",
+  "difficulty": "easy",
+  "family": "google"
+}

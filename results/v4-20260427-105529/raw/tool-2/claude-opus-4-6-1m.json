@@ -1,0 +1,19 @@
+{
+  "task_id": "tool-2",
+  "model_id": "claude-opus-4-6-1m",
+  "status": "ok",
+  "response_text": "# Failed Tool Call Analysis\n\n## Call 1 \u2014 Rate Limited\n\n**Root cause:** Hit rate limit (0 remaining requests). `Retry-After: 30` says wait 30 seconds.\n\n**Recovery strategy:** Delayed retry after 30 seconds. No parameter changes needed.\n\n**Corrected call:**\n```json\n// Wait 30 seconds, then:\n{\"tool\": \"web_search\", \"input\": {\"query\": \"OpenClaw changelog April 2026\", \"count\": 5}}\n```\n\n**Prevention:** Track `X-RateLimit-Remaining` from previous responses. When it's low, throttle proactively. Implement exponential backoff on 429s.\n\n---\n\n## Call 2 \u2014 Schema Mismatch\n\n**Root cause:** Field name `contents` doesn't exist; the schema requires `content` (no trailing \"s\").\n\n**Recovery strategy:** Immediate retry with corrected field name.\n\n**Corrected call:**\n```json\n{\"tool\": \"file_write\", \"input\": {\"path\": \"/tmp/report.md\", \"content\": \"# Report\\n...\", \"mode\": \"overwrite\"}}\n```\n\n**Prevention:** Validate input against the tool schema before calling. Cache and reference tool schemas.\n\n---\n\n## Call 3 \u2014 Timeout\n\n**Root cause:** 10-second timeout for a job processing 250K rows (only reached 15K/250K = 6%). Estimated time: ~170 seconds.\n\n**Recovery strategy:** Increase timeout substantially (300s for safety), or chunk the input.\n\n**Corrected call:**\n```json\n{\"tool\": \"exec\", \"input\": {\"command\": \"python3 analyze.py --input data.csv --output results.json\", \"timeout\": 300}}\n```\n\n**Prevention:** Estimate workload size before setting timeouts. For large datasets, prefer chunked processing or streaming. Use a heuristic: check file size / row count first.\n\n---\n\n# Complete Corrected Sequence\n\n```jsonc\n// Step 1: Wait for rate limit reset, then search\n// [sleep 30 seconds]\n{\n  \"tool\": \"web_search\",\n  \"input\": {\"query\": \"OpenClaw changelog April 2026\", \"count\": 5},\n  \"error_handling\": {\n    \"on_429\": {\"action\": \"retry\", \"delay_from\": \"Retry-After header\", \"max_retries\": 3}\n  }\n}\n\n// Step 2: Write file with correct field name\n{\n  \"tool\": \"file_write\",\n  \"input\": {\n    \"path\": \"/tmp/report.md\",\n    \"content\": \"# Report\\n...\",\n    \"mode\": \"overwrite\"\n  },\n  \"error_handling\": {\n    \"on_validation_error\": {\"action\": \"fail_fast\", \"reason\": \"schema errors are not transient\"}\n  }\n}\n\n// Step 3: Run analysis with adequate timeout\n{\n  \"tool\": \"exec\",\n  \"input\": {\n    \"command\": \"python3 analyze.py --input data.csv --output results.json\",\n    \"timeout\": 300\n  },\n  \"error_handling\": {\n    \"on_timeout\": {\"action\": \"retry_once\", \"new_timeout\": 600},\n    \"on_success\": \"verify results.json exists and is valid JSON\"\n  }\n}\n```\n\n**Ordering notes:** Calls 2 and 3 are independent of each other but both may depend on Call 1's search results (for report content). The 30-second wait for Call 1 is unavoidable, so if Calls 2/3 are independent of it, they could execute in parallel during the wait.",
+  "metrics": {
+    "input_tokens": 378,
+    "output_tokens": 697,
+    "ttft_ms": 1618.4,
+    "total_latency_ms": 16543.2,
+    "tokens_per_sec": 46.7,
+    "thinking_skipped": false,
+    "cost_usd": 0.019315,
+    "code_pass_rate": null
+  },
+  "category": "tool-use",
+  "difficulty": "hard",
+  "family": "claude"
+}

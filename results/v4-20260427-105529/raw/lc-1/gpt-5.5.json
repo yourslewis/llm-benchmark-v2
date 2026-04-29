@@ -1,0 +1,19 @@
+{
+  "task_id": "lc-1",
+  "model_id": "gpt-5.5",
+  "status": "ok",
+  "response_text": "Line references below use the line numbers in the supplied snippets.\n\n## 1. Data flow: raw load \u2192 preprocess \u2192 features \u2192 train \u2192 predict \u2192 submission\n\nThere are several pipelines. Only some produce a submission CSV; many `experiment*.py` files only compute CV AUC.\n\n### A. Main final CatBoost submission pipeline: `run_final_submission.py`\n\n| Stage | File / function | Lines | What happens |\n|---|---:|---:|---|\n| Load raw data | `run_final_submission.py::main()` | L110-L116 | Reads `train.csv` and `test.csv`; converts `Churn == \"Yes\"` to binary `y`; creates `X` and `X_test`. |\n| Preprocess / categorical schema | module constants | L22-L30 | Defines seeds/folds/checkpoints and `CAT_COLS`. |\n| Feature engineering | `add_features(df)` | L52-L60 | Adds `avg_monthly_spend`, `charge_ratio`, `num_services`, `tenure_x_monthly`. |\n| Fold target encoding for CV | `add_te_fold(tr, va, cols, ytr, smooth=20.0)` | L74-L84 | Smoothed target encoding fit on fold train, applied to fold train/validation. |\n| Full-train target encoding for test | `add_te_full(tr, te, cols, ytr, smooth=20.0)` | L62-L72 | Smoothed target encoding fit on all train labels, applied to train/test for final model. |\n| CV training | `main()` | L123-L149 | 7 seeds \u00d7 5-fold `StratifiedKFold`; fits `CatBoostClassifier`; records OOF AUC and best iterations. |\n| Full-data training | `main()` | L159-L178 | Fits CatBoost on all training rows using full-train target encodings. |\n| Prediction | `main()` | L180-L191 | For each checkpoint iteration, copies model, `shrink(cp)`, predicts test probabilities, averages over 7 seeds. |\n| Submission CSV + Kaggle submit | `main()` / `submit_to_kaggle()` | CSV L198-L207; API L86-L",
+  "metrics": {
+    "input_tokens": 75056,
+    "output_tokens": 16000,
+    "ttft_ms": null,
+    "total_latency_ms": 207923.3,
+    "tokens_per_sec": 77.0,
+    "thinking_skipped": false,
+    "cost_usd": 0.34764,
+    "code_pass_rate": null
+  },
+  "category": "long-context",
+  "difficulty": "hard",
+  "family": "openai"
+}

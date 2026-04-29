@@ -1,0 +1,19 @@
+{
+  "task_id": "code-05",
+  "model_id": "azure/gpt-5.3-codex",
+  "status": "ok",
+  "response_text": "Here\u2019s a clean Python implementation for both parts, with type hints and required complexities.\n\n```python\nfrom typing import List\nimport heapq\n\n\ndef findMedianSortedArrays(nums1: List[int], nums2: List[int]) -> float:\n    \"\"\"\n    Find median of two sorted arrays in O(log(min(m, n))).\n    \"\"\"\n    # Ensure nums1 is the smaller array for binary search\n    if len(nums1) > len(nums2):\n        nums1, nums2 = nums2, nums1\n\n    m, n = len(nums1), len(nums2)\n    total = m + n\n    half = (total + 1) // 2  # left partition size\n\n    left, right = 0, m\n\n    while left <= right:\n        i = (left + right) // 2      # partition in nums1\n        j = half - i                 # partition in nums2\n\n        left1 = float(\"-inf\") if i == 0 else nums1[i - 1]\n        right1 = float(\"inf\") if i == m else nums1[i]\n        left2 = float(\"-inf\") if j == 0 else nums2[j - 1]\n        right2 = float(\"inf\") if j == n else nums2[j]\n\n        # Correct partition\n        if left1 <= right2 and left2 <= right1:\n            if total % 2 == 1:\n                return float(max(left1, left2))\n            return (max(left1, left2) + min(right1, right2)) / 2.0\n\n        # Move partition in nums1\n        if left1 > right2:\n            right = i - 1\n        else:\n            left = i + 1\n\n    # Given valid sorted inputs, this should never happen\n    raise ValueError(\"Input arrays are not valid sorted arrays.\")\n\n\nclass StreamingMedian:\n    \"\"\"\n    Maintain median of a stream using:\n      - lower: max-heap (stored as negatives)\n      - upper: min-heap\n    add(): O(log n)\n    median(): O(1)\n    \"\"\"\n\n    def __init__(self) -> None:\n        self.lower: List[int] = []  # max-heap via negatives\n        self.upper: List[int] = []  # min-heap\n\n    def add(self, num: int) -> None:\n        # Step 1: push into one heap\n        if not self.lower or num <= -self.lower[0]:\n            heapq.heappush(self.lower, -num)\n        else:\n            heapq.heappush(self.upper, num)\n\n        # Step 2: rebalance so that:\n        # len(lower) == len(upper) or len(lower) == len(upper) + 1\n        if len(self.lower) > len(self.upper) + 1:\n            heapq.heappush(self.upper, -heapq.heappop(self.lower))\n        elif len(self.upper) > len(self.lower):\n            heapq.heappush(self.lower, -heapq.heappop(self.upper))\n\n    def median(self) -> float:\n        if not self.lower and not self.upper:\n            raise ValueError(\"No numbers added yet.\")\n\n        if len(self.lower) > len(self.upper):\n            return float(-self.lower[0])\n\n        return (-self.lower[0] + self.upper[0]) / 2.0\n\n\n# Optional quick checks\nif __name__ == \"__main__\":\n    assert findMedianSortedArrays([1, 3], [2]) == 2.0\n    assert findMedianSortedArrays([1, 2], [3, 4]) == 2.5\n    assert findMedianSortedArrays([], [1]) == 1.0\n    assert findMedianSortedArrays([1, 3, 5, 7, 9, 11], [2, 4, 6, 8, 10, 12]) == 6.5\n\n    sm = StreamingMedian()\n    sm.add(1)\n    assert sm.median() == 1.0\n    sm.add(2)\n    assert sm.median() == 1.5\n    sm.add(3)\n    assert sm.median() == 2.0\n```\n\nIf you want, I can also provide a `class Solution` wrapper exactly in LeetCode format.",
+  "metrics": {
+    "input_tokens": 440,
+    "output_tokens": 1544,
+    "ttft_ms": null,
+    "total_latency_ms": 15478.8,
+    "tokens_per_sec": 99.7,
+    "thinking_skipped": false,
+    "cost_usd": 0.01654,
+    "code_pass_rate": 100
+  },
+  "category": "code",
+  "difficulty": "hard",
+  "family": "openai"
+}

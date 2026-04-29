@@ -1,0 +1,18 @@
+{
+  "task_id": "plan-03",
+  "model_id": "claude-opus-4-6-1m",
+  "status": "ok",
+  "response_text": "**Subject:** Request for Duplicate Receipt \u2013 March 12, 2026 Visit\n\nDear Boardwalk Restaurant Team,\n\nI hope this message finds you well. I recently dined at your restaurant and unfortunately misplaced my receipt. I'm hoping you can help me obtain a copy or written confirmation of the transaction so I can submit it with my expense report.\n\nHere are the details that should help you locate the charge:\n\n- **Date of visit:** Thursday, March 12, 2026\n- **Time:** Approximately 1:58 PM\n- **Total charged:** $515.56\n- **Payment method:** American Express (I don't have the last four digits handy, but it was an Amex card)\n- **Party context:** Business lunch, likely a larger table\n\nIf you're able to pull up the transaction, I'd greatly appreciate either a duplicate itemized receipt or a written confirmation of the charge \u2014 whichever is easier on your end. A PDF or photo sent to my email would work perfectly.\n\nI do have an end-of-month deadline for expense report submissions, so if it's possible to get this in the next week or so, that would be a huge help. But I understand if it takes a bit longer to track down.\n\nPlease don't hesitate to reach out if you need any additional information to locate the transaction. I'm happy to provide whatever helps.\n\nThank you so much for your time \u2014 and for a wonderful meal. I look forward to bringing clients back again soon.\n\nBest regards,\n\n**Alex Chen**\nAccount Manager | Contoso Technologies\nalex.chen@contoso.com\n(555) 014-7",
+  "metrics": {
+    "input_tokens": 414,
+    "output_tokens": 362,
+    "ttft_ms": 2864.2,
+    "total_latency_ms": 10956.7,
+    "tokens_per_sec": 44.7,
+    "cost_usd": 0.01112,
+    "code_pass_rate": null
+  },
+  "category": "plan",
+  "difficulty": "easy",
+  "family": "claude"
+}

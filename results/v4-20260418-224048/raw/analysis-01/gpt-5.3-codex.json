@@ -1,0 +1,19 @@
+{
+  "task_id": "analysis-01",
+  "model_id": "gpt-5.3-codex",
+  "status": "ok",
+  "response_text": "## 1) Root cause analysis\n\nMost likely cause: **gateway timeout is too aggressive (5s), and OpenAI models are often just over that limit**.\n\nWhy:\n\n- **`gpt-4o` times out the most** (4 times as primary, plus once as fallback).\n- Timeout elapsed is very consistent: **~5070\u20135160ms**, tightly clustered right above the **5000ms threshold**.\n  - That pattern usually means a **hard gateway cutoff**, not random model crashes.\n- So this is primarily a **gateway configuration issue** (timeout too low), likely exposed by temporary/slightly elevated provider latency.\n- Session **`j1k2l3`** is key:  \n  - `o3-mini` (OpenAI) times out \u2192 failover to `gpt-4o` (also OpenAI) \u2192 times out again \u2192 no fallback left.  \n  - This shows both **timeout policy** and **fallback design flaw** (fallback to another model with similar latency/provider risk).\n\n---\n\n## 2) Pattern summary\n\n| Metric | Value |\n|--------|-------|\n| Total timeout events | **6** |\n| Primary model causing most timeouts | **gpt-4o** |\n| % of sessions where failover succeeded | **75%** of sessions with known outcome (3/4). *(3/5 = 60% if counting the last session as unresolved in-window)* |\n| Sessions where all fallbacks exhausted | **1** (`j1k2l3`) |\n| Typical elapsed time at timeout | **~5.1s** (avg \u2248 **5110ms**) |\n\n---\n\n## 3) Config changes\n\n### Recommended changes\n1. **Increase timeout** (global and/or per-model), e.g. from 5000ms to 8000\u201312000ms.\n2. **Use provider-diverse fallback chains** (don\u2019t fallback OpenAI \u2192 OpenAI when OpenAI is degraded).\n3. **Add second fallback** to avoid single-point exhaustion.\n\nExample:\n\n```yaml\ngateway:\n  timeout_ms: 10000   # was 5000\n\n  models:\n    - id: gpt-4o\n      provider: openai\n      timeout_ms: 9000\n      fallbacks: [claude-sonnet-4, gemini-2.0-flash]\n\n    - id: o3-mini\n      provider: openai\n      timeout_ms: 9000\n      fallbacks: [claude-sonnet-4, gemini-2.0-flash]   # was gpt-4o only\n\n    - id: claude-sonnet-4\n      provider: anthropic\n      timeout_ms: 8000\n      fallbacks: [gemini-2.0-flash]\n\n    - id: gemini-2.0-flash\n      provider: google\n      timeout_ms: 8000\n      fallbacks: []\n```\n\nIf your gateway only supports singular `fallback`, still change `o3-mini` fallback away from `gpt-4o` and add additional route policy elsewhere.\n\n---\n\n## 4) Monitoring recommendation\n\nAdd a **model timeout-rate alert**.\n\n**Alert definition**\n- **Metric:** `timeout_rate_by_model = timeout_failover_events / primary_requests`\n- **Threshold:** `> 10%` for any model\n- **Window:** `5m` (sustain for `10m`)\n- **Action:** page on-call + auto-shift traffic off affected primary model (temporary circuit-breaker)\n\nOptional second alert (very useful here):\n- Trigger if `p50(timeout_elapsed_ms)` is within `5000\u00b1250ms` and timeout count > N in 5m \u2192 indicates hard threshold clipping/config issue.",
+  "metrics": {
+    "input_tokens": 1296,
+    "output_tokens": 3496,
+    "ttft_ms": null,
+    "total_latency_ms": 43834.9,
+    "tokens_per_sec": 79.8,
+    "thinking_skipped": false,
+    "cost_usd": 0.0382,
+    "code_pass_rate": null
+  },
+  "category": "analysis",
+  "difficulty": "hard",
+  "family": "openai"
+}

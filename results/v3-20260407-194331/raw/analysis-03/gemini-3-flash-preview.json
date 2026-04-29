@@ -1,0 +1,18 @@
+{
+  "task_id": "analysis-03",
+  "model_id": "gemini-3-flash-preview",
+  "status": "ok",
+  "response_text": "I am gemini-3-flash-preview. Here is the review and recommendation for your AI gateway configuration.\n\n### 1. Research & Correct\n\n| Model ID | Actual Max Output Tokens | Current Setting | Recommended Setting | Action Needed |\n| :--- | :--- | :--- | :--- | :--- |\n| **gpt-4o** | 16,384 | 16384 | 16,384 | OK |\n| **gpt-4o-mini** | 16,384 | 16384 | 16,384 | OK |\n| **o3-mini** | 100,000 | 16384 | 64,000 | Increase |\n| **claude-opus-4** | 4,096 | 16384 | 4,096 | **Decrease** |\n| **claude-sonnet-4** (3.5) | 8,192 | 16384 | 8,192 | **Decrease** |\n| **claude-haiku-3-5** | 8,192 | 16384 | 8,192 | **Decrease** |\n| **gemini-2.0-flash** | 8,192 | 16384 | 8,192 | **Decrease** |\n| **mistral-large** | 128,000 | 16384 | 32,768 | Increase |\n| **llama-3.3-70b** (Groq) | 32,768 | 16384 | 32,768 | Increase |\n| **phi-3-mini-128k** | 4,096 | 16384 | 4,096 | **Decrease** |\n\n*Note: For models with very high limits like o3-mini and Mistral, I have recommended a \"Practical Limit\" (32k-64k) to prevent runaway costs/latency while still allowing long-form outputs.*\n\n---\n\n### 2. Flag Dangerous Misconfiguration\n\nThe following models are currently configured with a `maxTokens` value **higher** than their actual API limits:\n*   **Claude (Opus, Sonnet, Haiku)**\n*   **Gemini 2.0 Flash**\n*   **Phi-3-Mini**\n\n**What happens:** If a user or an application sends a request to the AI gateway where the `max_tokens` parameter is passed as 16,384, the upstream provider (Anthropic, Google, or Azure) will return a **400 Bad Request error**. This results in a total service failure for any request that defaults to your gateway's maximum.\n\n---\n\n### 3. Priority Order\n\n1.  **CRITICAL (Prevent API Errors):**\n    *   `claude-opus-4`, `phi-3-mini-128k` (Limits are ~4k; 16k is 4x too high).\n    *   `claude-sonnet-4`, `claude-haiku-3-5`, `gemini-2.0-flash` (Limits are 8k).\n2.  **IMPORTANT (Enable Capability):**\n    *   `o3-mini` (Heavily throttled; reasoning models need high token limits for long chains of thought).\n    *   `llama-3.3-70b` (Standardizing to Groq's supported output).\n3.  **LOW PRIORITY:**\n    *   `mistral-large` (16k is usually sufficient for most business cases, but increasing it adds flexibility).\n\n---\n\n### 4. Config Snippet (Top 3 Priority Corrections)\n\n```json\n[\n  {\n    \"model\": \"claude-opus-4\",\n    \"maxTokens\": 4096,\n    \"reason\": \"Changed from 16384: Current setting exceeds Anthropic's hard limit of 4096 and causes 400 errors.\"\n  },\n  {\n    \"model\": \"phi-3-mini-128k\",\n    \"maxTokens\": 4096,\n    \"reason\": \"Changed from 16384: Despite the 128k context window, output is limited to 4096 on most providers.\"\n  },\n  {\n    \"model\": \"o3-mini\",\n    \"maxTokens\": 64000,\n    \"reason\": \"Changed from 16384: Actual limit is 100k; 16k is too low for reasoning-heavy tasks.\"\n  }\n]\n```",
+  "metrics": {
+    "input_tokens": 728,
+    "output_tokens": 1088,
+    "ttft_ms": 1620.8,
+    "total_latency_ms": 7638.8,
+    "tokens_per_sec": 180.8,
+    "cost_usd": 0.000762,
+    "code_pass_rate": null
+  },
+  "category": "analysis",
+  "difficulty": "easy",
+  "family": "google"
+}

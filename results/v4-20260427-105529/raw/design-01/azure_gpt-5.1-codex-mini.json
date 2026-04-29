@@ -1,0 +1,9 @@
+{
+  "task_id": "design-01",
+  "model_id": "azure/gpt-5.1-codex-mini",
+  "status": "error",
+  "error": "Failed to get vault secret",
+  "metrics": {
+    "error": "Failed to get vault secret"
+  }
+}

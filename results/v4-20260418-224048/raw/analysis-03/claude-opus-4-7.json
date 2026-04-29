@@ -1,0 +1,19 @@
+{
+  "task_id": "analysis-03",
+  "model_id": "claude-opus-4-7",
+  "status": "ok",
+  "response_text": "# Model Token Limit Review\n\n## 1. Research & Correction Table\n\n| Model ID | Actual Max Output Tokens | Current Setting | Recommended Setting | Action Needed |\n|----------|--------------------------|-----------------|---------------------|---------------|\n| gpt-4o | 16,384 | 16,384 | 16,384 | OK |\n| gpt-4o-mini | 16,384 | 16,384 | 16,384 | OK |\n| o3-mini | 100,000 | 16,384 | 65,536 | **Increase** |\n| claude-opus-4 | 32,000 | 16,384 | 32,000 | **Increase** |\n| claude-sonnet-4 | 64,000 | 16,384 | 64,000 | **Increase** |\n| claude-haiku-3-5 | 8,192 | 16,384 | 8,192 | **Decrease (Critical)** |\n| gemini-2.0-flash | 8,192 | 16,384 | 8,192 | **Decrease (Critical)** |\n| mistral-large | 128,000 (context); ~32K practical output | 16,384 | 32,000 | Increase |\n| llama-3.3-70b | 32,768 (Groq) | 16,384 | 32,768 | Increase |\n| phi-3-mini-128k | 4,096 output | 16,384 | 4,096 | **Decrease (Critical)** |\n\n---\n\n## 2. Dangerous Misconfigurations \ud83d\udea8\n\nThree models are configured **above their actual API output limit**:\n\n- **claude-haiku-3-5** (max 8,192)\n- **gemini-2.0-flash** (max 8,192)\n- **phi-3-mini-128k** (max 4,096 output)\n\n**What happens:** When a request tries to use the full 16,384 tokens, the API will reject it with a **400 Bad Request** error (e.g., `max_tokens: 16384 > 8192`). Worse, this only fails when a user actually requests a large completion \u2014 meaning it's a **latent bug** that won't surface in normal small requests but will break long-form generation, summarization, or code-output workflows.\n\n---\n\n## 3. Priority Order\n\n### \ud83d\udd34 Critical (will cause API errors)\n1. **phi-3-mini-128k** \u2014 set 16,384 \u2192 4,096 (4\u00d7 over limit)\n2. **claude-haiku-3-5** \u2014 set 16,384 \u2192 8,192 (2\u00d7 over limit)\n3. **gemini-2.0-flash** \u2014 set 16,384 \u2192 8,192 (2\u00d7 over limit)\n\n### \ud83d\udfe1 Important (capability significantly limited)\n4. **claude-sonnet-4** \u2014 capped at 25% of capacity (16K of 64K)\n5. **o3-mini** \u2014 reasoning model, output severely truncated\n6. **claude-opus-4** \u2014 capped at 50% of capacity\n7. **llama-3.3-70b** \u2014 capped at 50% of capacity\n8. **mistral-large** \u2014 capped well below typical use\n\n### \ud83d\udfe2 Low priority (already correct)\n9. **gpt-4o** \u2014 already at API max\n10. **gpt-4o-mini** \u2014 already at API max\n\n---\n\n## 4. Corrected Config Snippets (Top 3 Critical)\n\n```json\n[\n  {\n    \"model\": \"phi-3-mini-128k\",\n    \"maxTokens\": 4096,\n    \"reason\": \"Changed from 16384: actual API output limit is 4096. Previous value would cause 400 errors on long completions.\"\n  },\n  {\n    \"model\": \"claude-haiku-3-5\",\n    \"maxTokens\": 8192,\n    \"reason\": \"Changed from 16384: actual API output limit is 8192. Previous value exceeded Anthropic's max_tokens cap for Haiku 3.5.\"\n  },\n  {\n    \"model\": \"gemini-2.0-flash\",\n    \"maxTokens\": 8192,\n    \"reason\": \"Changed from 16384: actual API output limit is 8192. Previous value would be rejected by the Gemini API.\"\n  }\n]\n```\n\n---\n\n### Recommendation\nAdd a **CI check** that pulls each provider's published max-output-token spec and validates `maxTokens` against it on every config change. The root cause here isn't the wrong number \u2014 it's that one default was applied uniformly across heterogeneous providers.",
+  "metrics": {
+    "input_tokens": 587,
+    "output_tokens": 783,
+    "ttft_ms": 1163.6,
+    "total_latency_ms": 15796.8,
+    "tokens_per_sec": 53.5,
+    "thinking_skipped": false,
+    "cost_usd": 0.02251,
+    "code_pass_rate": null
+  },
+  "category": "analysis",
+  "difficulty": "easy",
+  "family": "claude"
+}

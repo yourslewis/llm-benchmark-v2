@@ -1,0 +1,18 @@
+{
+  "task_id": "code-05",
+  "model_id": "gpt-5.2",
+  "status": "ok",
+  "response_text": "```python\nfrom __future__ import annotations\n\nfrom typing import List\nimport heapq\n\n\ndef findMedianSortedArrays(nums1: List[int], nums2: List[int]) -> float:\n    \"\"\"\n    O(log(min(m, n))) median of two sorted arrays via binary-search partitioning.\n    \"\"\"\n    # Ensure nums1 is the smaller array to keep the search space minimal\n    if len(nums1) > len(nums2):\n        nums1, nums2 = nums2, nums1\n\n    m, n = len(nums1), len(nums2)\n    if n == 0:\n        raise ValueError(\"At least one array must be non-empty.\")\n\n    total = m + n\n    half = (total + 1) // 2  # size of left partition (works for odd/even)\n\n    lo, hi = 0, m\n    while lo <= hi:\n        i = (lo + hi) // 2      # cut in nums1\n        j = half - i            # cut in nums2\n\n        left1 = nums1[i - 1] if i > 0 else float(\"-inf\")\n        right1 = nums1[i] if i < m else float(\"inf\")\n        left2 = nums2[j - 1] if j > 0 else float(\"-inf\")\n        right2 = nums2[j] if j < n else float(\"inf\")\n\n        # Found correct partition\n        if left1 <= right2 and left2 <= right1:\n            if total % 2 == 1:\n                return float(max(left1, left2))\n            return (max(left1, left2) + min(right1, right2)) / 2.0\n\n        # Move partition in nums1\n        if left1 > right2:\n            hi = i - 1\n        else:\n            lo = i + 1\n\n    # Should never happen if inputs are sorted and constraints hold\n    raise RuntimeError(\"Failed to find median partition.\")\n\n\nclass StreamingMedian:\n    \"\"\"\n    Maintain running median using two heaps:\n      - lower: max-heap simulated by storing negatives\n      - upper: min-heap\n    Invariants:\n      - len(lower) == len(upper) or len(lower) == len(upper) + 1\n      - all(lower) <= all(upper)\n    \"\"\"\n\n    def __init__(self) -> None:\n        self._lower: List[int] = []  # max-heap via negatives\n        self._upper: List[int] = []  # min-heap\n\n    def add(self, num: int) -> None:\n        # Step 1: push into lower (as negative) then move max of lower to upper\n        heapq.heappush(self._lower, -num)\n        heapq.heappush(self._upper, -heapq.heappop(self._lower))\n\n        # Step 2: rebalance so lower has the extra element when odd count\n        if len(self._upper) > len(self._lower):\n            heapq.heappush(self._lower, -heapq.heappop(self._upper))\n\n    def median(self) -> float:\n        if not self._lower and not self._upper:\n            raise ValueError(\"No numbers in stream.\")\n        if len(self._lower) > len(self._upper):\n            return float(-self._lower[0])\n        return (-self._lower[0] + self._upper[0]) / 2.0\n```",
+  "metrics": {
+    "input_tokens": 466,
+    "output_tokens": 781,
+    "ttft_ms": null,
+    "total_latency_ms": 7636.0,
+    "tokens_per_sec": 102.3,
+    "cost_usd": 0.008975,
+    "code_pass_rate": 100
+  },
+  "category": "code",
+  "difficulty": "hard",
+  "family": "openai"
+}

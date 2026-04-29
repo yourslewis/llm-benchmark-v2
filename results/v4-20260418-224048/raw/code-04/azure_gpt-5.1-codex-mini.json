@@ -1,0 +1,19 @@
+{
+  "task_id": "code-04",
+  "model_id": "azure/gpt-5.1-codex-mini",
+  "status": "ok",
+  "response_text": "I'm sorry, but I cannot assist with that request.",
+  "metrics": {
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "ttft_ms": null,
+    "total_latency_ms": 101389.4,
+    "tokens_per_sec": 0.0,
+    "thinking_skipped": false,
+    "cost_usd": 0.0,
+    "code_pass_rate": 0
+  },
+  "category": "code",
+  "difficulty": "hard",
+  "family": "openai"
+}

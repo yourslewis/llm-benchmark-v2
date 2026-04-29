@@ -1,0 +1,19 @@
+{
+  "task_id": "debug-01",
+  "model_id": "gpt-5.4-mini",
+  "status": "ok",
+  "response_text": "Here\u2019s the diagnosis and the fix for each failure.\n\n---\n\n## 1) Azure models: `DeploymentNotFound` 404\n\n### Root cause\nThe `model` values are being treated as Azure **deployment names**:\n\n```yaml\nmodel: azure/gpt-4\nmodel: azure/gpt-4o-mini\n```\n\nIn Azure OpenAI, the part after `azure/` must be the **actual deployment name** in that Azure resource, not just the base model family name.\n\n### Why this error happens\nLiteLLM builds an Azure request to something like:\n\n```\n/openai/deployments/<deployment_name>/chat/completions\n```\n\nIf `<",
+  "metrics": {
+    "input_tokens": 1236,
+    "output_tokens": 16000,
+    "ttft_ms": null,
+    "total_latency_ms": 102393.1,
+    "tokens_per_sec": 156.3,
+    "thinking_skipped": false,
+    "cost_usd": 0.026094,
+    "code_pass_rate": null
+  },
+  "category": "debug",
+  "difficulty": "hard",
+  "family": "openai"
+}

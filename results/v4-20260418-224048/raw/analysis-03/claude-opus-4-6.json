@@ -1,0 +1,19 @@
+{
+  "task_id": "analysis-03",
+  "model_id": "claude-opus-4-6",
+  "status": "ok",
+  "response_text": "## 1. Corrected Token Limits Table\n\n| Model ID | Actual Max Output Tokens | Current Setting | Recommended Setting | Action Needed |\n|----------|--------------------------|-----------------|---------------------|---------------|\n| gpt-4o | 16,384 | 16,384 | 16,384 | \u2705 OK |\n| gpt-4o-mini | 16,384 | 16,384 | 16,384 | \u2705 OK |\n| o3-mini | 100,000 | 16,384 | 65,536 | \u2b06 Increase |\n| claude-opus-4 | 32,000 | 16,384 | 32,000 | \u2b06 Increase |\n| claude-sonnet-4 | 16,000 | 16,384 | 16,000 | \u2b07 Decrease |\n| claude-haiku-3-5 | 8,192 | 16,384 | 8,192 | \ud83d\udd34 Decrease |\n| gemini-2.0-flash | 8,192 | 16,384 | 8,192 | \ud83d\udd34 Decrease |\n| mistral-large | 8,192 | 16,384 | 8,192 | \ud83d\udd34 Decrease |\n| llama-3.3-70b | 8,192 | 16,384 | 8,192 | \ud83d\udd34 Decrease |\n| phi-3-mini-128k | 4,096 | 16,384 | 4,096 | \ud83d\udd34 Decrease |\n\n## 2. Dangerous Misconfigurations\n\n**Five models** are set above their actual limit: `claude-haiku-3-5`, `gemini-2.0-flash`, `mistral-large`, `llama-3.3-70b`, and `phi-3-mini-128k`. Additionally, `claude-sonnet-4` is over by 384 tokens.\n\nWhat happens: The API will either **reject the request** with a validation error, **silently clamp** to the actual max, or return an error only when output actually reaches the limit \u2014 behavior varies by provider. Either way, this is a bug waiting to surface.\n\n## 3. Priority Ranking\n\n### \ud83d\udd34 Critical (will cause API errors)\n1. **phi-3-mini-128k** \u2014 set 4\u00d7 above actual limit (16,384 vs 4,096)\n2. **llama-3.3-70b** \u2014 set 2\u00d7 above actual limit\n3. **gemini-2.0-flash** \u2014 set 2\u00d7 above actual limit\n4. **mistral-large** \u2014 set 2\u00d7 above actual limit\n5. **claude-haiku-3-5** \u2014 set 2\u00d7 above actual limit\n\n### \u26a0\ufe0f Important (limiting capability)\n6. **claude-opus-4** \u2014 missing out on 2\u00d7 output capacity\n7. **o3-mini** \u2014 missing out on ~6\u00d7 output capacity\n\n### \u2705 Low Priority\n8. **claude-sonnet-4** \u2014 over by 384 tokens (minor)\n9. **gpt-4o** / **gpt-4o-mini** \u2014 correctly configured\n\n## 4. Config Snippets (Top 3 Priority)\n\n```json\n{\n  \"model\": \"phi-3-mini-128k\",\n  \"maxTokens\": 4096,\n  \"reason\": \"Changed from 16384: actual API limit is 4096. Was set 4x too high \u2014 will cause errors.\"\n}\n```\n\n```json\n{\n  \"model\": \"llama-3.3-70b\",\n  \"maxTokens\": 8192,\n  \"reason\": \"Changed from 16384: Groq API limit is 8192. Was set 2x too high \u2014 will cause errors.\"\n}\n```\n\n```json\n{\n  \"model\": \"gemini-2.0-flash\",\n  \"maxTokens\": 8192,\n  \"reason\": \"Changed from 16384: actual API limit is 8192. Was set 2x too high \u2014 will cause errors.\"\n}\n```",
+  "metrics": {
+    "input_tokens": 587,
+    "output_tokens": 608,
+    "ttft_ms": 11828.4,
+    "total_latency_ms": 23788.1,
+    "tokens_per_sec": 50.8,
+    "thinking_skipped": false,
+    "cost_usd": 0.018135,
+    "code_pass_rate": null
+  },
+  "category": "analysis",
+  "difficulty": "easy",
+  "family": "claude"
+}

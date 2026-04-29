@@ -1,0 +1,19 @@
+{
+  "task_id": "analysis-03",
+  "model_id": "gemini-3.1-pro-preview",
+  "status": "ok",
+  "response_text": "Here is the review of your AI gateway configuration, including the research on actual model output limits, misconfigurations, and recommended fixes.\n\n*Note: For the Anthropic models, I am assuming `claude-opus-4` and `claude-sonnet-4` refer to the current generation models (Claude 3 Opus and Claude 3.5 Sonnet/Haiku), as generation 4 does not exist yet. Their standard output limits apply.*\n\n### 1. Research & Correct\n\n| Model ID | Actual Max Output Tokens | Current Setting | Recommended Setting | Action Needed |\n|----------|--------------------------|-----------------|---------------------|---------------|\n| gpt-4o | 16,384 | 16,384 | 16,384 | OK |\n| gpt-4o-mini | 16,384 | 16,384 | 16,384 | OK |\n| o3-mini | 100,000 | 16,384 | 64,000 (Practical Cap) | Increase |\n| claude-opus-4 | 4,096 | 16,384 | 4,096 | **Decrease** |\n| claude-sonnet-4 | 8,192 | 16,384 | 8,192 | **Decrease** |\n| claude-haiku-3-5 | 8,192 | 16,384 | 8,192 | **Decrease** |\n| gemini-2.0-flash | 8,192 | 16,384 | 8,192 | **Decrease** |\n| mistral-large | 32,768 (varies) | 16,384 | 32,768 | Increase |\n| llama-3.3-70b (groq) | 8,192 | 16,384 | 8,192 | **Decrease** |\n| phi-3-mini-128k | 4,096 (Azure default) | 16,384 | 4,096 | **Decrease** |\n\n*(Note: Groq and Azure often enforce strict output limits per request to manage inference speeds; 8,192 and 4,096 respectively are the standard maximum output constraints).*\n\n### 2. Flag Dangerous Misconfiguration\n\n**Yes, several models are dangerously misconfigured.** \nModels like `claude-opus-4` (4k limit), `claude-sonnet-4`, `claude-haiku-3-5`, `gemini-2.0-flash`, and `llama-3.3-70b` (8k limit) are set higher than their actual API limits. \n\n**What happens:** If your gateway passes `max_tokens=16384` in the payload to providers like Anthropic or Google, the API will not simply truncate the output. It will instantly reject the request with a **400 Bad Request / Validation Error**, completely breaking the application for that request. \n\n### 3. Priority Order\n\n1. **Critical (Fix Immediately):** \n   - `claude-opus-4` (4k max)\n   - `claude-sonnet-4` (8k max)\n   - `claude-haiku-3-5` (8k max)\n   - `gemini-2.0-flash` (8k max)\n   - `llama-3.3-70b` (Groq enforces strict limits; passing >8k causes errors)\n   *Reason:* Current settings will cause hard API failures anytime a client requests the maximum configured tokens.\n2. **Important:**\n   - `o3-mini` (100k max)\n   - `mistral-large` (32k+ max)\n   *Reason:* The current 16k setting artificially bottlenecks these models, preventing users from utilizing their extensive long-form generation capabilities.\n3. **Low Priority:**\n   - `gpt-4o` and `gpt-4o-mini`\n   *Reason:* They are correctly aligned with the API defaults (16,384). No action needed.\n\n### 4. Config Snippet\n\nHere is the corrected configuration block for the 3 highest-priority models that are currently failing due to high limits:\n\n```json\n[\n  {\n    \"model\": \"claude-opus-4\",\n    \"maxTokens\": 4096,\n    \"reason\": \"Changed from 16384: actual Anthropic API limit is 4096\"\n  },\n  {\n    \"model\": \"claude-sonnet-4\",\n    \"maxTokens\": 8192,\n    \"reason\": \"Changed from 16384: actual Anthropic API limit is 8192\"\n  },\n  {\n    \"model\": \"gemini-2.0-flash\",\n    \"maxTokens\": 8192,\n    \"reason\": \"Changed from 16384: actual Google API limit is 8192\"\n  }\n]\n```",
+  "metrics": {
+    "input_tokens": 587,
+    "output_tokens": 821,
+    "ttft_ms": 11675.7,
+    "total_latency_ms": 19461.3,
+    "tokens_per_sec": 105.5,
+    "thinking_skipped": false,
+    "cost_usd": 0.011026,
+    "code_pass_rate": null
+  },
+  "category": "analysis",
+  "difficulty": "easy",
+  "family": "google"
+}

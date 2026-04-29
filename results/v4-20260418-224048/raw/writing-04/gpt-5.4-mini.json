@@ -1,0 +1,19 @@
+{
+  "task_id": "writing-04",
+  "model_id": "gpt-5.4-mini",
+  "status": "ok",
+  "response_text": "**Subject:** 1:1 to discuss recent performance and communication concerns\n\nHi Alex,\n\nI\u2019d like to set aside 45 minutes this week to talk about some recent concerns in your work and to understand what might be getting in the way. You\u2019ve had a strong track record here \u2014 leading the Persona V2 launch, mentoring two junior engineers, and earning an \u201cExceeds\u201d rating last year \u2014 so the recent quarter has stood out, and I want to address it directly.\n\nA few specific examples:\n- **Delivery:** Persona V3 integration was due March 15 and shipped March 28. The evaluation pipeline was due April 1 and is still not complete.\n- **Code reviews:** I\u2019ve heard feedback from the team that some of your reviews have been too light for complex PRs, including one-line \u201cLGTM\u201d comments where more detailed feedback was needed.\n- **Communication:** You missed two team standups without notice, and there have been multiple occasions where you were unresponsive on Teams for 3+ hours.\n\nI\u2019d like this to be a candid conversation about what\u2019s changed, what\u2019s affecting your bandwidth or focus, and what support you may need. I also want to be clear about what I need to see going forward around delivery, review quality, and day-to-day communication.\n\nThis is not a punishment conversation. My goal is to understand the situation and help you course-correct before these issues grow.\n\nPlease send me a few times that work for you this week.\n\nThanks,  \n[Your Name]",
+  "metrics": {
+    "input_tokens": 376,
+    "output_tokens": 830,
+    "ttft_ms": null,
+    "total_latency_ms": 7422.6,
+    "tokens_per_sec": 111.8,
+    "thinking_skipped": false,
+    "cost_usd": 0.001478,
+    "code_pass_rate": null
+  },
+  "category": "writing",
+  "difficulty": "hard",
+  "family": "openai"
+}

@@ -1,0 +1,15 @@
+{
+  "category": "writing",
+  "difficulty": "hard",
+  "grading": "llm_judge",
+  "criteria": [
+    {"name": "no_blindside", "weight": 15, "description": "Email clearly signals this is about performance concerns, Alex won't be surprised"},
+    {"name": "specific_examples", "weight": 20, "description": "References concrete missed deadlines, review quality, communication gaps"},
+    {"name": "empathy", "weight": 20, "description": "Acknowledges Alex's track record, doesn't assume worst intent, opens door for context"},
+    {"name": "actionable", "weight": 15, "description": "Clear about what the meeting will cover, what Alex should prepare or think about"},
+    {"name": "trust_maintaining", "weight": 10, "description": "Reads as supportive, not punitive. Would survive being forwarded."},
+    {"name": "tone", "weight": 10, "description": "Professional, direct, no jargon, no passive-aggression"},
+    {"name": "length", "weight": 5, "description": "200-350 words as requested"},
+    {"name": "format", "weight": 5, "description": "Has subject line, proper email structure"}
+  ]
+}

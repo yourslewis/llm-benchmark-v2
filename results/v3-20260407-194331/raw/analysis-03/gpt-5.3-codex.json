@@ -1,0 +1,18 @@
+{
+  "task_id": "analysis-03",
+  "model_id": "gpt-5.3-codex",
+  "status": "ok",
+  "response_text": "Great catch \u2014 a flat `16384` is risky across mixed providers.\n\n> **Assumption:** values below are based on commonly documented API limits (through recent public specs). Some providers change limits by endpoint/version, so do a quick docs check before deploy.\n\n### 1) Corrected Table\n\n| Model ID | Actual Max Output Tokens | Current Setting | Recommended Setting | Action Needed |\n|---|---:|---:|---:|---|\n| gpt-4o | 16,384 | 16,384 | 16,384 | OK |\n| gpt-4o-mini | 16,384 | 16,384 | 16,384 | OK |\n| o3-mini | 100,000 | 16,384 | 32,768 (practical cap) | Increase |\n| claude-opus-4 | 64,000 | 16,384 | 64,000 | Increase |\n| claude-sonnet-4 | 64,000 | 16,384 | 64,000 | Increase |\n| claude-haiku-3-5 | 8,192 | 16,384 | 8,192 | **Decrease** |\n| gemini-2.0-flash | 8,192 | 16,384 | 8,192 | **Decrease** |\n| mistral-large | 8,192 | 16,384 | 8,192 | **Decrease** |\n| llama-3.3-70b (Groq) | 32,768 | 16,384 | 32,768 | Increase |\n| phi-3-mini-128k (Azure) | 4,096 | 16,384 | 4,096 | **Decrease** |\n\n---\n\n### 2) Dangerous misconfigurations (current > actual)\n\nYes \u2014 these are currently unsafe:\n\n- `phi-3-mini-128k` (16384 > 4096)\n- `claude-haiku-3-5` (16384 > 8192)\n- `gemini-2.0-flash` (16384 > 8192)\n- `mistral-large` (16384 > 8192)\n\n**What happens if 16384 is requested?**\n- Usually API returns a **400/validation error** (`max_tokens` too large).\n- Some SDKs/providers may clamp silently, but you should not rely on that.\n\n---\n\n### 3) Priority order\n\n#### **Critical** (can cause request failures)\n1. `phi-3-mini-128k` \u2192 set to 4096  \n2. `claude-haiku-3-5` \u2192 set to 8192  \n3. `gemini-2.0-flash` \u2192 set to 8192  \n4. `mistral-large` \u2192 set to 8192  \n\n#### **Important** (artificially limiting capability)\n5. `claude-opus-4` \u2192 increase to 64000  \n6. `claude-sonnet-4` \u2192 increase to 64000  \n7. `llama-3.3-70b` \u2192 increase to 32768  \n8. `o3-mini` \u2192 increase to practical 32768 (or 100000 if you truly want max)\n\n#### **Low priority**\n9. `gpt-4o` (already correct)  \n10. `gpt-4o-mini` (already correct)\n\n---\n\n### 4) Config snippet (top 3 highest priority)\n\n```json\n{\n  \"model\": \"phi-3-mini-128k\",\n  \"maxTokens\": 4096,\n  \"reason\": \"Changed from 16384: actual API limit is 4096\"\n}\n```\n\n```json\n{\n  \"model\": \"claude-haiku-3-5\",\n  \"maxTokens\": 8192,\n  \"reason\": \"Changed from 16384: actual API limit is 8192\"\n}\n```\n\n```json\n{\n  \"model\": \"gemini-2.0-flash\",\n  \"maxTokens\": 8192,\n  \"reason\": \"Changed from 16384: actual API limit is 8192\"\n}\n```\n\nIf you want, I can also generate a full corrected JSON array for all 10 models in one paste-ready block.",
+  "metrics": {
+    "input_tokens": 648,
+    "output_tokens": 2294,
+    "ttft_ms": null,
+    "total_latency_ms": 34965.9,
+    "tokens_per_sec": 65.6,
+    "cost_usd": 0.02456,
+    "code_pass_rate": null
+  },
+  "category": "analysis",
+  "difficulty": "easy",
+  "family": "openai"
+}

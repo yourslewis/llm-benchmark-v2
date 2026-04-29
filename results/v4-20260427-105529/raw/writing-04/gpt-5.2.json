@@ -1,0 +1,19 @@
+{
+  "task_id": "writing-04",
+  "model_id": "gpt-5.2",
+  "status": "ok",
+  "response_text": "**Subject:** 1:1 this week \u2014 project delivery, reviews, and communication\n\nHi Alex,  \n\nI\u2019d like to schedule a 1:1 this week to talk directly about some performance concerns from the past quarter. I don\u2019t want this to be a surprise topic in the meeting, and I also want to make sure we have enough time to discuss what\u2019s going on and how I can support you.\n\nThere are three areas I want to cover, with specific examples:\n\n1) **Project delivery:** Persona V3 integration was due **March 15** and shipped **March 28**. The evaluation pipeline was due **April 1** and is **still not complete**.  \n2) **Code review quality:** I\u2019ve gotten feedback that some of your recent reviews on complex PRs have been very light (e.g., one-line \u201cLGTM\u201d where deeper review was needed).  \n3) **Communication/availability:** You missed **two standups** without notice, and there have been multiple occasions where you were unresponsive on Teams for **3+ hours** during core working time.\n\nI want to be clear: this is coming from a place of respect for your track record. Last year you led the Persona V2 launch, mentored two junior engineers, and earned an \u201cExceeds\u201d rating. This recent pattern feels out of character, and it makes me think something may have changed\u2014workload, clarity, health, or something else.\n\nIn the 1:1, I\u2019d like to (a) understand your perspective, (b) identify what\u2019s getting in the way, and (c) agree on concrete next steps for delivery commitments, review standards, and communication expectations for the next few weeks.\n\nCan you take a look at my calendar and pick a 30\u201345 minute slot on **Wednesday or Thursday**?\n\nThanks,  \n[Your Name]",
+  "metrics": {
+    "input_tokens": 376,
+    "output_tokens": 386,
+    "ttft_ms": null,
+    "total_latency_ms": 6614.0,
+    "tokens_per_sec": 58.4,
+    "thinking_skipped": false,
+    "cost_usd": 0.0048,
+    "code_pass_rate": null
+  },
+  "category": "writing",
+  "difficulty": "hard",
+  "family": "openai"
+}

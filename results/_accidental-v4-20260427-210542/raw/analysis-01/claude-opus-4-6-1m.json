@@ -1,0 +1,19 @@
+{
+  "task_id": "analysis-01",
+  "model_id": "claude-opus-4-6-1m",
+  "status": "ok",
+  "response_text": "\n\n## 1. Root Cause Analysis\n\n**gpt-4o is experiencing sustained latency issues** (likely an OpenAI degradation). Every gpt-4o call times out at almost exactly the 5000ms threshold, suggesting the model is responding but slowly \u2014 just beyond the gateway's timeout. The consistency (~5070-5160ms) points to a hard timeout cut rather than total unavailability.\n\nSession `j1k2l3` reveals a critical config flaw: `o3-mini` fails over to `gpt-4o`, which is the very model that's degraded \u2014 causing a double timeout and total request failure.\n\n## 2. Pattern Summary\n\n| Metric | Value |\n|--------|-------|\n| Total timeout events | 6 |\n| Primary model causing most timeouts | gpt-4o (5 of 6) |\n| % of sessions where failover succeeded | 60% (3 of 5) |\n| Sessions where all fallbacks exhausted | 1 (j1k2l3) |\n| Typical elapsed time at timeout | ~5100ms |\n\n## 3. Configuration Fix\n\n```yaml\ngateway:\n  timeout_ms: 8000  # Increase to accommodate transient slowness\n  models:\n    - id: gpt-4o\n      provider: openai\n      fallback: claude-sonnet-4\n    - id: o3-mini\n      provider: openai\n      fallback: claude-sonnet-4  # Don't fail over to another degraded OpenAI model\n    - id: claude-sonnet-4\n      provider: anthropic\n      fallback: gemini-2.0-flash  # Add a terminal fallback\n```\n\n**Key changes:**\n- **o3-mini \u2192 claude-sonnet-4**: Failover should cross provider boundaries to avoid correlated failures.\n- **claude-sonnet-4 gets a fallback**: Adds depth to the fallback chain.\n- **Increased timeout**: 5s is tight for large model calls; 8s reduces false-positive timeouts while still bounding latency.\n\n## 4. Monitoring Recommendation\n\n```yaml\nalert:\n  name: model_timeout_rate_high\n  metric: count(embedded_run_failover{reason=\"timeout\"}) grouped by model\n  threshold: \">= 3\"\n  window: 5m\n  action: >\n    Page on-call; auto-disable the affected model as primary\n    and route directly to cross-provider fallback until manually re-enabled.\n```\n\nThis catches exactly today's pattern \u2014 repeated timeouts on a single model in a short window \u2014 before it cascades to user-facing failures.",
+  "metrics": {
+    "input_tokens": 1012,
+    "output_tokens": 519,
+    "ttft_ms": 4193.9,
+    "total_latency_ms": 17105.4,
+    "tokens_per_sec": 40.2,
+    "thinking_skipped": false,
+    "cost_usd": 0.018035,
+    "code_pass_rate": null
+  },
+  "category": "analysis",
+  "difficulty": "hard",
+  "family": "claude"
+}

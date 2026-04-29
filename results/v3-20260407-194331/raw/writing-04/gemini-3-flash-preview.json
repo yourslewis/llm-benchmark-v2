@@ -1,0 +1,18 @@
+{
+  "task_id": "writing-04",
+  "model_id": "gemini-3-flash-preview",
+  "status": "ok",
+  "response_text": "Subject: Discussion: Recent performance trends and project status\n\nHi Alex,\n\nI\u2019m reaching out to schedule a dedicated 1:1 this Thursday at 2:00 PM to discuss your performance over the past quarter. \n\nI want to be transparent so you aren\u2019t blindsided: I\u2019ve noticed a shift in your recent output that doesn't align with the high standard you set last year. Specifically, I\u2019d like to walk through these three areas:\n\n*   **Project Timelines:** The Persona V3 integration shipped 13 days late, and the evaluation pipeline is currently past its April 1 deadline. I want to understand what the current blockers are.\n*   **Code Reviews:** Several team members have noted that your feedback has become less substantive recently, often consisting of single-line approvals on complex PRs.\n*   **Communication:** There have been a few instances of missed standups without notice and extended periods of unresponsiveness during core hours.\n\nAlex, you were a top performer last year\u2014your leadership on Persona V2 and your mentorship of our juniors were invaluable to the team. Because I know what you\u2019re capable of, I\u2019m concerned that these recent trends suggest something has changed. \n\nMy goal for this meeting is to understand if there are external factors or burnout impacting your work, and to determine how I can better support you. I value your contributions and want to work together to get you back to the level where you were operating previously.\n\nPlease let me know if that time works, or suggest an alternative that afternoon.\n\nBest,\n\n[Your Name]\nEngineering Manager",
+  "metrics": {
+    "input_tokens": 419,
+    "output_tokens": 336,
+    "ttft_ms": 1295.5,
+    "total_latency_ms": 3229.2,
+    "tokens_per_sec": 173.8,
+    "cost_usd": 0.000264,
+    "code_pass_rate": null
+  },
+  "category": "writing",
+  "difficulty": "hard",
+  "family": "google"
+}

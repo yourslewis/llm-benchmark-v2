@@ -1,0 +1,19 @@
+{
+  "task_id": "code-01",
+  "model_id": "claude-opus-4-6-1m",
+  "status": "ok",
+  "response_text": "\n\n```python\n#!/usr/bin/env python3\n\nimport json\nimport sys\nimport time\nimport urllib.request\nimport urllib.error\n\ndef test_model(model_name, skip_temperature=False):\n    url = \"http://127.0.0.1:4000/v1/chat/completions\"\n    payload = {\n        \"model\": model_name,\n        \"messages\": [{\"role\": \"user\", \"content\": \"Reply with exactly one word: OK\"}],\n        \"max_tokens\": 20,\n    }\n    if not skip_temperature:\n        payload[\"temperature\"] = 0.7\n\n    data = json.dumps(payload).encode()\n    req = urllib.request.Request(url, data=data, headers={\"Content-Type\": \"application/json\"})\n\n    start = time.time()\n    try:\n        with urllib.request.urlopen(req, timeout=30) as resp:\n            result = json.loads(resp.read())\n        latency = time.time() - start\n        text = result[\"choices\"][0][\"message\"][\"content\"].strip()\n        return True, latency, text\n    except urllib.error.HTTPError as e:\n        body = e.read().decode(errors=\"replace\")\n        latency = time.time() - start\n        # Retry without temperature if it seems unsupported\n        if not skip_temperature and \"temperature\" in body.lower():\n            return test_model(model_name, skip_temperature=True)\n        return False, latency, body[:50]\n    except Exception as e:\n        latency = time.time() - start\n        return False, latency, str(e)[:50]\n\ndef main():\n    if len(sys.argv) < 2:\n        print(\"Usage: python solution.py <config.json>\")\n        sys.exit(1)\n\n    with open(sys.argv[1]) as f:\n        models = json.load(f)\n\n    if isinstance(models, dict):\n        models = models.get(\"models\", models.get(\"model_list\", list(models.values())[0]))\n\n    results = []\n    for model in models:\n        name = model if isinstance(model, str) else model.get(\"model_name\", model.get(\"model\", str(model)))\n        ok, lat, text = test_model(name)\n        results.append((name, ok, lat, text[:50]))\n\n    # Print table\n    w = max(len(r[0]) for r in results) if results else 5\n    w = max(w, 5)\n    print(f\"{'Model':<{w}}  {'Status':<6}  {'Latency':>8}  Response\")\n    print(f\"{'-'*w}  {'-'*6}  {'-'*8}  {'-'*50}\")\n    for name, ok, lat, text in results:\n        status = \"\u2705\" if ok else \"\u274c\"\n        print(f\"{name:<{w}}  {status:<6}  {lat:>7.2f}s  {text}\")\n\n    working = sum(1 for _, ok, _, _ in results if ok)\n    failed = len(results) - working\n    print(f\"\\nTotal: {len(results)} models | \u2705 {working} working | \u274c {failed} failed\")\n\nif __name__ == \"__main__\":\n    main()\n```",
+  "metrics": {
+    "input_tokens": 206,
+    "output_tokens": 614,
+    "ttft_ms": 1351.8,
+    "total_latency_ms": 16420.4,
+    "tokens_per_sec": 40.7,
+    "thinking_skipped": false,
+    "cost_usd": 0.01638,
+    "code_pass_rate": 100
+  },
+  "category": "code",
+  "difficulty": "easy",
+  "family": "claude"
+}

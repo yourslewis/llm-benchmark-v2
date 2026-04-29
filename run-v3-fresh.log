@@ -1,0 +1,361 @@
+Loaded 19 tasks, 22 models
+Total runs: 418
+[1/418] analysis-01 × claude-opus-4-6-1m... ✅ 47 tok/s | TTFT 1261ms | 54253ms
+[2/418] analysis-01 × claude-opus-4-6... ✅ 46 tok/s | TTFT 3931ms | 62539ms
+[3/418] analysis-01 × claude-sonnet-4-6... ✅ 51 tok/s | TTFT 1961ms | 53862ms
+[4/418] analysis-01 × claude-haiku-4-5... ✅ 111 tok/s | TTFT 1249ms | 15545ms
+[5/418] analysis-01 × claude-opus-4-5... ✅ 58 tok/s | TTFT 2598ms | 36719ms
+[6/418] analysis-01 × claude-sonnet-4-5... ✅ 53 tok/s | TTFT 2917ms | 31095ms
+[7/418] analysis-01 × claude-sonnet-4... ✅ 54 tok/s | TTFT 1376ms | 30802ms
+[8/418] analysis-01 × gpt-5.4... ✅ 82 tok/s | TTFT 506ms | 28197ms
+[9/418] analysis-01 × gpt-5.4-mini... ❌ {"error":{"message":"Copilot API error (400): model \"gpt-5.4-mini\" is not acce
+[10/418] analysis-01 × gpt-5.3-codex... ✅ 62 tok/s | no TTFT | 22769ms
+[11/418] analysis-01 × gpt-5.2... ✅ 93 tok/s | TTFT 534ms | 22693ms
+[12/418] analysis-01 × gpt-5.2-codex... ✅ 116 tok/s | no TTFT | 11753ms
+[13/418] analysis-01 × gpt-5.1... ✅ 120 tok/s | TTFT 549ms | 19266ms
+[14/418] analysis-01 × gpt-5-mini... ✅ 511 tok/s | TTFT 23233ms | 34250ms
+[15/418] analysis-01 × gpt-4.1... ✅ 46 tok/s | TTFT 2152ms | 36008ms
+[16/418] analysis-01 × gpt-4o... ✅ 100 tok/s | TTFT 888ms | 10087ms
+[17/418] analysis-01 × goldeneye... Loaded 19 tasks, 22 models
+Total runs: 418
+Resuming from /Users/yourslewis/.openclaw/workspace-chloe/benchmark/results/v3-20260407-194331
+[17/418] analysis-01 × goldeneye... ✅ 55 tok/s | no TTFT | 201744ms
+[18/418] analysis-01 × gemini-2.5-pro... ✅ 119 tok/s | TTFT 7284ms | 16752ms
+[19/418] analysis-01 × gemini-3-flash-preview... ✅ 189 tok/s | TTFT 3167ms | 7852ms
+[20/418] analysis-01 × gemini-3.1-pro-preview... ✅ 172 tok/s | TTFT 10739ms | 15174ms
+[21/418] analysis-01 × azure/gpt-5.3-codex... ✅ 48 tok/s | no TTFT | 18766ms
+[22/418] analysis-01 × azure/gpt-5.1-codex-mini... ✅ 124 tok/s | no TTFT | 13814ms
+[23/418] analysis-02 × claude-opus-4-6-1m... ✅ 50 tok/s | TTFT 1365ms | 63955ms
+[24/418] analysis-02 × claude-opus-4-6... Loaded 19 tasks, 22 models
+Total runs: 418
+Resuming from /Users/yourslewis/.openclaw/workspace-chloe/benchmark/results/v3-20260407-194331
+[9/418] analysis-01 × gpt-5.4-mini... ✅ 257 tok/s | no TTFT | 13897ms
+[24/418] analysis-02 × claude-opus-4-6... ✅ 53 tok/s | TTFT 2492ms | 65905ms
+[25/418] analysis-02 × claude-sonnet-4-6... ✅ 52 tok/s | TTFT 2511ms | 57716ms
+[26/418] analysis-02 × claude-haiku-4-5... ✅ 109 tok/s | TTFT 1034ms | 22462ms
+[27/418] analysis-02 × claude-opus-4-5... ✅ 57 tok/s | TTFT 1131ms | 32570ms
+[28/418] analysis-02 × claude-sonnet-4-5... ✅ 46 tok/s | TTFT 1299ms | 50226ms
+[29/418] analysis-02 × claude-sonnet-4... ✅ 46 tok/s | TTFT 1275ms | 45221ms
+[30/418] analysis-02 × gpt-5.4... ✅ 84 tok/s | TTFT 419ms | 24836ms
+[31/418] analysis-02 × gpt-5.4-mini... ✅ 234 tok/s | no TTFT | 16229ms
+[32/418] analysis-02 × gpt-5.3-codex... ✅ 60 tok/s | no TTFT | 28264ms
+[33/418] analysis-02 × gpt-5.2... ✅ 95 tok/s | TTFT 775ms | 22584ms
+[34/418] analysis-02 × gpt-5.2-codex... ✅ 134 tok/s | no TTFT | 8824ms
+[35/418] analysis-02 × gpt-5.1... ✅ 101 tok/s | TTFT 454ms | 24156ms
+[36/418] analysis-02 × gpt-5-mini... ✅ 243 tok/s | TTFT 6538ms | 18312ms
+[37/418] analysis-02 × gpt-4.1... ✅ 50 tok/s | TTFT 729ms | 25631ms
+[38/418] analysis-02 × gpt-4o... ✅ 76 tok/s | TTFT 677ms | 16117ms
+[39/418] analysis-02 × goldeneye... ✅ 57 tok/s | no TTFT | 114338ms
+[40/418] analysis-02 × gemini-2.5-pro... ✅ 117 tok/s | TTFT 6223ms | 18923ms
+[41/418] analysis-02 × gemini-3-flash-preview... ✅ 191 tok/s | TTFT 1153ms | 7366ms
+[42/418] analysis-02 × gemini-3.1-pro-preview... ✅ 75 tok/s | TTFT 21187ms | 42594ms
+[43/418] analysis-02 × azure/gpt-5.3-codex... ✅ 35 tok/s | no TTFT | 36135ms
+[44/418] analysis-02 × azure/gpt-5.1-codex-mini... ✅ 136 tok/s | no TTFT | 17690ms
+[45/418] analysis-03 × claude-opus-4-6-1m... ✅ 65 tok/s | TTFT 2571ms | 34382ms
+[46/418] analysis-03 × claude-opus-4-6... ✅ 64 tok/s | TTFT 1530ms | 35874ms
+[47/418] analysis-03 × claude-sonnet-4-6... ✅ 85 tok/s | TTFT 4195ms | 23370ms
+[48/418] analysis-03 × claude-haiku-4-5... ✅ 142 tok/s | TTFT 945ms | 10452ms
+[49/418] analysis-03 × claude-opus-4-5... ✅ 77 tok/s | TTFT 1109ms | 21829ms
+[50/418] analysis-03 × claude-sonnet-4-5... Loaded 19 tasks, 22 models
+Total runs: 418
+Resuming from /Users/yourslewis/.openclaw/workspace-chloe/benchmark/results/v3-20260407-194331
+[8/418] analysis-01 × gpt-5.4... ✅ 76 tok/s | no TTFT | 66187ms
+[11/418] analysis-01 × gpt-5.2... ✅ 95 tok/s | no TTFT | 27654ms
+[13/418] analysis-01 × gpt-5.1... ✅ 112 tok/s | no TTFT | 39183ms
+[30/418] analysis-02 × gpt-5.4... ✅ 81 tok/s | no TTFT | 45546ms
+[33/418] analysis-02 × gpt-5.2... ✅ 92 tok/s | no TTFT | 28495ms
+[35/418] analysis-02 × gpt-5.1... ✅ 100 tok/s | no TTFT | 40156ms
+[50/418] analysis-03 × claude-sonnet-4-5... ✅ 80 tok/s | TTFT 1990ms | 17468ms
+[51/418] analysis-03 × claude-sonnet-4... ✅ 82 tok/s | TTFT 2180ms | 16356ms
+[52/418] analysis-03 × gpt-5.4... ✅ 81 tok/s | no TTFT | 67866ms
+[53/418] analysis-03 × gpt-5.4-mini... ✅ 274 tok/s | no TTFT | 27896ms
+[54/418] analysis-03 × gpt-5.3-codex... ✅ 66 tok/s | no TTFT | 34966ms
+[55/418] analysis-03 × gpt-5.2... ✅ 112 tok/s | no TTFT | 30603ms
+[56/418] analysis-03 × gpt-5.2-codex... ✅ 122 tok/s | no TTFT | 10362ms
+[57/418] analysis-03 × gpt-5.1... ✅ 92 tok/s | no TTFT | 62735ms
+[58/418] analysis-03 × gpt-5-mini... ✅ 147 tok/s | TTFT 25326ms | 54143ms
+[59/418] analysis-03 × gpt-4.1... ✅ 19 tok/s | TTFT 812ms | 80326ms
+[60/418] analysis-03 × gpt-4o... ✅ 67 tok/s | TTFT 1102ms | 16939ms
+[61/418] analysis-03 × goldeneye... ✅ 59 tok/s | no TTFT | 272241ms
+[62/418] analysis-03 × gemini-2.5-pro... ✅ 135 tok/s | TTFT 7010ms | 16927ms
+[63/418] analysis-03 × gemini-3-flash-preview... ✅ 181 tok/s | TTFT 1621ms | 7639ms
+[64/418] analysis-03 × gemini-3.1-pro-preview... ✅ 82 tok/s | TTFT 22970ms | 38514ms
+[65/418] analysis-03 × azure/gpt-5.3-codex... ✅ 27 tok/s | no TTFT | 36218ms
+[66/418] analysis-03 × azure/gpt-5.1-codex-mini... ✅ 129 tok/s | no TTFT | 77497ms
+[67/418] code-01 × claude-opus-4-6-1m... ✅ 77 tok/s | TTFT 3931ms | 40106ms code=100%
+[68/418] code-01 × claude-opus-4-6... ✅ 82 tok/s | TTFT 2161ms | 33014ms code=100%
+[69/418] code-01 × claude-sonnet-4-6... ✅ 20 tok/s | TTFT 16881ms | 171771ms code=100%
+[70/418] code-01 × claude-haiku-4-5... ✅ 183 tok/s | TTFT 879ms | 11969ms code=100%
+[71/418] code-01 × claude-opus-4-5... ✅ 95 tok/s | TTFT 959ms | 24831ms code=100%
+[72/418] code-01 × claude-sonnet-4-5... ✅ 100 tok/s | TTFT 1302ms | 15592ms code=100%
+[73/418] code-01 × claude-sonnet-4... ✅ 96 tok/s | TTFT 1520ms | 24168ms code=100%
+[74/418] code-01 × gpt-5.4... ✅ 83 tok/s | no TTFT | 38454ms code=100%
+[75/418] code-01 × gpt-5.4-mini... ✅ 258 tok/s | no TTFT | 21453ms code=100%
+[76/418] code-01 × gpt-5.3-codex... ✅ 62 tok/s | no TTFT | 32266ms code=100%
+[77/418] code-01 × gpt-5.2... ✅ 103 tok/s | no TTFT | 24407ms code=100%
+[78/418] code-01 × gpt-5.2-codex... ✅ 138 tok/s | no TTFT | 7915ms code=100%
+[79/418] code-01 × gpt-5.1... ✅ 96 tok/s | no TTFT | 31483ms code=100%
+[80/418] code-01 × gpt-5-mini... ✅ 101 tok/s | TTFT 33654ms | 73832ms code=100%
+[81/418] code-01 × gpt-4.1... ✅ 18 tok/s | TTFT 944ms | 59144ms code=100%
+[82/418] code-01 × gpt-4o... ✅ 85 tok/s | TTFT 906ms | 14198ms code=100%
+[83/418] code-01 × goldeneye... ✅ 65 tok/s | no TTFT | 148242ms code=100%
+[84/418] code-01 × gemini-2.5-pro... ✅ 134 tok/s | TTFT 6071ms | 22577ms code=0%
+[85/418] code-01 × gemini-3-flash-preview... ✅ 180 tok/s | TTFT 1991ms | 7295ms code=29%
+[86/418] code-01 × gemini-3.1-pro-preview... ✅ 158 tok/s | TTFT 9544ms | 17111ms code=29%
+[87/418] code-01 × azure/gpt-5.3-codex... ✅ 63 tok/s | no TTFT | 20442ms code=100%
+[88/418] code-01 × azure/gpt-5.1-codex-mini... ✅ 112 tok/s | no TTFT | 143302ms code=29%
+[89/418] code-02 × claude-opus-4-6-1m... ✅ 88 tok/s | TTFT 1322ms | 36550ms code=100%
+[90/418] code-02 × claude-opus-4-6... ✅ 93 tok/s | TTFT 1217ms | 31070ms code=100%
+[91/418] code-02 × claude-sonnet-4-6... ✅ 101 tok/s | TTFT 23215ms | 57219ms code=100%
+[92/418] code-02 × claude-haiku-4-5... ✅ 180 tok/s | TTFT 822ms | 18132ms code=100%
+[93/418] code-02 × claude-opus-4-5... ✅ 98 tok/s | TTFT 1036ms | 29634ms code=100%
+[94/418] code-02 × claude-sonnet-4-5... ✅ 84 tok/s | TTFT 1539ms | 34844ms code=100%
+[95/418] code-02 × claude-sonnet-4... ✅ 85 tok/s | TTFT 1179ms | 33535ms code=100%
+[96/418] code-02 × gpt-5.4... ✅ 113 tok/s | no TTFT | 23418ms code=100%
+[97/418] code-02 × gpt-5.4-mini... ✅ 328 tok/s | no TTFT | 8112ms code=100%
+[98/418] code-02 × gpt-5.3-codex... ✅ 88 tok/s | no TTFT | 30242ms code=100%
+[99/418] code-02 × gpt-5.2... ✅ 150 tok/s | no TTFT | 16089ms code=100%
+[100/418] code-02 × gpt-5.2-codex... ✅ 169 tok/s | no TTFT | 14053ms code=100%
+[101/418] code-02 × gpt-5.1... ✅ 115 tok/s | no TTFT | 25365ms code=100%
+[102/418] code-02 × gpt-5-mini... ✅ 82 tok/s | TTFT 10904ms | 47128ms code=100%
+[103/418] code-02 × gpt-4.1... ✅ 34 tok/s | TTFT 2768ms | 77198ms code=89%
+[104/418] code-02 × gpt-4o... ✅ 68 tok/s | TTFT 935ms | 32788ms code=100%
+[105/418] code-02 × goldeneye... ✅ 84 tok/s | no TTFT | 45249ms code=89%
+[106/418] code-02 × gemini-2.5-pro... ✅ 152 tok/s | TTFT 5150ms | 22256ms code=100%
+[107/418] code-02 × gemini-3-flash-preview... ✅ 176 tok/s | TTFT 1496ms | 16892ms code=100%
+[108/418] code-02 × gemini-3.1-pro-preview... ✅ 89 tok/s | TTFT 19681ms | 49019ms code=100%
+[109/418] code-02 × azure/gpt-5.3-codex... ✅ 80 tok/s | no TTFT | 29354ms code=100%
+[110/418] code-02 × azure/gpt-5.1-codex-mini... ✅ 77 tok/s | no TTFT | 49187ms code=100%
+[111/418] code-03 × claude-opus-4-6-1m... ✅ 91 tok/s | TTFT 1492ms | 58274ms code=100%
+[112/418] code-03 × claude-opus-4-6... ✅ 92 tok/s | TTFT 1192ms | 53798ms code=100%
+[113/418] code-03 × claude-sonnet-4-6... ✅ 86 tok/s | TTFT 8894ms | 71182ms code=100%
+[114/418] code-03 × claude-haiku-4-5... ✅ 216 tok/s | TTFT 1155ms | 23737ms code=100%
+[115/418] code-03 × claude-opus-4-5... ✅ 103 tok/s | TTFT 972ms | 34078ms code=100%
+[116/418] code-03 × claude-sonnet-4-5... ✅ 106 tok/s | TTFT 2425ms | 42289ms code=100%
+[117/418] code-03 × claude-sonnet-4... ✅ 105 tok/s | TTFT 1869ms | 39202ms code=100%
+[118/418] code-03 × gpt-5.4... ✅ 92 tok/s | no TTFT | 95446ms code=100%
+[119/418] code-03 × gpt-5.4-mini... ✅ 232 tok/s | no TTFT | 46343ms code=100%
+[120/418] code-03 × gpt-5.3-codex... ✅ 63 tok/s | no TTFT | 78337ms code=100%
+[121/418] code-03 × gpt-5.2... ✅ 106 tok/s | no TTFT | 51857ms code=100%
+[122/418] code-03 × gpt-5.2-codex... ✅ 134 tok/s | no TTFT | 22143ms code=100%
+[123/418] code-03 × gpt-5.1... ✅ 121 tok/s | no TTFT | 56167ms code=100%
+[124/418] code-03 × gpt-5-mini... ✅ 201 tok/s | TTFT 13080ms | 40707ms code=100%
+[125/418] code-03 × gpt-4.1... ✅ 21 tok/s | TTFT 902ms | 127603ms code=100%
+[126/418] code-03 × gpt-4o... ✅ 81 tok/s | TTFT 939ms | 20296ms code=100%
+[127/418] code-03 × goldeneye... ✅ 64 tok/s | no TTFT | 251116ms code=17%
+[128/418] code-03 × gemini-2.5-pro... ✅ 135 tok/s | TTFT 6037ms | 31268ms code=100%
+[129/418] code-03 × gemini-3-flash-preview... ✅ 156 tok/s | TTFT 1817ms | 13612ms code=100%
+[130/418] code-03 × gemini-3.1-pro-preview... ✅ 134 tok/s | TTFT 11415ms | 25862ms code=100%
+[131/418] code-03 × azure/gpt-5.3-codex... ✅ 67 tok/s | no TTFT | 40808ms code=100%
+[132/418] code-03 × azure/gpt-5.1-codex-mini... ✅ 0 tok/s | no TTFT | 33426ms code=0%
+[133/418] code-04 × claude-opus-4-6-1m... ✅ 71 tok/s | TTFT 1615ms | 58636ms code=100%
+[134/418] code-04 × claude-opus-4-6... ✅ 73 tok/s | TTFT 2058ms | 69645ms code=100%
+[135/418] code-04 × claude-sonnet-4-6... ✅ 74 tok/s | TTFT 1245ms | 64464ms code=0%
+[136/418] code-04 × claude-haiku-4-5... ✅ 192 tok/s | TTFT 1429ms | 20149ms code=100%
+[137/418] code-04 × claude-opus-4-5... ✅ 91 tok/s | TTFT 1306ms | 51488ms code=100%
+[138/418] code-04 × claude-sonnet-4-5... ✅ 78 tok/s | TTFT 1007ms | 31550ms code=100%
+[139/418] code-04 × claude-sonnet-4... ✅ 84 tok/s | TTFT 984ms | 26969ms code=100%
+[140/418] code-04 × gpt-5.4... ✅ 78 tok/s | no TTFT | 107329ms code=100%
+[141/418] code-04 × gpt-5.4-mini... ✅ 213 tok/s | no TTFT | 46081ms code=100%
+[142/418] code-04 × gpt-5.3-codex... ✅ 51 tok/s | no TTFT | 70927ms code=100%
+[143/418] code-04 × gpt-5.2... ✅ 63 tok/s | no TTFT | 207981ms code=100%
+[144/418] code-04 × gpt-5.2-codex... ✅ 114 tok/s | no TTFT | 55498ms code=100%
+[145/418] code-04 × gpt-5.1... ✅ 79 tok/s | no TTFT | 100316ms code=100%
+[146/418] code-04 × gpt-5-mini... ✅ 268 tok/s | TTFT 10415ms | 21333ms code=100%
+[147/418] code-04 × gpt-4.1... ✅ 8 tok/s | TTFT 2539ms | 190670ms code=100%
+[148/418] code-04 × gpt-4o... ✅ 81 tok/s | TTFT 1120ms | 18163ms code=100%
+[149/418] code-04 × goldeneye... ❌ {"error":{"message":"fetch failed","type":"server_error","code":"internal_error"
+[150/418] code-04 × gemini-2.5-pro... ✅ 124 tok/s | TTFT 6054ms | 26960ms code=100%
+[151/418] code-04 × gemini-3-flash-preview... ✅ 145 tok/s | TTFT 1279ms | 10094ms code=100%
+[152/418] code-04 × gemini-3.1-pro-preview... ✅ 79 tok/s | TTFT 53272ms | 72652ms code=100%
+[153/418] code-04 × azure/gpt-5.3-codex... ✅ 27 tok/s | no TTFT | 48401ms code=100%
+[154/418] code-04 × azure/gpt-5.1-codex-mini... ✅ 124 tok/s | no TTFT | 129139ms code=12%
+[155/418] code-05 × claude-opus-4-6-1m... ✅ 70 tok/s | TTFT 1705ms | 36176ms code=100%
+[156/418] code-05 × claude-opus-4-6... ✅ 78 tok/s | TTFT 1916ms | 34844ms code=100%
+[157/418] code-05 × claude-sonnet-4-6... ✅ 80 tok/s | TTFT 3607ms | 62729ms code=100%
+[158/418] code-05 × claude-haiku-4-5... ✅ 174 tok/s | TTFT 788ms | 14589ms code=100%
+[159/418] code-05 × claude-opus-4-5... ✅ 90 tok/s | TTFT 1197ms | 23578ms code=100%
+[160/418] code-05 × claude-sonnet-4-5... ✅ 78 tok/s | TTFT 1049ms | 26144ms code=100%
+[161/418] code-05 × claude-sonnet-4... ✅ 77 tok/s | TTFT 1128ms | 27956ms code=100%
+[162/418] code-05 × gpt-5.4... ✅ 88 tok/s | no TTFT | 14159ms code=100%
+[163/418] code-05 × gpt-5.4-mini... ✅ 238 tok/s | no TTFT | 8251ms code=88%
+[164/418] code-05 × gpt-5.3-codex... ✅ 63 tok/s | no TTFT | 15603ms code=100%
+[165/418] code-05 × gpt-5.2... ✅ 102 tok/s | no TTFT | 7636ms code=100%
+[166/418] code-05 × gpt-5.2-codex... ✅ 126 tok/s | no TTFT | 7566ms code=100%
+[167/418] code-05 × gpt-5.1... ✅ 91 tok/s | no TTFT | 16671ms code=100%
+[168/418] code-05 × gpt-5-mini... ✅ 264 tok/s | TTFT 5903ms | 12690ms code=100%
+[169/418] code-05 × gpt-4.1... ✅ 56 tok/s | TTFT 625ms | 18927ms code=100%
+[170/418] code-05 × gpt-4o... ✅ 72 tok/s | TTFT 913ms | 19048ms code=62%
+[171/418] code-05 × goldeneye... ✅ 68 tok/s | no TTFT | 19541ms code=100%
+[172/418] code-05 × gemini-2.5-pro... ✅ 140 tok/s | TTFT 8104ms | 25006ms code=100%
+[173/418] code-05 × gemini-3-flash-preview... ✅ 156 tok/s | TTFT 1446ms | 8170ms code=88%
+[174/418] code-05 × gemini-3.1-pro-preview... ✅ 90 tok/s | TTFT 10400ms | 25603ms code=100%
+[175/418] code-05 × azure/gpt-5.3-codex... ✅ 67 tok/s | no TTFT | 13186ms code=100%
+[176/418] code-05 × azure/gpt-5.1-codex-mini... ✅ 125 tok/s | no TTFT | 11487ms code=100%
+[177/418] debug-01 × claude-opus-4-6-1m... ✅ 68 tok/s | TTFT 1277ms | 88316ms
+[178/418] debug-01 × claude-opus-4-6... ✅ 66 tok/s | TTFT 1116ms | 93811ms
+[179/418] debug-01 × claude-sonnet-4-6... ✅ 75 tok/s | TTFT 4391ms | 57371ms
+[180/418] debug-01 × claude-haiku-4-5... ✅ 168 tok/s | TTFT 970ms | 26764ms
+[181/418] debug-01 × claude-opus-4-5... ✅ 77 tok/s | TTFT 1021ms | 42435ms
+[182/418] debug-01 × claude-sonnet-4-5... ✅ 76 tok/s | TTFT 1628ms | 57739ms
+[183/418] debug-01 × claude-sonnet-4... ✅ 77 tok/s | TTFT 1199ms | 42828ms
+[184/418] debug-01 × gpt-5.4... ✅ 74 tok/s | no TTFT | 76833ms
+[185/418] debug-01 × gpt-5.4-mini... ✅ 261 tok/s | no TTFT | 30754ms
+[186/418] debug-01 × gpt-5.3-codex... ✅ 60 tok/s | no TTFT | 65698ms
+[187/418] debug-01 × gpt-5.2... ✅ 99 tok/s | no TTFT | 48002ms
+[188/418] debug-01 × gpt-5.2-codex... ✅ 127 tok/s | no TTFT | 19876ms
+[189/418] debug-01 × gpt-5.1... ✅ 71 tok/s | no TTFT | 96300ms
+[190/418] debug-01 × gpt-5-mini... ✅ 320 tok/s | TTFT 23110ms | 38152ms
+[191/418] debug-01 × gpt-4.1... ✅ 13 tok/s | TTFT 971ms | 120008ms
+[192/418] debug-01 × gpt-4o... ✅ 86 tok/s | TTFT 788ms | 17480ms
+[193/418] debug-01 × goldeneye... ✅ 56 tok/s | no TTFT | 255704ms
+[194/418] debug-01 × gemini-2.5-pro... ✅ 124 tok/s | TTFT 5766ms | 29338ms
+[195/418] debug-01 × gemini-3-flash-preview... ✅ 95 tok/s | TTFT 1456ms | 15991ms
+[196/418] debug-01 × gemini-3.1-pro-preview... ✅ 74 tok/s | TTFT 26387ms | 45290ms
+[197/418] debug-01 × azure/gpt-5.3-codex... ✅ 50 tok/s | no TTFT | 21228ms
+[198/418] debug-01 × azure/gpt-5.1-codex-mini... ✅ 158 tok/s | no TTFT | 69705ms
+[199/418] debug-02 × claude-opus-4-6-1m... ✅ 95 tok/s | TTFT 2532ms | 12600ms code=100%
+[200/418] debug-02 × claude-opus-4-6... ✅ 86 tok/s | TTFT 1218ms | 12154ms code=100%
+[201/418] debug-02 × claude-sonnet-4-6... ✅ 74 tok/s | TTFT 3222ms | 23988ms code=100%
+[202/418] debug-02 × claude-haiku-4-5... ✅ 199 tok/s | TTFT 860ms | 10134ms code=100%
+[203/418] debug-02 × claude-opus-4-5... ✅ 103 tok/s | TTFT 4020ms | 16962ms code=100%
+[204/418] debug-02 × claude-sonnet-4-5... ✅ 94 tok/s | TTFT 5019ms | 19935ms code=100%
+[205/418] debug-02 × claude-sonnet-4... ✅ 94 tok/s | TTFT 1327ms | 16677ms code=100%
+[206/418] debug-02 × gpt-5.4... ✅ 79 tok/s | no TTFT | 17885ms code=100%
+[207/418] debug-02 × gpt-5.4-mini... ✅ 159 tok/s | no TTFT | 13377ms code=100%
+[208/418] debug-02 × gpt-5.3-codex... ✅ 69 tok/s | no TTFT | 18220ms code=100%
+[209/418] debug-02 × gpt-5.2... ✅ 106 tok/s | no TTFT | 10958ms code=100%
+[210/418] debug-02 × gpt-5.2-codex... ✅ 69 tok/s | no TTFT | 11383ms code=100%
+[211/418] debug-02 × gpt-5.1... ✅ 87 tok/s | no TTFT | 28753ms code=100%
+[212/418] debug-02 × gpt-5-mini... ✅ 164 tok/s | TTFT 22357ms | 36094ms code=100%
+[213/418] debug-02 × gpt-4.1... ✅ 10 tok/s | TTFT 1122ms | 107650ms code=100%
+[214/418] debug-02 × gpt-4o... ✅ 71 tok/s | TTFT 896ms | 17846ms code=100%
+[215/418] debug-02 × goldeneye... ✅ 64 tok/s | no TTFT | 14565ms code=100%
+[216/418] debug-02 × gemini-2.5-pro... ✅ 167 tok/s | TTFT 14511ms | 23102ms code=100%
+[217/418] debug-02 × gemini-3-flash-preview... ✅ 178 tok/s | TTFT 2467ms | 9147ms code=100%
+[218/418] debug-02 × gemini-3.1-pro-preview... ✅ 313 tok/s | TTFT 14637ms | 18276ms code=100%
+[219/418] debug-02 × azure/gpt-5.3-codex... ✅ 72 tok/s | no TTFT | 13878ms code=100%
+[220/418] debug-02 × azure/gpt-5.1-codex-mini... ✅ 133 tok/s | no TTFT | 26206ms code=100%
+[221/418] design-01 × claude-opus-4-6-1m... ✅ 56 tok/s | TTFT 2183ms | 288550ms
+[222/418] design-01 × claude-opus-4-6... ✅ 51 tok/s | TTFT 2139ms | 318467ms
+[223/418] design-01 × claude-sonnet-4-6... ✅ 54 tok/s | TTFT 1077ms | 284864ms
+[224/418] design-01 × claude-haiku-4-5... ✅ 125 tok/s | TTFT 1043ms | 128641ms
+[225/418] design-01 × claude-opus-4-5... ✅ 71 tok/s | TTFT 2032ms | 228256ms
+[226/418] design-01 × claude-sonnet-4-5... ✅ 57 tok/s | TTFT 1174ms | 280269ms
+[227/418] design-01 × claude-sonnet-4... ✅ 57 tok/s | TTFT 1319ms | 284138ms
+[228/418] design-01 × gpt-5.4... ✅ 65 tok/s | no TTFT | 145769ms
+[229/418] design-01 × gpt-5.4-mini... ✅ 203 tok/s | no TTFT | 44820ms
+[230/418] design-01 × gpt-5.3-codex... ✅ 56 tok/s | no TTFT | 73402ms
+[231/418] design-01 × gpt-5.2... ✅ 77 tok/s | no TTFT | 95718ms
+[232/418] design-01 × gpt-5.2-codex... ✅ 112 tok/s | no TTFT | 25292ms
+[233/418] design-01 × gpt-5.1... ✅ 82 tok/s | no TTFT | 110227ms
+[234/418] design-01 × gpt-5-mini... ✅ 81 tok/s | TTFT 6599ms | 105875ms
+[235/418] design-01 × gpt-4.1... ✅ 8 tok/s | TTFT 1285ms | 368660ms
+[236/418] design-01 × gpt-4o... ✅ 68 tok/s | TTFT 1128ms | 29134ms
+[237/418] design-01 × goldeneye... ❌ timed out
+[238/418] design-01 × gemini-2.5-pro... ✅ 108 tok/s | TTFT 6619ms | 54455ms
+[239/418] design-01 × gemini-3-flash-preview... ✅ 129 tok/s | TTFT 1952ms | 16329ms
+[240/418] design-01 × gemini-3.1-pro-preview... ✅ 65 tok/s | TTFT 13893ms | 44742ms
+[241/418] design-01 × azure/gpt-5.3-codex... ✅ 48 tok/s | no TTFT | 52617ms
+[242/418] design-01 × azure/gpt-5.1-codex-mini... ✅ 139 tok/s | no TTFT | 27013ms
+[243/418] design-02 × claude-opus-4-6-1m... ✅ 56 tok/s | TTFT 1596ms | 288132ms
+[244/418] design-02 × claude-opus-4-6... ✅ 63 tok/s | TTFT 1744ms | 254823ms
+[245/418] design-02 × claude-sonnet-4-6... ✅ 8 tok/s | TTFT 7047ms | 600028ms
+[246/418] design-02 × claude-haiku-4-5... ✅ 157 tok/s | TTFT 1911ms | 103633ms
+[247/418] design-02 × claude-opus-4-5... ✅ 82 tok/s | TTFT 1776ms | 197653ms
+[248/418] design-02 × claude-sonnet-4-5... ✅ 72 tok/s | TTFT 1066ms | 224283ms
+[249/418] design-02 × claude-sonnet-4... ✅ 67 tok/s | TTFT 1456ms | 239237ms
+[250/418] design-02 × gpt-5.4... ✅ 74 tok/s | no TTFT | 208086ms
+[251/418] design-02 × gpt-5.4-mini... ✅ 201 tok/s | no TTFT | 67022ms
+[252/418] design-02 × gpt-5.3-codex... ✅ 57 tok/s | no TTFT | 82022ms
+[253/418] design-02 × gpt-5.2... ✅ 78 tok/s | no TTFT | 108558ms
+[254/418] design-02 × gpt-5.2-codex... ✅ 120 tok/s | no TTFT | 28951ms
+[255/418] design-02 × gpt-5.1... ✅ 99 tok/s | no TTFT | 109276ms
+[256/418] design-02 × gpt-5-mini... ✅ 182 tok/s | TTFT 20170ms | 85695ms
+[257/418] design-02 × gpt-4.1... ✅ 12 tok/s | TTFT 508ms | 323063ms
+[258/418] design-02 × gpt-4o... ✅ 90 tok/s | TTFT 965ms | 20479ms
+[259/418] design-02 × goldeneye... ❌ timed out
+[260/418] design-02 × gemini-2.5-pro... ✅ 103 tok/s | TTFT 6123ms | 57414ms
+[261/418] design-02 × gemini-3-flash-preview... ✅ 126 tok/s | TTFT 1763ms | 16342ms
+[262/418] design-02 × gemini-3.1-pro-preview... ✅ 67 tok/s | TTFT 19832ms | 52814ms
+[263/418] design-02 × azure/gpt-5.3-codex... ✅ 43 tok/s | no TTFT | 62775ms
+[264/418] design-02 × azure/gpt-5.1-codex-mini... ✅ 138 tok/s | no TTFT | 24350ms
+[265/418] plan-01 × claude-opus-4-6-1m... ✅ 43 tok/s | TTFT 1385ms | 351221ms
+[266/418] plan-01 × claude-opus-4-6... ✅ 43 tok/s | TTFT 1738ms | 335634ms
+[267/418] plan-01 × claude-sonnet-4-6... ✅ 48 tok/s | TTFT 6162ms | 195006ms
+[268/418] plan-01 × claude-haiku-4-5... ✅ 104 tok/s | TTFT 1446ms | 70831ms
+[269/418] plan-01 × claude-opus-4-5... ✅ 56 tok/s | TTFT 1476ms | 128818ms
+[270/418] plan-01 × claude-sonnet-4-5... ✅ 44 tok/s | TTFT 1256ms | 167276ms
+[271/418] plan-01 × claude-sonnet-4... ✅ 46 tok/s | TTFT 1716ms | 145680ms
+[272/418] plan-01 × gpt-5.4... ✅ 62 tok/s | no TTFT | 170071ms
+[273/418] plan-01 × gpt-5.4-mini... ✅ 222 tok/s | no TTFT | 61117ms
+[274/418] plan-01 × gpt-5.3-codex... ✅ 55 tok/s | no TTFT | 58066ms
+[275/418] plan-01 × gpt-5.2... ✅ 71 tok/s | no TTFT | 69658ms
+[276/418] plan-01 × gpt-5.2-codex... ✅ 92 tok/s | no TTFT | 18546ms
+[277/418] plan-01 × gpt-5.1... ✅ 72 tok/s | no TTFT | 120769ms
+[278/418] plan-01 × gpt-5-mini... ✅ 231 tok/s | TTFT 15804ms | 40106ms
+[279/418] plan-01 × gpt-4.1... ✅ 5 tok/s | TTFT 570ms | 419929ms
+[280/418] plan-01 × gpt-4o... ✅ 91 tok/s | TTFT 888ms | 18589ms
+[281/418] plan-01 × goldeneye... ❌ timed out
+[282/418] plan-01 × gemini-2.5-pro... ✅ 105 tok/s | TTFT 6636ms | 41208ms
+[283/418] plan-01 × gemini-3-flash-preview... ✅ 119 tok/s | TTFT 1606ms | 16273ms
+[284/418] plan-01 × gemini-3.1-pro-preview... ✅ 122 tok/s | TTFT 12912ms | 31102ms
+[285/418] plan-01 × azure/gpt-5.3-codex... ✅ 48 tok/s | no TTFT | 41034ms
+[286/418] plan-01 × azure/gpt-5.1-codex-mini... ✅ 126 tok/s | no TTFT | 22025ms
+[287/418] plan-02 × claude-opus-4-6-1m... ✅ 46 tok/s | TTFT 1404ms | 179105ms
+[288/418] plan-02 × claude-opus-4-6... ✅ 47 tok/s | TTFT 1846ms | 165740ms
+[289/418] plan-02 × claude-sonnet-4-6... ✅ 52 tok/s | TTFT 3377ms | 148827ms
+[290/418] plan-02 × claude-haiku-4-5... ✅ 93 tok/s | TTFT 904ms | 62343ms
+[291/418] plan-02 × claude-opus-4-5... ✅ 54 tok/s | TTFT 1088ms | 115083ms
+[292/418] plan-02 × claude-sonnet-4-5... ✅ 48 tok/s | TTFT 2069ms | 104725ms
+[293/418] plan-02 × claude-sonnet-4... ✅ 48 tok/s | TTFT 1469ms | 108730ms
+[294/418] plan-02 × gpt-5.4... ✅ 62 tok/s | no TTFT | 82270ms
+[295/418] plan-02 × gpt-5.4-mini... ✅ 253 tok/s | no TTFT | 24309ms
+[296/418] plan-02 × gpt-5.3-codex... ✅ 51 tok/s | no TTFT | 51476ms
+[297/418] plan-02 × gpt-5.2... ✅ 90 tok/s | no TTFT | 44037ms
+[298/418] plan-02 × gpt-5.2-codex... ✅ 113 tok/s | no TTFT | 17125ms
+[299/418] plan-02 × gpt-5.1... ✅ 106 tok/s | no TTFT | 48668ms
+[300/418] plan-02 × gpt-5-mini... ✅ 80 tok/s | TTFT 18114ms | 78711ms
+[301/418] plan-02 × gpt-4.1... ✅ 23 tok/s | TTFT 2120ms | 118295ms
+[302/418] plan-02 × gpt-4o... ✅ 87 tok/s | TTFT 822ms | 27469ms
+[303/418] plan-02 × goldeneye... ❌ timed out
+[304/418] plan-02 × gemini-2.5-pro... ✅ 100 tok/s | TTFT 7079ms | 49099ms
+[305/418] plan-02 × gemini-3-flash-preview... ✅ 160 tok/s | TTFT 6090ms | 18998ms
+[306/418] plan-02 × gemini-3.1-pro-preview... ✅ 115 tok/s | TTFT 8275ms | 32798ms
+[307/418] plan-02 × azure/gpt-5.3-codex... ✅ 37 tok/s | no TTFT | 71128ms
+[308/418] plan-02 × azure/gpt-5.1-codex-mini... ✅ 165 tok/s | no TTFT | 33499ms
+[309/418] plan-03 × claude-opus-4-6-1m... ✅ 45 tok/s | TTFT 2864ms | 10957ms
+[310/418] plan-03 × claude-opus-4-6... ✅ 46 tok/s | TTFT 1061ms | 9416ms
+[311/418] plan-03 × claude-sonnet-4-6... ✅ 26 tok/s | TTFT 2380ms | 13206ms
+[312/418] plan-03 × claude-haiku-4-5... ✅ 96 tok/s | TTFT 1155ms | 3857ms
+[313/418] plan-03 × claude-opus-4-5... ✅ 55 tok/s | TTFT 1004ms | 5882ms
+[314/418] plan-03 × claude-sonnet-4-5... ✅ 59 tok/s | TTFT 1679ms | 5881ms
+[315/418] plan-03 × claude-sonnet-4... ✅ 49 tok/s | TTFT 1593ms | 7469ms
+[316/418] plan-03 × gpt-5.4... ✅ 60 tok/s | no TTFT | 9858ms
+[317/418] plan-03 × gpt-5.4-mini... ✅ 150 tok/s | no TTFT | 4256ms
+[318/418] plan-03 × gpt-5.3-codex... ✅ 50 tok/s | no TTFT | 7375ms
+[319/418] plan-03 × gpt-5.2... ✅ 68 tok/s | no TTFT | 3557ms
+[320/418] plan-03 × gpt-5.2-codex... ✅ 70 tok/s | no TTFT | 3299ms
+[321/418] plan-03 × gpt-5.1... ✅ 67 tok/s | no TTFT | 4049ms
+[322/418] plan-03 × gpt-5-mini... ✅ 702 tok/s | TTFT 6178ms | 7569ms
+[323/418] plan-03 × gpt-4.1... ✅ 33 tok/s | TTFT 476ms | 7421ms
+[324/418] plan-03 × gpt-4o... ✅ 105 tok/s | TTFT 882ms | 3219ms
+[325/418] plan-03 × goldeneye... ✅ 30 tok/s | no TTFT | 7371ms
+[326/418] plan-03 × gemini-2.5-pro... ✅ 268 tok/s | TTFT 5071ms | 6161ms
+[327/418] plan-03 × gemini-3-flash-preview... ✅ 176 tok/s | TTFT 1503ms | 2965ms
+[328/418] plan-03 × gemini-3.1-pro-preview... ✅ 216 tok/s | TTFT 8434ms | 9621ms
+[329/418] plan-03 × azure/gpt-5.3-codex... ✅ 42 tok/s | no TTFT | 5276ms
+[330/418] plan-03 × azure/gpt-5.1-codex-mini... ✅ 90 tok/s | no TTFT | 4716ms
+[331/418] writing-01 × claude-opus-4-6-1m... ✅ 64 tok/s | TTFT 1358ms | 252599ms
+[332/418] writing-01 × claude-opus-4-6... ✅ 65 tok/s | TTFT 1424ms | 246306ms
+[333/418] writing-01 × claude-sonnet-4-6... ✅ 68 tok/s | TTFT 1416ms | 234986ms
+[334/418] writing-01 × claude-haiku-4-5... ✅ 160 tok/s | TTFT 1211ms | 101289ms
+[335/418] writing-01 × claude-opus-4-5... ✅ 78 tok/s | TTFT 1104ms | 207185ms
+[336/418] writing-01 × claude-sonnet-4-5... ✅ 59 tok/s | TTFT 1397ms | 196462ms
+[337/418] writing-01 × claude-sonnet-4... ✅ 62 tok/s | TTFT 1958ms | 213617ms
+[338/418] writing-01 × gpt-5.4... ✅ 73 tok/s | no TTFT | 157669ms
+[339/418] writing-01 × gpt-5.4-mini... ✅ 250 tok/s | no TTFT | 64072ms
+[340/418] writing-01 × gpt-5.3-codex... Loaded 19 tasks, 22 models
+Total runs: 418
+Resuming from /Users/yourslewis/.openclaw/workspace-chloe/benchmark/results/v3-20260407-194331
+[149/418] code-04 × goldeneye... 

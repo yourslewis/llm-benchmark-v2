@@ -1,0 +1,18 @@
+{
+  "task_id": "analysis-03",
+  "model_id": "azure/gpt-5.3-codex",
+  "status": "ok",
+  "response_text": "Great audit task. Here\u2019s a practical correction pass based on widely documented limits as of recent model releases (noting these can change by provider/version).\n\n## 1) Corrected table\n\n> **Assumption:** `maxTokens` in your gateway means **max output tokens** (`max_output_tokens` / `max_completion_tokens` equivalent), not total context window.\n\n| Model ID | Actual Max Output Tokens* | Current Setting | Recommended Setting | Action Needed |\n|---|---:|---:|---:|---|\n| gpt-4o | ~16,384 | 16,384 | 16,384 | OK |\n| gpt-4o-mini | ~16,384 | 16,384 | 16,384 | OK |\n| o3-mini | ~100,000 (high reasoning output allowance) | 16,384 | 32,768 (practical cap) | **Increase** |\n| claude-opus-4 | ~8,192 | 16,384 | 8,192 | **Decrease** |\n| claude-sonnet-4 | ~8,192 | 16,384 | 8,192 | **Decrease** |\n| claude-haiku-3-5 | ~8,192 | 16,384 | 8,192 | **Decrease** |\n| gemini-2.0-flash | provider allows large generation; practical often << huge theoretical | 16,384 | 32,768 (practical cap) | **Increase** |\n| mistral-large | ~8,192 (common API cap) | 16,384 | 8,192 | **Decrease** |\n| llama-3.3-70b (Groq) | commonly ~8,192 output cap in hosted APIs | 16,384 | 8,192 | **Decrease** |\n| phi-3-mini-128k (Azure) | typically ~4,096 output cap | 16,384 | 4,096 | **Decrease** |\n\n\\*Exact limits can vary by endpoint/version/region; verify against each provider\u2019s model card/API schema before rollout.\n\n---\n\n## 2) Dangerous misconfiguration (set too high)\n\nYes \u2014 likely dangerous (error-prone) for:\n\n- `claude-opus-4`\n- `claude-sonnet-4`\n- `claude-haiku-3-5`\n- `mistral-large`\n- `llama-3.3-70b` (Groq-hosted)\n- `phi-3-mini-128k` (Azure)\n\n### What happens if request asks full 16,384?\nUsually one of:\n1. **Validation error / 400** (most common): \u201cmax tokens exceeds allowed limit\u201d\n2. **Silent clamp** by SDK/gateway/provider (less common)\n3. **Truncation earlier than requested** if provider enforces hard internal cap\n\nOperationally: expect failed calls, retries, latency spikes, and avoidable incident noise if not corrected.\n\n---\n\n## 3) Priority ranking\n\n### **Critical** (likely API errors now)\n1. **phi-3-mini-128k** (16,384 vs ~4,096)\n2. **Anthropic Claude family** (all three at 16,384 vs ~8,192)\n3. **mistral-large / llama-3.3-70b** (16,384 vs ~8,192)\n\n### **Important** (cap is too low, capability loss)\n4. **o3-mini** (you\u2019re capping a high-output model too aggressively)\n5. **gemini-2.0-flash** (can likely do more; 32k practical cap recommended)\n\n### **Low priority**\n6. **gpt-4o, gpt-4o-mini** (already aligned)\n\n---\n\n## 4) Corrected config snippets (top 3 priorities)\n\n```json\n{\n  \"model\": \"phi-3-mini-128k\",\n  \"maxTokens\": 4096,\n  \"reason\": \"Changed from 16384: actual API output limit is ~4096\"\n}\n```\n\n```json\n{\n  \"model\": \"claude-sonnet-4\",\n  \"maxTokens\": 8192,\n  \"reason\": \"Changed from 16384: actual API output limit is ~8192\"\n}\n```\n\n```json\n{\n  \"model\": \"mistral-large\",\n  \"maxTokens\": 8192,\n  \"reason\": \"Changed from 16384: actual API output limit is ~8192\"\n}\n```\n\nIf you want, I can also produce a **full corrected JSON array** for all 10 models in one paste-ready block.",
+  "metrics": {
+    "input_tokens": 618,
+    "output_tokens": 979,
+    "ttft_ms": null,
+    "total_latency_ms": 36218.0,
+    "tokens_per_sec": 27.0,
+    "cost_usd": 0.011335,
+    "code_pass_rate": null
+  },
+  "category": "analysis",
+  "difficulty": "easy",
+  "family": "openai"
+}

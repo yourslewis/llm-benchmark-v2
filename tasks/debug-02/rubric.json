@@ -1,0 +1,12 @@
+{
+  "category": "debug",
+  "difficulty": "medium",
+  "grading": "automated",
+  "criteria": [
+    {"name": "correct_limits_dict", "weight": 20, "description": "CORRECT_LIMITS dict includes all 10 models with accurate token values from the provided table"},
+    {"name": "update_logic", "weight": 25, "description": "Script correctly updates maxTokens only when value differs; skips unknowns with warning; only modifies maxTokens key"},
+    {"name": "dry_run_mode", "weight": 20, "description": "Dry-run flag prevents writes; shows what would change"},
+    {"name": "backup_creation", "weight": 15, "description": "Creates .bak file before overwriting; handles backup correctly"},
+    {"name": "output_and_summary", "weight": 20, "description": "Clear per-model output with old→new values; summary line shows updated/unchanged/skipped counts"}
+  ]
+}

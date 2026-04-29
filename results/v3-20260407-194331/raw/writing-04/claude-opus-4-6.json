@@ -1,0 +1,18 @@
+{
+  "task_id": "writing-04",
+  "model_id": "claude-opus-4-6",
+  "status": "ok",
+  "response_text": "Subject: 1:1 Request \u2014 Performance Check-In for Q1\n\nHi Alex,\n\nI'd like to schedule a 1:1 this week to talk honestly about how things have been going this quarter. I want to be upfront about what I'd like to discuss so none of this catches you off guard.\n\nI've noticed some patterns over the past few months that are out of character for you, and I want to understand what's behind them:\n\n**Deadlines:** The Persona V3 integration shipped 13 days past the March 15 target, and the evaluation pipeline (due April 1) is still in progress. In both cases, I didn't hear about risks to the timeline until the deadlines had already passed.\n\n**Code reviews:** Several teammates have flagged that your reviews on complex PRs have been brief \u2014 single-line approvals without substantive feedback. This is a shift from the thorough reviews you're known for.\n\n**Availability:** You've missed two standups without a heads-up, and there have been multiple days where you were unreachable on Teams for three or more hours during core working time.\n\nI want to be clear: this email isn't a writeup, and this meeting isn't disciplinary. You led the Persona V2 launch, you've been a genuine mentor to Maya and Jordan, and you earned that \"Exceeds\" rating last year for real reasons. That track record is exactly why these changes stand out to me \u2014 and why I want to have this conversation now rather than let things drift further.\n\nSomething may have shifted \u2014 workload, motivation, personal circumstances, something I'm not seeing as your manager. I'd rather ask than assume.\n\nFor the meeting, I'd like us to walk away with two things: a shared understanding of what's getting in the way, and a concrete plan we both feel good about for getting back on track. If there's anything I or the team can do differently to support you, that's on the table too.\n\nWhat does your Thursday or Friday look like? Happy to do 30 or 45 minutes, your preference.\n\n\u2014 [Your Name]",
+  "metrics": {
+    "input_tokens": 420,
+    "output_tokens": 462,
+    "ttft_ms": 2186.0,
+    "total_latency_ms": 14951.2,
+    "tokens_per_sec": 36.2,
+    "cost_usd": 0.01365,
+    "code_pass_rate": null
+  },
+  "category": "writing",
+  "difficulty": "hard",
+  "family": "claude"
+}

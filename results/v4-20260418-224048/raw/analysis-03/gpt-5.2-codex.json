@@ -1,0 +1,19 @@
+{
+  "task_id": "analysis-03",
+  "model_id": "gpt-5.2-codex",
+  "status": "ok",
+  "response_text": "Below is a **best\u2011effort correction** based on current published API limits (max **output** tokens).  \nWhere limits are higher than 16K, I allow the full max; where lower, I cap to avoid errors.\n\n---\n\n## 1. Corrected Token Limits\n\n| Model ID | Actual Max Output Tokens | Current Setting | Recommended Setting | Action Needed |\n|----------|--------------------------|-----------------|---------------------|---------------|\n| **gpt-4o** | **16,384** | 16,384 | **16,384** | OK |\n| **gpt-4o-mini** | **16,384** | 16,384 | **16,384** | OK |\n| **o3-mini** | **32,768** | 16,384 | **32,768** | **Increase** |\n| **claude-opus-4** | **8,192** | 16,384 | **8,192** | **Decrease** |\n| **claude-sonnet-4** | **8,192** | 16,384 | **8,192** | **Decrease** |\n| **claude-haiku-3-5** | **4,096** | 16,384 | **4,096** | **Decrease** |\n| **gemini-2.0-flash** | **8,192** | 16,384 | **8,192** | **Decrease** |\n| **mistral-large** | **8,192** | 16,384 | **8,192** | **Decrease** |\n| **llama-3.3-70b (groq)** | **8,192** | 16,384 | **8,192** | **Decrease** |\n| **phi-3-mini-128k (azure)** | **4,096** | 16,384 | **4,096** | **Decrease** |\n\n> **Note:** If your provider has recently updated limits, verify against their docs; these are the best-known limits for the current public APIs.\n\n---\n\n## 2. Dangerous Misconfiguration (Current > Actual)\n\n**Models set higher than their actual max:**\n- claude\u2011opus\u20114  \n- claude\u2011sonnet\u20114  \n- claude\u2011haiku\u20113\u20115  \n- gemini\u20112.0\u2011flash  \n- mistral\u2011large  \n- llama\u20113.3\u201170b (Groq)  \n- phi\u20113\u2011mini\u2011128k (Azure)\n\n**What happens if a request tries to use 16,384 output tokens on these?**  \nMost APIs will return **400/422 errors** such as *\u201cmax_tokens must be \u2264 X\u201d* and the request fails. Some providers will truncate generation early, but many will throw an error.\n\n---\n\n## 3. Priority Order of Fixes\n\n### \u2705 **Critical (causes API errors now)**\nFix first:\n- **phi\u20113\u2011mini\u2011128k** (4,096 max)  \n- **claude\u2011haiku\u20113\u20115** (4,096 max)  \n- **claude\u2011opus\u20114 / claude\u2011sonnet\u20114** (8,192 max)  \n- **gemini\u20112.0\u2011flash** (8,192 max)  \n- **mistral\u2011large** (8,192 max)  \n- **llama\u20113.3\u201170b** (8,192 max)\n\n### \u26a0\ufe0f **Important (artificially limits capability)**\n- **o3\u2011mini** should be raised to **32,768**\n\n### \ud83d\udfe2 **Low Priority (already correct)**\n- **gpt\u20114o**\n- **gpt\u20114o\u2011mini**\n\n---\n\n## 4. Corrected Config Snippet (Top 3 Priority)\n\n```json\n{\n  \"model\": \"phi-3-mini-128k\",\n  \"maxTokens\": 4096,\n  \"reason\": \"Changed from 16384: Azure Phi-3 Mini output limit is 4,096\"\n}\n```\n\n```json\n{\n  \"model\": \"claude-haiku-3-5\",\n  \"maxTokens\": 4096,\n  \"reason\": \"Changed from 16384: Claude Haiku 3.5 max output is 4,096\"\n}\n```\n\n```json\n{\n  \"model\": \"gemini-2.0-flash\",\n  \"maxTokens\": 8192,\n  \"reason\": \"Changed from 16384: Gemini 2.0 Flash max output is 8,192\"\n}\n```\n\n---\n\nIf you want, I can generate a **full corrected config file** or verify newer token limits for any specific provider.",
+  "metrics": {
+    "input_tokens": 618,
+    "output_tokens": 12694,
+    "ttft_ms": null,
+    "total_latency_ms": 91035.2,
+    "tokens_per_sec": 139.4,
+    "thinking_skipped": false,
+    "cost_usd": 0.128485,
+    "code_pass_rate": null
+  },
+  "category": "analysis",
+  "difficulty": "easy",
+  "family": "openai"
+}

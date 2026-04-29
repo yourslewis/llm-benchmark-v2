@@ -1,0 +1,18 @@
+{
+  "task_id": "writing-04",
+  "model_id": "claude-opus-4-6-1m",
+  "status": "ok",
+  "response_text": "Subject: 1:1 Check-in \u2014 Performance Concerns I Want to Discuss\n\nHi Alex,\n\nI'd like to schedule a 1:1 this week to talk through some concerns I have about this past quarter. I want to be upfront about what's on my mind so you have time to reflect before we sit down.\n\nHere's what I'm seeing:\n\n**Delivery timelines:** The Persona V3 integration shipped 13 days past the March 15 deadline, and the evaluation pipeline (due April 1) is still incomplete. These are significant misses, and I don't have a clear picture of what drove them.\n\n**Code reviews:** Several teammates have flagged that your reviews on complex PRs have been brief \u2014 one-line approvals without substantive feedback. That's a shift from the standard you've set in the past, and the team relies on your technical depth here.\n\n**Communication:** You've missed two standups without a heads-up, and there have been multiple stretches of 3+ hours with no response on Teams during working hours. That makes it hard for the team to plan around dependencies.\n\nI want to be direct: this doesn't match the Alex I saw lead the Persona V2 launch, mentor Priya and Jordan, and earn an Exceeds rating last cycle. That track record is exactly why I'm raising this now rather than letting it drift. Something has changed, and I'd rather understand what's going on than make assumptions.\n\nThis isn't a disciplinary conversation. The goal is to figure out what's getting in the way \u2014 whether that's workload, personal circumstances, unclear priorities, or something else \u2014 and build a plan together to get things back on track.\n\nPlease grab any open 45-minute slot on my calendar this week. If none of the times work, send me a couple that do and I'll make it happen.\n\nI'm on your side here, Alex. Let's talk.\n\nBest,\n[Your name]",
+  "metrics": {
+    "input_tokens": 420,
+    "output_tokens": 430,
+    "ttft_ms": 1669.8,
+    "total_latency_ms": 13017.2,
+    "tokens_per_sec": 37.9,
+    "cost_usd": 0.01285,
+    "code_pass_rate": null
+  },
+  "category": "writing",
+  "difficulty": "hard",
+  "family": "claude"
+}

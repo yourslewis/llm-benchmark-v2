@@ -1,0 +1,12 @@
+{
+  "category": "code",
+  "difficulty": "hard",
+  "grading": "automated",
+  "criteria": [
+    {"name": "dual_api_support", "weight": 20, "description": "Correctly handles both Chat Completions and Responses API formats"},
+    {"name": "sse_streaming", "weight": 20, "description": "Parses SSE stream manually using stdlib; correctly identifies first token"},
+    {"name": "ttft_accuracy", "weight": 20, "description": "TTFT measured from request start to first non-empty content delta in milliseconds"},
+    {"name": "output_structure", "weight": 20, "description": "JSON output matches required schema with all fields including summary"},
+    {"name": "robustness", "weight": 20, "description": "Handles timeouts/errors per-model without crashing; parallel workers work correctly"}
+  ]
+}

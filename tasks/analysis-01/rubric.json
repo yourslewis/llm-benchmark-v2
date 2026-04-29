@@ -1,0 +1,11 @@
+{
+  "category": "analysis",
+  "difficulty": "hard",
+  "grading": "llm_judge",
+  "criteria": [
+    {"name": "root_cause_identification", "weight": 30, "description": "Correctly identifies gpt-4o as the primary timeout source; recognizes the ~5000ms threshold as the configured timeout (not model latency); notes j1k2l3 shows cascading failure when fallback also times out"},
+    {"name": "pattern_table", "weight": 20, "description": "Table correctly populated: 6 timeout events, gpt-4o as primary culprit, 4/5 sessions succeeded via failover, 1 session exhausted all fallbacks, ~5100ms typical elapsed"},
+    {"name": "config_fix_quality", "weight": 30, "description": "Proposes raising timeout_ms to at least 10000ms; adds a non-OpenAI fallback for o3-mini; fixes the circular fallback chain (o3-mini→gpt-4o→timeout loop)"},
+    {"name": "monitoring_recommendation", "weight": 20, "description": "Provides specific alert: metric (timeout rate), threshold (e.g., >20% in 5min window), and action (page/notify)"}
+  ]
+}

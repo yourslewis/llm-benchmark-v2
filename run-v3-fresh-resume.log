@@ -1,0 +1,5 @@
+Loaded 19 tasks, 22 models
+Total runs: 418
+Resuming from /Users/yourslewis/.openclaw/workspace-chloe/benchmark/results/v3-20260407-194331
+[340/418] writing-01 × gpt-5.3-codex... ✅ 70 tok/s | no TTFT | 67536ms
+[341/418] writing-01 × gpt-5.2... 

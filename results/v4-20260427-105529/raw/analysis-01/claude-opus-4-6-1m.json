@@ -1,0 +1,19 @@
+{
+  "task_id": "analysis-01",
+  "model_id": "claude-opus-4-6-1m",
+  "status": "ok",
+  "response_text": "\n\n## 1. Root Cause Analysis\n\n**gpt-4o is experiencing sustained elevated latency** across the OpenAI provider, consistently exceeding the 5000ms timeout. Every gpt-4o call timed out (5 out of 5). The tight clustering of elapsed times (~5070-5160ms) right at the threshold confirms this is the timeout cutting off requests, not variable failures. Non-OpenAI models (Claude, Gemini) respond fine (~600-900ms TTFT).\n\nSession `j1k2l3` reveals a critical config flaw: `o3-mini` fails over to `gpt-4o`, which is the very provider experiencing issues \u2014 causing a cascading failure with all fallbacks exhausted.\n\nMost likely cause: OpenAI API degradation/outage during this window.\n\n## 2. Pattern Summary\n\n| Metric | Value |\n|--------|-------|\n| Total timeout events | 6 |\n| Primary model causing most timeouts | gpt-4o (5 of 6; the 6th is o3-mini, also OpenAI) |\n| % of sessions where failover succeeded | 60% (3 of 5 \u2014 m4n5o6 is incomplete but likely succeeded) |\n| Sessions where all fallbacks exhausted | 1 (j1k2l3) |\n| Typical elapsed time at timeout | ~5100ms |\n\n## 3. Configuration Fix\n\n```yaml\ngateway:\n  timeout_ms: 8000              # Give models more headroom\n  retry:\n    enabled: true\n    max_attempts: 1\n    backoff_ms: 500\n  models:\n    - id: gpt-4o\n      provider: openai\n      timeout_ms: 10000          # Per-model override for slower model\n      fallback: claude-sonnet-4\n    - id: o3-mini\n      provider: openai\n      timeout_ms: 10000\n      fallback: claude-sonnet-4  # CHANGED: don't fail over to another OpenAI model\n    - id: claude-sonnet-4\n      provider: anthropic\n      fallback: gemini-2.0-flash # Added fallback instead of null\n    - id: gemini-2.0-flash\n      provider: google\n      fallback: null\n```\n\nKey changes:\n- **o3-mini fallback \u2192 claude-sonnet-4**: Never chain fallbacks within the same provider\n- **Added fallback for claude-sonnet-4**: Eliminates single-point-of-failure\n- **Increased timeouts**: 5s is too tight for large model cold-starts\n- **Per-model timeout overrides**: Allows tuning per model characteristics\n\n## 4. Monitoring Recommendation\n\n```yaml\nalert:\n  name: provider_timeout_rate_high\n  metric: count(embedded_run_failover{reason=\"timeout\"}) grouped by provider\n  window: 2m\n  threshold: \">= 3\"\n  action:\n    - page on-call with provider name\n    - auto-enable circuit breaker to skip degraded provider and route directly to fallbacks\n```\n\nThis would have fired at ~08:16 (3 OpenAI timeouts in 2 min), well before the complete failure at 08:17.",
+  "metrics": {
+    "input_tokens": 1012,
+    "output_tokens": 623,
+    "ttft_ms": 1587.2,
+    "total_latency_ms": 22086.5,
+    "tokens_per_sec": 30.4,
+    "thinking_skipped": false,
+    "cost_usd": 0.020635,
+    "code_pass_rate": null
+  },
+  "category": "analysis",
+  "difficulty": "hard",
+  "family": "claude"
+}

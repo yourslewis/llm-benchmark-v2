@@ -1,0 +1,18 @@
+{
+  "task_id": "analysis-03",
+  "model_id": "gpt-5.4-mini",
+  "status": "ok",
+  "response_text": "Below is a best-known, vendor-limit-based correction pass for your `maxTokens` settings.  \nI\u2019m treating `maxTokens` as the **maximum output tokens** your gateway will allow per request.\n\n> Note: vendor limits can vary by exact deployment/version, especially for Anthropic, Groq, and Azure. Use the provider\u2019s live docs as the final source of truth.\n\n## 1) Corrected table\n\n| Model ID | Actual Max Output Tokens | Current Setting | Recommended Setting | Action Needed |\n|----------|--------------------------|-----------------|---------------------|---------------|\n| gpt-4o | 16,384 | 16,384 | 16,384 | OK |\n| gpt-4o-mini | 16,384 | 16,384 | 16,384 | OK |\n| o3-mini | 100,000 | 16,384 | 32,768 | Increase |\n| claude-opus-4 | 8,192 | 16,384 | 8,192 | Decrease |\n| claude-sonnet-4 | 8,192 | 16,384 | 8,192 | Decrease |\n| claude-haiku-3-5 | 8,192 | 16,384 | 8,192 | Decrease |\n| gemini-2.0-flash | 8,192 | 16,384 | 8,192 | Decrease |\n| mistral-large | 8,192 | 16,384 | 8,192 | Decrease |\n| llama-3.3-70b | 8,192 | 16,384 | 8,192 | Decrease |\n| phi-3-mini-128k | 4,096 | 16,384 | 4,096 | Decrease |\n\n## 2) Dangerous misconfiguration\n\nYes \u2014 several models are currently set **higher than their API max**.\n\n### Models affected\n- `claude-opus-4`\n- `claude-sonnet-4`\n- `claude-haiku-3-5`\n- `gemini-2.0-flash`\n- `mistral-large`\n- `llama-3.3-70b`\n- `phi-3-mini-128k`\n\n### What happens if a request tries to use the full 16,384?\nMost providers will reject the request with a **validation error / 400 Bad Request** before generation starts, typically along the lines of:\n- `max_tokens must be <= 8192`\n- `max_output_tokens exceeds model limit`\n- `invalid request parameter`\n\nIf your gateway doesn\u2019t clamp values first, the user will see a failed request instead of a completion.\n\n## 3) Priority order\n\n### Critical \u2014 will cause API errors\n1. `phi-3-mini-128k` \u2014 should be 4,096, not 16,384\n2. `claude-opus-4` \u2014 should be 8,192\n3. `claude-sonnet-4` \u2014 should be 8,192\n4. `claude-haiku-3-5` \u2014 should be 8,192\n5. `gemini-2.0-flash` \u2014 should be 8,192\n6. `mistral-large` \u2014 should be 8,192\n7. `llama-3.3-70b` \u2014 should be 8,192\n\n### Important \u2014 current setting limits capability significantly\n8. `o3-mini` \u2014 actual max is much higher than 16,384; raise to a practical cap like 32,768\n\n### Low priority \u2014 already correct\n9. `gpt-4o`\n10. `gpt-4o-mini`\n\n## 4) Config snippet for the 3 highest-priority models\n\n```json\n{\n  \"model\": \"phi-3-mini-128k\",\n  \"maxTokens\": 4096,\n  \"reason\": \"Changed from 16384: actual API limit is 4096\"\n}\n```\n\n```json\n{\n  \"model\": \"claude-opus-4\",\n  \"maxTokens\": 8192,\n  \"reason\": \"Changed from 16384: actual API limit is 8192\"\n}\n```\n\n```json\n{\n  \"model\": \"claude-sonnet-4\",\n  \"maxTokens\": 8192,\n  \"reason\": \"Changed from 16384: actual API limit is 8192\"\n}\n```\n\nIf you want, I can also turn this into a **full corrected JSON config** for all 10 models.",
+  "metrics": {
+    "input_tokens": 644,
+    "output_tokens": 7658,
+    "ttft_ms": null,
+    "total_latency_ms": 27896.0,
+    "tokens_per_sec": 274.5,
+    "cost_usd": 0.01251,
+    "code_pass_rate": null
+  },
+  "category": "analysis",
+  "difficulty": "easy",
+  "family": "openai"
+}

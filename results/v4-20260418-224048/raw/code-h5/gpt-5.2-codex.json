@@ -1,0 +1,19 @@
+{
+  "task_id": "code-h5",
+  "model_id": "gpt-5.2-codex",
+  "status": "ok",
+  "response_text": "",
+  "metrics": {
+    "input_tokens": 1669,
+    "output_tokens": 16000,
+    "ttft_ms": null,
+    "total_latency_ms": 146586.9,
+    "tokens_per_sec": 109.2,
+    "thinking_skipped": false,
+    "cost_usd": 0.164172,
+    "code_pass_rate": null
+  },
+  "category": "code",
+  "difficulty": "hard",
+  "family": "openai"
+}

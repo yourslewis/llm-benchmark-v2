@@ -1,0 +1,19 @@
+{
+  "task_id": "debug-02",
+  "model_id": "gpt-5.2-codex",
+  "status": "ok",
+  "response_text": "```python\n#!/usr/bin/env python3\n\"\"\"\nfix_max_tokens.py\n\nUpdate OpenClaw model maxTokens values to correct API limits.\n\"\"\"\n\nimport os\nimport sys\nimport json\nimport shutil\nimport argparse\n\nCORRECT_LIMITS = {\n    \"gpt-4o\": 16384,\n    \"gpt-4o-mini\": 16384,\n    \"o3-mini\": 65536,\n    \"claude-opus-4\": 8096,\n    \"claude-sonnet-4\": 8096,\n    \"claude-haiku-3-5\": 8096,\n    \"gemini-2.0-flash\": 8192,\n    \"mistral-large\": 131072,\n    \"llama-3.3-70b\": 8192,\n    \"phi-3-mini-128k\": 4096,\n}\n\ndef main():\n    default_path = os.path.expanduser(\"~/.openclaw/config.json\")\n\n    parser = argparse.ArgumentParser(description=\"Fix OpenClaw maxTokens values.\")\n    parser.add_argument(\"path\", nargs=\"?\", default=default_path,\n                        help=f\"Path to config file (default: {default_path})\")\n    parser.add_argument(\"--dry-run\", action=\"store_true\",\n                        help=\"Show changes without writing to disk\")\n    args = parser.parse_args()\n\n    config_path = os.path.expanduser(args.path)\n\n    if not os.path.exists(config_path):\n        print(f\"Config file not found: {config_path}\", file=sys.stderr)\n        return 1\n\n    try:\n        with open(config_path, \"r\", encoding=\"utf-8\") as f:\n            data = json.load(f)\n    except FileNotFoundError:\n        print(f\"Config file not found: {config_path}\", file=sys.stderr)\n        return 1\n    except json.JSONDecodeError as e:\n        print(f\"Error parsing JSON: {e}\", file=sys.stderr)\n        return 1\n\n    models = data.get(\"models\")\n    if not isinstance(models, list):\n        print(\"Invalid config: 'models' is missing or not a list.\", file=sys.stderr)\n        return 1\n\n    updated = 0\n    unchanged = 0\n    skipped = 0\n\n    print(f\"Checking {len(models)} models...\")\n    for m in models:\n        model_id = m.get(\"id\")\n        if not model_id:\n            skipped += 1\n            print(\"  <unknown>: missing id (SKIPPED)\")\n            continue\n\n        if model_id not in CORRECT_LIMITS:\n            skipped += 1\n            print(f\"  {model_id}: not in known limits (SKIPPED)\")\n            continue\n\n        correct = CORRECT_LIMITS[model_id]\n        current = m.get(\"maxTokens\")\n\n        if current != correct:\n            m[\"maxTokens\"] = correct\n            updated += 1\n            print(f\"  {model_id}: {current} \u2192 {correct} (UPDATED)\")\n        else:\n            unchanged += 1\n            print(f\"  {model_id}: {current} \u2192 {correct} (no change)\")\n\n    print(f\"\\nSummary: {updated} updated, {unchanged} unchanged, {skipped} skipped\")\n\n    if args.dry_run:\n        print(\"Dry run: no changes written.\")\n        return 0\n\n    if updated == 0:\n        print(\"No changes to write.\")\n        return 0\n\n    backup_path = config_path + \".bak\"\n    try:\n        shutil.copy2(config_path, backup_path)\n    except Exception as e:\n        print(f\"Failed to create backup: {e}\", file=sys.stderr)\n        return 1\n\n    try:\n        with open(config_path, \"w\", encoding=\"utf-8\") as f:\n            json.dump(data, f, indent=2)\n            f.write(\"\\n\")\n    except Exception as e:\n        print(f\"Error writing config: {e}\", file=sys.stderr)\n        return 1\n\n    print(f\"Config saved to: {config_path}\")\n    return 0\n\nif __name__ == \"__main__\":\n    sys.exit(main())\n```",
+  "metrics": {
+    "input_tokens": 832,
+    "output_tokens": 2636,
+    "ttft_ms": null,
+    "total_latency_ms": 29856.6,
+    "tokens_per_sec": 88.3,
+    "thinking_skipped": false,
+    "cost_usd": 0.02844,
+    "code_pass_rate": 100
+  },
+  "category": "debug",
+  "difficulty": "medium",
+  "family": "openai"
+}

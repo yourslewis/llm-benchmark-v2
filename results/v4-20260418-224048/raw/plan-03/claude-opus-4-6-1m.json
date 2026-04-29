@@ -1,0 +1,19 @@
+{
+  "task_id": "plan-03",
+  "model_id": "claude-opus-4-6-1m",
+  "status": "ok",
+  "response_text": "\n\n**Subject:** Receipt Copy Request \u2013 March 12 Dining Visit ($515.56)\n\nDear Boardwalk Restaurant Team,\n\nI hope this message finds you well. I recently dined at your restaurant for a business lunch and unfortunately lost my paper receipt. I'm hoping you could help me track down a copy for my expense report.\n\nHere are the transaction details:\n\n- **Date:** March 12, 2026\n- **Time:** Approximately 1:58 PM\n- **Amount:** $515.56\n- **Payment:** American Express card\n\nA duplicate receipt or even a written confirmation of the charge would work perfectly for my reimbursement submission. My expense report is due at the end of the month, so if you're able to send something along before then, I'd really appreciate it.\n\nPlease don't hesitate to reach out if you need any additional information to locate the transaction. I'm happy to provide whatever helps.\n\nThank you so much for your time!\n\nBest regards,\n\n**Alex Chen**\nAccount Manager | Contoso Technologies\nalex.chen@contoso.com | (555) 014-7",
+  "metrics": {
+    "input_tokens": 395,
+    "output_tokens": 248,
+    "ttft_ms": 1992.2,
+    "total_latency_ms": 6748.1,
+    "tokens_per_sec": 52.1,
+    "thinking_skipped": false,
+    "cost_usd": 0.008175,
+    "code_pass_rate": null
+  },
+  "category": "plan",
+  "difficulty": "easy",
+  "family": "claude"
+}

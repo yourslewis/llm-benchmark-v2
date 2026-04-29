@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Model Benchmark Report v4</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 1200px; margin: 40px auto; padding: 0 20px; color: #1a1a1a; line-height: 1.6; }
+  h1 { border-bottom: 3px solid #2563eb; padding-bottom: 8px; }
+  h2 { color: #2563eb; margin-top: 2em; border-bottom: 1px solid #e5e7eb; padding-bottom: 4px; }
+  table { border-collapse: collapse; width: 100%; margin: 1em 0; font-size: 0.85em; }
+  th, td { border: 1px solid #d1d5db; padding: 5px 8px; text-align: left; }
+  th { background: #f3f4f6; font-weight: 600; }
+  tr:nth-child(even) { background: #f9fafb; }
+  .meta { color: #6b7280; font-size: 0.9em; margin-bottom: 2em; }
+  .best { background: #d1fae5 !important; font-weight: 600; }
+  .routing { background: #eff6ff; padding: 16px; border-radius: 8px; margin: 12px 0; }
+</style>
+</head>
+<body>
+<h1>📊 Model Benchmark Report v4</h1>
+<div class="meta">
+  <strong>Generated:</strong> 2026-04-21 01:08 &nbsp;|&nbsp;
+  <strong>Models:</strong> 17 &nbsp;|&nbsp;
+  <strong>Results:</strong> /Users/yourslewis/.openclaw/workspace-chloe/benchmark/results/v4-20260418-224048
+</div>
+
+<h2>Overall Ranking</h2>
+<table>
+<tr><th>#</th><th>Model</th><th>Overall</th><th>Grounding</th><th>Relevance</th><th>Quality</th><th>Tok/s</th><th>Cost/task</th><th>Q/$</th><th>Code%</th><th>TTFT p50</th><th>Lat p50</th><th>Errors</th></tr>
+<tr class="best"><td>1</td><td>gemini-3-flash-preview</td><td>0.945</td><td>7.7</td><td>8.3</td><td>8.00</td><td>192</td><td>$0.0016</td><td>5018.8</td><td>75%</td><td>1413</td><td>10357</td><td>0%</td></tr>
+<tr><td>2</td><td>gemini-3.1-pro-preview</td><td>0.939</td><td>7.9</td><td>8.1</td><td>9.00</td><td>128</td><td>$0.0283</td><td>318.5</td><td>89%</td><td>10548</td><td>25560</td><td>0%</td></tr>
+<tr><td>3</td><td>claude-opus-4-7</td><td>0.915</td><td>8.2</td><td>8.1</td><td>9.00</td><td>55</td><td>$0.0721</td><td>124.8</td><td>89%</td><td>2163</td><td>32376</td><td>0%</td></tr>
+<tr><td>4</td><td>gpt-5.3-codex</td><td>0.911</td><td>8.2</td><td>7.7</td><td>9.00</td><td>77</td><td>$0.0762</td><td>118.1</td><td>99%</td><td>—</td><td>66764</td><td>0%</td></tr>
+<tr><td>5</td><td>azure/gpt-5.3-codex</td><td>0.898</td><td>8.3</td><td>7.3</td><td>9.00</td><td>72</td><td>$0.0760</td><td>118.4</td><td>89%</td><td>—</td><td>73312</td><td>0%</td></tr>
+<tr><td>6</td><td>gpt-5-mini</td><td>0.896</td><td>7.9</td><td>7.4</td><td>9.00</td><td>86</td><td>$0.0071</td><td>1270.5</td><td>99%</td><td>125954</td><td>168590</td><td>3%</td></tr>
+<tr><td>7</td><td>claude-opus-4-6</td><td>0.890</td><td>8.1</td><td>7.5</td><td>9.00</td><td>55</td><td>$0.0718</td><td>125.4</td><td>100%</td><td>1976</td><td>25795</td><td>0%</td></tr>
+<tr><td>8</td><td>claude-opus-4-6-1m</td><td>0.883</td><td>7.8</td><td>7.6</td><td>9.00</td><td>55</td><td>$0.0736</td><td>122.2</td><td>100%</td><td>1992</td><td>27694</td><td>0%</td></tr>
+<tr><td>9</td><td>claude-sonnet-4-6</td><td>0.867</td><td>8.0</td><td>7.8</td><td>8.00</td><td>63</td><td>$0.0682</td><td>117.2</td><td>89%</td><td>1420</td><td>40612</td><td>0%</td></tr>
+<tr><td>10</td><td>gpt-5.2-codex</td><td>0.822</td><td>7.4</td><td>6.4</td><td>8.00</td><td>119</td><td>$0.1002</td><td>79.9</td><td>76%</td><td>—</td><td>54658</td><td>0%</td></tr>
+<tr><td>11</td><td>gpt-5.2</td><td>0.821</td><td>8.2</td><td>7.2</td><td>7.00</td><td>67</td><td>$0.0767</td><td>91.3</td><td>78%</td><td>—</td><td>78659</td><td>0%</td></tr>
+<tr><td>12</td><td>gpt-5.4</td><td>0.804</td><td>7.2</td><td>5.9</td><td>9.00</td><td>66</td><td>$0.1118</td><td>80.5</td><td>89%</td><td>—</td><td>180788</td><td>0%</td></tr>
+<tr><td>13</td><td>claude-sonnet-4-5</td><td>0.802</td><td>7.6</td><td>7.4</td><td>7.00</td><td>57</td><td>$0.0731</td><td>95.8</td><td>78%</td><td>1091</td><td>44398</td><td>0%</td></tr>
+<tr><td>14</td><td>claude-haiku-4-5</td><td>0.793</td><td>7.5</td><td>7.2</td><td>6.00</td><td>130</td><td>$0.0249</td><td>241.4</td><td>78%</td><td>1111</td><td>19358</td><td>0%</td></tr>
+<tr><td>15</td><td>azure/gpt-5.1-codex-mini</td><td>0.730</td><td>7.5</td><td>6.4</td><td>5.00</td><td>128</td><td>$0.0130</td><td>385.1</td><td>59%</td><td>—</td><td>39121</td><td>0%</td></tr>
+<tr><td>16</td><td>gpt-5.4-mini</td><td>0.559</td><td>6.6</td><td>4.8</td><td>2.00</td><td>171</td><td>$0.0201</td><td>99.7</td><td>48%</td><td>—</td><td>80308</td><td>0%</td></tr>
+<tr><td>17</td><td>gpt-5.1</td><td>0.000</td><td>0.0</td><td>0.0</td><td>0.00</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>100%</td></tr>
+</table>
+<h2>🚀 Speed Leaderboard (by tok/s)</h2>
+<table>
+<tr><th>#</th><th>Model</th><th>Tok/s</th><th>TTFT p50</th><th>Latency p50</th><th>Quality</th></tr>
+<tr class="best"><td>1</td><td>gemini-3-flash-preview</td><td>192</td><td>1413</td><td>10357</td><td>8.00</td></tr>
+<tr><td>2</td><td>gpt-5.4-mini</td><td>171</td><td>—</td><td>80308</td><td>2.00</td></tr>
+<tr><td>3</td><td>claude-haiku-4-5</td><td>130</td><td>1111</td><td>19358</td><td>6.00</td></tr>
+<tr><td>4</td><td>gemini-3.1-pro-preview</td><td>128</td><td>10548</td><td>25560</td><td>9.00</td></tr>
+<tr><td>5</td><td>azure/gpt-5.1-codex-mini</td><td>128</td><td>—</td><td>39121</td><td>5.00</td></tr>
+<tr><td>6</td><td>gpt-5.2-codex</td><td>119</td><td>—</td><td>54658</td><td>8.00</td></tr>
+<tr><td>7</td><td>gpt-5-mini</td><td>86</td><td>125954</td><td>168590</td><td>9.00</td></tr>
+<tr><td>8</td><td>gpt-5.3-codex</td><td>77</td><td>—</td><td>66764</td><td>9.00</td></tr>
+<tr><td>9</td><td>azure/gpt-5.3-codex</td><td>72</td><td>—</td><td>73312</td><td>9.00</td></tr>
+<tr><td>10</td><td>gpt-5.2</td><td>67</td><td>—</td><td>78659</td><td>7.00</td></tr>
+<tr><td>11</td><td>gpt-5.4</td><td>66</td><td>—</td><td>180788</td><td>9.00</td></tr>
+<tr><td>12</td><td>claude-sonnet-4-6</td><td>63</td><td>1420</td><td>40612</td><td>8.00</td></tr>
+<tr><td>13</td><td>claude-sonnet-4-5</td><td>57</td><td>1091</td><td>44398</td><td>7.00</td></tr>
+<tr><td>14</td><td>claude-opus-4-6</td><td>55</td><td>1976</td><td>25795</td><td>9.00</td></tr>
+<tr><td>15</td><td>claude-opus-4-6-1m</td><td>55</td><td>1992</td><td>27694</td><td>9.00</td></tr>
+<tr><td>16</td><td>claude-opus-4-7</td><td>55</td><td>2163</td><td>32376</td><td>9.00</td></tr>
+<tr><td>17</td><td>gpt-5.1</td><td>—</td><td>—</td><td>—</td><td>0.00</td></tr>
+</table>
+<h2>💰 Cost-Adjusted Leaderboard (by Quality/$)</h2>
+<table>
+<tr><th>#</th><th>Model</th><th>Quality/$</th><th>Quality</th><th>Cost/task</th></tr>
+<tr class="best"><td>1</td><td>gemini-3-flash-preview</td><td>5018.8</td><td>8.00</td><td>$0.0016</td></tr>
+<tr><td>2</td><td>gpt-5-mini</td><td>1270.5</td><td>9.00</td><td>$0.0071</td></tr>
+<tr><td>3</td><td>azure/gpt-5.1-codex-mini</td><td>385.1</td><td>5.00</td><td>$0.0130</td></tr>
+<tr><td>4</td><td>gemini-3.1-pro-preview</td><td>318.5</td><td>9.00</td><td>$0.0283</td></tr>
+<tr><td>5</td><td>claude-haiku-4-5</td><td>241.4</td><td>6.00</td><td>$0.0249</td></tr>
+<tr><td>6</td><td>claude-opus-4-6</td><td>125.4</td><td>9.00</td><td>$0.0718</td></tr>
+<tr><td>7</td><td>claude-opus-4-7</td><td>124.8</td><td>9.00</td><td>$0.0721</td></tr>
+<tr><td>8</td><td>claude-opus-4-6-1m</td><td>122.2</td><td>9.00</td><td>$0.0736</td></tr>
+<tr><td>9</td><td>azure/gpt-5.3-codex</td><td>118.4</td><td>9.00</td><td>$0.0760</td></tr>
+<tr><td>10</td><td>gpt-5.3-codex</td><td>118.1</td><td>9.00</td><td>$0.0762</td></tr>
+<tr><td>11</td><td>claude-sonnet-4-6</td><td>117.2</td><td>8.00</td><td>$0.0682</td></tr>
+<tr><td>12</td><td>gpt-5.4-mini</td><td>99.7</td><td>2.00</td><td>$0.0201</td></tr>
+<tr><td>13</td><td>claude-sonnet-4-5</td><td>95.8</td><td>7.00</td><td>$0.0731</td></tr>
+<tr><td>14</td><td>gpt-5.2</td><td>91.3</td><td>7.00</td><td>$0.0767</td></tr>
+<tr><td>15</td><td>gpt-5.4</td><td>80.5</td><td>9.00</td><td>$0.1118</td></tr>
+<tr><td>16</td><td>gpt-5.2-codex</td><td>79.9</td><td>8.00</td><td>$0.1002</td></tr>
+</table>
+<h2>Per-Category Breakdown</h2>
+<h3>Analysis</h3>
+<table>
+<tr><th>#</th><th>Model</th><th>Composite</th><th>Grounding</th><th>Relevance</th><th>Quality</th><th>Speed</th><th>Cost/task</th></tr>
+<tr class="best"><td>1</td><td>gpt-5.4</td><td>0.907</td><td>7.7</td><td>9.0</td><td>8.67</td><td>66 tok/s</td><td>$0.1118</td></tr>
+<tr><td>2</td><td>azure/gpt-5.3-codex</td><td>0.766</td><td>7.3</td><td>9.0</td><td>8.00</td><td>72 tok/s</td><td>$0.0760</td></tr>
+<tr><td>3</td><td>claude-opus-4-7</td><td>0.750</td><td>6.7</td><td>9.0</td><td>8.67</td><td>55 tok/s</td><td>$0.0721</td></tr>
+<tr><td>4</td><td>gpt-5.2</td><td>0.713</td><td>7.0</td><td>8.7</td><td>8.67</td><td>67 tok/s</td><td>$0.0767</td></tr>
+<tr><td>5</td><td>claude-sonnet-4-6</td><td>0.712</td><td>6.7</td><td>9.0</td><td>8.33</td><td>63 tok/s</td><td>$0.0682</td></tr>
+<tr><td>6</td><td>gpt-5.4-mini</td><td>0.651</td><td>6.7</td><td>8.7</td><td>8.00</td><td>171 tok/s</td><td>$0.0201</td></tr>
+<tr><td>7</td><td>claude-opus-4-6-1m</td><td>0.602</td><td>6.0</td><td>9.0</td><td>8.33</td><td>55 tok/s</td><td>$0.0736</td></tr>
+<tr><td>8</td><td>gpt-5.3-codex</td><td>0.556</td><td>7.0</td><td>8.3</td><td>8.33</td><td>77 tok/s</td><td>$0.0762</td></tr>
+<tr><td>9</td><td>gemini-3.1-pro-preview</td><td>0.521</td><td>6.3</td><td>8.7</td><td>7.67</td><td>128 tok/s</td><td>$0.0283</td></tr>
+<tr><td>10</td><td>claude-haiku-4-5</td><td>0.516</td><td>5.7</td><td>8.7</td><td>8.33</td><td>130 tok/s</td><td>$0.0249</td></tr>
+</table>
+<h3>Code</h3>
+<table>
+<tr><th>#</th><th>Model</th><th>Composite</th><th>Grounding</th><th>Relevance</th><th>Quality</th><th>Speed</th><th>Cost/task</th></tr>
+<tr class="best"><td>1</td><td>gpt-5.3-codex</td><td>0.857</td><td>9.2</td><td>7.3</td><td>8.86</td><td>77 tok/s</td><td>$0.0762</td></tr>
+<tr><td>2</td><td>claude-opus-4-6</td><td>0.797</td><td>8.9</td><td>6.8</td><td>9.18</td><td>55 tok/s</td><td>$0.0718</td></tr>
+<tr><td>3</td><td>gemini-3.1-pro-preview</td><td>0.786</td><td>8.4</td><td>7.7</td><td>8.09</td><td>128 tok/s</td><td>$0.0283</td></tr>
+<tr><td>4</td><td>gemini-3-flash-preview</td><td>0.757</td><td>8.1</td><td>7.9</td><td>7.06</td><td>192 tok/s</td><td>$0.0016</td></tr>
+<tr><td>5</td><td>claude-opus-4-7</td><td>0.739</td><td>8.7</td><td>7.4</td><td>7.91</td><td>55 tok/s</td><td>$0.0721</td></tr>
+<tr><td>6</td><td>claude-opus-4-6-1m</td><td>0.728</td><td>8.2</td><td>6.9</td><td>9.18</td><td>55 tok/s</td><td>$0.0736</td></tr>
+<tr><td>7</td><td>gpt-5-mini</td><td>0.728</td><td>8.2</td><td>7.0</td><td>8.68</td><td>86 tok/s</td><td>$0.0071</td></tr>
+<tr><td>8</td><td>azure/gpt-5.3-codex</td><td>0.722</td><td>8.9</td><td>6.8</td><td>7.73</td><td>72 tok/s</td><td>$0.0760</td></tr>
+<tr><td>9</td><td>claude-sonnet-4-6</td><td>0.703</td><td>8.6</td><td>7.1</td><td>7.73</td><td>63 tok/s</td><td>$0.0682</td></tr>
+<tr><td>10</td><td>gpt-5.2</td><td>0.690</td><td>8.9</td><td>7.1</td><td>6.91</td><td>67 tok/s</td><td>$0.0767</td></tr>
+</table>
+<h3>Debug</h3>
+<table>
+<tr><th>#</th><th>Model</th><th>Composite</th><th>Grounding</th><th>Relevance</th><th>Quality</th><th>Speed</th><th>Cost/task</th></tr>
+<tr class="best"><td>1</td><td>gpt-5.4</td><td>0.794</td><td>8.0</td><td>8.0</td><td>6.00</td><td>66 tok/s</td><td>$0.1118</td></tr>
+<tr><td>2</td><td>azure/gpt-5.3-codex</td><td>0.791</td><td>7.5</td><td>8.0</td><td>7.00</td><td>72 tok/s</td><td>$0.0760</td></tr>
+<tr><td>3</td><td>gemini-3-flash-preview</td><td>0.787</td><td>7.0</td><td>8.0</td><td>6.00</td><td>192 tok/s</td><td>$0.0016</td></tr>
+<tr><td>4</td><td>gpt-5.4-mini</td><td>0.779</td><td>7.0</td><td>7.5</td><td>7.00</td><td>171 tok/s</td><td>$0.0201</td></tr>
+<tr><td>5</td><td>gpt-5.2</td><td>0.765</td><td>7.0</td><td>8.5</td><td>7.00</td><td>67 tok/s</td><td>$0.0767</td></tr>
+<tr><td>6</td><td>claude-opus-4-7</td><td>0.757</td><td>7.0</td><td>8.5</td><td>7.00</td><td>55 tok/s</td><td>$0.0721</td></tr>
+<tr><td>7</td><td>gpt-5.3-codex</td><td>0.745</td><td>7.0</td><td>8.0</td><td>7.00</td><td>77 tok/s</td><td>$0.0762</td></tr>
+<tr><td>8</td><td>gemini-3.1-pro-preview</td><td>0.729</td><td>6.5</td><td>8.0</td><td>7.00</td><td>128 tok/s</td><td>$0.0283</td></tr>
+<tr><td>9</td><td>claude-sonnet-4-6</td><td>0.705</td><td>6.0</td><td>8.5</td><td>8.00</td><td>63 tok/s</td><td>$0.0682</td></tr>
+<tr><td>10</td><td>gpt-5-mini</td><td>0.687</td><td>6.5</td><td>8.5</td><td>6.00</td><td>86 tok/s</td><td>$0.0071</td></tr>
+</table>
+<h3>Design</h3>
+<table>
+<tr><th>#</th><th>Model</th><th>Composite</th><th>Grounding</th><th>Relevance</th><th>Quality</th><th>Speed</th><th>Cost/task</th></tr>
+<tr class="best"><td>1</td><td>gemini-3.1-pro-preview</td><td>0.911</td><td>8.5</td><td>9.0</td><td>9.00</td><td>128 tok/s</td><td>$0.0283</td></tr>
+<tr><td>2</td><td>gemini-3-flash-preview</td><td>0.869</td><td>8.0</td><td>9.0</td><td>7.50</td><td>192 tok/s</td><td>$0.0016</td></tr>
+<tr><td>3</td><td>gpt-5.2-codex</td><td>0.680</td><td>8.0</td><td>7.5</td><td>5.50</td><td>119 tok/s</td><td>$0.1002</td></tr>
+<tr><td>4</td><td>claude-opus-4-6</td><td>0.675</td><td>8.5</td><td>7.5</td><td>5.50</td><td>55 tok/s</td><td>$0.0718</td></tr>
+<tr><td>5</td><td>azure/gpt-5.3-codex</td><td>0.649</td><td>8.5</td><td>7.0</td><td>5.00</td><td>72 tok/s</td><td>$0.0760</td></tr>
+<tr><td>6</td><td>claude-opus-4-6-1m</td><td>0.638</td><td>8.5</td><td>7.5</td><td>4.50</td><td>55 tok/s</td><td>$0.0736</td></tr>
+<tr><td>7</td><td>gpt-5.3-codex</td><td>0.633</td><td>8.0</td><td>7.5</td><td>5.00</td><td>77 tok/s</td><td>$0.0762</td></tr>
+<tr><td>8</td><td>claude-opus-4-7</td><td>0.619</td><td>8.5</td><td>7.5</td><td>4.00</td><td>55 tok/s</td><td>$0.0721</td></tr>
+<tr><td>9</td><td>gpt-5.2</td><td>0.608</td><td>9.0</td><td>6.5</td><td>3.50</td><td>67 tok/s</td><td>$0.0767</td></tr>
+<tr><td>10</td><td>claude-sonnet-4-6</td><td>0.586</td><td>9.0</td><td>6.5</td><td>3.00</td><td>63 tok/s</td><td>$0.0682</td></tr>
+</table>
+<h3>Long-Context</h3>
+<table>
+<tr><th>#</th><th>Model</th><th>Composite</th><th>Grounding</th><th>Relevance</th><th>Quality</th><th>Speed</th><th>Cost/task</th></tr>
+<tr class="best"><td>1</td><td>claude-opus-4-6</td><td>0.900</td><td>7.0</td><td>9.0</td><td>4.50</td><td>55 tok/s</td><td>$0.0718</td></tr>
+<tr><td>2</td><td>claude-opus-4-7</td><td>0.881</td><td>7.0</td><td>8.5</td><td>4.50</td><td>55 tok/s</td><td>$0.0721</td></tr>
+<tr><td>3</td><td>claude-sonnet-4-6</td><td>0.793</td><td>6.5</td><td>8.0</td><td>4.50</td><td>63 tok/s</td><td>$0.0682</td></tr>
+<tr><td>4</td><td>gemini-3-flash-preview</td><td>0.778</td><td>6.5</td><td>8.5</td><td>3.00</td><td>192 tok/s</td><td>$0.0016</td></tr>
+<tr><td>5</td><td>claude-opus-4-6-1m</td><td>0.764</td><td>6.5</td><td>8.5</td><td>4.00</td><td>55 tok/s</td><td>$0.0736</td></tr>
+<tr><td>6</td><td>gemini-3.1-pro-preview</td><td>0.737</td><td>6.0</td><td>8.5</td><td>4.00</td><td>128 tok/s</td><td>$0.0283</td></tr>
+<tr><td>7</td><td>gpt-5-mini</td><td>0.655</td><td>6.0</td><td>7.0</td><td>4.00</td><td>86 tok/s</td><td>$0.0071</td></tr>
+<tr><td>8</td><td>gpt-5.2-codex</td><td>0.623</td><td>6.0</td><td>4.5</td><td>4.50</td><td>119 tok/s</td><td>$0.1002</td></tr>
+<tr><td>9</td><td>claude-sonnet-4-5</td><td>0.542</td><td>6.0</td><td>8.0</td><td>2.50</td><td>57 tok/s</td><td>$0.0731</td></tr>
+<tr><td>10</td><td>claude-haiku-4-5</td><td>0.535</td><td>6.0</td><td>6.5</td><td>2.50</td><td>130 tok/s</td><td>$0.0249</td></tr>
+</table>
+<h3>Plan</h3>
+<table>
+<tr><th>#</th><th>Model</th><th>Composite</th><th>Grounding</th><th>Relevance</th><th>Quality</th><th>Speed</th><th>Cost/task</th></tr>
+<tr class="best"><td>1</td><td>gemini-3.1-pro-preview</td><td>0.878</td><td>8.3</td><td>9.3</td><td>8.00</td><td>128 tok/s</td><td>$0.0283</td></tr>
+<tr><td>2</td><td>azure/gpt-5.3-codex</td><td>0.846</td><td>8.7</td><td>8.7</td><td>7.67</td><td>72 tok/s</td><td>$0.0760</td></tr>
+<tr><td>3</td><td>gemini-3-flash-preview</td><td>0.840</td><td>8.3</td><td>8.3</td><td>7.67</td><td>192 tok/s</td><td>$0.0016</td></tr>
+<tr><td>4</td><td>claude-opus-4-7</td><td>0.733</td><td>8.3</td><td>8.7</td><td>7.33</td><td>55 tok/s</td><td>$0.0721</td></tr>
+<tr><td>5</td><td>gpt-5.2-codex</td><td>0.729</td><td>8.0</td><td>8.3</td><td>7.67</td><td>119 tok/s</td><td>$0.1002</td></tr>
+<tr><td>6</td><td>gpt-5.3-codex</td><td>0.713</td><td>8.0</td><td>9.0</td><td>7.33</td><td>77 tok/s</td><td>$0.0762</td></tr>
+<tr><td>7</td><td>gpt-5.2</td><td>0.561</td><td>8.3</td><td>7.7</td><td>6.00</td><td>67 tok/s</td><td>$0.0767</td></tr>
+<tr><td>8</td><td>claude-opus-4-6-1m</td><td>0.519</td><td>8.0</td><td>8.0</td><td>6.00</td><td>55 tok/s</td><td>$0.0736</td></tr>
+<tr><td>9</td><td>claude-sonnet-4-6</td><td>0.453</td><td>7.7</td><td>7.7</td><td>6.00</td><td>63 tok/s</td><td>$0.0682</td></tr>
+<tr><td>10</td><td>claude-opus-4-6</td><td>0.423</td><td>7.7</td><td>8.3</td><td>5.33</td><td>55 tok/s</td><td>$0.0718</td></tr>
+</table>
+<h3>Tool-Use</h3>
+<table>
+<tr><th>#</th><th>Model</th><th>Composite</th><th>Grounding</th><th>Relevance</th><th>Quality</th><th>Speed</th><th>Cost/task</th></tr>
+<tr class="best"><td>1</td><td>gemini-3-flash-preview</td><td>0.840</td><td>7.7</td><td>8.0</td><td>7.67</td><td>192 tok/s</td><td>$0.0016</td></tr>
+<tr><td>2</td><td>gpt-5.2-codex</td><td>0.784</td><td>8.0</td><td>8.0</td><td>7.33</td><td>119 tok/s</td><td>$0.1002</td></tr>
+<tr><td>3</td><td>gpt-5.3-codex</td><td>0.697</td><td>9.0</td><td>7.7</td><td>5.67</td><td>77 tok/s</td><td>$0.0762</td></tr>
+<tr><td>4</td><td>claude-opus-4-7</td><td>0.679</td><td>9.0</td><td>8.0</td><td>5.33</td><td>55 tok/s</td><td>$0.0721</td></tr>
+<tr><td>5</td><td>gpt-5.2</td><td>0.660</td><td>9.0</td><td>7.0</td><td>6.00</td><td>67 tok/s</td><td>$0.0767</td></tr>
+<tr><td>6</td><td>claude-sonnet-4-6</td><td>0.660</td><td>9.3</td><td>8.0</td><td>4.67</td><td>63 tok/s</td><td>$0.0682</td></tr>
+<tr><td>7</td><td>azure/gpt-5.3-codex</td><td>0.637</td><td>8.7</td><td>6.7</td><td>6.33</td><td>72 tok/s</td><td>$0.0760</td></tr>
+<tr><td>8</td><td>azure/gpt-5.1-codex-mini</td><td>0.631</td><td>8.3</td><td>7.0</td><td>6.00</td><td>128 tok/s</td><td>$0.0130</td></tr>
+<tr><td>9</td><td>gemini-3.1-pro-preview</td><td>0.629</td><td>8.0</td><td>6.0</td><td>7.33</td><td>128 tok/s</td><td>$0.0283</td></tr>
+<tr><td>10</td><td>claude-opus-4-6-1m</td><td>0.625</td><td>9.3</td><td>7.3</td><td>5.00</td><td>55 tok/s</td><td>$0.0736</td></tr>
+</table>
+<h3>Writing</h3>
+<table>
+<tr><th>#</th><th>Model</th><th>Composite</th><th>Grounding</th><th>Relevance</th><th>Quality</th><th>Speed</th><th>Cost/task</th></tr>
+<tr class="best"><td>1</td><td>gemini-3-flash-preview</td><td>0.848</td><td>8.5</td><td>9.0</td><td>8.50</td><td>192 tok/s</td><td>$0.0016</td></tr>
+<tr><td>2</td><td>gemini-3.1-pro-preview</td><td>0.812</td><td>8.8</td><td>8.8</td><td>8.50</td><td>128 tok/s</td><td>$0.0283</td></tr>
+<tr><td>3</td><td>gpt-5.2-codex</td><td>0.715</td><td>8.8</td><td>8.2</td><td>8.50</td><td>119 tok/s</td><td>$0.1002</td></tr>
+<tr><td>4</td><td>gpt-5.2</td><td>0.707</td><td>8.8</td><td>8.8</td><td>8.00</td><td>67 tok/s</td><td>$0.0767</td></tr>
+<tr><td>5</td><td>azure/gpt-5.3-codex</td><td>0.701</td><td>8.2</td><td>8.2</td><td>9.33</td><td>72 tok/s</td><td>$0.0760</td></tr>
+<tr><td>6</td><td>gpt-5.3-codex</td><td>0.701</td><td>8.8</td><td>8.5</td><td>8.25</td><td>77 tok/s</td><td>$0.0762</td></tr>
+<tr><td>7</td><td>claude-opus-4-7</td><td>0.686</td><td>8.8</td><td>8.5</td><td>8.25</td><td>55 tok/s</td><td>$0.0721</td></tr>
+<tr><td>8</td><td>gpt-5-mini</td><td>0.677</td><td>8.8</td><td>8.5</td><td>8.00</td><td>86 tok/s</td><td>$0.0071</td></tr>
+<tr><td>9</td><td>claude-opus-4-6</td><td>0.654</td><td>8.8</td><td>8.5</td><td>8.00</td><td>55 tok/s</td><td>$0.0718</td></tr>
+<tr><td>10</td><td>claude-sonnet-4-6</td><td>0.614</td><td>8.2</td><td>8.8</td><td>8.00</td><td>63 tok/s</td><td>$0.0682</td></tr>
+</table>
+<h2>Routing Table</h2>
+<div class="routing">
+<table>
+<tr><th>Category</th><th>Recommended</th><th>Quality</th><th>Speed</th><th>Fallback</th></tr>
+<tr><td><strong>Analysis</strong></td><td>gpt-5.4</td><td>8.7</td><td>66 tok/s</td><td>azure/gpt-5.3-codex</td></tr>
+<tr><td><strong>Code</strong></td><td>gpt-5.3-codex</td><td>8.9</td><td>77 tok/s</td><td>claude-opus-4-6</td></tr>
+<tr><td><strong>Debug</strong></td><td>gpt-5.4</td><td>6.0</td><td>66 tok/s</td><td>azure/gpt-5.3-codex</td></tr>
+<tr><td><strong>Design</strong></td><td>gemini-3.1-pro-preview</td><td>9.0</td><td>128 tok/s</td><td>gemini-3-flash-preview</td></tr>
+<tr><td><strong>Long-Context</strong></td><td>claude-opus-4-6</td><td>4.5</td><td>55 tok/s</td><td>claude-opus-4-7</td></tr>
+<tr><td><strong>Plan</strong></td><td>gemini-3.1-pro-preview</td><td>8.0</td><td>128 tok/s</td><td>azure/gpt-5.3-codex</td></tr>
+<tr><td><strong>Tool-Use</strong></td><td>gemini-3-flash-preview</td><td>7.7</td><td>192 tok/s</td><td>gpt-5.2-codex</td></tr>
+<tr><td><strong>Writing</strong></td><td>gemini-3-flash-preview</td><td>8.5</td><td>192 tok/s</td><td>gemini-3.1-pro-preview</td></tr>
+</table>
+</div>
+<h2>⚠️ Flagged Disagreements</h2>
+<table>
+<tr><th>Task</th><th>Model</th><th>Scores</th><th>Spread</th></tr>
+<tr><td>analysis-02</td><td>claude-opus-4-6-1m</td><td>claude-opus-4-7=10, gpt-5.4=7, gemini-3.1-pro-preview=10</td><td>3</td></tr>
+<tr><td>analysis-02</td><td>gemini-3.1-pro-preview</td><td>claude-opus-4-7=7, gpt-5.4=8, gemini-3.1-pro-preview=10</td><td>3</td></tr>
+<tr><td>analysis-02</td><td>gpt-5.2-codex</td><td>claude-opus-4-7=7, gpt-5.4=8, gemini-3.1-pro-preview=10</td><td>3</td></tr>
+<tr><td>analysis-03</td><td>azure/gpt-5.3-codex</td><td>claude-opus-4-7=8, gpt-5.4=4, gemini-3.1-pro-preview=7</td><td>4</td></tr>
+<tr><td>analysis-03</td><td>claude-haiku-4-5</td><td>claude-opus-4-7=6, gpt-5.4=4, gemini-3.1-pro-preview=7</td><td>3</td></tr>
+<tr><td>analysis-03</td><td>claude-opus-4-6-1m</td><td>claude-opus-4-7=7, gpt-5.4=4, gemini-3.1-pro-preview=8</td><td>4</td></tr>
+<tr><td>analysis-03</td><td>claude-opus-4-7</td><td>claude-opus-4-7=9, gpt-5.4=4, gemini-3.1-pro-preview=7</td><td>5</td></tr>
+<tr><td>analysis-03</td><td>claude-sonnet-4-5</td><td>claude-opus-4-7=7, gpt-5.4=6, gemini-3.1-pro-preview=9</td><td>3</td></tr>
+<tr><td>analysis-03</td><td>claude-sonnet-4-6</td><td>claude-opus-4-7=8, gpt-5.4=4, gemini-3.1-pro-preview=10</td><td>6</td></tr>
+<tr><td>analysis-03</td><td>gemini-3-flash-preview</td><td>claude-opus-4-7=6, gpt-5.4=4, gemini-3.1-pro-preview=9</td><td>5</td></tr>
+<tr><td>analysis-03</td><td>gemini-3.1-pro-preview</td><td>claude-opus-4-7=7, gpt-5.4=4, gemini-3.1-pro-preview=9</td><td>5</td></tr>
+<tr><td>analysis-03</td><td>gpt-5.2</td><td>claude-opus-4-7=7, gpt-5.4=6, gemini-3.1-pro-preview=9</td><td>3</td></tr>
+<tr><td>analysis-03</td><td>gpt-5.3-codex</td><td>claude-opus-4-7=7, gpt-5.4=6, gemini-3.1-pro-preview=9</td><td>3</td></tr>
+<tr><td>analysis-03</td><td>gpt-5.4-mini</td><td>claude-opus-4-7=7, gpt-5.4=6, gemini-3.1-pro-preview=9</td><td>3</td></tr>
+<tr><td>analysis-03</td><td>gpt-5.4</td><td>claude-opus-4-7=8, gpt-5.4=5, gemini-3.1-pro-preview=10</td><td>5</td></tr>
+<tr><td>code-h3</td><td>azure/gpt-5.3-codex</td><td>claude-opus-4-7=5, gpt-5.4=4, gemini-3.1-pro-preview=2</td><td>3</td></tr>
+<tr><td>code-h3</td><td>claude-opus-4-6</td><td>claude-opus-4-7=5, gpt-5.4=2, gemini-3.1-pro-preview=2</td><td>3</td></tr>
+<tr><td>code-h3</td><td>claude-opus-4-7</td><td>claude-opus-4-7=5, gpt-5.4=2, gemini-3.1-pro-preview=1</td><td>4</td></tr>
+<tr><td>code-h3</td><td>claude-sonnet-4-5</td><td>claude-opus-4-7=4, gpt-5.4=2, gemini-3.1-pro-preview=1</td><td>3</td></tr>
+<tr><td>code-h5</td><td>claude-opus-4-6-1m</td><td>claude-opus-4-7=8, gpt-5.4=6, gemini-3.1-pro-preview=10</td><td>4</td></tr>
+<tr><td>code-h5</td><td>claude-opus-4-6</td><td>claude-opus-4-7=9, gpt-5.4=7, gemini-3.1-pro-preview=10</td><td>3</td></tr>
+<tr><td>code-h5</td><td>claude-opus-4-7</td><td>claude-opus-4-7=7, gpt-5.4=4, gemini-3.1-pro-preview=5</td><td>3</td></tr>
+<tr><td>code-h5</td><td>gemini-3-flash-preview</td><td>claude-opus-4-7=8, gpt-5.4=4, gemini-3.1-pro-preview=10</td><td>6</td></tr>
+<tr><td>code-h5</td><td>gemini-3.1-pro-preview</td><td>claude-opus-4-7=7, gpt-5.4=4, gemini-3.1-pro-preview=7</td><td>3</td></tr>
+<tr><td>debug-01</td><td>azure/gpt-5.3-codex</td><td>claude-opus-4-7=7, gpt-5.4=6, gemini-3.1-pro-preview=10</td><td>4</td></tr>
+<tr><td>debug-01</td><td>claude-opus-4-7</td><td>claude-opus-4-7=7, gpt-5.4=5, gemini-3.1-pro-preview=10</td><td>5</td></tr>
+<tr><td>debug-01</td><td>claude-sonnet-4-5</td><td>claude-opus-4-7=6, gpt-5.4=5, gemini-3.1-pro-preview=9</td><td>4</td></tr>
+<tr><td>debug-01</td><td>gemini-3-flash-preview</td><td>claude-opus-4-7=6, gpt-5.4=6, gemini-3.1-pro-preview=10</td><td>4</td></tr>
+<tr><td>debug-01</td><td>gemini-3.1-pro-preview</td><td>claude-opus-4-7=7, gpt-5.4=5, gemini-3.1-pro-preview=10</td><td>5</td></tr>
+<tr><td>debug-01</td><td>gpt-5.4-mini</td><td>claude-opus-4-7=7, gpt-5.4=4, gemini-3.1-pro-preview=7</td><td>3</td></tr>
+<tr><td>design-01</td><td>azure/gpt-5.3-codex</td><td>claude-opus-4-7=7, gpt-5.4=5, gemini-3.1-pro-preview=4</td><td>3</td></tr>
+<tr><td>design-01</td><td>claude-opus-4-7</td><td>claude-opus-4-7=7, gpt-5.4=4, gemini-3.1-pro-preview=4</td><td>3</td></tr>
+<tr><td>design-01</td><td>claude-sonnet-4-6</td><td>claude-opus-4-7=5, gpt-5.4=3, gemini-3.1-pro-preview=2</td><td>3</td></tr>
+<tr><td>design-01</td><td>gemini-3-flash-preview</td><td>claude-opus-4-7=8, gpt-5.4=7, gemini-3.1-pro-preview=10</td><td>3</td></tr>
+<tr><td>design-01</td><td>gpt-5-mini</td><td>claude-opus-4-7=5, gpt-5.4=3, gemini-3.1-pro-preview=2</td><td>3</td></tr>
+<tr><td>design-02</td><td>claude-opus-4-7</td><td>claude-opus-4-7=6, gpt-5.4=4, gemini-3.1-pro-preview=3</td><td>3</td></tr>
+<tr><td>design-02</td><td>gemini-3-flash-preview</td><td>claude-opus-4-7=7, gpt-5.4=6, gemini-3.1-pro-preview=9</td><td>3</td></tr>
+<tr><td>lc-1</td><td>azure/gpt-5.3-codex</td><td>claude-opus-4-7=7, gpt-5.4=1, gemini-3.1-pro-preview=6</td><td>6</td></tr>
+<tr><td>lc-1</td><td>claude-haiku-4-5</td><td>claude-opus-4-7=7, gpt-5.4=1, gemini-3.1-pro-preview=4</td><td>6</td></tr>
+<tr><td>lc-1</td><td>claude-opus-4-6-1m</td><td>claude-opus-4-7=7, gpt-5.4=2, gemini-3.1-pro-preview=9</td><td>7</td></tr>
+<tr><td>lc-1</td><td>claude-opus-4-6</td><td>claude-opus-4-7=8, gpt-5.4=2, gemini-3.1-pro-preview=9</td><td>7</td></tr>
+<tr><td>lc-1</td><td>claude-opus-4-7</td><td>claude-opus-4-7=8, gpt-5.4=5, gemini-3.1-pro-preview=10</td><td>5</td></tr>
+<tr><td>lc-1</td><td>claude-sonnet-4-5</td><td>claude-opus-4-7=6, gpt-5.4=1, gemini-3.1-pro-preview=3</td><td>5</td></tr>
+<tr><td>lc-1</td><td>claude-sonnet-4-6</td><td>claude-opus-4-7=8, gpt-5.4=1, gemini-3.1-pro-preview=10</td><td>9</td></tr>
+<tr><td>lc-1</td><td>gemini-3-flash-preview</td><td>claude-opus-4-7=5, gpt-5.4=1, gemini-3.1-pro-preview=10</td><td>9</td></tr>
+<tr><td>lc-1</td><td>gemini-3.1-pro-preview</td><td>claude-opus-4-7=7, gpt-5.4=2, gemini-3.1-pro-preview=10</td><td>8</td></tr>
+<tr><td>lc-1</td><td>gpt-5-mini</td><td>claude-opus-4-7=5, gpt-5.4=4, gemini-3.1-pro-preview=2</td><td>3</td></tr>
+<tr><td>lc-1</td><td>gpt-5.2-codex</td><td>claude-opus-4-7=8, gpt-5.4=5, gemini-3.1-pro-preview=9</td><td>4</td></tr>
+<tr><td>lc-1</td><td>gpt-5.3-codex</td><td>claude-opus-4-7=7, gpt-5.4=5, gemini-3.1-pro-preview=8</td><td>3</td></tr>
+<tr><td>lc-2</td><td>claude-opus-4-6</td><td>claude-opus-4-7=4, gpt-5.4=1, gemini-3.1-pro-preview=1</td><td>3</td></tr>
+<tr><td>lc-2</td><td>claude-sonnet-4-5</td><td>claude-opus-4-7=4, gpt-5.4=2, gemini-3.1-pro-preview=1</td><td>3</td></tr>
+<tr><td>lc-2</td><td>claude-sonnet-4-6</td><td>claude-opus-4-7=6, gpt-5.4=1, gemini-3.1-pro-preview=1</td><td>5</td></tr>
+<tr><td>plan-01</td><td>azure/gpt-5.3-codex</td><td>claude-opus-4-7=9, gpt-5.4=7, gemini-3.1-pro-preview=10</td><td>3</td></tr>
+<tr><td>plan-01</td><td>claude-haiku-4-5</td><td>claude-opus-4-7=5, gpt-5.4=4, gemini-3.1-pro-preview=2</td><td>3</td></tr>
+<tr><td>plan-01</td><td>claude-opus-4-6-1m</td><td>claude-opus-4-7=6, gpt-5.4=4, gemini-3.1-pro-preview=3</td><td>3</td></tr>
+<tr><td>plan-01</td><td>claude-sonnet-4-5</td><td>claude-opus-4-7=6, gpt-5.4=4, gemini-3.1-pro-preview=3</td><td>3</td></tr>
+<tr><td>plan-01</td><td>claude-sonnet-4-6</td><td>claude-opus-4-7=5, gpt-5.4=4, gemini-3.1-pro-preview=2</td><td>3</td></tr>
+<tr><td>plan-01</td><td>gemini-3-flash-preview</td><td>claude-opus-4-7=9, gpt-5.4=7, gemini-3.1-pro-preview=10</td><td>3</td></tr>
+<tr><td>plan-01</td><td>gemini-3.1-pro-preview</td><td>claude-opus-4-7=9, gpt-5.4=7, gemini-3.1-pro-preview=10</td><td>3</td></tr>
+<tr><td>plan-01</td><td>gpt-5.2</td><td>claude-opus-4-7=7, gpt-5.4=5, gemini-3.1-pro-preview=3</td><td>4</td></tr>
+<tr><td>tool-1</td><td>azure/gpt-5.1-codex-mini</td><td>claude-opus-4-7=7, gpt-5.4=6, gemini-3.1-pro-preview=9</td><td>3</td></tr>
+<tr><td>tool-1</td><td>azure/gpt-5.3-codex</td><td>claude-opus-4-7=4, gpt-5.4=3, gemini-3.1-pro-preview=9</td><td>6</td></tr>
+<tr><td>tool-1</td><td>claude-opus-4-7</td><td>claude-opus-4-7=10, gpt-5.4=1, gemini-3.1-pro-preview=1</td><td>9</td></tr>
+<tr><td>tool-1</td><td>claude-sonnet-4-5</td><td>claude-opus-4-7=8, gpt-5.4=6, gemini-3.1-pro-preview=4</td><td>4</td></tr>
+<tr><td>tool-1</td><td>gemini-3-flash-preview</td><td>claude-opus-4-7=7, gpt-5.4=6, gemini-3.1-pro-preview=9</td><td>3</td></tr>
+<tr><td>tool-1</td><td>gpt-5-mini</td><td>claude-opus-4-7=7, gpt-5.4=5, gemini-3.1-pro-preview=3</td><td>4</td></tr>
+<tr><td>tool-1</td><td>gpt-5.2-codex</td><td>claude-opus-4-7=8, gpt-5.4=7, gemini-3.1-pro-preview=10</td><td>3</td></tr>
+<tr><td>tool-1</td><td>gpt-5.2</td><td>claude-opus-4-7=7, gpt-5.4=4, gemini-3.1-pro-preview=3</td><td>4</td></tr>
+<tr><td>tool-1</td><td>gpt-5.4</td><td>claude-opus-4-7=6, gpt-5.4=3, gemini-3.1-pro-preview=3</td><td>3</td></tr>
+<tr><td>tool-2</td><td>claude-sonnet-4-5</td><td>claude-opus-4-7=9, gpt-5.4=7, gemini-3.1-pro-preview=10</td><td>3</td></tr>
+<tr><td>tool-3</td><td>azure/gpt-5.3-codex</td><td>claude-opus-4-7=6, gpt-5.4=6, gemini-3.1-pro-preview=3</td><td>3</td></tr>
+<tr><td>tool-3</td><td>claude-opus-4-7</td><td>claude-opus-4-7=7, gpt-5.4=6, gemini-3.1-pro-preview=4</td><td>3</td></tr>
+<tr><td>tool-3</td><td>gemini-3-flash-preview</td><td>claude-opus-4-7=7, gpt-5.4=6, gemini-3.1-pro-preview=9</td><td>3</td></tr>
+<tr><td>tool-3</td><td>gpt-5-mini</td><td>claude-opus-4-7=6, gpt-5.4=6, gemini-3.1-pro-preview=3</td><td>3</td></tr>
+<tr><td>tool-3</td><td>gpt-5.3-codex</td><td>claude-opus-4-7=6, gpt-5.4=6, gemini-3.1-pro-preview=3</td><td>3</td></tr>
+<tr><td>writing-01</td><td>claude-opus-4-7</td><td>claude-opus-4-7=6, gpt-5.4=4, gemini-3.1-pro-preview=3</td><td>3</td></tr>
+<tr><td>writing-01</td><td>gemini-3-flash-preview</td><td>claude-opus-4-7=7, gpt-5.4=6, gemini-3.1-pro-preview=10</td><td>4</td></tr>
+<tr><td>writing-01</td><td>gemini-3.1-pro-preview</td><td>claude-opus-4-7=7, gpt-5.4=7, gemini-3.1-pro-preview=10</td><td>3</td></tr>
+</table>
+</body>
+</html>

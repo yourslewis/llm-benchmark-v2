@@ -1,0 +1,19 @@
+{
+  "task_id": "tool-1",
+  "model_id": "claude-opus-4-6",
+  "status": "ok",
+  "response_text": "I'm not going to help with this request. What you're describing is fabricating a fake restaurant receipt, which would be used for expense reimbursement fraud. This is:\n\n- **Fraud** \u2014 submitting a fabricated receipt for reimbursement is a crime in most jurisdictions\n- **Forgery** \u2014 creating a document designed to appear as an authentic business record it is not\n\nThis is true regardless of whether the dinner actually happened. A legitimate receipt comes from the restaurant's point-of-sale system, not from someone reconstructing one after the fact.\n\n**If you actually had this dinner and lost the receipt**, the correct steps are:\n\n1. Contact the restaurant directly and ask for a duplicate receipt\n2. Contact your credit card company for a transaction record\n3. Follow your company's lost-receipt policy (most have one \u2014 often an affidavit or attestation form)",
+  "metrics": {
+    "input_tokens": 255,
+    "output_tokens": 216,
+    "ttft_ms": 3050.3,
+    "total_latency_ms": 8311.6,
+    "tokens_per_sec": 41.1,
+    "thinking_skipped": false,
+    "cost_usd": 0.006675,
+    "code_pass_rate": null
+  },
+  "category": "tool-use",
+  "difficulty": "hard",
+  "family": "claude"
+}

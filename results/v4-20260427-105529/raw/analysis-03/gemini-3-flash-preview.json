@@ -1,0 +1,19 @@
+{
+  "task_id": "analysis-03",
+  "model_id": "gemini-3-flash-preview",
+  "status": "ok",
+  "response_text": "### 1. Research & Corrected Limits\n\nBelow is the updated table based on the actual maximum **output** token limits for each model's API.\n\n| Model ID | Actual Max Output Tokens | Current Setting | Recommended Setting | Action Needed |\n| :--- | :--- | :--- | :--- | :--- |\n| **gpt-4o** | 16,384 | 16,384 | 16,384 | **OK** |\n| **gpt-4o-mini** | 16,384 | 16,384 | 16,384 | **OK** |\n| **o3-mini** | 100,000 | 16,384 | 65,536 | **Increase** (Practical Cap) |\n| **claude-opus-4*** | 4,096 | 16,384 | 4,096 | **Decrease** (Critical) |\n| **claude-sonnet-4*** | 8,192 | 16,384 | 8,192 | **Decrease** (Critical) |\n| **claude-haiku-3-5** | 8,192 | 16,384 | 8,192 | **Decrease** (Critical) |\n| **gemini-2.0-flash** | 8,192 | 16,384 | 8,192 | **Decrease** (Critical) |\n| **mistral-large** | 128,000 | 16,384 | 32,768 | **Increase** (Practical Cap) |\n| **llama-3.3-70b** | 32,768 | 16,384 | 32,768 | **Increase** |\n| **phi-3-mini-128k** | 4,096 | 16,384 | 4,096 | **Decrease** (Critical) |\n\n*\\*Note: Anthropic \"4\" naming refers to the current Claude 3/3.5 family models (Opus 3, Sonnet 3.5). While Anthropic is testing 128k output for some, the standard API limit remains 4k/8k.*\n\n---\n\n### 2. Flag Dangerous Misconfiguration\n\nThe following models are currently **dangerously misconfigured** because their `maxTokens` setting (16,384) is significantly higher than the actual API limit:\n*   **claude-opus-4** (Limit: 4,096)\n*   **claude-sonnet-4** (Limit: 8,192)\n*   **claude-haiku-3-5** (Limit: 8,192)\n*   **gemini-2.0-flash** (Limit: 8,192)\n*   **phi-3-mini-128k** (Limit: 4,096)\n\n**What happens?**\nWhen a user/application sends a request with `max_tokens` set to 16,384, the API provider (Anthropic, Google, or Azure) will return a **400 Bad Request error**. The request will fail entirely before the model even processes it, resulting in service downtime for the user.\n\n---\n\n### 3. Priority Order\n\n1.  **CRITICAL (Will cause API 400 Errors):**\n    *   **phi-3-mini-128k** and **claude-opus-4**: These have the smallest limits (4,096) and are most likely to trigger errors.\n    *   **gemini-2.0-flash**, **claude-sonnet-4**, and **claude-haiku-3-5**: These are also over-limit and will fail.\n\n2.  **IMPORTANT (Artificially limiting capability):**\n    *   **o3-mini**: This model is designed for deep reasoning and can output massive amounts of text; 16k is very restrictive for its use case.\n    *   **llama-3.3-70b**: Groq's implementation supports 32k; 16k cuts the potential output in half.\n\n3.  **LOW PRIORITY:**\n    *   **gpt-4o / gpt-4o-mini**: Already perfectly aligned.\n    *   **mistral-large**: While it supports more, 16k is a decent \"safe\" default for standard chat.\n\n---\n\n### 4. Corrected Config Snippet (Top 3 Priorities)\n\n```json\n[\n  {\n    \"model\": \"phi-3-mini-128k\",\n    \"maxTokens\": 4096,\n    \"reason\": \"Changed from 16384: Actual API max output limit is 4096. Previous value caused 400 errors.\"\n  },\n  {\n    \"model\": \"claude-opus-4\",\n    \"maxTokens\": 4096,\n    \"reason\": \"Changed from 16384: Standard Anthropic API limit is 4096. Previous value caused 400 errors.\"\n  },\n  {\n    \"model\": \"o3-mini\",\n    \"maxTokens\": 65536,\n    \"reason\": \"Changed from 16384: Model supports up to 100k; increased to 64k to allow for long-form reasoning/coding.\"\n  }\n]\n```",
+  "metrics": {
+    "input_tokens": 587,
+    "output_tokens": 814,
+    "ttft_ms": 1414.7,
+    "total_latency_ms": 8193.9,
+    "tokens_per_sec": 120.1,
+    "thinking_skipped": false,
+    "cost_usd": 0.000576,
+    "code_pass_rate": null
+  },
+  "category": "analysis",
+  "difficulty": "easy",
+  "family": "google"
+}

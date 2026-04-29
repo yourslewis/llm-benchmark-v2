@@ -1,0 +1,12 @@
+{
+  "category": "debug",
+  "difficulty": "hard",
+  "grading": "llm_judge",
+  "criteria": [
+    {"name": "azure_diagnosis", "weight": 25, "description": "Correctly identifies Azure error as missing deployment_name field (Azure requires a deployment name separate from model name); provides fix adding deployment_name to litellm_params"},
+    {"name": "anthropic_diagnosis", "weight": 25, "description": "Correctly identifies Anthropic error as wrong model ID format (model names should not have date suffixes in this format, or model field is being dropped); provides correct model string"},
+    {"name": "groq_diagnosis", "weight": 25, "description": "Correctly identifies Groq error as max_tokens=32768 exceeding llama-3.1-8b-instant context window (8192); provides fix reducing max_tokens to 8192 for that model"},
+    {"name": "validation_and_prevention", "weight": 15, "description": "Provides actionable validation steps (litellm test calls) and CI check ideas (model list validation script, token limit checker)"},
+    {"name": "fix_quality", "weight": 10, "description": "Fixed YAML snippets are syntactically correct and minimal (only show changed lines)"}
+  ]
+}

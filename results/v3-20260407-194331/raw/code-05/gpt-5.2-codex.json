@@ -1,0 +1,18 @@
+{
+  "task_id": "code-05",
+  "model_id": "gpt-5.2-codex",
+  "status": "ok",
+  "response_text": "Below is a complete, type-hinted Python implementation for both parts in one file. It uses the required O(log(min(m, n))) binary-partition approach for the classic median and a two-heap approach for streaming.\n\n```python\nfrom typing import List\nimport heapq\n\ndef findMedianSortedArrays(nums1: List[int], nums2: List[int]) -> float:\n    \"\"\"\n    Find median of two sorted arrays in O(log(min(m, n))).\n    \"\"\"\n    # Ensure nums1 is the smaller array\n    if len(nums1) > len(nums2):\n        nums1, nums2 = nums2, nums1\n\n    m, n = len(nums1), len(nums2)\n    if m == 0:\n        # Median of single array nums2\n        mid = n // 2\n        if n % 2 == 1:\n            return float(nums2[mid])\n        return (nums2[mid - 1] + nums2[mid]) / 2.0\n\n    # Binary search on smaller array\n    left, right = 0, m\n    half_len = (m + n + 1) // 2\n\n    while left <= right:\n        i = (left + right) // 2\n        j = half_len - i\n\n        # i: partition in nums1, j: partition in nums2\n        max_left_nums1 = nums1[i - 1] if i > 0 else float(\"-inf\")\n        min_right_nums1 = nums1[i] if i < m else float(\"inf\")\n\n        max_left_nums2 = nums2[j - 1] if j > 0 else float(\"-inf\")\n        min_right_nums2 = nums2[j] if j < n else float(\"inf\")\n\n        if max_left_nums1 <= min_right_nums2 and max_left_nums2 <= min_right_nums1:\n            # Correct partition\n            if (m + n) % 2 == 1:\n                return float(max(max_left_nums1, max_left_nums2))\n            return (max(max_left_nums1, max_left_nums2) + min(min_right_nums1, min_right_nums2)) / 2.0\n        elif max_left_nums1 > min_right_nums2:\n            right = i - 1\n        else:\n            left = i + 1\n\n    # Should never reach here for valid inputs\n    raise ValueError(\"Invalid input arrays.\")\n\n\nclass StreamingMedian:\n    \"\"\"\n    Maintain median of a stream using two heaps:\n    - max_heap for lower half (store negatives)\n    - min_heap for upper half\n    \"\"\"\n    def __init__(self) -> None:\n        self.max_heap: List[int] = []  # lower half (as negatives)\n        self.min_heap: List[int] = []  # upper half\n\n    def add(self, num: int) -> None:\n        # Push to max_heap (lower half) first\n        heapq.heappush(self.max_heap, -num)\n\n        # Ensure max_heap max <= min_heap min\n        if self.min_heap and -self.max_heap[0] > self.min_heap[0]:\n            val = -heapq.heappop(self.max_heap)\n            heapq.heappush(self.min_heap, val)\n\n        # Balance sizes (max_heap can have at most 1 more element)\n        if len(self.max_heap) > len(self.min_heap) + 1:\n            val = -heapq.heappop(self.max_heap)\n            heapq.heappush(self.min_heap, val)\n        elif len(self.min_heap) > len(self.max_heap):\n            val = heapq.heappop(self.min_heap)\n            heapq.heappush(self.max_heap, -val)\n\n    def median(self) -> float:\n        if not self.max_heap and not self.min_heap:\n            raise ValueError(\"No elements in stream.\")\n        if len(self.max_heap) > len(self.min_heap):\n            return float(-self.max_heap[0])\n        return (-self.max_heap[0] + self.min_heap[0]) / 2.0\n```\n\nThis satisfies:\n- Part 1: O(log(min(m, n))) time, O(1) extra space.\n- Part 2: `add()` O(log n), `median()` O(1).",
+  "metrics": {
+    "input_tokens": 470,
+    "output_tokens": 957,
+    "ttft_ms": null,
+    "total_latency_ms": 7565.6,
+    "tokens_per_sec": 126.5,
+    "cost_usd": 0.010745,
+    "code_pass_rate": 100
+  },
+  "category": "code",
+  "difficulty": "hard",
+  "family": "openai"
+}

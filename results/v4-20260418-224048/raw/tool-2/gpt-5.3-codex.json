@@ -1,0 +1,19 @@
+{
+  "task_id": "tool-2",
+  "model_id": "gpt-5.3-codex",
+  "status": "ok",
+  "response_text": "## 1) Call 1 \u2014 `web_search` (HTTP 429)\n\n### Root cause\nThe call hit the provider\u2019s rate limit (`X-RateLimit-Remaining: 0`).  \nThis is not a bad query; it\u2019s a quota/timing issue.\n\n### Recovery strategy\n- **Delayed retry** (not immediate).\n- Respect `Retry-After: 30` (and optionally `X-RateLimit-Reset` if it implies longer wait).\n- Add small jitter (1\u20132s) to avoid synchronized retry spikes.\n- If retries are exhausted: degrade gracefully (use cached/stale data, or return partial result + warning).\n\n### Corrected call JSON\n```json\n{\"query\":\"OpenClaw changelog April 2026\",\"count\":5}\n```\n(Execute this only after waiting the required delay.)\n\n### Prevention\n- Centralized rate-limit handler for `429`.\n- Pre-call token bucket / request pacing.\n- Retry policy: capped retries + exponential backoff + jitter.\n- Cache identical recent queries.\n\n---\n\n## 2) Call 2 \u2014 `file_write` (Schema mismatch)\n\n### Root cause\nWrong field name: used `contents` instead of required `content`.\n\n### Recovery strategy\n- **Immediate retry** with corrected parameter name.\n- No delay needed.\n\n### Corrected call JSON\n```json\n{\"path\":\"/tmp/report.md\",\"content\":\"# Report\\n...\",\"mode\":\"overwrite\"}\n```\n\n### Prevention\n- Validate payload against tool schema before sending.\n- Use typed client/wrapper methods instead of raw dicts.\n- Add lint/tests for tool-call construction.\n\n---\n\n## 3) Call 3 \u2014 `exec` (Timeout)\n\n### Root cause\nTimeout too short (`10s`) for a large workload (250k rows; only reached row 15k).\n\n### Recovery strategy\n- **Immediate retry with increased timeout** (e.g., 300s).\n- If still timing out: retry once with a larger timeout (e.g., 900s) or switch to async/background execution and poll logs.\n- Graceful degradation option: return \u201canalysis in progress\u201d status instead of hard failure.\n\n### Corrected call JSON\n```json\n{\"command\":\"python3 analyze.py --input data.csv --output results.json\",\"timeout\":300}\n```\n\n### Prevention\n- Set timeouts based on workload size/history.\n- Add checkpointing/progress-resume to long jobs.\n- Prefer async job mode for heavy batch processing.\n\n---\n\n## Complete corrected sequence (with ordering + error handling)\n\n```text\n1) web_search with 429-aware wrapper\n   try:\n     CALL web_search {\"query\":\"OpenClaw changelog April 2026\",\"count\":5}\n   except 429 as e:\n     wait_seconds = max(\n       int(e.headers[\"Retry-After\"]),\n       max(0, int(e.headers[\"X-RateLimit-Reset\"]) - now_epoch)\n     )\n     sleep(wait_seconds + jitter_1_to_2s)\n     CALL web_search {\"query\":\"OpenClaw changelog April 2026\",\"count\":5}\n     (if still 429 after retry budget -> use cached data + warning)\n\n2) exec with timeout escalation\n   try:\n     CALL exec {\"command\":\"python3 analyze.py --input data.csv --output results.json\",\"timeout\":300}\n   except TimeoutError:\n     CALL exec {\"command\":\"python3 analyze.py --input data.csv --output results.json\",\"timeout\":900}\n     (if still timeout -> run async/background + return pending status)\n\n3) file_write (schema-correct)\n   CALL file_write {\"path\":\"/tmp/report.md\",\"content\":\"# Report\\n...\",\"mode\":\"overwrite\"}\n```\n\nIf you want, I can also provide this as strict pseudo-code (Python-style) for a reusable retry middleware.",
+  "metrics": {
+    "input_tokens": 393,
+    "output_tokens": 2735,
+    "ttft_ms": null,
+    "total_latency_ms": 41931.5,
+    "tokens_per_sec": 65.2,
+    "thinking_skipped": false,
+    "cost_usd": 0.028333,
+    "code_pass_rate": null
+  },
+  "category": "tool-use",
+  "difficulty": "hard",
+  "family": "openai"
+}

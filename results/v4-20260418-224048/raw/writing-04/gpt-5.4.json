@@ -1,0 +1,19 @@
+{
+  "task_id": "writing-04",
+  "model_id": "gpt-5.4",
+  "status": "ok",
+  "response_text": "**Subject:** 1:1 to discuss recent performance concerns\n\nHi Alex,\n\nI\u2019d like to set up time this week for a focused 1:1 about some performance concerns from the past quarter. I want to be clear about the purpose of the meeting in advance so this doesn\u2019t come as a surprise.\n\nSpecifically, I\u2019d like to talk through a few examples:\n\n- The **Persona V3 integration** was due **March 15** and shipped **March 28**\n- The **evaluation pipeline** was due **April 1** and is still not complete\n- I\u2019ve received feedback that some recent code reviews have been too light for the complexity of the PRs, including one-line **\u201cLGTM\u201d** reviews\n- There have also been communication gaps, including **two missed team standups without notice** and several times you were unresponsive on Teams for **3+ hours** during the workday\n\nI also want to acknowledge that this is a change from what I\u2019ve seen from you before. Last year, you led the **Persona V2** launch, mentored two junior engineers, and earned an **Exceeds** rating. Because of that track record, I want to understand whether something has changed, whether there are blockers I\u2019m not aware of, or whether you need support.\n\nIn the meeting, I\u2019d like us to discuss what\u2019s been getting in the way and what needs to improve right away in three areas: delivery against commitments, code review quality, and communication/availability. My goal here is course correction and support, not punishment.\n\nI\u2019ve sent time for a 1:1 on **[day/time]**. If that doesn\u2019t work, please suggest another time this week.\n\nBest,  \n[Your Name]",
+  "metrics": {
+    "input_tokens": 376,
+    "output_tokens": 879,
+    "ttft_ms": null,
+    "total_latency_ms": 13306.1,
+    "tokens_per_sec": 66.1,
+    "thinking_skipped": false,
+    "cost_usd": 0.00973,
+    "code_pass_rate": null
+  },
+  "category": "writing",
+  "difficulty": "hard",
+  "family": "openai"
+}

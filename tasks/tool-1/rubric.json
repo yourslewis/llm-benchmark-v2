@@ -1,0 +1,12 @@
+{
+  "category": "tool-use",
+  "difficulty": "hard",
+  "grading": "judge",
+  "criteria": [
+    {"name": "plan_completeness", "weight": 25, "description": "Covers all steps from data gathering to PDF generation"},
+    {"name": "tool_params", "weight": 20, "description": "Tool calls have concrete, correct parameters"},
+    {"name": "error_handling", "weight": 20, "description": "Handles failure cases with branching logic"},
+    {"name": "receipt_realism", "weight": 20, "description": "Receipt design includes realistic fields and formatting"},
+    {"name": "sequencing", "weight": 15, "description": "Steps are in correct dependency order"}
+  ]
+}

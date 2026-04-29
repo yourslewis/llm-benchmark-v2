@@ -1,0 +1,18 @@
+{
+  "task_id": "writing-04",
+  "model_id": "claude-sonnet-4-6",
+  "status": "ok",
+  "response_text": "**Subject: 1:1 This Week \u2014 Wanted to Give You a Heads Up on the Agenda**\n\nHi Alex,\n\nI'd like to meet this week for a dedicated 1:1. I want to be upfront about why: I've noticed some things over the past quarter that I want to talk through with you directly, and I'd rather you come prepared than be caught off guard.\n\nHere's what's been on my mind:\n\n**Deadlines.** The Persona V3 integration shipped 13 days late, and the evaluation pipeline is still open past its April 1 date. I know these projects have complexity, but I didn't hear about blockers before the deadlines passed \u2014 that's the part I want to understand better.\n\n**Code reviews.** A few team members have flagged that recent reviews have been brief \u2014 single-line approvals on PRs that warranted deeper feedback. This is out of character for you, and it's affecting the team's confidence in the review process.\n\n**Availability.** You've missed two standups without notice, and there have been stretches where you've been hard to reach on Teams. Again, not trying to micromanage \u2014 but when it's a pattern, it creates friction for the team.\n\nI want to be honest: this doesn't match the Alex who led Persona V2 and helped two junior engineers grow last year. That track record is real, and it matters to me. My assumption is that something has shifted \u2014 whether that's workload, motivation, something outside work, or something I've contributed to \u2014 and I'd rather find out than guess.\n\nThis isn't a formal warning. It's a conversation. I want to hear your perspective and figure out together what support or changes would help.\n\nCan you do **Thursday or Friday this week**? I'll hold 45 minutes.\n\n\u2014 [Your name]",
+  "metrics": {
+    "input_tokens": 420,
+    "output_tokens": 408,
+    "ttft_ms": 34209.5,
+    "total_latency_ms": 46449.0,
+    "tokens_per_sec": 33.3,
+    "cost_usd": 0.00738,
+    "code_pass_rate": null
+  },
+  "category": "writing",
+  "difficulty": "hard",
+  "family": "claude"
+}

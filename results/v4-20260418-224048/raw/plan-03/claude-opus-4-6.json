@@ -1,0 +1,19 @@
+{
+  "task_id": "plan-03",
+  "model_id": "claude-opus-4-6",
+  "status": "ok",
+  "response_text": "\n\n**Subject:** Receipt Copy Request \u2013 March 12 Lunch ($515.56)\n\nDear Boardwalk Restaurant Team,\n\nI hope you're doing well. I recently dined at your restaurant for a business lunch on **March 12, 2026, around 1:58 PM**, and unfortunately I've misplaced my receipt. I'm hoping you might be able to help me out with a copy.\n\nHere are the transaction details to help locate it:\n\n- **Date:** March 12, 2026\n- **Time:** Approximately 1:58 PM\n- **Total charged:** $515.56\n- **Payment method:** American Express (card ending in \u2022\u2022\u2022\u2022)\n\nIf you're able to send a duplicate receipt or even a written confirmation of the charge, that would be perfect. I need it for my company's expense report, which is due by the end of the month \u2014 so any time before then would be greatly appreciated.\n\nPlease don't hesitate to reach out if you need any additional information to track down the transaction. I'm happy to provide whatever helps.\n\nThank you so much for your time!\n\nBest regards,\n\n**Alex Chen**\nAccount Manager, Contoso Technologies\nalex.chen@contoso.com | (555) 014-7",
+  "metrics": {
+    "input_tokens": 395,
+    "output_tokens": 263,
+    "ttft_ms": 1781.0,
+    "total_latency_ms": 7014.7,
+    "tokens_per_sec": 50.3,
+    "thinking_skipped": false,
+    "cost_usd": 0.00855,
+    "code_pass_rate": null
+  },
+  "category": "plan",
+  "difficulty": "easy",
+  "family": "claude"
+}

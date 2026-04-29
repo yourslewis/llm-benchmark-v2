@@ -1,0 +1,19 @@
+{
+  "task_id": "plan-03",
+  "model_id": "claude-sonnet-4-5",
+  "status": "ok",
+  "response_text": "**Subject:** Request for Duplicate Receipt \u2013 March 12 Visit\n\nDear Boardwalk Restaurant Team,\n\nI hope this message finds you well. I dined at your restaurant on March 12, 2026, for a business lunch and unfortunately misplaced my receipt. I'm reaching out to see if you could provide a duplicate copy or written confirmation of the transaction for my expense reimbursement.\n\nHere are the details that should help you locate the transaction:\n\n- **Date:** March 12, 2026\n- **Time:** Approximately 1:58 PM\n- **Amount:** $515.56\n- **Payment Method:** American Express (last 4 digits unavailable, but it was an Amex card)\n- **Purpose:** Business client lunch\n\nI need to submit this for my month-end expense report, so I'd greatly appreciate your help with this by March 31st if possible. Please feel free to send the receipt or confirmation as a PDF reply to this email, or let me know if there's another process you prefer.\n\nIf you need any additional information from me to locate the transaction, please don't hesitate to reach out. You can contact me at this email address or by phone at the number below.\n\nThank you so much for your assistance\u2014I really appreciate your help with this!\n\nBest regards,\n\n**Alex Chen**  \nAccount Manager  \nContoso Technologies  \nalex.chen@contoso.com  \n(555) 0147",
+  "metrics": {
+    "input_tokens": 395,
+    "output_tokens": 322,
+    "ttft_ms": 1514.1,
+    "total_latency_ms": 6954.0,
+    "tokens_per_sec": 59.2,
+    "thinking_skipped": false,
+    "cost_usd": 0.006015,
+    "code_pass_rate": null
+  },
+  "category": "plan",
+  "difficulty": "easy",
+  "family": "claude"
+}

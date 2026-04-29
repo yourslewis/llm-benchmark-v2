@@ -1,0 +1,19 @@
+{
+  "task_id": "debug-02",
+  "model_id": "claude-sonnet-4-6",
+  "status": "ok",
+  "response_text": "```python\n#!/usr/bin/env python3\n\"\"\"fix_max_tokens.py - Fix OpenClaw maxTokens misconfiguration.\"\"\"\n\nimport sys\nimport json\nimport shutil\nimport os\n\nCORRECT_LIMITS = {\n    \"gpt-4o\": 16384,\n    \"gpt-4o-mini\": 16384,\n    \"o3-mini\": 65536,\n    \"claude-opus-4\": 8096,\n    \"claude-sonnet-4\": 8096,\n    \"claude-haiku-3-5\": 8096,\n    \"gemini-2.0-flash\": 8192,\n    \"mistral-large\": 131072,\n    \"llama-3.3-70b\": 8192,\n    \"phi-3-mini-128k\": 4096,\n}\n\n\ndef main():\n    args = sys.argv[1:]\n    dry_run = \"--dry-run\" in args\n    args = [a for a in args if a != \"--dry-run\"]\n\n    config_path = os.path.expanduser(args[0] if args else \"~/.openclaw/config.json\")\n\n    try:\n        with open(config_path, \"r\") as f:\n            config = json.load(f)\n    except FileNotFoundError:\n        print(f\"Error: Config file not found: {config_path}\")\n        sys.exit(1)\n    except json.JSONDecodeError as e:\n        print(f\"Error: Failed to parse JSON in {config_path}: {e}\")\n        sys.exit(1)\n\n    models = config.get(\"models\", [])\n    print(f\"Checking {len(models)} models...\")\n\n    updated = 0\n    unchanged = 0\n    skipped = 0\n\n    for model in models:\n        model_id = model.get(\"id\", \"<unknown>\")\n        current = model.get(\"maxTokens\")\n\n        if model_id not in CORRECT_LIMITS:\n            print(f\"  {model_id}: WARNING - not in CORRECT_LIMITS, skipping\")\n            skipped += 1\n            continue\n\n        correct = CORRECT_LIMITS[model_id]\n\n        if current != correct:\n            print(f\"  {model_id}: {current} \u2192 {correct} (UPDATED)\")\n            if not dry_run:\n                model[\"maxTokens\"] = correct\n            updated += 1\n        else:\n            print(f\"  {model_id}: {current} \u2192 {correct} (no change)\")\n            unchanged += 1\n\n    print(f\"\\nSummary: {updated} updated, {unchanged} unchanged, {skipped} skipped\")\n\n    if dry_run:\n        print(\"Dry-run mode: no changes written to disk.\")\n        return\n\n    if updated > 0:\n        backup_path = config_path + \".bak\"\n        shutil.copy2(config_path, backup_path)\n        print(f\"Backup saved to: {backup_path}\")\n\n        with open(config_path, \"w\") as f:\n            json.dump(config, f, indent=2)\n            f.write(\"\\n\")\n        print(f\"Config saved to: {config_path}\")\n    else:\n        print(\"No changes needed, config not rewritten.\")\n\n\nif __name__ == \"__main__\":\n    main()\n```",
+  "metrics": {
+    "input_tokens": 692,
+    "output_tokens": 588,
+    "ttft_ms": 1464.9,
+    "total_latency_ms": 8780.9,
+    "tokens_per_sec": 80.4,
+    "thinking_skipped": false,
+    "cost_usd": 0.010896,
+    "code_pass_rate": 100
+  },
+  "category": "debug",
+  "difficulty": "medium",
+  "family": "claude"
+}

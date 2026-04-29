@@ -1,0 +1,12 @@
+{
+  "category": "code",
+  "difficulty": "medium",
+  "grading": "automated",
+  "criteria": [
+    {"name": "api_message_usage", "weight": 25, "description": "Uses await api.message() correctly in all three block locations"},
+    {"name": "notify_channel_guard", "weight": 20, "description": "Only sends notification when config.notifyChannel is set"},
+    {"name": "message_content", "weight": 20, "description": "Notification includes toolName, reason, sessionId, and timestamp"},
+    {"name": "error_handling", "weight": 20, "description": "Wraps api.message() in try/catch to prevent security bypass on failure"},
+    {"name": "code_completeness", "weight": 15, "description": "All TODO comments replaced; original plugin code preserved intact"}
+  ]
+}

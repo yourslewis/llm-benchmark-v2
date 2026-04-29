@@ -1,0 +1,19 @@
+{
+  "task_id": "code-05",
+  "model_id": "gpt-5-mini",
+  "status": "ok",
+  "response_text": "Below is a compact, correct implementation for both parts. Part 1 uses the classic binary-search partition on the smaller array to achieve O(log(min(m,n))). Part 2 implements a streaming median with two heaps (a max-heap implemented via negatives and a min-heap) where add() is O(log n) and median() is O(1).\n\n```python\nfrom typing import List\nimport heapq\nimport math\n\n\ndef findMedianSortedArrays(nums1: List[int], nums2: List[int]) -> float:\n    \"\"\"\n    Find median of two sorted arrays in O(log(min(m, n))).\n    \"\"\"\n    A, B = nums1, nums2\n    m, n = len(A), len(B)\n    if m > n:  # ensure A is the smaller array\n        A, B, m, n = B, A, n, m\n\n    if m == 0:\n        if n == 0:\n            raise ValueError(\"Both arrays are empty.\")\n        # median of single non-empty array B\n        mid = n // 2\n        if n % 2 == 1:\n            return float(B[mid])\n        return (B[mid - 1] + B[mid]) / 2.0\n\n    half = (m + n + 1) // 2\n    low, high = 0, m\n\n    while low <= high:\n        i = (low + high) // 2\n        j = half - i\n\n        Aleft = A[i - 1] if i > 0 else -math.inf\n        Aright = A[i] if i < m else math.inf\n        Bleft = B[j - 1] if j > 0 else -math.inf\n        Bright = B[j] if j < n else math.inf\n\n        if Aleft <= Bright and Bleft <= Aright:\n            # correct partition\n            if (m + n) % 2 == 1:\n                return float(max(Aleft, Bleft))\n            return (max(Aleft, Bleft) + min(Aright, Bright)) / 2.0\n        elif Aleft > Bright:\n            high = i - 1\n        else:\n            low = i + 1\n\n    raise ValueError(\"Unable to find median (input arrays may not be sorted).\")\n\n\nclass StreamingMedian:\n    \"\"\"\n    Streaming median using two heaps:\n    - _low: max-heap implemented with negatives (contains the lower half)\n    - _high: min-heap (contains the upper half)\n\n    add(): O(log n)\n    median(): O(1)\n    \"\"\"\n\n    def __init__(self) -> None:\n        self._low: List[int] = []   # max-heap via negatives\n        self._high: List[int] = []  # min-heap\n\n    def add(self, num: int) -> None:\n        if not self._low or num <= -self._low[0]:\n            heapq.heappush(self._low, -num)\n        else:\n            heapq.heappush(self._high, num)\n\n        # Rebalance so that the sizes differ by at most 1\n        if len(self._low) > len(self._high) + 1:\n            heapq.heappush(self._high, -heapq.heappop(self._low))\n        elif len(self._high) > len(self._low) + 1:\n            heapq.heappush(self._low, -heapq.heappop(self._high))\n\n    def median(self) -> float:\n        if not self._low and not self._high:\n            raise ValueError(\"No elements present.\")\n        if len(self._low) > len(self._high):\n            return float(-self._low[0])\n        if len(self._high) > len(self._low):\n            return float(self._high[0])\n        return (-self._low[0] + self._high[0]) / 2.0\n\n\n# Example quick tests (can be removed if embedding into a larger project)\nif __name__ == \"__main__\":\n    print(findMedianSortedArrays([1, 3], [2]))  # 2.0\n    print(findMedianSortedArrays([1, 2], [3, 4]))  # 2.5\n    print(findMedianSortedArrays([], [1]))  # 1.0\n    print(findMedianSortedArrays([1, 3, 5, 7, 9, 11], [2, 4, 6, 8, 10, 12]))  # 6.5\n\n    sm = StreamingMedian()\n    for x in [5, 2, 3, 4, 1, 6]:\n        sm.add(x)\n        print(\"added\", x, \"median\", sm.median())\n```",
+  "metrics": {
+    "input_tokens": 354,
+    "output_tokens": 828,
+    "ttft_ms": 42339.5,
+    "total_latency_ms": 57202.9,
+    "tokens_per_sec": 55.7,
+    "thinking_skipped": false,
+    "cost_usd": 0.001466,
+    "code_pass_rate": 100
+  },
+  "category": "code",
+  "difficulty": "hard",
+  "family": "openai"
+}

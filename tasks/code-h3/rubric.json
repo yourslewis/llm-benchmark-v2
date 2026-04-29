@@ -1,0 +1,13 @@
+{
+  "category": "code",
+  "difficulty": "hard",
+  "grading": "judge",
+  "criteria": [
+    {"name": "compilation", "weight": 20, "description": "cargo build passes with no errors"},
+    {"name": "test_pass", "weight": 25, "description": "All ported tests pass"},
+    {"name": "no_unsafe", "weight": 15, "description": "No unsafe blocks used"},
+    {"name": "no_hot_clone", "weight": 15, "description": "No .clone() on get/put hot path"},
+    {"name": "idiomatic_rust", "weight": 15, "description": "Uses Rust idioms (Result, Option, traits, lifetimes)"},
+    {"name": "tokio_async", "weight": 10, "description": "Async eviction uses tokio properly"}
+  ]
+}

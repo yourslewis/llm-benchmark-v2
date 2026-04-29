@@ -1,0 +1,12 @@
+{
+  "category": "code",
+  "difficulty": "hard",
+  "grading": "automated",
+  "criteria": [
+    {"name": "bug_found", "weight": 20, "description": "Correctly identifies the NULL handling bug in IN/NOT IN"},
+    {"name": "failing_test", "weight": 20, "description": "Provides a test that fails on the original code"},
+    {"name": "fix_correct", "weight": 35, "description": "Fix handles NULL in IN, NOT IN, and nested OR correctly"},
+    {"name": "parenthesization", "weight": 15, "description": "Proper parentheses in nested conditions"},
+    {"name": "no_regression", "weight": 10, "description": "Existing non-NULL queries still work"}
+  ]
+}

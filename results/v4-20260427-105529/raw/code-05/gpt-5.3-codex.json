@@ -1,0 +1,19 @@
+{
+  "task_id": "code-05",
+  "model_id": "gpt-5.3-codex",
+  "status": "ok",
+  "response_text": "Here\u2019s a clean Python implementation for **both parts** in one file, with type hints and required complexities.\n\n```python\nfrom typing import List\nimport heapq\n\n\ndef findMedianSortedArrays(nums1: List[int], nums2: List[int]) -> float:\n    \"\"\"\n    Find median of two sorted arrays in O(log(min(m, n))).\n\n    Uses binary search on the smaller array to find a partition such that:\n    - left partition contains half the elements\n    - all elements on the left <= all elements on the right\n    \"\"\"\n    # Ensure nums1 is the smaller array (for O(log(min(m, n))))\n    if len(nums1) > len(nums2):\n        nums1, nums2 = nums2, nums1\n\n    m, n = len(nums1), len(nums2)\n\n    if m == 0 and n == 0:\n        raise ValueError(\"Both arrays are empty; median is undefined.\")\n\n    total = m + n\n    half = (total + 1) // 2  # left side size when combined\n\n    left, right = 0, m\n\n    while left <= right:\n        i = (left + right) // 2       # cut in nums1\n        j = half - i                  # cut in nums2\n\n        A_left = nums1[i - 1] if i > 0 else float(\"-inf\")\n        A_right = nums1[i] if i < m else float(\"inf\")\n        B_left = nums2[j - 1] if j > 0 else float(\"-inf\")\n        B_right = nums2[j] if j < n else float(\"inf\")\n\n        # Correct partition\n        if A_left <= B_right and B_left <= A_right:\n            if total % 2 == 1:\n                return float(max(A_left, B_left))\n            return (max(A_left, B_left) + min(A_right, B_right)) / 2.0\n\n        # Move cut in nums1\n        if A_left > B_right:\n            right = i - 1\n        else:\n            left = i + 1\n\n    # Should never happen for valid sorted input\n    raise ValueError(\"Input arrays are not sorted or invalid.\")\n\n\nclass StreamingMedian:\n    \"\"\"\n    Maintain median of a stream using two heaps:\n    - low: max-heap (implemented via negatives), stores lower half\n    - high: min-heap, stores upper half\n\n    Invariants:\n    - len(low) == len(high) or len(low) == len(high) + 1\n    - every element in low <= every element in high\n    \"\"\"\n\n    def __init__(self) -> None:\n        self.low: List[int] = []   # max-heap via negatives\n        self.high: List[int] = []  # min-heap\n\n    def add(self, num: int) -> None:\n        \"\"\"Add a number to the stream in O(log n).\"\"\"\n        if not self.low or num <= -self.low[0]:\n            heapq.heappush(self.low, -num)\n        else:\n            heapq.heappush(self.high, num)\n\n        # Rebalance heaps\n        if len(self.low) > len(self.high) + 1:\n            moved = -heapq.heappop(self.low)\n            heapq.heappush(self.high, moved)\n        elif len(self.high) > len(self.low):\n            moved = heapq.heappop(self.high)\n            heapq.heappush(self.low, -moved)\n\n    def median(self) -> float:\n        \"\"\"Return current median in O(1).\"\"\"\n        if not self.low and not self.high:\n            raise ValueError(\"No numbers in stream; median is undefined.\")\n\n        if len(self.low) > len(self.high):\n            return float(-self.low[0])\n\n        return (-self.low[0] + self.high[0]) / 2.0\n```\n\n### Complexity\n- `findMedianSortedArrays`: **O(log(min(m, n)))** time, **O(1)** extra space.\n- `StreamingMedian.add`: **O(log n)**.\n- `StreamingMedian.median`: **O(1)**.\n\nIf you want, I can also add a small `if __name__ == \"__main__\":` test block with your sample inputs.",
+  "metrics": {
+    "input_tokens": 440,
+    "output_tokens": 1285,
+    "ttft_ms": null,
+    "total_latency_ms": 26558.3,
+    "tokens_per_sec": 48.4,
+    "thinking_skipped": false,
+    "cost_usd": 0.01395,
+    "code_pass_rate": 100
+  },
+  "category": "code",
+  "difficulty": "hard",
+  "family": "openai"
+}

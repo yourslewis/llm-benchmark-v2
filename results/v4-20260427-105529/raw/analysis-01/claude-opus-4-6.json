@@ -1,0 +1,19 @@
+{
+  "task_id": "analysis-01",
+  "model_id": "claude-opus-4-6",
+  "status": "ok",
+  "response_text": "\n\n## 1. Root Cause Analysis\n\n**gpt-4o is experiencing systemic timeouts** \u2014 it fails in all 5 sessions where it's called (4 as primary, 1 as failover). The consistent ~5100ms elapsed times against a 5000ms threshold suggest gpt-4o is responding slowly (likely an OpenAI-side latency issue or degradation) rather than a gateway bug. The timeout threshold itself may also be too tight for this model.\n\n**Session `j1k2l3`** is uniquely important: o3-mini times out, falls back to gpt-4o, which *also* times out \u2192 total failure. This reveals that chaining two OpenAI models as primary\u2192fallback is a single point of failure when the provider is degraded.\n\n## 2. Pattern Summary\n\n| Metric | Value |\n|--------|-------|\n| Total timeout events | 6 |\n| Primary model causing most timeouts | gpt-4o (4 of 5 primary timeouts) |\n| % of sessions where failover succeeded | 60% (3 of 5: a1b2c3, d4e5f6, g7h8i9; m4n5o6 pending) |\n| Sessions where all fallbacks exhausted | 1 (j1k2l3) |\n| Typical elapsed time at timeout | ~5070\u20135160ms |\n\n## 3. Configuration Fix\n\n```yaml\ngateway:\n  timeout_ms: 8000            # Increase to accommodate gpt-4o P99 latency\n  models:\n    - id: gpt-4o\n      provider: openai\n      timeout_ms: 10000       # Per-model override for slower model\n      fallback: claude-sonnet-4\n    - id: o3-mini\n      provider: openai\n      timeout_ms: 10000\n      fallback: claude-sonnet-4  # CHANGED: cross-provider fallback, not gpt-4o\n    - id: claude-sonnet-4\n      provider: anthropic\n      fallback: gemini-2.0-flash  # CHANGED: add a fallback instead of null\n    - id: gemini-2.0-flash\n      provider: google\n      fallback: null\n```\n\n**Key changes:**\n- **o3-mini \u2192 claude-sonnet-4** fallback: never chain same-provider models, so a provider outage doesn't cascade.\n- **Increased timeouts**: gpt-4o is clearly needing >5s right now.\n- **Added fallback for claude-sonnet-4** to reduce total failure risk.\n\n## 4. Monitoring Recommendation\n\n```yaml\nalert:\n  name: high_primary_timeout_rate\n  metric: count(embedded_run_failover{reason=\"timeout\"}) / count(routing_decision{type=\"primary\"})\n  group_by: [model, provider]\n  threshold: \"> 0.3\"          # >30% of primary calls timing out\n  window: 5m\n  for: 2m                     # sustained\n  action:\n    - page on-call with provider and model context\n    - auto-increase timeout_ms by 50% for affected model\n    - optionally circuit-break the model and route directly to fallback\n```",
+  "metrics": {
+    "input_tokens": 1012,
+    "output_tokens": 608,
+    "ttft_ms": 1494.2,
+    "total_latency_ms": 21259.9,
+    "tokens_per_sec": 30.8,
+    "thinking_skipped": false,
+    "cost_usd": 0.02026,
+    "code_pass_rate": null
+  },
+  "category": "analysis",
+  "difficulty": "hard",
+  "family": "claude"
+}

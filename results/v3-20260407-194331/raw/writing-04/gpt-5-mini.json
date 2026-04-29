@@ -1,0 +1,18 @@
+{
+  "task_id": "writing-04",
+  "model_id": "gpt-5-mini",
+  "status": "ok",
+  "response_text": "Subject: 1:1 to discuss recent performance concerns \u2014 Fri Apr 10, 2:00 PM (30 min)\n\nHi Alex,\n\nI\u2019d like to schedule a 30-minute 1:1 to talk about some recent concerns and to hear your perspective. Can you meet Friday, Apr 10 at 2:00 PM? If not, send two times that work this week.\n\nI want to be clear about what I plan to cover so this isn\u2019t a surprise: \n- Missed deadlines: Persona V3 integration was due Mar 15 and shipped Mar 28 (13 days late); the evaluation pipeline due Apr 1 is still not complete.  \n- Code review quality: several teammates have raised that reviews have become brief (one-line \u201cLGTM\u201d on complex PRs) instead of substantive feedback.  \n- Communication: you missed two standups without notice and have been unresponsive on Teams for 3+ hours on multiple occasions.\n\nI also want to acknowledge that you were a top performer last year \u2014 you led the Persona V2 launch, mentored two junior engineers, and earned an \u201cExceeds\u201d rating. I bring this up because I want to understand if something has changed (capacity, blockers, health, priorities) and how I can support you getting back to that level.\n\nFor the meeting, please come prepared to share:\n- Any blockers or circumstances affecting these deliveries and reviews  \n- What would help you complete the evaluation pipeline and improve review quality (resources, re-prioritization, time)  \n- A short proposal for next steps and timelines\n\nThis is a conversation to understand and support you, not a disciplinary meeting. I value your work and want to help you get back on track.\n\nThanks,\n[Your Name]",
+  "metrics": {
+    "input_tokens": 405,
+    "output_tokens": 1261,
+    "ttft_ms": 9012.2,
+    "total_latency_ms": 13353.9,
+    "tokens_per_sec": 290.4,
+    "cost_usd": 0.00218,
+    "code_pass_rate": null
+  },
+  "category": "writing",
+  "difficulty": "hard",
+  "family": "openai"
+}

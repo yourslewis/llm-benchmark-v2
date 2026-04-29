@@ -1,0 +1,9 @@
+Loading results from: /Users/yourslewis/.openclaw/workspace-chloe/benchmark/results/v3-20260407-194331
+  409 result files, 87 judge scores
+
+Report saved: /Users/yourslewis/.openclaw/workspace-chloe/benchmark/results/v3-20260407-194331/report.html
+
+Routing Table:
+  analysis     → claude-sonnet-4-5              (fallback: azure/gpt-5.3-codex)
+  code         → gpt-5-mini                     (fallback: azure/gpt-5.3-codex)
+  debug        → claude-sonnet-4-5              (fallback: claude-sonnet-4-6)

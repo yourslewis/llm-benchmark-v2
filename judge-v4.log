@@ -1,0 +1,407 @@
+Judging results in: /Users/yourslewis/.openclaw/workspace-chloe/benchmark/results/v4-20260418-224048
+Judging analysis-01 × azure/gpt-5.1-codex-mini (3 judges)... median=7 spread=1
+Judging analysis-01 × azure/gpt-5.3-codex (3 judges)... median=8 spread=2
+Judging analysis-01 × claude-haiku-4-5 (3 judges)... median=9 spread=2
+Judging analysis-01 × claude-opus-4-6-1m (3 judges)... median=8 spread=2
+Judging analysis-01 × claude-opus-4-6 (3 judges)... median=8 spread=2
+Judging analysis-01 × claude-opus-4-7 (3 judges)... median=9 spread=2
+Judging analysis-01 × claude-sonnet-4-5 (3 judges)... median=9 spread=1
+Judging analysis-01 × claude-sonnet-4-6 (3 judges)... median=9 spread=1
+Judging analysis-01 × gemini-3-flash-preview (3 judges)... median=8 spread=2
+Judging analysis-01 × gemini-3.1-pro-preview (3 judges)... median=8 spread=2
+Judging analysis-01 × gpt-5-mini (3 judges)... median=9 spread=2
+Judging analysis-01 × gpt-5.2-codex (3 judges)... median=9 spread=2
+Judging analysis-01 × gpt-5.2 (3 judges)... median=9 spread=2
+Judging analysis-01 × gpt-5.3-codex (3 judges)... median=9 spread=2
+Judging analysis-01 × gpt-5.4-mini (3 judges)... median=9 spread=2
+Judging analysis-01 × gpt-5.4 (3 judges)... median=9 spread=2
+Judging analysis-02 × azure/gpt-5.1-codex-mini (3 judges)... median=9 spread=1
+Judging analysis-02 × azure/gpt-5.3-codex (3 judges)... median=9 spread=2
+Judging analysis-02 × claude-haiku-4-5 (3 judges)... median=10 spread=2
+Judging analysis-02 × claude-opus-4-6-1m (3 judges)... median=10 spread=3 ⚠️ FLAGGED
+Judging analysis-02 × claude-opus-4-6 (3 judges)... median=10 spread=1
+Judging analysis-02 × claude-opus-4-7 (3 judges)... median=10 spread=2
+Judging analysis-02 × claude-sonnet-4-5 (3 judges)... median=8 spread=2
+Judging analysis-02 × claude-sonnet-4-6 (3 judges)... median=8 spread=2
+Judging analysis-02 × gemini-3-flash-preview (3 judges)... median=9 spread=2
+Judging analysis-02 × gemini-3.1-pro-preview (3 judges)... median=8 spread=3 ⚠️ FLAGGED
+Judging analysis-02 × gpt-5-mini (3 judges)... median=9 spread=2
+Judging analysis-02 × gpt-5.2-codex (3 judges)... median=8 spread=3 ⚠️ FLAGGED
+Judging analysis-02 × gpt-5.2 (3 judges)... median=10 spread=0
+Judging analysis-02 × gpt-5.3-codex (3 judges)... median=9 spread=1
+Judging analysis-02 × gpt-5.4-mini (3 judges)... median=8 spread=2
+Judging analysis-02 × gpt-5.4 (3 judges)... median=9 spread=1
+Judging analysis-03 × azure/gpt-5.1-codex-mini (3 judges)... median=3 spread=1
+Judging analysis-03 × azure/gpt-5.3-codex (3 judges)... median=7 spread=4 ⚠️ FLAGGED
+Judging analysis-03 × claude-haiku-4-5 (3 judges)... median=6 spread=3 ⚠️ FLAGGED
+Judging analysis-03 × claude-opus-4-6-1m (3 judges)... median=7 spread=4 ⚠️ FLAGGED
+Judging analysis-03 × claude-opus-4-6 (3 judges)... median=6 spread=2
+Judging analysis-03 × claude-opus-4-7 (3 judges)... median=7 spread=5 ⚠️ FLAGGED
+Judging analysis-03 × claude-sonnet-4-5 (3 judges)... median=7 spread=3 ⚠️ FLAGGED
+Judging analysis-03 × claude-sonnet-4-6 (3 judges)... median=8 spread=6 ⚠️ FLAGGED
+Judging analysis-03 × gemini-3-flash-preview (3 judges)... median=6 spread=5 ⚠️ FLAGGED
+Judging analysis-03 × gemini-3.1-pro-preview (3 judges)... median=7 spread=5 ⚠️ FLAGGED
+Judging analysis-03 × gpt-5-mini (3 judges)... median=3 spread=2
+Judging analysis-03 × gpt-5.2-codex (3 judges)... median=6 spread=2
+Judging analysis-03 × gpt-5.2 (3 judges)... median=7 spread=3 ⚠️ FLAGGED
+Judging analysis-03 × gpt-5.3-codex (3 judges)... median=7 spread=3 ⚠️ FLAGGED
+Judging analysis-03 × gpt-5.4-mini (3 judges)... median=7 spread=3 ⚠️ FLAGGED
+Judging analysis-03 × gpt-5.4 (3 judges)... median=8 spread=5 ⚠️ FLAGGED
+Judging code-h3 × azure/gpt-5.1-codex-mini (3 judges)... median=1 spread=0
+Judging code-h3 × azure/gpt-5.3-codex (3 judges)... median=4 spread=3 ⚠️ FLAGGED
+Judging code-h3 × claude-haiku-4-5 (3 judges)... median=2 spread=2
+Judging code-h3 × claude-opus-4-6-1m (3 judges)... median=3 spread=2
+Judging code-h3 × claude-opus-4-6 (3 judges)... median=2 spread=3 ⚠️ FLAGGED
+Judging code-h3 × claude-opus-4-7 (3 judges)... median=2 spread=4 ⚠️ FLAGGED
+Judging code-h3 × claude-sonnet-4-5 (3 judges)... median=2 spread=3 ⚠️ FLAGGED
+Judging code-h3 × claude-sonnet-4-6 (3 judges)... median=1 spread=0
+Judging code-h3 × gemini-3-flash-preview (3 judges)... median=2 spread=1
+Judging code-h3 × gemini-3.1-pro-preview (3 judges)... median=2 spread=2
+Judging code-h3 × gpt-5-mini (3 judges)... median=2 spread=2
+Judging code-h3 × gpt-5.2-codex (3 judges)... median=1 spread=0
+Judging code-h3 × gpt-5.2 (3 judges)... median=2 spread=1
+Judging code-h3 × gpt-5.3-codex (3 judges)... median=3 spread=2
+Judging code-h3 × gpt-5.4-mini (3 judges)... median=1 spread=0
+Judging code-h3 × gpt-5.4 (3 judges)... median=1 spread=0
+Judging code-h5 × azure/gpt-5.1-codex-mini (3 judges)... median=6 spread=2
+Judging code-h5 × azure/gpt-5.3-codex (3 judges)... median=1 spread=0
+Judging code-h5 × claude-haiku-4-5 (3 judges)... median=3 spread=1
+Judging code-h5 × claude-opus-4-6-1m (3 judges)... median=8 spread=4 ⚠️ FLAGGED
+Judging code-h5 × claude-opus-4-6 (3 judges)... median=9 spread=3 ⚠️ FLAGGED
+Judging code-h5 × claude-opus-4-7 (3 judges)... median=5 spread=3 ⚠️ FLAGGED
+Judging code-h5 × claude-sonnet-4-5 (3 judges)... median=6 spread=2
+Judging code-h5 × claude-sonnet-4-6 (3 judges)... median=4 spread=2
+Judging code-h5 × gemini-3-flash-preview (3 judges)... median=8 spread=6 ⚠️ FLAGGED
+Judging code-h5 × gemini-3.1-pro-preview (3 judges)... median=7 spread=3 ⚠️ FLAGGED
+Judging code-h5 × gpt-5-mini (3 judges)... median=4 spread=2
+Judging code-h5 × gpt-5.2-codex (3 judges)... median=1 spread=0
+Judging code-h5 × gpt-5.2 (3 judges)... median=4 spread=2
+Judging code-h5 × gpt-5.3-codex (3 judges)... median=5 spread=2
+Judging code-h5 × gpt-5.4-mini (3 judges)... median=1 spread=0
+Judging code-h5 × gpt-5.4 (3 judges)... median=1 spread=0
+Judging debug-01 × azure/gpt-5.1-codex-mini (3 judges)... median=5 spread=2
+Judging debug-01 × azure/gpt-5.3-codex (3 judges)... median=7 spread=4 ⚠️ FLAGGED
+Judging debug-01 × claude-haiku-4-5 (3 judges)... median=5 spread=2
+Judging debug-01 × claude-opus-4-6-1m (3 judges)... median=5 spread=1
+Judging debug-01 × claude-opus-4-6 (3 judges)... median=6 spread=1
+Judging debug-01 × claude-opus-4-7 (3 judges)... median=7 spread=5 ⚠️ FLAGGED
+Judging debug-01 × claude-sonnet-4-5 (3 judges)... median=6 spread=4 ⚠️ FLAGGED
+Judging debug-01 × claude-sonnet-4-6 (3 judges)... median=8 spread=2
+Judging debug-01 × gemini-3-flash-preview (3 judges)... median=6 spread=4 ⚠️ FLAGGED
+Judging debug-01 × gemini-3.1-pro-preview (3 judges)... median=7 spread=5 ⚠️ FLAGGED
+Judging debug-01 × gpt-5-mini (3 judges)... median=6 spread=1
+Judging debug-01 × gpt-5.2-codex (3 judges)... median=1 spread=1
+Judging debug-01 × gpt-5.2 (3 judges)... median=7 spread=2
+Judging debug-01 × gpt-5.3-codex (3 judges)... median=7 spread=1
+Judging debug-01 × gpt-5.4-mini (3 judges)... median=7 spread=3 ⚠️ FLAGGED
+Judging debug-01 × gpt-5.4 (3 judges)... median=6 spread=2
+Judging design-01 × azure/gpt-5.1-codex-mini (3 judges)... median=4 spread=2
+Judging design-01 × azure/gpt-5.3-codex (3 judges)... median=5 spread=3 ⚠️ FLAGGED
+Judging design-01 × claude-haiku-4-5 (3 judges)... median=3 spread=2
+Judging design-01 × claude-opus-4-6-1m (3 judges)... median=6 spread=1
+Judging design-01 × claude-opus-4-6 (3 judges)... median=7 spread=2
+Judging design-01 × claude-opus-4-7 (3 judges)... median=4 spread=3 ⚠️ FLAGGED
+Judging design-01 × claude-sonnet-4-5 (3 judges)... median=3 spread=1
+Judging design-01 × claude-sonnet-4-6 (3 judges)... median=3 spread=3 ⚠️ FLAGGED
+Judging design-01 × gemini-3-flash-preview (3 judges)... median=8 spread=3 ⚠️ FLAGGED
+Judging design-01 × gemini-3.1-pro-preview (3 judges)... median=9 spread=2
+Judging design-01 × gpt-5-mini (3 judges)... median=3 spread=3 ⚠️ FLAGGED
+Judging design-01 × gpt-5.2-codex (3 judges)... median=6 spread=1
+Judging design-01 × gpt-5.2 (3 judges)... median=3 spread=1
+Judging design-01 × gpt-5.3-codex (3 judges)... median=6 spread=2
+Judging design-01 × gpt-5.4-mini (3 judges)... median=1 spread=0
+Judging design-01 × gpt-5.4 (3 judges)... median=1 spread=0
+Judging design-02 × azure/gpt-5.1-codex-mini (3 judges)... median=3 spread=1
+Judging design-02 × azure/gpt-5.3-codex (3 judges)... median=5 spread=1
+Judging design-02 × claude-haiku-4-5 (3 judges)... median=2 spread=1
+Judging design-02 × claude-opus-4-6-1m (3 judges)... median=3 spread=1
+Judging design-02 × claude-opus-4-6 (3 judges)... median=4 spread=2
+Judging design-02 × claude-opus-4-7 (3 judges)... median=4 spread=3 ⚠️ FLAGGED
+Judging design-02 × claude-sonnet-4-5 (3 judges)... median=3 spread=1
+Judging design-02 × claude-sonnet-4-6 (3 judges)... median=3 spread=1
+Judging design-02 × gemini-3-flash-preview (3 judges)... median=7 spread=3 ⚠️ FLAGGED
+Judging design-02 × gemini-3.1-pro-preview (3 judges)... median=9 spread=2
+Judging design-02 × gpt-5-mini (3 judges)... median=3 spread=2
+Judging design-02 × gpt-5.2-codex (3 judges)... median=5 spread=2
+Judging design-02 × gpt-5.2 (3 judges)... median=4 spread=2
+Judging design-02 × gpt-5.3-codex (3 judges)... median=4 spread=1
+Judging design-02 × gpt-5.4-mini (3 judges)... median=1 spread=0
+Judging design-02 × gpt-5.4 (3 judges)... median=1 spread=0
+Judging lc-1 × azure/gpt-5.1-codex-mini (3 judges)... median=1 spread=0
+Judging lc-1 × azure/gpt-5.3-codex (3 judges)... median=6 spread=6 ⚠️ FLAGGED
+Judging lc-1 × claude-haiku-4-5 (3 judges)... median=4 spread=6 ⚠️ FLAGGED
+Judging lc-1 × claude-opus-4-6-1m (3 judges)... median=7 spread=7 ⚠️ FLAGGED
+Judging lc-1 × claude-opus-4-6 (3 judges)... median=8 spread=7 ⚠️ FLAGGED
+Judging lc-1 × claude-opus-4-7 (3 judges)... median=8 spread=5 ⚠️ FLAGGED
+Judging lc-1 × claude-sonnet-4-5 (3 judges)... median=3 spread=5 ⚠️ FLAGGED
+Judging lc-1 × claude-sonnet-4-6 (3 judges)... median=8 spread=9 ⚠️ FLAGGED
+Judging lc-1 × gemini-3-flash-preview (3 judges)... median=5 spread=9 ⚠️ FLAGGED
+Judging lc-1 × gemini-3.1-pro-preview (3 judges)... median=7 spread=8 ⚠️ FLAGGED
+Judging lc-1 × gpt-5-mini (3 judges)... median=4 spread=3 ⚠️ FLAGGED
+Judging lc-1 × gpt-5.2-codex (3 judges)... median=8 spread=4 ⚠️ FLAGGED
+Judging lc-1 × gpt-5.2 (3 judges)... median=1 spread=0
+Judging lc-1 × gpt-5.3-codex (3 judges)... median=7 spread=3 ⚠️ FLAGGED
+Judging lc-1 × gpt-5.4-mini (3 judges)... median=1 spread=0
+Judging lc-1 × gpt-5.4 (3 judges)... median=1 spread=0
+Judging lc-2 × azure/gpt-5.1-codex-mini (3 judges)... median=2 spread=2
+Judging lc-2 × azure/gpt-5.3-codex (3 judges)... median=1 spread=0
+Judging lc-2 × claude-haiku-4-5 (3 judges)... median=1 spread=2
+Judging lc-2 × claude-opus-4-6-1m (3 judges)... median=1 spread=1
+Judging lc-2 × claude-opus-4-6 (3 judges)... median=1 spread=3 ⚠️ FLAGGED
+Judging lc-2 × claude-opus-4-7 (3 judges)... median=1 spread=2
+Judging lc-2 × claude-sonnet-4-5 (3 judges)... median=2 spread=3 ⚠️ FLAGGED
+Judging lc-2 × claude-sonnet-4-6 (3 judges)... median=1 spread=5 ⚠️ FLAGGED
+Judging lc-2 × gemini-3-flash-preview (3 judges)... median=1 spread=2
+Judging lc-2 × gemini-3.1-pro-preview (3 judges)... median=1 spread=1
+Judging lc-2 × gpt-5.2-codex (3 judges)... median=1 spread=0
+Judging lc-2 × gpt-5.2 (3 judges)... median=1 spread=0
+Judging lc-2 × gpt-5.3-codex (3 judges)... median=1 spread=0
+Judging lc-2 × gpt-5.4-mini (3 judges)... median=1 spread=0
+Judging lc-2 × gpt-5.4 (3 judges)... median=1 spread=0
+Judging plan-01 × azure/gpt-5.1-codex-mini (3 judges)... median=1 spread=0
+Judging plan-01 × azure/gpt-5.3-codex (3 judges)... median=9 spread=3 ⚠️ FLAGGED
+Judging plan-01 × claude-haiku-4-5 (3 judges)... median=4 spread=3 ⚠️ FLAGGED
+Judging plan-01 × claude-opus-4-6-1m (3 judges)... median=4 spread=3 ⚠️ FLAGGED
+Judging plan-01 × claude-opus-4-6 (3 judges)... median=4 spread=2
+Judging plan-01 × claude-opus-4-7 (3 judges)... median=9 spread=2
+Judging plan-01 × claude-sonnet-4-5 (3 judges)... median=4 spread=3 ⚠️ FLAGGED
+Judging plan-01 × claude-sonnet-4-6 (3 judges)... median=4 spread=3 ⚠️ FLAGGED
+Judging plan-01 × gemini-3-flash-preview (3 judges)... median=9 spread=3 ⚠️ FLAGGED
+Judging plan-01 × gemini-3.1-pro-preview (3 judges)... median=9 spread=3 ⚠️ FLAGGED
+Judging plan-01 × gpt-5-mini (3 judges)... median=5 spread=2
+Judging plan-01 × gpt-5.2-codex (3 judges)... median=8 spread=2
+Judging plan-01 × gpt-5.2 (3 judges)... median=5 spread=4 ⚠️ FLAGGED
+Judging plan-01 × gpt-5.3-codex (3 judges)... median=9 spread=2
+Judging plan-01 × gpt-5.4-mini (3 judges)... median=1 spread=0
+Judging plan-01 × gpt-5.4 (3 judges)... median=3 spread=2
+Judging plan-02 × azure/gpt-5.1-codex-mini (3 judges)... median=4 spread=2
+Judging plan-02 × azure/gpt-5.3-codex (3 judges)... median=4 spread=2
+Judging plan-02 × claude-haiku-4-5 (3 judges)... median=3 spread=1
+Judging plan-02 × claude-opus-4-6-1m (3 judges)... median=5 spread=2
+Judging plan-02 × claude-opus-4-6 (3 judges)... median=4 spread=2
+Judging plan-02 × claude-opus-4-7 (3 judges)... median=4 spread=2
+Judging plan-02 × claude-sonnet-4-5 (3 judges)... median=4 spread=2
+Judging plan-02 × claude-sonnet-4-6 (3 judges)... median=4 spread=2
+Judging plan-02 × gemini-3-flash-preview (3 judges)... median=6 spread=1
+Judging plan-02 × gemini-3.1-pro-preview (3 judges)... median=6 spread=0
+Judging plan-02 × gpt-5-mini (3 judges)... median=4 spread=2
+Judging plan-02 × gpt-5.2-codex (3 judges)... median=6 spread=2
+Judging plan-02 × gpt-5.2 (3 judges)... median=4 spread=1
+Judging plan-02 × gpt-5.3-codex (3 judges)... median=4 spread=1
+Judging plan-02 × gpt-5.4-mini (3 judges)... median=4 spread=2
+Judging plan-02 × gpt-5.4 (3 judges)... median=3 spread=2
+Judging plan-03 × azure/gpt-5.1-codex-mini (3 judges)... median=9 spread=1
+Judging plan-03 × azure/gpt-5.3-codex (3 judges)... median=10 spread=1
+Judging plan-03 × claude-haiku-4-5 (3 judges)... median=9 spread=1
+Judging plan-03 × claude-opus-4-6-1m (3 judges)... median=9 spread=2
+Judging plan-03 × claude-opus-4-6 (3 judges)... median=8 spread=0
+Judging plan-03 × claude-opus-4-7 (3 judges)... median=9 spread=1
+Judging plan-03 × claude-sonnet-4-5 (3 judges)... median=9 spread=0
+Judging plan-03 × claude-sonnet-4-6 (3 judges)... median=10 spread=1
+Judging plan-03 × gemini-3-flash-preview (3 judges)... median=8 spread=2
+Judging plan-03 × gemini-3.1-pro-preview (3 judges)... median=9 spread=1
+Judging plan-03 × gpt-5-mini (3 judges)... median=9 spread=1
+Judging plan-03 × gpt-5.2-codex (3 judges)... median=9 spread=1
+Judging plan-03 × gpt-5.2 (3 judges)... median=9 spread=0
+Judging plan-03 × gpt-5.3-codex (3 judges)... median=9 spread=1
+Judging plan-03 × gpt-5.4-mini (3 judges)... median=9 spread=1
+Judging plan-03 × gpt-5.4 (3 judges)... median=10 spread=1
+Judging tool-1 × azure/gpt-5.1-codex-mini (3 judges)... median=7 spread=3 ⚠️ FLAGGED
+Judging tool-1 × azure/gpt-5.3-codex (3 judges)... median=4 spread=6 ⚠️ FLAGGED
+Judging tool-1 × claude-haiku-4-5 (3 judges)... median=2 spread=1
+Judging tool-1 × claude-opus-4-6-1m (3 judges)... median=1 spread=0
+Judging tool-1 × claude-opus-4-6 (3 judges)... median=1 spread=1
+Judging tool-1 × claude-opus-4-7 (3 judges)... median=1 spread=9 ⚠️ FLAGGED
+Judging tool-1 × claude-sonnet-4-5 (3 judges)... median=6 spread=4 ⚠️ FLAGGED
+Judging tool-1 × claude-sonnet-4-6 (3 judges)... median=1 spread=0
+Judging tool-1 × gemini-3-flash-preview (3 judges)... median=7 spread=3 ⚠️ FLAGGED
+Judging tool-1 × gemini-3.1-pro-preview (3 judges)... median=8 spread=2
+Judging tool-1 × gpt-5-mini (3 judges)... median=5 spread=4 ⚠️ FLAGGED
+Judging tool-1 × gpt-5.2-codex (3 judges)... median=8 spread=3 ⚠️ FLAGGED
+Judging tool-1 × gpt-5.2 (3 judges)... median=4 spread=4 ⚠️ FLAGGED
+Judging tool-1 × gpt-5.3-codex (3 judges)... median=2 spread=2
+Judging tool-1 × gpt-5.4-mini (3 judges)... median=2 spread=0
+Judging tool-1 × gpt-5.4 (3 judges)... median=3 spread=3 ⚠️ FLAGGED
+Judging tool-2 × azure/gpt-5.1-codex-mini (3 judges)... median=7 spread=1
+Judging tool-2 × azure/gpt-5.3-codex (3 judges)... median=9 spread=1
+Judging tool-2 × claude-haiku-4-5 (3 judges)... median=9 spread=2
+Judging tool-2 × claude-opus-4-6-1m (3 judges)... median=9 spread=2
+Judging tool-2 × claude-opus-4-6 (3 judges)... median=9 spread=2
+Judging tool-2 × claude-opus-4-7 (3 judges)... median=9 spread=1
+Judging tool-2 × claude-sonnet-4-5 (3 judges)... median=9 spread=3 ⚠️ FLAGGED
+Judging tool-2 × claude-sonnet-4-6 (3 judges)... median=9 spread=2
+Judging tool-2 × gemini-3-flash-preview (3 judges)... median=9 spread=2
+Judging tool-2 × gemini-3.1-pro-preview (3 judges)... median=9 spread=2
+Judging tool-2 × gpt-5-mini (3 judges)... median=9 spread=1
+Judging tool-2 × gpt-5.2-codex (3 judges)... median=8 spread=2
+Judging tool-2 × gpt-5.2 (3 judges)... median=9 spread=1
+Judging tool-2 × gpt-5.3-codex (3 judges)... median=9 spread=1
+Judging tool-2 × gpt-5.4-mini (3 judges)... median=9 spread=2
+Judging tool-2 × gpt-5.4 (3 judges)... median=9 spread=1
+Judging tool-3 × azure/gpt-5.1-codex-mini (3 judges)... median=4 spread=1
+Judging tool-3 × azure/gpt-5.3-codex (3 judges)... median=6 spread=3 ⚠️ FLAGGED
+Judging tool-3 × claude-haiku-4-5 (3 judges)... median=4 spread=2
+Judging tool-3 × claude-opus-4-6-1m (3 judges)... median=5 spread=2
+Judging tool-3 × claude-opus-4-6 (3 judges)... median=4 spread=2
+Judging tool-3 × claude-opus-4-7 (3 judges)... median=6 spread=3 ⚠️ FLAGGED
+Judging tool-3 × claude-sonnet-4-5 (3 judges)... median=4 spread=2
+Judging tool-3 × claude-sonnet-4-6 (3 judges)... median=4 spread=2
+Judging tool-3 × gemini-3-flash-preview (3 judges)... median=7 spread=3 ⚠️ FLAGGED
+Judging tool-3 × gemini-3.1-pro-preview (3 judges)... median=5 spread=1
+Judging tool-3 × gpt-5-mini (3 judges)... median=6 spread=3 ⚠️ FLAGGED
+Judging tool-3 × gpt-5.2-codex (3 judges)... median=6 spread=1
+Judging tool-3 × gpt-5.2 (3 judges)... median=5 spread=2
+Judging tool-3 × gpt-5.3-codex (3 judges)... median=6 spread=3 ⚠️ FLAGGED
+Judging tool-3 × gpt-5.4-mini (3 judges)... median=1 spread=0
+Judging tool-3 × gpt-5.4 (3 judges)... median=1 spread=0
+Judging writing-01 × azure/gpt-5.1-codex-mini (3 judges)... median=5 spread=0
+Judging writing-01 × azure/gpt-5.3-codex (3 judges)... ❌ no valid scores
+Judging writing-01 × claude-haiku-4-5 (3 judges)... median=3 spread=1
+Judging writing-01 × claude-opus-4-6-1m (3 judges)... median=4 spread=2
+Judging writing-01 × claude-opus-4-6 (3 judges)... median=3 spread=1
+Judging writing-01 × claude-opus-4-7 (3 judges)... median=4 spread=3 ⚠️ FLAGGED
+Judging writing-01 × claude-sonnet-4-5 (3 judges)... median=3 spread=1
+Judging writing-01 × claude-sonnet-4-6 (3 judges)... median=4 spread=2
+Judging writing-01 × gemini-3-flash-preview (3 judges)... median=7 spread=4 ⚠️ FLAGGED
+Judging writing-01 × gemini-3.1-pro-preview (3 judges)... median=7 spread=3 ⚠️ FLAGGED
+Judging writing-01 × gpt-5-mini (3 judges)... median=4 spread=2
+Judging writing-01 × gpt-5.2-codex (3 judges)... median=5 spread=1
+Judging writing-01 × gpt-5.2 (3 judges)... median=4 spread=2
+Judging writing-01 × gpt-5.3-codex (3 judges)... median=4 spread=0
+Judging writing-01 × gpt-5.4-mini (3 judges)... median=1 spread=0
+Judging writing-01 × gpt-5.4 (3 judges)... median=1 spread=0
+Judging writing-02 × azure/gpt-5.1-codex-mini (3 judges)... median=9 spread=2
+Judging writing-02 × azure/gpt-5.3-codex (3 judges)... median=9 spread=2
+Judging writing-02 × claude-haiku-4-5 (3 judges)... median=8 spread=1
+Judging writing-02 × claude-opus-4-6-1m (3 judges)... median=9 spread=2
+Judging writing-02 × claude-opus-4-6 (3 judges)... median=9 spread=2
+Judging writing-02 × claude-opus-4-7 (3 judges)... median=9 spread=2
+Judging writing-02 × claude-sonnet-4-5 (3 judges)... median=8 spread=2
+Judging writing-02 × claude-sonnet-4-6 (3 judges)... median=9 spread=2
+Judging writing-02 × gemini-3-flash-preview (3 judges)... median=9 spread=2
+Judging writing-02 × gemini-3.1-pro-preview (3 judges)... median=9 spread=2
+Judging writing-02 × gpt-5-mini (3 judges)... median=9 spread=2
+Judging writing-02 × gpt-5.2-codex (3 judges)... median=9 spread=2
+Judging writing-02 × gpt-5.2 (3 judges)... median=9 spread=0
+Judging writing-02 × gpt-5.3-codex (3 judges)... median=9 spread=2
+Judging writing-02 × gpt-5.4-mini (3 judges)... median=9 spread=2
+Judging writing-02 × gpt-5.4 (3 judges)... median=9 spread=1
+Judging writing-03 × azure/gpt-5.1-codex-mini (3 judges)... median=9 spread=1
+Judging writing-03 × azure/gpt-5.3-codex (3 judges)... median=10 spread=1
+Judging writing-03 × claude-haiku-4-5 (3 judges)... median=9 spread=1
+Judging writing-03 × claude-opus-4-6-1m (3 judges)... median=9 spread=1
+Judging writing-03 × claude-opus-4-6 (3 judges)... median=10 spread=1
+Judging writing-03 × claude-opus-4-7 (3 judges)... median=10 spread=0
+Judging writing-03 × claude-sonnet-4-5 (3 judges)... median=9 spread=1
+Judging writing-03 × claude-sonnet-4-6 (3 judges)... median=9 spread=1
+Judging writing-03 × gemini-3-flash-preview (3 judges)... median=9 spread=1
+Judging writing-03 × gemini-3.1-pro-preview (3 judges)... median=9 spread=1
+Judging writing-03 × gpt-5-mini (3 judges)... median=9 spread=1
+Judging writing-03 × gpt-5.2-codex (3 judges)... median=10 spread=1
+Judging writing-03 × gpt-5.2 (3 judges)... median=9 spread=1
+Judging writing-03 × gpt-5.3-codex (3 judges)... median=10 spread=1
+Judging writing-03 × gpt-5.4-mini (3 judges)... median=9 spread=1
+Judging writing-03 × gpt-5.4 (3 judges)... median=9 spread=1
+Judging writing-04 × azure/gpt-5.1-codex-mini (3 judges)... median=9 spread=1
+Judging writing-04 × azure/gpt-5.3-codex (3 judges)... median=9 spread=1
+Judging writing-04 × claude-haiku-4-5 (3 judges)... median=9 spread=1
+Judging writing-04 × claude-opus-4-6-1m (3 judges)... median=10 spread=1
+Judging writing-04 × claude-opus-4-6 (3 judges)... median=10 spread=1
+Judging writing-04 × claude-opus-4-7 (3 judges)... median=10 spread=0
+Judging writing-04 × claude-sonnet-4-5 (3 judges)... median=9 spread=1
+Judging writing-04 × claude-sonnet-4-6 (3 judges)... median=10 spread=1
+Judging writing-04 × gemini-3-flash-preview (3 judges)... median=9 spread=1
+Judging writing-04 × gemini-3.1-pro-preview (3 judges)... median=9 spread=1
+Judging writing-04 × gpt-5-mini (3 judges)... median=10 spread=1
+Judging writing-04 × gpt-5.2-codex (3 judges)... median=10 spread=1
+Judging writing-04 × gpt-5.2 (3 judges)... median=10 spread=0
+Judging writing-04 × gpt-5.3-codex (3 judges)... median=10 spread=1
+Judging writing-04 × gpt-5.4-mini (3 judges)... median=9 spread=1
+Judging writing-04 × gpt-5.4 (3 judges)... median=10 spread=1
+
+============================================================
+Judging complete: /Users/yourslewis/.openclaw/workspace-chloe/benchmark/results/v4-20260418-224048/scores.json
+  Judged: 318
+  Skipped (already done): 0
+  Errors: 10
+  Flagged disagreements: 78
+
+⚠️ Flagged Disagreements (spread ≥ 3):
+  analysis-02 × claude-opus-4-6-1m: claude-opus-4-7=10, gpt-5.4=7, gemini-3.1-pro-preview=10 (spread=3)
+  analysis-02 × gemini-3.1-pro-preview: claude-opus-4-7=7, gpt-5.4=8, gemini-3.1-pro-preview=10 (spread=3)
+  analysis-02 × gpt-5.2-codex: claude-opus-4-7=7, gpt-5.4=8, gemini-3.1-pro-preview=10 (spread=3)
+  analysis-03 × azure/gpt-5.3-codex: claude-opus-4-7=8, gpt-5.4=4, gemini-3.1-pro-preview=7 (spread=4)
+  analysis-03 × claude-haiku-4-5: claude-opus-4-7=6, gpt-5.4=4, gemini-3.1-pro-preview=7 (spread=3)
+  analysis-03 × claude-opus-4-6-1m: claude-opus-4-7=7, gpt-5.4=4, gemini-3.1-pro-preview=8 (spread=4)
+  analysis-03 × claude-opus-4-7: claude-opus-4-7=9, gpt-5.4=4, gemini-3.1-pro-preview=7 (spread=5)
+  analysis-03 × claude-sonnet-4-5: claude-opus-4-7=7, gpt-5.4=6, gemini-3.1-pro-preview=9 (spread=3)
+  analysis-03 × claude-sonnet-4-6: claude-opus-4-7=8, gpt-5.4=4, gemini-3.1-pro-preview=10 (spread=6)
+  analysis-03 × gemini-3-flash-preview: claude-opus-4-7=6, gpt-5.4=4, gemini-3.1-pro-preview=9 (spread=5)
+  analysis-03 × gemini-3.1-pro-preview: claude-opus-4-7=7, gpt-5.4=4, gemini-3.1-pro-preview=9 (spread=5)
+  analysis-03 × gpt-5.2: claude-opus-4-7=7, gpt-5.4=6, gemini-3.1-pro-preview=9 (spread=3)
+  analysis-03 × gpt-5.3-codex: claude-opus-4-7=7, gpt-5.4=6, gemini-3.1-pro-preview=9 (spread=3)
+  analysis-03 × gpt-5.4-mini: claude-opus-4-7=7, gpt-5.4=6, gemini-3.1-pro-preview=9 (spread=3)
+  analysis-03 × gpt-5.4: claude-opus-4-7=8, gpt-5.4=5, gemini-3.1-pro-preview=10 (spread=5)
+  code-h3 × azure/gpt-5.3-codex: claude-opus-4-7=5, gpt-5.4=4, gemini-3.1-pro-preview=2 (spread=3)
+  code-h3 × claude-opus-4-6: claude-opus-4-7=5, gpt-5.4=2, gemini-3.1-pro-preview=2 (spread=3)
+  code-h3 × claude-opus-4-7: claude-opus-4-7=5, gpt-5.4=2, gemini-3.1-pro-preview=1 (spread=4)
+  code-h3 × claude-sonnet-4-5: claude-opus-4-7=4, gpt-5.4=2, gemini-3.1-pro-preview=1 (spread=3)
+  code-h5 × claude-opus-4-6-1m: claude-opus-4-7=8, gpt-5.4=6, gemini-3.1-pro-preview=10 (spread=4)
+  code-h5 × claude-opus-4-6: claude-opus-4-7=9, gpt-5.4=7, gemini-3.1-pro-preview=10 (spread=3)
+  code-h5 × claude-opus-4-7: claude-opus-4-7=7, gpt-5.4=4, gemini-3.1-pro-preview=5 (spread=3)
+  code-h5 × gemini-3-flash-preview: claude-opus-4-7=8, gpt-5.4=4, gemini-3.1-pro-preview=10 (spread=6)
+  code-h5 × gemini-3.1-pro-preview: claude-opus-4-7=7, gpt-5.4=4, gemini-3.1-pro-preview=7 (spread=3)
+  debug-01 × azure/gpt-5.3-codex: claude-opus-4-7=7, gpt-5.4=6, gemini-3.1-pro-preview=10 (spread=4)
+  debug-01 × claude-opus-4-7: claude-opus-4-7=7, gpt-5.4=5, gemini-3.1-pro-preview=10 (spread=5)
+  debug-01 × claude-sonnet-4-5: claude-opus-4-7=6, gpt-5.4=5, gemini-3.1-pro-preview=9 (spread=4)
+  debug-01 × gemini-3-flash-preview: claude-opus-4-7=6, gpt-5.4=6, gemini-3.1-pro-preview=10 (spread=4)
+  debug-01 × gemini-3.1-pro-preview: claude-opus-4-7=7, gpt-5.4=5, gemini-3.1-pro-preview=10 (spread=5)
+  debug-01 × gpt-5.4-mini: claude-opus-4-7=7, gpt-5.4=4, gemini-3.1-pro-preview=7 (spread=3)
+  design-01 × azure/gpt-5.3-codex: claude-opus-4-7=7, gpt-5.4=5, gemini-3.1-pro-preview=4 (spread=3)
+  design-01 × claude-opus-4-7: claude-opus-4-7=7, gpt-5.4=4, gemini-3.1-pro-preview=4 (spread=3)
+  design-01 × claude-sonnet-4-6: claude-opus-4-7=5, gpt-5.4=3, gemini-3.1-pro-preview=2 (spread=3)
+  design-01 × gemini-3-flash-preview: claude-opus-4-7=8, gpt-5.4=7, gemini-3.1-pro-preview=10 (spread=3)
+  design-01 × gpt-5-mini: claude-opus-4-7=5, gpt-5.4=3, gemini-3.1-pro-preview=2 (spread=3)
+  design-02 × claude-opus-4-7: claude-opus-4-7=6, gpt-5.4=4, gemini-3.1-pro-preview=3 (spread=3)
+  design-02 × gemini-3-flash-preview: claude-opus-4-7=7, gpt-5.4=6, gemini-3.1-pro-preview=9 (spread=3)
+  lc-1 × azure/gpt-5.3-codex: claude-opus-4-7=7, gpt-5.4=1, gemini-3.1-pro-preview=6 (spread=6)
+  lc-1 × claude-haiku-4-5: claude-opus-4-7=7, gpt-5.4=1, gemini-3.1-pro-preview=4 (spread=6)
+  lc-1 × claude-opus-4-6-1m: claude-opus-4-7=7, gpt-5.4=2, gemini-3.1-pro-preview=9 (spread=7)
+  lc-1 × claude-opus-4-6: claude-opus-4-7=8, gpt-5.4=2, gemini-3.1-pro-preview=9 (spread=7)
+  lc-1 × claude-opus-4-7: claude-opus-4-7=8, gpt-5.4=5, gemini-3.1-pro-preview=10 (spread=5)
+  lc-1 × claude-sonnet-4-5: claude-opus-4-7=6, gpt-5.4=1, gemini-3.1-pro-preview=3 (spread=5)
+  lc-1 × claude-sonnet-4-6: claude-opus-4-7=8, gpt-5.4=1, gemini-3.1-pro-preview=10 (spread=9)
+  lc-1 × gemini-3-flash-preview: claude-opus-4-7=5, gpt-5.4=1, gemini-3.1-pro-preview=10 (spread=9)
+  lc-1 × gemini-3.1-pro-preview: claude-opus-4-7=7, gpt-5.4=2, gemini-3.1-pro-preview=10 (spread=8)
+  lc-1 × gpt-5-mini: claude-opus-4-7=5, gpt-5.4=4, gemini-3.1-pro-preview=2 (spread=3)
+  lc-1 × gpt-5.2-codex: claude-opus-4-7=8, gpt-5.4=5, gemini-3.1-pro-preview=9 (spread=4)
+  lc-1 × gpt-5.3-codex: claude-opus-4-7=7, gpt-5.4=5, gemini-3.1-pro-preview=8 (spread=3)
+  lc-2 × claude-opus-4-6: claude-opus-4-7=4, gpt-5.4=1, gemini-3.1-pro-preview=1 (spread=3)
+  lc-2 × claude-sonnet-4-5: claude-opus-4-7=4, gpt-5.4=2, gemini-3.1-pro-preview=1 (spread=3)
+  lc-2 × claude-sonnet-4-6: claude-opus-4-7=6, gpt-5.4=1, gemini-3.1-pro-preview=1 (spread=5)
+  plan-01 × azure/gpt-5.3-codex: claude-opus-4-7=9, gpt-5.4=7, gemini-3.1-pro-preview=10 (spread=3)
+  plan-01 × claude-haiku-4-5: claude-opus-4-7=5, gpt-5.4=4, gemini-3.1-pro-preview=2 (spread=3)
+  plan-01 × claude-opus-4-6-1m: claude-opus-4-7=6, gpt-5.4=4, gemini-3.1-pro-preview=3 (spread=3)
+  plan-01 × claude-sonnet-4-5: claude-opus-4-7=6, gpt-5.4=4, gemini-3.1-pro-preview=3 (spread=3)
+  plan-01 × claude-sonnet-4-6: claude-opus-4-7=5, gpt-5.4=4, gemini-3.1-pro-preview=2 (spread=3)
+  plan-01 × gemini-3-flash-preview: claude-opus-4-7=9, gpt-5.4=7, gemini-3.1-pro-preview=10 (spread=3)
+  plan-01 × gemini-3.1-pro-preview: claude-opus-4-7=9, gpt-5.4=7, gemini-3.1-pro-preview=10 (spread=3)
+  plan-01 × gpt-5.2: claude-opus-4-7=7, gpt-5.4=5, gemini-3.1-pro-preview=3 (spread=4)
+  tool-1 × azure/gpt-5.1-codex-mini: claude-opus-4-7=7, gpt-5.4=6, gemini-3.1-pro-preview=9 (spread=3)
+  tool-1 × azure/gpt-5.3-codex: claude-opus-4-7=4, gpt-5.4=3, gemini-3.1-pro-preview=9 (spread=6)
+  tool-1 × claude-opus-4-7: claude-opus-4-7=10, gpt-5.4=1, gemini-3.1-pro-preview=1 (spread=9)
+  tool-1 × claude-sonnet-4-5: claude-opus-4-7=8, gpt-5.4=6, gemini-3.1-pro-preview=4 (spread=4)
+  tool-1 × gemini-3-flash-preview: claude-opus-4-7=7, gpt-5.4=6, gemini-3.1-pro-preview=9 (spread=3)
+  tool-1 × gpt-5-mini: claude-opus-4-7=7, gpt-5.4=5, gemini-3.1-pro-preview=3 (spread=4)
+  tool-1 × gpt-5.2-codex: claude-opus-4-7=8, gpt-5.4=7, gemini-3.1-pro-preview=10 (spread=3)
+  tool-1 × gpt-5.2: claude-opus-4-7=7, gpt-5.4=4, gemini-3.1-pro-preview=3 (spread=4)
+  tool-1 × gpt-5.4: claude-opus-4-7=6, gpt-5.4=3, gemini-3.1-pro-preview=3 (spread=3)
+  tool-2 × claude-sonnet-4-5: claude-opus-4-7=9, gpt-5.4=7, gemini-3.1-pro-preview=10 (spread=3)
+  tool-3 × azure/gpt-5.3-codex: claude-opus-4-7=6, gpt-5.4=6, gemini-3.1-pro-preview=3 (spread=3)
+  tool-3 × claude-opus-4-7: claude-opus-4-7=7, gpt-5.4=6, gemini-3.1-pro-preview=4 (spread=3)
+  tool-3 × gemini-3-flash-preview: claude-opus-4-7=7, gpt-5.4=6, gemini-3.1-pro-preview=9 (spread=3)
+  tool-3 × gpt-5-mini: claude-opus-4-7=6, gpt-5.4=6, gemini-3.1-pro-preview=3 (spread=3)
+  tool-3 × gpt-5.3-codex: claude-opus-4-7=6, gpt-5.4=6, gemini-3.1-pro-preview=3 (spread=3)
+  writing-01 × claude-opus-4-7: claude-opus-4-7=6, gpt-5.4=4, gemini-3.1-pro-preview=3 (spread=3)
+  writing-01 × gemini-3-flash-preview: claude-opus-4-7=7, gpt-5.4=6, gemini-3.1-pro-preview=10 (spread=4)
+  writing-01 × gemini-3.1-pro-preview: claude-opus-4-7=7, gpt-5.4=7, gemini-3.1-pro-preview=10 (spread=3)

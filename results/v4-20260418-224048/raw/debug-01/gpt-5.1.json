@@ -1,0 +1,11 @@
+{
+  "task_id": "debug-01",
+  "model_id": "gpt-5.1",
+  "status": "error",
+  "error": "{\"error\":{\"message\":\"litellm.BadRequestError: Github_copilotException - {\\\"error\\\":{\\\"message\\\":\\\"The requested model is not supported.\\\",\\\"code\\\":\\\"model_not_supported\\\",\\\"param\\\":\\\"model\\\",\\\"type\\\":\\\"invalid_request_error\\\"}}\\n. Received Model Group=gpt-5.1\\nAvailable Model Group Fallbacks=None\",\"type\":null,\"param\":null,\"code\":\"400\"}}",
+  "metrics": {
+    "error": "{\"error\":{\"message\":\"litellm.BadRequestError: Github_copilotException - {\\\"error\\\":{\\\"message\\\":\\\"The requested model is not supported.\\\",\\\"code\\\":\\\"model_not_supported\\\",\\\"param\\\":\\\"model\\\",\\\"type\\\":\\\"invalid_request_error\\\"}}\\n. Received Model Group=gpt-5.1\\nAvailable Model Group Fallbacks=None\",\"type\":null,\"param\":null,\"code\":\"400\"}}",
+    "total_latency_ms": 132.1268081665039,
+    "thinking_skipped": false
+  }
+}

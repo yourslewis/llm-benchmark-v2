@@ -1,0 +1,12 @@
+{
+  "category": "writing",
+  "difficulty": "medium",
+  "grading": "llm_judge",
+  "criteria": [
+    {"name": "findings_coverage", "weight": 30, "description": "All 3 findings covered with correct severity (High/Medium/Low); evidence referenced accurately; risk impact clearly stated"},
+    {"name": "recommendation_quality", "weight": 25, "description": "Recommendations are specific and actionable (not 'add notifications' but 'send Telegram notification on every block event when silentBlock=true'); technically sound"},
+    {"name": "report_structure", "weight": 20, "description": "All 5 required sections present; remediation priority matrix is complete and logical; professional format"},
+    {"name": "positive_findings", "weight": 10, "description": "Positive findings are credible and grounded in the plugin description (multi-layer scanning, credential redaction working correctly, etc.)"},
+    {"name": "tone_and_length", "weight": 15, "description": "Professional, precise tone appropriate for security report; 600-900 words; no vague language; conclusion gives clear production readiness verdict"}
+  ]
+}

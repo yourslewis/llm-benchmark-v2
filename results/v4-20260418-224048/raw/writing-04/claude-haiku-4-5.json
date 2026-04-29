@@ -1,0 +1,19 @@
+{
+  "task_id": "writing-04",
+  "model_id": "claude-haiku-4-5",
+  "status": "ok",
+  "response_text": "**Subject: 1:1 Follow-up \u2013 Recent Work and Support**\n\nHi Alex,\n\nI'd like to schedule a focused 1:1 this week to discuss some patterns I've noticed over the past quarter that I want to address together. I'm setting this up now so you know what to expect going in.\n\nSpecifically, I've observed:\n\n- **Project timelines:** Persona V3 shipped 13 days late, and the evaluation pipeline remains incomplete past the April 1 target. I need to understand what's blocking progress.\n- **Code reviews:** Several team members have mentioned that reviews have become lighter\u2014often single-line approvals on complex PRs. This matters for code quality and for your own growth as a senior engineer.\n- **Availability:** You've missed two standups without notice and have been offline for extended periods (3+ hours) multiple times, which creates gaps for the team.\n\nI want to be direct: this doesn't match the engineer I know. You led Persona V2 flawlessly, mentored junior folks, and earned an \"Exceeds\" rating last year. Something has shifted, and I'm genuinely concerned.\n\nBefore we meet, I'm not assuming anything\u2014there could be things going on that I'm not aware of. That's exactly why I want to talk. My goal isn't to document problems; it's to figure out what's happening and how I can actually support you.\n\nHere's what I'd like to cover:\n- What's affecting your work right now (bandwidth, clarity, motivation, personal factors\u2014whatever it is)\n- What specific support looks like from me\n- Clear expectations as we move forward\n- A timeline for getting back on track\n\nCan you grab 45 minutes on your calendar for Thursday or Friday afternoon? Let me know what works.\n\nThanks,\n[Your name]",
+  "metrics": {
+    "input_tokens": 410,
+    "output_tokens": 418,
+    "ttft_ms": 1021.4,
+    "total_latency_ms": 5441.3,
+    "tokens_per_sec": 94.6,
+    "thinking_skipped": true,
+    "cost_usd": 0.0025,
+    "code_pass_rate": null
+  },
+  "category": "writing",
+  "difficulty": "hard",
+  "family": "claude"
+}

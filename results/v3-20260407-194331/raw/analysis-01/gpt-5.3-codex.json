@@ -1,0 +1,18 @@
+{
+  "task_id": "analysis-01",
+  "model_id": "gpt-5.3-codex",
+  "status": "ok",
+  "response_text": "## 1) Root cause analysis\n\nMost likely cause: **gateway timeout is too tight (or misapplied) at 5000ms, especially for OpenAI-routed calls**, not random model crashes.\n\nWhy:\n\n- **`gpt-4o` is the dominant timeout source** (most timeout lines involve it).\n- Timeout elapsed values are **consistently ~5070\u20135160ms**, i.e., just above configured `threshold=5000ms`.\n  - That pattern usually means a **hard gateway cutoff** is firing, not organic provider-side variable latency.\n- Failovers to **Claude/Gemini succeed quickly** (TTFT ~600\u2013900ms), so gateway and downstream path are generally healthy.\n- Session **`j1k2l3`** is key:\n  - `o3-mini` (OpenAI) times out\n  - then fallback to `gpt-4o` (also OpenAI) times out\n  - then failure because chain exhausted  \n  This strongly suggests **provider-correlated failure path + poor fallback topology** (same provider in fallback chain).\n\nSo: primary issue is **configuration/design** (timeout + fallback strategy), possibly with a concurrent **OpenAI latency incident**.\n\n---\n\n## 2) Pattern summary\n\n| Metric | Value |\n|--------|-------|\n| Total timeout events | **6** |\n| Primary model causing most timeouts | **gpt-4o** (4 as primary; 5 total including fallback timeout) |\n| % of sessions where failover succeeded | **75% of completed failovers (3/4)**; **60% if counting all 5 sessions in window** (last one incomplete in logs) |\n| Sessions where all fallbacks exhausted | **1 (`j1k2l3`)** |\n| Typical elapsed time at timeout | **~5.1s (5071\u20135158ms)** |\n\n---\n\n## 3) Config changes\n\nI\u2019d change two things: **increase timeout** and **avoid same-provider fallback chains**.\n\nExample revision:\n\n```yaml\ngateway:\n  # raise global timeout to reduce threshold clipping\n  timeout_ms: 12000\n\n  # optional: if supported, separate first-token and total timeout\n  ttft_timeout_ms: 8000\n  total_timeout_ms: 30000\n\n  models:\n    - id: gpt-4o\n      provider: openai\n      # cross-provider fallback first\n      fallback: claude-sonnet-4\n\n    - id: o3-mini\n      provider: openai\n      # avoid OpenAI->OpenAI during provider incidents\n      fallback: claude-sonnet-4\n\n    - id: claude-sonnet-4\n      provider: anthropic\n      fallback: gemini-2.0-flash\n\n    - id: gemini-2.0-flash\n      provider: google\n      fallback: null\n```\n\nIf your schema supports arrays, even better:\n\n```yaml\nfallbacks: [claude-sonnet-4, gemini-2.0-flash]\n```\n\nWhy:\n- 5s is clearly clipping requests.\n- `o3-mini -> gpt-4o` is a correlated-risk fallback path.\n\n---\n\n## 4) Monitoring/alert recommendation\n\nAdd an alert on **timeout-rate + threshold-clipping signature**.\n\n**Alert definition (example):**\n\n- **Metric:** `gateway.embedded_failover.timeouts{reason=\"timeout\", model=*} / gateway.requests{model=*}`\n- **Threshold:** `> 3%` for any model\n- **Window:** `5 minutes` (sustained for 2 consecutive windows)\n- **AND condition:** p50 timeout elapsed in `[timeout_ms, timeout_ms+300ms]` (indicates config clipping)\n- **Action:** page on-call + create incident + auto-switch routing policy to cross-provider fallback profile\n\nThis catches both rising timeout rate and the specific \u201chard timeout boundary\u201d pattern seen here.",
+  "metrics": {
+    "input_tokens": 1326,
+    "output_tokens": 1423,
+    "ttft_ms": null,
+    "total_latency_ms": 22768.6,
+    "tokens_per_sec": 62.5,
+    "cost_usd": 0.017545,
+    "code_pass_rate": null
+  },
+  "category": "analysis",
+  "difficulty": "hard",
+  "family": "openai"
+}

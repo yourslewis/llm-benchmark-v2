@@ -1,0 +1,4 @@
+[clawguard] Initializing ClawGuard v1.0.0
+[clawguard] ClawGuard active — 5 layers of protection enabled
+[clawguard] Vault initialized: 16 credentials stored
+[clawguard] PII registry loaded: 20 files tracked

@@ -1,0 +1,18 @@
+{
+  "task_id": "plan-03",
+  "model_id": "gemini-2.5-pro",
+  "status": "ok",
+  "response_text": "**Subject:** Receipt Request for Transaction on March 12, 2026\n\n**To:** bwhost@microsoft.com\n\nHello Boardwalk Restaurant Team,\n\nI hope this email finds you well.\n\nI am writing to request your assistance. I hosted a business lunch at your restaurant on March 12, 2026, but have unfortunately misplaced the itemized receipt. I need a copy for my company's expense reimbursement process.\n\nHere are the details of the transaction to help you locate it:\n\n*   **Date:** March 12, 2026\n*   **Approximate Time:** 1:58 PM\n*   **Total Amount:** $515.56\n*   **Payment Method:** American Express card (ending in \u2022\u2022\u2022\u2022)\n\nWould it be possible for you to email me a copy of the receipt? If a duplicate receipt is not available, a simple written confirmation of the transaction details (date, amount, and restaurant name) would also be sufficient for my purposes.\n\nI need to submit my expense report by the end of the month, so I would greatly appreciate your help at your earliest convenience.\n\nThank you for your time and assistance.\n\nBest regards,\n\nAlex Chen\nAccount Manager\nContoso Technologies\nEmail: alex.chen@contoso.com\nPhone: 555-0147",
+  "metrics": {
+    "input_tokens": 415,
+    "output_tokens": 292,
+    "ttft_ms": 5071.1,
+    "total_latency_ms": 6160.9,
+    "tokens_per_sec": 268.0,
+    "cost_usd": 0.003439,
+    "code_pass_rate": null
+  },
+  "category": "plan",
+  "difficulty": "easy",
+  "family": "google"
+}

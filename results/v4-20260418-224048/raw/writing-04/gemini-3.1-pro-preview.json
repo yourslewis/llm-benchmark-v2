@@ -1,0 +1,19 @@
+{
+  "task_id": "writing-04",
+  "model_id": "gemini-3.1-pro-preview",
+  "status": "ok",
+  "response_text": "Subject: Checking in: Upcoming 1:1 and recent performance\n\nHi Alex,\n\nI\u2019m looking forward to our next 1:1. I want to be transparent and let you know ahead of time that I\u2019d like to use this meeting to discuss your performance over the past quarter. \n\nLast year, you set an incredibly high bar. Your leadership on the Persona V2 launch and your dedicated mentorship of our junior engineers made a huge impact on the team. Because of your strong track record, I want to check in about a few recent changes I\u2019ve noticed:\n\n*   **Deadlines:** The Persona V3 integration shipped on March 28, 13 days past the target, and the evaluation pipeline is currently past its April 1 due date. \n*   **Code Reviews:** The team relies heavily on your expertise, but several peers have mentioned your recent reviews have been very brief, sometimes just a quick \"LGTM\" on complex PRs.\n*   **Communication:** You missed two team standups recently without prior notice and were unreachable on Teams for a few hours during core working time on multiple occasions.\n\nMy goal for this conversation is to understand what is going on and how I can help. Given your history as a top performer, my immediate thought is that there might be roadblocks, burnout, or outside factors affecting your day-to-day. \n\nI value you as a key member of this team. During our meeting, let's discuss these specific areas and work together on a plan to get things back on track. \n\nPlease take some time to reflect on this, and let me know if you need to adjust our scheduled time to talk. \n\nBest,\n\n[Your Name] \n[Your Title]",
+  "metrics": {
+    "input_tokens": 410,
+    "output_tokens": 393,
+    "ttft_ms": 8098.7,
+    "total_latency_ms": 10699.7,
+    "tokens_per_sec": 151.1,
+    "thinking_skipped": false,
+    "cost_usd": 0.005536,
+    "code_pass_rate": null
+  },
+  "category": "writing",
+  "difficulty": "hard",
+  "family": "google"
+}

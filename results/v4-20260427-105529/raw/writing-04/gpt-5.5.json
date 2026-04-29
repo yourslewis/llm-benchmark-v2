@@ -1,0 +1,19 @@
+{
+  "task_id": "writing-04",
+  "model_id": "gpt-5.5",
+  "status": "ok",
+  "response_text": "Subject: 1:1 to Discuss Recent Delivery, Reviews, and Support\n\nHi Alex,\n\nI\u2019d like to schedule a 45-minute 1:1 with you this week to talk about some performance concerns I\u2019ve observed over the past quarter, and to understand what may be getting in the way. This is intended to be a direct and supportive conversation, not a surprise or a punishment.\n\nSpecifically, I want to discuss three areas:\n\n- Delivery: the Persona V3 integration was due March 15 and shipped March 28, and the evaluation pipeline that was due April 1 is still not complete.\n- Code review quality: I\u2019ve heard concerns from teammates that some recent reviews have been very light, including one-line \u201cLGTM\u201d approvals on complex PRs where deeper feedback would be expected from a senior engineer.\n- Communication: you missed two team standups without notice, and there have been multiple times where you were unreachable on Teams for 3+ hours during core collaboration time.\n\nI\u2019m raising this clearly because these patterns are affecting team planning, code quality, and trust. At the same time, I want to acknowledge your strong track record: last year you led the Persona V2 launch, mentored two junior engineers, and earned an \u201cExceeds\u201d rating. That history matters, and it makes me want to better understand whether something has changed \u2014 workload, priorities, motivation, health, or anything else you\u2019re comfortable sharing.\n\nIn our 1:1, I\u2019d like us to cover your view of what\u2019s been happening, any support or adjustments you need, and a concrete plan for getting delivery, review quality, and communication back on track.\n\nAre you available Wednesday at 2:00 or Thursday at 10:30?\n\nThanks,  \n[Your Name]",
+  "metrics": {
+    "input_tokens": 376,
+    "output_tokens": 839,
+    "ttft_ms": null,
+    "total_latency_ms": 13459.2,
+    "tokens_per_sec": 62.3,
+    "thinking_skipped": false,
+    "cost_usd": 0.00933,
+    "code_pass_rate": null
+  },
+  "category": "writing",
+  "difficulty": "hard",
+  "family": "openai"
+}

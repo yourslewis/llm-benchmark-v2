@@ -1,0 +1,1509 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Benchmark Tasks v3</title>
+<style>
+body { font-family: -apple-system, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 20px; line-height: 1.6; }
+h1 { border-bottom: 3px solid #2563eb; padding-bottom: 8px; }
+h2 { color: #2563eb; margin-top: 2em; }
+.meta { color: #6b7280; font-size: 0.9em; margin-bottom: 0.5em; }
+pre { background: #f3f4f6; padding: 16px; border-radius: 8px; overflow-x: auto; white-space: pre-wrap; font-size: 0.85em; }
+hr { margin: 2em 0; border: none; border-top: 2px solid #e5e7eb; }
+</style></head><body>
+<h1>📋 Benchmark Tasks v3 — All 15 Prompts</h1>
+<hr><h2>analysis-01</h2>
+<div class="meta">Category: <strong>analysis</strong> | Difficulty: <strong>hard</strong> | Grading: <strong>llm_judge</strong></div>
+<pre># Task: Diagnose Gateway Timeout Errors
+
+## Background
+
+You are operating an AI gateway that routes requests to multiple LLM providers. The gateway uses an **embedded run failover** system — when a model call times out, it records a decision and optionally retries with a fallback model.
+
+## Error Logs
+
+The following 20 log lines were captured over a 4-minute window this morning. Review them carefully:
+
+```
+2026-04-06T08:14:02.341Z [gateway] INFO  session=a1b2c3 model=gpt-4o routing decision: primary
+2026-04-06T08:14:07.412Z [gateway] WARN  session=a1b2c3 model=gpt-4o embedded run failover decision: reason=timeout elapsed=5071ms threshold=5000ms
+2026-04-06T08:14:07.415Z [gateway] INFO  session=a1b2c3 model=claude-sonnet-4 routing decision: failover
+2026-04-06T08:14:09.203Z [gateway] INFO  session=a1b2c3 model=claude-sonnet-4 response received tokens=412 ttft=847ms
+2026-04-06T08:15:11.882Z [gateway] INFO  session=d4e5f6 model=gpt-4o routing decision: primary
+2026-04-06T08:15:16.994Z [gateway] WARN  session=d4e5f6 model=gpt-4o embedded run failover decision: reason=timeout elapsed=5112ms threshold=5000ms
+2026-04-06T08:15:17.001Z [gateway] INFO  session=d4e5f6 model=gemini-2.0-flash routing decision: failover
+2026-04-06T08:15:18.774Z [gateway] INFO  session=d4e5f6 model=gemini-2.0-flash response received tokens=388 ttft=612ms
+2026-04-06T08:16:03.554Z [gateway] INFO  session=g7h8i9 model=gpt-4o routing decision: primary
+2026-04-06T08:16:08.671Z [gateway] WARN  session=g7h8i9 model=gpt-4o embedded run failover decision: reason=timeout elapsed=5117ms threshold=5000ms
+2026-04-06T08:16:08.680Z [gateway] WARN  session=g7h8i9 model=claude-sonnet-4 routing decision: failover (no more fallbacks after this)
+2026-04-06T08:16:09.903Z [gateway] INFO  session=g7h8i9 model=claude-sonnet-4 response received tokens=501 ttft=901ms
+2026-04-06T08:17:44.120Z [gateway] INFO  session=j1k2l3 model=o3-mini routing decision: primary
+2026-04-06T08:17:49.234Z [gateway] WARN  session=j1k2l3 model=o3-mini embedded run failover decision: reason=timeout elapsed=5114ms threshold=5000ms
+2026-04-06T08:17:49.241Z [gateway] INFO  session=j1k2l3 model=gpt-4o routing decision: failover
+2026-04-06T08:17:54.399Z [gateway] WARN  session=j1k2l3 model=gpt-4o embedded run failover decision: reason=timeout elapsed=5158ms threshold=5000ms
+2026-04-06T08:17:54.407Z [gateway] ERROR session=j1k2l3 all fallbacks exhausted — request failed
+2026-04-06T08:18:22.901Z [gateway] INFO  session=m4n5o6 model=gpt-4o routing decision: primary
+2026-04-06T08:18:27.988Z [gateway] WARN  session=m4n5o6 model=gpt-4o embedded run failover decision: reason=timeout elapsed=5087ms threshold=5000ms
+2026-04-06T08:18:28.001Z [gateway] INFO  session=m4n5o6 model=claude-sonnet-4 routing decision: failover
+```
+
+## Questions
+
+### 1. Root Cause Analysis
+Based on the log pattern, what is the most likely root cause of the timeout failures?
+
+Consider:
+- Which model is timing out most frequently?
+- What does the consistent ~5000ms elapsed time suggest?
+- Is this likely a model-side issue or a gateway configuration issue?
+- What does session `j1k2l3` tell us that the others don't?
+
+### 2. Pattern Summary
+Fill in this table:
+
+| Metric | Value |
+|--------|-------|
+| Total timeout events | |
+| Primary model causing most timeouts | |
+| % of sessions where failover succeeded | |
+| Sessions where all fallbacks exhausted | |
+| Typical elapsed time at timeout | |
+
+### 3. Configuration Fix
+The gateway uses a YAML config. Propose specific config changes to fix the issue:
+
+```yaml
+# Current config (partial):
+gateway:
+  timeout_ms: 5000
+  models:
+    - id: gpt-4o
+      provider: openai
+      fallback: claude-sonnet-4
+    - id: o3-mini
+      provider: openai
+      fallback: gpt-4o
+    - id: claude-sonnet-4
+      provider: anthropic
+      fallback: null
+```
+
+What changes would you make and why?
+
+### 4. Monitoring Recommendation
+What metric or alert would you add to catch this problem earlier in the future? Provide a specific alert definition (metric, threshold, window, action).</pre>
+<hr><h2>analysis-02</h2>
+<div class="meta">Category: <strong>analysis</strong> | Difficulty: <strong>medium</strong> | Grading: <strong>llm_judge</strong></div>
+<pre># Task: Categorize Smoke Test Failures and Recommend Model Removals
+
+## Background
+
+You run a nightly smoke test against all configured LLM models. Each test sends a simple prompt and checks for a valid response. Below are the results from last night's run across 23 models.
+
+## Smoke Test Results
+
+| # | Model ID | Provider | Status | Error / Notes |
+|---|----------|----------|--------|---------------|
+| 1 | gpt-4o | openai | ✅ PASS | ttft=412ms |
+| 2 | gpt-4o-mini | openai | ✅ PASS | ttft=287ms |
+| 3 | gpt-4-turbo | openai | ✅ PASS | ttft=534ms |
+| 4 | o1 | openai | ✅ PASS | ttft=8341ms |
+| 5 | o3-mini | openai | ✅ PASS | ttft=1203ms |
+| 6 | claude-opus-4 | anthropic | ✅ PASS | ttft=891ms |
+| 7 | claude-sonnet-4 | anthropic | ✅ PASS | ttft=623ms |
+| 8 | claude-haiku-3-5 | anthropic | ✅ PASS | ttft=198ms |
+| 9 | gemini-2.0-flash | google | ✅ PASS | ttft=341ms |
+| 10 | gemini-1.5-pro | google | ❌ FAIL | 404 Not Found — model deprecated |
+| 11 | gemini-1.5-flash | google | ❌ FAIL | 404 Not Found — model deprecated |
+| 12 | gpt-3.5-turbo | openai | ❌ FAIL | 404 Not Found — model deprecated |
+| 13 | claude-2.1 | anthropic | ❌ FAIL | 404 Not Found — model deprecated |
+| 14 | mistral-large | mistral | ✅ PASS | ttft=512ms |
+| 15 | mistral-medium | mistral | ❌ FAIL | 401 Unauthorized — API key invalid or expired |
+| 16 | codestral | mistral | ❌ FAIL | 401 Unauthorized — API key invalid or expired |
+| 17 | llama-3.3-70b | groq | ✅ PASS | ttft=89ms |
+| 18 | llama-3.1-8b | groq | ✅ PASS | ttft=67ms |
+| 19 | deepseek-chat | deepseek | ❌ FAIL | 503 Service Unavailable — upstream down |
+| 20 | deepseek-reasoner | deepseek | ❌ FAIL | 503 Service Unavailable — upstream down |
+| 21 | qwen-turbo | alibaba | ❌ FAIL | Connection timeout after 30s |
+| 22 | qwen-plus | alibaba | ❌ FAIL | Connection timeout after 30s |
+| 23 | phi-3-mini | azure | ❌ FAIL | 400 Bad Request — invalid model name for this endpoint |
+
+## Your Task
+
+### 1. Categorize Failures
+
+Group the 14 failing models by failure type. For each category:
+- Name the category
+- List which models fall into it
+- Explain what the error means and what likely caused it
+
+### 2. Prioritized Fix Plan
+
+For each failure category, provide:
+- **Immediate action:** What to do right now
+- **Time estimate:** How long the fix should take
+- **Owner:** Who should fix it (infra team, API team, etc.)
+
+### 3. Removal Recommendations
+
+Recommend which models to **permanently remove** from the configuration vs. which ones to **keep but fix**.
+
+Use this table format:
+| Model | Action | Reason |
+|-------|--------|--------|
+| gemini-1.5-pro | Remove | ... |
+| deepseek-chat | Keep (fix) | ... |
+
+### 4. Passing Model Notes
+
+Among the 9 passing models, flag any concerns:
+- Are any passing models unusually slow or worth reviewing?
+- Any redundancy (multiple models from same provider doing the same thing)?
+
+### 5. Summary
+
+After your analysis, write a 3-sentence executive summary suitable for sharing with your team lead.</pre>
+<hr><h2>analysis-03</h2>
+<div class="meta">Category: <strong>analysis</strong> | Difficulty: <strong>easy</strong> | Grading: <strong>llm_judge</strong></div>
+<pre># Task: Review Model Token Limits and Recommend Config Corrections
+
+## Background
+
+Your AI gateway configuration has `maxTokens` set to **16,384** for all models. This was the default value when the config was first created, and nobody has updated it since. Some models support more tokens than this; others support less — meaning some are artificially limited and others are incorrectly configured.
+
+## Current Configuration
+
+| Model ID | Provider | Current maxTokens | 
+|----------|----------|-------------------|
+| gpt-4o | openai | 16384 |
+| gpt-4o-mini | openai | 16384 |
+| o3-mini | openai | 16384 |
+| claude-opus-4 | anthropic | 16384 |
+| claude-sonnet-4 | anthropic | 16384 |
+| claude-haiku-3-5 | anthropic | 16384 |
+| gemini-2.0-flash | google | 16384 |
+| mistral-large | mistral | 16384 |
+| llama-3.3-70b | groq | 16384 |
+| phi-3-mini-128k | azure | 16384 |
+
+## Your Task
+
+### 1. Research &amp; Correct
+
+For each model, look up (or recall from knowledge) the **actual maximum output token limit** supported by the API, then fill in the table:
+
+| Model ID | Actual Max Output Tokens | Current Setting | Recommended Setting | Action Needed |
+|----------|--------------------------|-----------------|---------------------|---------------|
+| gpt-4o | ? | 16384 | ? | Increase / Decrease / OK |
+| ... | | | | |
+
+**Notes on "Recommended Setting":**
+- Set to the actual API maximum if it's higher than 16384 (you want to allow full output)
+- Set to a practical limit if the actual max is very large (e.g., 1M tokens is rarely needed — cap at 32K or 64K)
+- Set to the actual max if it's lower than 16384 (to avoid API errors)
+
+### 2. Flag Dangerous Misconfiguration
+
+Are any of these models set to a value **higher than their actual API limit**? If so, what would happen when a request tries to use the full 16384 tokens on those models?
+
+### 3. Priority Order
+
+Which corrections should be made first? Rank them by:
+1. **Critical** — current setting will cause API errors
+2. **Important** — current setting limits capability significantly
+3. **Low priority** — close enough, minor adjustment
+
+### 4. Config Snippet
+
+Show what the corrected config block would look like for the **3 highest-priority models**, in this format:
+
+```json
+{
+  "model": "model-id",
+  "maxTokens": &lt;corrected_value&gt;,
+  "reason": "Changed from 16384: actual API limit is X"
+}
+```</pre>
+<hr><h2>code-01</h2>
+<div class="meta">Category: <strong>code</strong> | Difficulty: <strong>easy</strong> | Grading: <strong>automated</strong></div>
+<pre>Write a Python script that tests all models listed in a JSON config file by sending the prompt "Reply with exactly one word: OK" to each model via an OpenAI-compatible API at http://127.0.0.1:4000/v1/chat/completions.
+
+Requirements:
+1. Load model list from a JSON file passed as command-line argument
+2. For each model, send the test prompt with max_tokens=20
+3. Handle models that don't support the `temperature` parameter (skip it for those)
+4. Set a 30-second timeout per request
+5. Capture: model name, pass/fail status, response latency (seconds), response text (first 50 chars)
+6. Print results as a formatted table with columns: Model, Status, Latency, Response
+7. Print a summary line at the end: "Total: N models | ✅ X working | ❌ Y failed"
+8. Use only Python standard library (urllib, json, time) — no pip packages</pre>
+<hr><h2>code-02</h2>
+<div class="meta">Category: <strong>code</strong> | Difficulty: <strong>medium</strong> | Grading: <strong>automated</strong></div>
+<pre># Task: Add Telegram Notification to Security Plugin
+
+## Background
+
+You are working on an OpenClaw security plugin called **ClawGuard**. The plugin intercepts tool calls and blocks ones that match security policies. Currently, when a tool call is blocked, it is silently dropped with only a local log entry.
+
+Your task is to **add Telegram notification logic** so that whenever a tool call is blocked, the plugin sends a Telegram message using `api.message()`.
+
+## Existing Plugin Code
+
+Below is the full plugin source (`clawguard.plugin.js`). Add your notification code to this file.
+
+```javascript
+// clawguard.plugin.js
+// ClawGuard Security Plugin v2.1.0
+// Multi-layer tool call scanning with behavioral chain detection
+
+"use strict";
+
+const PLUGIN_NAME = "clawguard";
+const PLUGIN_VERSION = "2.1.0";
+
+// ─── Configuration ───────────────────────────────────────────────────────────
+
+const DEFAULT_CONFIG = {
+  enabled: true,
+  logLevel: "warn",
+  notifyChannel: null,   // Telegram chat ID for notifications — fill this in
+  silentBlock: false,
+  layers: {
+    L1: { enabled: true, patterns: true },
+    L2: { enabled: true, heuristics: true },
+    L3: { enabled: false, llmScan: false },
+    L4: { enabled: false, behavioral: false },
+  },
+  piiTypes: ["email", "phone", "ssn", "creditCard", "apiKey"],
+  credentialPatterns: [
+    /sk-[a-zA-Z0-9]{32,}/g,
+    /ghp_[a-zA-Z0-9]{36}/g,
+    /AKIA[0-9A-Z]{16}/g,
+    /-----BEGIN (RSA |EC )?PRIVATE KEY-----/,
+    /xoxb-[0-9]+-[0-9]+-[a-zA-Z0-9]+/g,
+  ],
+};
+
+// ─── Layer 1: Pattern Matching ────────────────────────────────────────────────
+
+const BLOCKED_TOOLS = new Set([
+  "exec_shell",
+  "write_file",
+  "delete_file",
+  "send_email",
+  "make_http_request",
+]);
+
+const BLOCKED_PATTERNS = [
+  /rm\s+-rf\s+\//i,
+  /curl\s+.*\|\s*sh/i,
+  /wget\s+.*\|\s*bash/i,
+  /base64\s+-d\s*\|/i,
+  /eval\s*\(/i,
+  /exec\s*\(/i,
+  /;\s*cat\s+\/etc\/passwd/i,
+  /\|\s*nc\s+/i,
+];
+
+function scanL1(toolName, toolArgs) {
+  const argsStr = JSON.stringify(toolArgs);
+
+  if (BLOCKED_TOOLS.has(toolName)) {
+    return { blocked: true, reason: `L1: tool '${toolName}' is in blocklist` };
+  }
+
+  for (const pattern of BLOCKED_PATTERNS) {
+    if (pattern.test(argsStr)) {
+      return { blocked: true, reason: `L1: matched pattern ${pattern}` };
+    }
+  }
+
+  return { blocked: false };
+}
+
+// ─── Layer 2: Heuristic Analysis ──────────────────────────────────────────────
+
+const SUSPICIOUS_KEYWORDS = [
+  "ignore previous instructions",
+  "disregard your system prompt",
+  "you are now",
+  "pretend you are",
+  "act as if",
+  "bypass",
+  "jailbreak",
+  "prompt injection",
+  "override",
+  "forget everything",
+];
+
+function scoreHeuristic(text) {
+  let score = 0;
+  const lower = text.toLowerCase();
+
+  for (const kw of SUSPICIOUS_KEYWORDS) {
+    if (lower.includes(kw)) score += 20;
+  }
+
+  // Long base64-like strings
+  const b64matches = text.match(/[A-Za-z0-9+/]{80,}={0,2}/g);
+  if (b64matches) score += b64matches.length * 10;
+
+  // Excessive special characters
+  const specialCount = (text.match(/[&lt;&gt;{}|\\^~\[\]`]/g) || []).length;
+  if (specialCount &gt; 20) score += 15;
+
+  return score;
+}
+
+function scanL2(toolName, toolArgs) {
+  const argsStr = JSON.stringify(toolArgs);
+  const score = scoreHeuristic(argsStr);
+
+  if (score &gt;= 40) {
+    return { blocked: true, reason: `L2: heuristic score ${score} &gt;= threshold 40` };
+  }
+
+  return { blocked: false, score };
+}
+
+// ─── PII Detection ────────────────────────────────────────────────────────────
+
+function detectPII(text, piiTypes) {
+  const found = [];
+
+  if (piiTypes.includes("email")) {
+    const emails = text.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g);
+    if (emails) found.push({ type: "email", count: emails.length });
+  }
+
+  if (piiTypes.includes("phone")) {
+    const phones = text.match(/(\+?1[-.\s]?)?\(?\d{3}\)?[-.\s]\d{3}[-.\s]\d{4}/g);
+    if (phones) found.push({ type: "phone", count: phones.length });
+  }
+
+  if (piiTypes.includes("ssn")) {
+    const ssns = text.match(/\b\d{3}-\d{2}-\d{4}\b/g);
+    if (ssns) found.push({ type: "ssn", count: ssns.length });
+  }
+
+  if (piiTypes.includes("creditCard")) {
+    const cards = text.match(/\b(?:\d{4}[-\s]?){3}\d{4}\b/g);
+    if (cards) found.push({ type: "creditCard", count: cards.length });
+  }
+
+  if (piiTypes.includes("apiKey")) {
+    for (const pattern of DEFAULT_CONFIG.credentialPatterns) {
+      const matches = text.match(pattern);
+      if (matches) found.push({ type: "apiKey", count: matches.length });
+    }
+  }
+
+  return found;
+}
+
+// ─── Behavioral Chain Tracker ─────────────────────────────────────────────────
+
+class BehavioralChainTracker {
+  constructor() {
+    this.chains = new Map(); // sessionId → [events]
+    this.WINDOW_MS = 60_000;
+    this.MAX_EVENTS = 10;
+  }
+
+  record(sessionId, event) {
+    const now = Date.now();
+    const events = (this.chains.get(sessionId) || []).filter(
+      (e) =&gt; now - e.ts &lt; this.WINDOW_MS
+    );
+    events.push({ ...event, ts: now });
+    this.chains.set(sessionId, events.slice(-this.MAX_EVENTS));
+    return events;
+  }
+
+  isChainSuspicious(sessionId) {
+    const events = this.chains.get(sessionId) || [];
+    if (events.length &lt; 3) return false;
+
+    const blockCount = events.filter((e) =&gt; e.blocked).length;
+    if (blockCount &gt;= 3) return true;
+
+    const uniqueTools = new Set(events.map((e) =&gt; e.tool));
+    if (uniqueTools.size &gt;= 5 &amp;&amp; events.length &gt;= 5) return true;
+
+    return false;
+  }
+}
+
+const chainTracker = new BehavioralChainTracker();
+
+// ─── Main Plugin Export ───────────────────────────────────────────────────────
+
+module.exports = {
+  name: PLUGIN_NAME,
+  version: PLUGIN_VERSION,
+
+  async onToolCall(context, api) {
+    const { toolName, toolArgs, sessionId } = context;
+    const config = { ...DEFAULT_CONFIG, ...(api.getConfig?.() || {}) };
+
+    if (!config.enabled) return { allow: true };
+
+    // Layer 1
+    const l1 = scanL1(toolName, toolArgs);
+    if (l1.blocked) {
+      api.log("warn", `[ClawGuard] BLOCKED (${l1.reason}) tool=${toolName} session=${sessionId}`);
+
+      // TODO: Add Telegram notification here using api.message()
+      // The notification should include: toolName, reason, sessionId, timestamp
+      // Use config.notifyChannel as the target
+
+      chainTracker.record(sessionId, { tool: toolName, blocked: true, reason: l1.reason });
+      return { allow: false, reason: l1.reason };
+    }
+
+    // Layer 2
+    const l2 = scanL2(toolName, toolArgs);
+    if (l2.blocked) {
+      api.log("warn", `[ClawGuard] BLOCKED (${l2.reason}) tool=${toolName} session=${sessionId}`);
+
+      // TODO: Add Telegram notification here using api.message()
+      // Same as above — notify on L2 blocks too
+
+      chainTracker.record(sessionId, { tool: toolName, blocked: true, reason: l2.reason });
+      return { allow: false, reason: l2.reason };
+    }
+
+    // PII check
+    const argsStr = JSON.stringify(toolArgs);
+    const pii = detectPII(argsStr, config.piiTypes);
+    if (pii.length &gt; 0) {
+      api.log("info", `[ClawGuard] PII detected in tool=${toolName}: ${JSON.stringify(pii)}`);
+    }
+
+    // Behavioral chain check
+    chainTracker.record(sessionId, { tool: toolName, blocked: false });
+    if (chainTracker.isChainSuspicious(sessionId)) {
+      api.log("warn", `[ClawGuard] Suspicious behavioral chain detected session=${sessionId}`);
+
+      // TODO: Add Telegram notification here using api.message()
+      // Notify on suspicious behavioral chain too
+
+      return { allow: false, reason: "L4: suspicious behavioral chain" };
+    }
+
+    return { allow: true };
+  },
+
+  async onLoad(api) {
+    const config = api.getConfig?.() || {};
+    api.log("info", `[ClawGuard] v${PLUGIN_VERSION} loaded. notifyChannel=${config.notifyChannel || "not set"}`);
+  },
+};
+```
+
+## Your Task
+
+Modify the plugin above to add Telegram notification logic. Specifically:
+
+1. **Replace all three `// TODO: Add Telegram notification here` comments** with working code that calls `api.message()`.
+
+2. **The notification message should include:**
+   - Emoji indicator: 🚨 for blocks, ⚠️ for behavioral chains
+   - The tool name that was blocked
+   - The reason for blocking
+   - The session ID
+   - A timestamp (ISO format)
+
+3. **Only send the notification if** `config.notifyChannel` is set (not null/undefined).
+
+4. **Handle errors gracefully** — if `api.message()` throws, log the error but don't let it block the security decision.
+
+5. **The notification call must use** `await api.message({ target: config.notifyChannel, message: "..." })`.
+
+## Output Format
+
+Return the complete modified plugin file with all three TODO sections replaced. Do not truncate or omit any existing code.</pre>
+<hr><h2>code-03</h2>
+<div class="meta">Category: <strong>code</strong> | Difficulty: <strong>hard</strong> | Grading: <strong>automated</strong></div>
+<pre># Task: Build a Multi-API Benchmark Harness with Streaming TTFT Measurement
+
+## Overview
+
+Build a Python command-line benchmark harness that tests LLM models across two API formats and measures **Time-To-First-Token (TTFT)** via SSE streaming.
+
+## Requirements
+
+### API Support
+The harness must support **two API formats**:
+
+1. **Chat Completions API** (`/v1/chat/completions`)
+   - Request body: `{ "model": "...", "messages": [...], "stream": true, ... }`
+   - SSE stream format: `data: {"choices": [{"delta": {"content": "..."}}]}`
+
+2. **Responses API** (`/v1/responses`)
+   - Request body: `{ "model": "...", "input": "...", "stream": true, ... }`
+   - SSE stream format: `data: {"type": "content_block_delta", "delta": {"text": "..."}}`
+
+### Per-Model Configuration
+Load model config from a JSON file. Each model entry supports:
+```json
+{
+  "models": [
+    {
+      "id": "gpt-4o",
+      "api_type": "chat_completions",
+      "base_url": "https://api.openai.com",
+      "api_key_env": "OPENAI_API_KEY",
+      "temperature": 0.7,
+      "max_tokens": 100
+    },
+    {
+      "id": "claude-sonnet-4",
+      "api_type": "responses",
+      "base_url": "https://api.anthropic.com",
+      "api_key_env": "ANTHROPIC_API_KEY",
+      "temperature": 1.0,
+      "max_tokens": 200
+    }
+  ]
+}
+```
+
+### TTFT Measurement
+- Send request with `stream: true`
+- Record `t_start` immediately before the HTTP request
+- Parse the SSE stream; record `t_first_token` when the **first non-empty content delta** arrives
+- `TTFT = t_first_token - t_start` (in milliseconds)
+- Also record total response time (until stream ends)
+
+### Benchmark Prompt
+Use a fixed prompt for all models:
+&gt; "Reply with exactly one sentence about the color blue."
+
+### Output
+Save results to `benchmark_results.json` with this structure:
+```json
+{
+  "run_id": "&lt;uuid&gt;",
+  "timestamp": "&lt;ISO datetime&gt;",
+  "prompt": "Reply with exactly one sentence about the color blue.",
+  "results": [
+    {
+      "model_id": "gpt-4o",
+      "api_type": "chat_completions",
+      "status": "ok",
+      "ttft_ms": 312.4,
+      "total_ms": 1847.2,
+      "first_token": "Blue",
+      "full_response": "Blue is the color of a clear sky on a sunny day.",
+      "error": null
+    },
+    {
+      "model_id": "bad-model",
+      "api_type": "chat_completions",
+      "status": "error",
+      "ttft_ms": null,
+      "total_ms": 5001.0,
+      "first_token": null,
+      "full_response": null,
+      "error": "Connection timeout after 5000ms"
+    }
+  ],
+  "summary": {
+    "total": 2,
+    "ok": 1,
+    "errors": 1,
+    "avg_ttft_ms": 312.4,
+    "fastest_model": "gpt-4o",
+    "slowest_model": "gpt-4o"
+  }
+}
+```
+
+### CLI Interface
+```
+python benchmark.py --config models.json [--output results.json] [--timeout 10] [--workers 4]
+```
+
+- `--config`: Path to model config JSON (required)
+- `--output`: Output file path (default: `benchmark_results.json`)
+- `--timeout`: Per-model timeout in seconds (default: 30)
+- `--workers`: Parallel workers using `concurrent.futures.ThreadPoolExecutor` (default: 1)
+
+### Error Handling
+- Catch timeouts, connection errors, HTTP errors, and JSON parse errors
+- Record error in result but continue to next model
+- Never crash the whole harness due to one model failing
+
+### Constraints
+- **Use only Python stdlib** — no `requests`, `httpx`, `aiohttp`, `sseclient`, etc.
+- Use `urllib.request` for HTTP
+- Parse SSE stream manually (lines starting with `data: `)
+- Use `concurrent.futures.ThreadPoolExecutor` for parallelism
+- Target Python 3.9+
+
+## Deliverable
+
+Return a single Python file `benchmark.py` that implements all requirements above.</pre>
+<hr><h2>debug-01</h2>
+<div class="meta">Category: <strong>debug</strong> | Difficulty: <strong>hard</strong> | Grading: <strong>llm_judge</strong></div>
+<pre># Task: Diagnose LiteLLM Config Failures
+
+## Background
+
+You are running LiteLLM as a proxy for multiple LLM providers. After a recent config update, three groups of models are failing with different errors. Your task is to diagnose each failure type and provide a working fix.
+
+## Current LiteLLM Config
+
+```yaml
+# litellm_config.yaml
+model_list:
+  # Group A: OpenAI models
+  - model_name: gpt-4o
+    litellm_params:
+      model: openai/gpt-4o
+      api_key: os.environ/OPENAI_API_KEY
+      api_base: https://api.openai.com/v1
+      max_tokens: 4096
+
+  - model_name: gpt-4o-mini
+    litellm_params:
+      model: openai/gpt-4o-mini
+      api_key: os.environ/OPENAI_API_KEY
+      api_base: https://api.openai.com/v1
+      max_tokens: 4096
+
+  # Group B: Azure OpenAI models
+  - model_name: azure-gpt4
+    litellm_params:
+      model: azure/gpt-4
+      api_key: os.environ/AZURE_OPENAI_API_KEY
+      api_base: https://contoso.openai.azure.com
+      api_version: "2024-02-15-preview"
+      max_tokens: 4096
+
+  - model_name: azure-gpt4-mini
+    litellm_params:
+      model: azure/gpt-4o-mini
+      api_key: os.environ/AZURE_OPENAI_API_KEY
+      api_base: https://contoso.openai.azure.com
+      api_version: "2024-02-15-preview"
+      max_tokens: 4096
+
+  # Group C: Anthropic models (via LiteLLM)
+  - model_name: claude-opus
+    litellm_params:
+      model: anthropic/claude-opus-4-20250514
+      api_key: os.environ/ANTHROPIC_API_KEY
+      max_tokens: 4096
+
+  - model_name: claude-sonnet
+    litellm_params:
+      model: anthropic/claude-sonnet-4-20250514
+      api_key: os.environ/ANTHROPIC_API_KEY
+      max_tokens: 4096
+
+  # Group D: Mistral models
+  - model_name: mistral-large
+    litellm_params:
+      model: mistral/mistral-large-latest
+      api_key: os.environ/MISTRAL_API_KEY
+      max_tokens: 4096
+
+  - model_name: mistral-small
+    litellm_params:
+      model: mistral/mistral-small-latest
+      api_key: os.environ/MISTRAL_API_KEY
+      max_tokens: 4096
+
+  # Group E: Groq models
+  - model_name: llama-fast
+    litellm_params:
+      model: groq/llama-3.3-70b-versatile
+      api_key: os.environ/GROQ_API_KEY
+      max_tokens: 32768
+
+  - model_name: llama-mini
+    litellm_params:
+      model: groq/llama-3.1-8b-instant
+      api_key: os.environ/GROQ_API_KEY
+      max_tokens: 32768
+
+litellm_settings:
+  drop_params: true
+  request_timeout: 30
+  retry_policy:
+    TimeoutErrorRetries: 3
+    RateLimitErrorRetries: 3
+
+router_settings:
+  routing_strategy: least-busy
+  model_group_alias:
+    fast: ["gpt-4o-mini", "claude-sonnet", "llama-fast"]
+    smart: ["gpt-4o", "claude-opus", "azure-gpt4"]
+
+general_settings:
+  master_key: os.environ/LITELLM_MASTER_KEY
+  database_url: os.environ/DATABASE_URL
+  store_model_in_db: false
+```
+
+## Error Logs
+
+After deploying this config, you see three distinct error types in your LiteLLM logs:
+
+### Error Type 1: Azure models (azure-gpt4, azure-gpt4-mini)
+```
+Error: APIConnectionError - Azure OpenAI request failed
+Details: {"error": {"code": "DeploymentNotFound", "message": "The API deployment for this resource does not exist. If you created the deployment within the last 5 minutes, please wait a moment and try again."}}
+Status: 404
+```
+
+### Error Type 2: Anthropic models (claude-opus, claude-sonnet)
+```
+Error: BadRequestError - Anthropic API error
+Details: {"type": "error", "error": {"type": "invalid_request_error", "message": "model: field required"}}
+Status: 400
+```
+
+### Error Type 3: Groq models (llama-fast, llama-mini)
+```
+Error: BadRequestError - Groq API error  
+Details: {"error": {"message": "max_tokens exceeds the model context window. Requested: 32768, Context window: 8192", "type": "invalid_request_error"}}
+Status: 400
+```
+
+## Your Task
+
+### 1. Diagnose Each Error Type
+
+For each of the 3 error types:
+- **Root cause:** What exactly is wrong in the config?
+- **Why this error:** Explain the technical reason this error is produced
+
+### 2. Provide Fixed Config
+
+Show the corrected YAML snippet for each failing group. Only show the changed lines — no need to repeat the entire config.
+
+### 3. Validation Checklist
+
+After applying fixes, what commands or checks should you run to verify each fix worked?
+
+### 4. Prevention
+
+What config validation or CI check would catch each of these errors before deployment?</pre>
+<hr><h2>debug-02</h2>
+<div class="meta">Category: <strong>debug</strong> | Difficulty: <strong>medium</strong> | Grading: <strong>automated</strong></div>
+<pre># Task: Write a Python Script to Fix OpenClaw maxTokens Misconfiguration
+
+## Background
+
+The OpenClaw AI gateway stores its model configuration in a JSON file. All models currently have `maxTokens` set to `16384` — a leftover default that hasn't been updated. For models where 16384 exceeds the actual API limit, requests that try to use the full token budget will fail with API errors.
+
+## Current Config File Format
+
+The config file (`~/.openclaw/config.json`) has this structure:
+
+```json
+{
+  "version": "2.1",
+  "models": [
+    {
+      "id": "gpt-4o",
+      "provider": "openai",
+      "maxTokens": 16384,
+      "temperature": 0.7,
+      "enabled": true
+    },
+    {
+      "id": "claude-sonnet-4",
+      "provider": "anthropic",
+      "maxTokens": 16384,
+      "temperature": 1.0,
+      "enabled": true
+    }
+  ],
+  "routing": {
+    "default": "gpt-4o",
+    "fallback": "claude-sonnet-4"
+  }
+}
+```
+
+## Correct Token Limits
+
+Use this table of actual API output token limits:
+
+| Model ID | Actual Max Output Tokens |
+|----------|--------------------------|
+| gpt-4o | 16384 |
+| gpt-4o-mini | 16384 |
+| o3-mini | 65536 |
+| claude-opus-4 | 8096 |
+| claude-sonnet-4 | 8096 |
+| claude-haiku-3-5 | 8096 |
+| gemini-2.0-flash | 8192 |
+| mistral-large | 131072 |
+| llama-3.3-70b | 8192 |
+| phi-3-mini-128k | 4096 |
+
+## Your Task
+
+Write a Python script `fix_max_tokens.py` that:
+
+### 1. Loads the config file
+- Accept config file path as first argument (`sys.argv[1]`)
+- If no argument, default to `~/.openclaw/config.json`
+- Handle `FileNotFoundError` gracefully
+
+### 2. Applies the corrections
+Define the correct limits as a dictionary inside the script:
+```python
+CORRECT_LIMITS = {
+    "gpt-4o": 16384,
+    "gpt-4o-mini": 16384,
+    # ... etc
+}
+```
+
+For each model in the config:
+- If the model ID is in `CORRECT_LIMITS` and `maxTokens` differs from the correct value → update it
+- If the model ID is NOT in `CORRECT_LIMITS` → skip it with a warning
+- Track how many models were changed vs. skipped
+
+### 3. Dry-run mode
+If `--dry-run` flag is passed, print what would change but don't write to disk.
+
+### 4. Output
+```
+Checking 10 models...
+  gpt-4o: 16384 → 16384 (no change)
+  claude-opus-4: 16384 → 8096 (UPDATED)
+  claude-sonnet-4: 16384 → 8096 (UPDATED)
+  mistral-large: 16384 → 131072 (UPDATED)
+  ...
+
+Summary: 6 updated, 4 unchanged, 0 skipped
+Config saved to: ~/.openclaw/config.json
+```
+
+### 5. Backup
+Before writing, create a backup of the original file at `&lt;original_path&gt;.bak`.
+
+### 6. Constraints
+- Use only Python stdlib
+- Handle JSON parse errors
+- The script must not modify any keys other than `maxTokens`
+- Preserve JSON formatting (use `indent=2`)
+
+## Deliverable
+
+Return a single Python script `fix_max_tokens.py` that implements all requirements above.</pre>
+<hr><h2>design-01</h2>
+<div class="meta">Category: <strong>design</strong> | Difficulty: <strong>hard</strong> | Grading: <strong>llm_judge</strong></div>
+<pre># Task: Design an LLM-Based User Profile System from Browser Behavioral Signals
+
+## Background
+
+You are designing a user profile system for an AI assistant embedded in Microsoft Edge. The system infers user interests, preferences, and context from browser behavioral signals and uses LLM summarization to build rich, structured profiles. These profiles are then used to personalize AI assistant responses in real time.
+
+## Design Requirements
+
+### Input Signals
+
+The system receives these behavioral signals from the Edge browser:
+- **Page visits:** URL, title, domain, visit duration, scroll depth, time of day
+- **Search queries:** Query text, result click-through
+- **Content interactions:** Highlights, annotations, copy events
+- **App usage patterns:** Which tabs are open, task-switching behavior
+- **Explicit signals:** Bookmarks, saves, likes, follows (when available)
+
+### 5-Layer Profile Schema
+
+Design a profile schema with these 5 layers, each with different update cadence:
+
+| Layer | Name | Update Cadence | Contents |
+|-------|------|----------------|----------|
+| L1 | Identity | Monthly | Stable attributes: occupation, expertise domains, communication style |
+| L2 | Preferences | Weekly | Behavioral preferences: preferred content length, formality, topics to avoid |
+| L3 | Interests | Daily | Active interest clusters with confidence scores |
+| L4 | World Context | Daily | What the user is currently focused on: active projects, recent searches, news topics |
+| L5 | Interest Cards | Event-triggered | Triggered by specific signal patterns; transient, expire after 48h |
+
+### What to Design
+
+#### 1. Full Profile Schema
+Define the complete data schema for each layer. For each layer, specify:
+- The exact fields and their types
+- Example values
+- How the layer relates to the others
+
+Use JSON or pseudo-JSON format.
+
+#### 2. Generation Pipeline
+Describe how each layer is generated from raw signals:
+
+For each layer, specify:
+- **Input:** What signals feed into this layer?
+- **LLM summarization prompt:** What prompt template is used to generate/update this layer?
+- **Trigger:** When is this layer regenerated? (time-based or event-based)
+- **Merge strategy:** How does a new generation merge with the existing layer value? (overwrite, append, weighted merge?)
+
+For the **Interest Cards (L5)** layer specifically:
+- Define 3 concrete trigger patterns that create a card
+- Specify the card schema (what fields a card has)
+- Specify the expiry and eviction logic
+
+#### 3. Storage and Serving Architecture
+Design the storage layer with these constraints:
+- **Read P99 latency &lt; 5ms** (profile must be available for real-time AI responses)
+- Profiles are per-user; estimated 10M users at scale
+- Profile size: ~2KB per user (average, all layers combined)
+- Writes are async and eventual; reads are synchronous
+
+Specify:
+- Storage technology and data model
+- Caching strategy (what level, TTL, invalidation)
+- How the AI assistant reads the profile at request time (sync path)
+- How profile updates are written (async path)
+
+#### 4. LLM Summarization Pipeline
+
+The core of the system is an LLM pipeline that periodically processes raw behavioral events and updates the profile. Specify:
+
+- **Event batching:** How are raw events batched for processing?
+- **Summarization model:** What model is used (balance cost vs. quality)?
+- **Prompt structure:** Show an example full prompt for generating the L3 (Interests) layer
+- **Output parsing:** How is the LLM output parsed and validated before writing to the profile?
+- **Failure handling:** What happens if the LLM call fails or returns garbage?
+
+#### 5. Evaluation Framework
+
+How do you know if the profiles are good? Design an evaluation framework:
+
+- **Offline eval:** How do you measure profile quality without user feedback?
+- **Online eval:** What metrics do you track in production?
+- **A/B testing:** What experiment would you run to measure profile impact on AI assistant quality?
+- **Privacy compliance check:** How do you ensure profiles don't contain PII that wasn't consented to?
+
+### Constraints
+- Zero raw behavioral data stored on server — only derived profile layers
+- All LLM inference happens server-side
+- User can view and delete their profile via a simple API
+- GDPR/CCPA compliant (right to deletion, data minimization)
+
+## Output Format
+
+Write a structured design document with:
+- A section for each of the 5 design areas above
+- Concrete examples and schemas, not abstract descriptions
+- Call out open questions or tradeoffs where they exist</pre>
+<hr><h2>design-02</h2>
+<div class="meta">Category: <strong>design</strong> | Difficulty: <strong>hard</strong> | Grading: <strong>llm_judge</strong></div>
+<pre># Task: Design a Self-Hosted Security Extension for an AI Agent Platform
+
+## Background
+
+You are replacing a cloud-based security service (**Protector**) with a fully self-hosted security extension for an AI agent platform. The cloud service has been handling security scanning, credential protection, and PII detection remotely — but your team needs zero cloud dependencies for compliance and latency reasons.
+
+The new extension must replicate and improve on the cloud service's functionality entirely locally.
+
+## Requirements
+
+### Core Requirement: Zero Cloud Dependencies
+All processing must happen locally. No data may leave the machine for security scanning purposes. The extension must work fully offline.
+
+---
+
+### Requirement 1: Credential Vault
+
+Design a credential vault that:
+- Encrypts secrets using **AES-256-GCM** with authenticated encryption
+- Integrates with the **OS keychain** (macOS Keychain, Windows Credential Manager, or Linux Secret Service) to store the vault master key
+- Supports secret types: API keys, OAuth tokens, passwords, TLS certificates
+- Provides a secrets injection API: given a tool call context, automatically substitute `__VAULT_REF_&lt;name&gt;__` placeholders with the actual secret
+
+Specify:
+- The vault file format (how secrets are stored at rest)
+- The key derivation process (how the AES key is derived from the OS keychain entry)
+- The injection mechanism (how secrets enter tool call arguments without appearing in logs)
+- Secret rotation: how do you rotate a secret without downtime?
+
+---
+
+### Requirement 2: Multi-Layer Scanning (L1–L4)
+
+Design a 4-layer scanning pipeline for tool calls:
+
+| Layer | Name | Method | Latency Target |
+|-------|------|--------|----------------|
+| L1 | Pattern Matching | Regex/blocklist | &lt; 1ms |
+| L2 | Heuristic Analysis | Statistical scoring | &lt; 5ms |
+| L3 | Semantic Analysis | Local LLM | &lt; 200ms |
+| L4 | Behavioral Chain | Session state machine | &lt; 2ms |
+
+For each layer, specify:
+- What it scans (input)
+- How it makes a block/allow decision
+- What data structure stores its state (for L4)
+- What happens on a positive detection
+
+For **L3 specifically** (local LLM scan):
+- Which model would you use? (must run locally, &lt; 4GB RAM)
+- How is the model served? (llama.cpp, ollama, etc.)
+- What is the exact prompt structure for scanning a tool call?
+- How do you handle the 200ms latency requirement?
+
+---
+
+### Requirement 3: Behavioral Chain Detection
+
+Design the L4 behavioral chain detector as a **session state machine**:
+
+- Define the states a session can be in (e.g., Normal, Elevated, Suspicious, Blocked)
+- Define the transitions: what events cause state changes?
+- Define the detection patterns (at least 4 specific patterns to detect)
+- Define the response at each severity level
+
+Also specify:
+- How sessions are identified (session ID, user ID, or combination?)
+- How long session state is retained
+- How to avoid false positives for legitimate power users
+
+---
+
+### Requirement 4: PII Approval Workflow via Telegram
+
+When the scanner detects PII in a tool call argument, the user must explicitly approve before the tool call proceeds.
+
+Design the approval workflow:
+- What happens to the tool call while waiting for approval? (async hold)
+- What message is sent to the user via Telegram? (include the exact message template)
+- What are the user's options? (approve / deny / approve-always for this type)
+- What is the timeout? What happens if the user doesn't respond?
+- How is the approval decision stored to avoid re-prompting for the same PII type?
+
+---
+
+### Requirement 5: Credential Redaction
+
+Before any text is passed to an LLM, credentials must be redacted and replaced with safe placeholders.
+
+Design the redaction pipeline:
+- What patterns are detected? (list at least 8 credential patterns with regex examples)
+- How are placeholders generated? (format: `__REDACTED_&lt;TYPE&gt;_&lt;SERIAL&gt;__`)
+- How is the redaction mapping stored for the duration of a request? (so it can be reversed if needed)
+- At what point in the tool call lifecycle does redaction happen? (before L1 scan? after?)
+- How do you prevent double-redaction if a secret appears multiple times?
+
+---
+
+## Deliverable
+
+Write a complete design document with a section for each requirement. For each section:
+- Provide concrete data structures (JSON or pseudocode)
+- Include specific technology choices with justification
+- Call out security tradeoffs explicitly
+- Note any implementation risks
+
+The document should be detailed enough for a security engineer to begin implementation from your design alone.</pre>
+<hr><h2>plan-01</h2>
+<div class="meta">Category: <strong>plan</strong> | Difficulty: <strong>hard</strong> | Grading: <strong>llm_judge</strong></div>
+<pre># Task: Plan a Spring Break Family Road Trip — Seattle to San Antonio to Austin
+
+## Situation
+
+Our family of 4 (2 adults, 2 kids ages 8 and 11) is planning a Spring Break road trip. We're flying into San Antonio and need help planning the full trip.
+
+**Flights already booked:**
+- **Outbound:** Seattle (SEA) → San Antonio (SAT), arriving **April 10** (afternoon)
+- **Return:** Houston (HOU) → Seattle (SEA), departing **April 18** (morning)
+
+**This means we need to:**
+1. Pick up a rental car at SAT airport on April 10
+2. Stay in San Antonio for 3 nights (April 10–13)
+3. Drive from San Antonio to Austin (~1.5 hrs on I-35)
+4. Stay in Austin for 4 nights (April 13–17)
+5. Drive from Austin to Houston (~2.5 hrs on I-10)
+6. Drop off rental car at IAH or HOU airport on April 17 or morning of April 18
+
+**Total budget: $3,000** (covering rental car + hotels + activities + food)
+
+## What I Need
+
+Please create a complete trip plan including:
+
+### 1. Rental Car
+- Recommend a specific car category (e.g., mid-size SUV)
+- Estimated cost for 7–8 days
+- Pickup at SAT, drop-off at HOU/IAH
+- Tips for the best rental car deals for this route
+
+### 2. Hotels
+
+**San Antonio (3 nights: April 10–13)**
+- Recommend 2–3 hotel options near the Riverwalk
+- For each: name, approximate price per night, pros/cons, why it's good for families with kids
+
+**Austin (4 nights: April 13–17)**
+- Recommend 2–3 hotel options
+- Preference: walkable to South Congress or downtown
+- For each: name, approximate price per night, pros/cons
+
+### 3. Day-by-Day Itinerary
+
+**San Antonio (April 10–13)**
+- April 10: Arrive afternoon — what to do with tired kids after a flight?
+- April 11: Full day — top kid-friendly activities
+- April 12: Full day — second set of activities
+- April 13: Morning before checkout — quick activity before driving to Austin
+
+**Austin (April 13–17)**
+- April 13: Arrive afternoon — what to do first evening?
+- April 14: Full day
+- April 15: Full day
+- April 16: Full day
+- April 17: Morning checkout, drive to Houston
+
+### 4. Kid-Friendly Activities
+
+List the **top 5 must-do activities** in each city for families with kids ages 8–11:
+
+**San Antonio:**
+1. ...
+2. ...
+
+**Austin:**
+1. ...
+2. ...
+
+### 5. Driving Routes
+- SAT → Austin: best route, approximate drive time, any stops worth making
+- Austin → Houston (IAH): best route, drive time, fuel stops
+
+### 6. Budget Breakdown
+Provide an estimated budget breakdown:
+| Category | Estimated Cost |
+|----------|---------------|
+| Rental car (7–8 days) | $ |
+| San Antonio hotels (3 nights) | $ |
+| Austin hotels (4 nights) | $ |
+| Activities | $ |
+| Food/dining | $ |
+| Gas | $ |
+| **Total** | **$** |
+
+Flag any areas where we might need to cut costs to stay under $3,000.
+
+### 7. Practical Tips
+- Best apps for road trips with kids
+- What to pack in the car
+- Any April-specific events or festivals in either city we should know about</pre>
+<hr><h2>plan-02</h2>
+<div class="meta">Category: <strong>plan</strong> | Difficulty: <strong>medium</strong> | Grading: <strong>llm_judge</strong></div>
+<pre># Task: Design a 4-Agent AI Assistant Team
+
+## Background
+
+You are designing a team of 4 specialized AI agents that work together as a personal AI assistant platform. Each agent has a specific role, personality, and capability set.
+
+## The Agents
+
+Design full profiles for each of the following agents:
+
+### Agent 1: Chloe — General Purpose Assistant
+- **Role:** Primary personal assistant; first point of contact for most requests
+- **Focus:** Task management, communication, scheduling, everyday help
+
+### Agent 2: Rex — Research &amp; Code Agent
+- **Role:** Deep research, programming, technical problem-solving
+- **Focus:** Web search, code generation, debugging, data analysis
+
+### Agent 3: Don — Data &amp; Monitoring Agent
+- **Role:** Observability, metrics, system monitoring, alerting
+- **Focus:** Log analysis, dashboard generation, anomaly detection, scheduled reports
+
+### Agent 4: Selin — Security Agent
+- **Role:** Security review, threat detection, credential management
+- **Focus:** Code security audits, prompt injection detection, PII handling, access control
+
+## What to Define for Each Agent
+
+For each agent, provide:
+
+### 1. Personality Profile
+- **Tone/voice:** How do they communicate? (e.g., warm, direct, terse, analytical)
+- **Strengths:** What are they exceptionally good at?
+- **Weaknesses:** What should they avoid or escalate?
+- **Quirks:** One distinctive personality trait that makes them feel like a real team member
+
+### 2. Skill Set
+List 6–8 specific capabilities this agent has, in the format:
+- `skill_name`: Brief description
+
+### 3. Model Assignment
+Recommend a specific LLM for this agent and justify why:
+- **Primary model:** (e.g., `gpt-4o`, `claude-opus-4`, `gemini-2.0-flash`, `o3`, etc.)
+- **Fallback model:** For when primary is unavailable or over budget
+- **Reasoning:** Why this model fits this agent's needs (latency, reasoning, cost, context window, etc.)
+
+### 4. Routing Rules
+Define when requests should be routed TO this agent vs. FROM this agent:
+- **Route TO this agent when:** (3–5 trigger conditions)
+- **Hand off FROM this agent when:** (2–3 escalation conditions)
+
+### 5. Inter-Agent Collaboration
+Describe how this agent collaborates with the other 3:
+- Which agents does it frequently work with?
+- What does it request from others?
+- What does it provide to others?
+
+## Team Coordination
+
+After defining all 4 agents, provide:
+
+### Orchestration Strategy
+- Which agent acts as the **primary orchestrator** for multi-agent tasks?
+- How are tasks routed when a request could fit multiple agents?
+- What happens when agents disagree?
+
+### Sample Workflow
+Describe a complete multi-agent workflow for this scenario:
+&gt; *"The user asks: 'Analyze our API server logs from the last 24 hours and alert me if there are any security anomalies, then summarize the findings and add a task to my Todoist.'"*
+
+Show which agent handles each step and how they hand off to each other.
+
+## Output Format
+
+Structure your response as a clear document with a section for each agent, followed by the team coordination section. Use headers, bullet points, and tables where appropriate.</pre>
+<hr><h2>plan-03</h2>
+<div class="meta">Category: <strong>plan</strong> | Difficulty: <strong>easy</strong> | Grading: <strong>llm_judge</strong></div>
+<pre># Task: Draft a Reimbursement Email for a Lost Restaurant Receipt
+
+## Situation
+
+You need to submit a reimbursement request for a business meal, but you lost the paper receipt. You need to write a professional email to the restaurant requesting a copy or confirmation.
+
+## Details
+
+- **Restaurant name:** Boardwalk Restaurant
+- **Email address:** bwhost@microsoft.com
+- **Date of visit:** March 12, 2026
+- **Time:** 1:58 PM
+- **Amount charged:** $515.56
+- **Payment method:** American Express card (last 4 digits unknown, Amex ending in ••••)
+- **Purpose:** Business lunch (you were hosting a client meeting)
+- **Your name:** Alex Chen
+- **Your company:** Contoso Technologies
+
+## What the Email Needs to Include
+
+1. **Clear subject line** that makes the purpose obvious
+2. **Polite opening** — professional but not stiff
+3. **Specific transaction details** so they can locate the record:
+   - Date and time of visit
+   - Approximate amount
+   - Payment method
+4. **The ask** — request a copy of the receipt or a written confirmation of the transaction for reimbursement purposes
+5. **Deadline context** — mention that you need this for expense report submission (end of month)
+6. **Contact info** — your email and phone so they can reach you
+7. **Professional closing**
+
+## Tone
+
+Professional, polite, and concise. Not overly formal. Should read like a real person wrote it, not a template.
+
+## Output Format
+
+Write the complete email, ready to send. Include:
+- Subject line
+- Body
+- Signature block with name, title (Account Manager), company, email, and phone number (555-0147)</pre>
+<hr><h2>writing-01</h2>
+<div class="meta">Category: <strong>writing</strong> | Difficulty: <strong>hard</strong> | Grading: <strong>llm_judge</strong></div>
+<pre># Task: Write a Technical Specification for a Model Benchmark System
+
+## Background
+
+You are building an LLM model benchmark system to evaluate 23 LLMs across a range of task types. The system uses **LLM-as-judge** consensus scoring with 3 judges and includes speed metrics and routing table output.
+
+## Specification Requirements
+
+Write a complete technical specification document for this system. The spec should be detailed enough that a senior engineer could implement it from scratch.
+
+## System Overview
+
+The benchmark system must:
+- Test **23 LLM models** across 6 task categories (code, plan, analysis, debug, writing, design)
+- Use **3-judge LLM consensus scoring** with self-recusal (a model cannot judge its own output)
+- Measure **speed metrics** (TTFT, total latency, tokens/sec)
+- Produce a **routing table** recommending which models to use for which task types
+
+## What to Cover in the Spec
+
+### 1. Architecture Overview
+- High-level system diagram (described in text)
+- Core components and their responsibilities
+- Data flow from prompt → response → scoring → output
+
+### 2. Benchmark Task Corpus
+- How tasks are organized (categories, difficulties)
+- Task schema (what fields each task has)
+- How prompts are templated and parameterized
+- Minimum corpus size requirements
+
+### 3. Model Execution Layer
+- How models are invoked (API clients, config structure)
+- Parallelism model (workers, rate limiting)
+- Timeout and retry strategy
+- How per-model configuration is stored (temperature, maxTokens, etc.)
+- Error handling and result recording for failures
+
+### 4. LLM-as-Judge Scoring System
+
+This is the core innovation. Specify:
+
+#### 4.1 Judge Pool
+- The system maintains a pool of judge models
+- For each response, exactly 3 judges are selected
+- **Self-recusal rule:** The model that generated the response cannot serve as its own judge
+- How judges are selected (round-robin, random, or deterministic per task?)
+
+#### 4.2 Scoring Protocol
+- Judge prompt template (include the exact template structure)
+- What judges evaluate (correctness, completeness, clarity, etc.)
+- Scoring scale (e.g., 0–10 per criterion)
+- How per-criterion weights are applied
+
+#### 4.3 Consensus Calculation
+- How 3 judge scores are combined (average, weighted, majority?)
+- How to handle outlier judges (one judge gives 2/10, others give 8/10)
+- Confidence score: how certain is the consensus?
+- When to flag a result for human review
+
+#### 4.4 Judge Reliability Tracking
+- Track each judge's scoring patterns over time
+- Detect bias (does judge X always score its own provider's models higher?)
+- Judge calibration: normalize scores across judges
+
+### 5. Speed Metrics
+Specify exactly how to measure:
+- **TTFT (Time-to-First-Token):** definition, measurement method, precision
+- **Total latency:** from request send to stream end
+- **Tokens per second:** calculation method
+- **P50/P95/P99 latencies:** how to compute across a run
+
+### 6. Results Schema
+Define the complete JSON schema for:
+- Individual task result
+- Model aggregate result
+- Full benchmark run result
+
+Use JSON Schema or pseudo-schema notation.
+
+### 7. Routing Table Output
+Specify the format and generation logic for the routing table:
+- What columns it has (model, category, avg_score, avg_ttft_ms, cost_per_1k, recommendation)
+- How the "recommendation" field is determined
+- How to handle ties
+
+### 8. Non-Functional Requirements
+- Scalability: how many concurrent model calls?
+- Reproducibility: how are results reproducible?
+- Storage: where and how are results stored?
+- Cost controls: how to avoid runaway API costs during a benchmark run?
+
+### 9. Open Questions
+List 3–5 genuine open questions or design decisions that need team input before implementation.</pre>
+<hr><h2>writing-02</h2>
+<div class="meta">Category: <strong>writing</strong> | Difficulty: <strong>medium</strong> | Grading: <strong>llm_judge</strong></div>
+<pre># Task: Draft a Security Audit Report for ClawGuard Plugin
+
+## Background
+
+You have just completed a security audit of the **ClawGuard** plugin — a self-hosted security layer for an AI agent platform. The audit focused on three specific concerns that were raised during a recent internal security review.
+
+## Plugin Overview
+
+ClawGuard is a plugin that intercepts all tool calls made by AI agents before they execute. It operates in 4 layers:
+- **L1:** Pattern matching (known bad patterns, blocked tool list)
+- **L2:** Heuristic analysis (anomaly scoring)
+- **L3:** LLM-based semantic analysis
+- **L4:** Behavioral chain detection (cross-session tracking)
+
+When a tool call is blocked, ClawGuard logs the event and (optionally) sends a Telegram notification. It also detects PII in tool arguments and can redact credentials before they reach the LLM.
+
+## Audit Findings
+
+You investigated three specific security concerns:
+
+### Finding 1: Silent Blocking (Severity: Medium)
+
+During testing, you found that when `config.silentBlock = true`, the plugin blocks tool calls without:
+- Notifying the user via Telegram
+- Writing to the external audit log
+- Updating any monitoring dashboard
+
+The only record is a local log line. If an attacker is blocked, they receive no feedback — which is the intended behavior. However, the **operator** also has no visibility into how often blocks are occurring, which tools are being targeted, or whether the block rate is increasing.
+
+**Evidence gathered:**
+- In a 72-hour test period with silent blocking enabled, we observed 47 block events
+- None of these appeared in the operator's Telegram notifications
+- The monitoring dashboard showed 0 security events during this period
+- The audit log file had entries, but the operator confirmed they don't check it regularly
+
+### Finding 2: PII Redaction Without User Notification (Severity: High)
+
+When ClawGuard detects PII in tool arguments (emails, phone numbers, credit card numbers, API keys), it redacts the PII before passing the data to the LLM. This is the correct behavior. However:
+
+- The user whose data was redacted is **not notified** that their data was handled
+- There is no log entry visible to the user (only to the operator)
+- In regulated industries (GDPR, HIPAA), failing to maintain a transparent audit trail of PII processing may constitute a compliance violation
+
+**Evidence gathered:**
+- We submitted 12 test tool calls containing synthetic PII
+- All 12 were silently redacted
+- The user (test account) received zero notifications
+- The operator log showed redaction events, but the user-facing log was empty
+
+### Finding 3: Behavioral Chain False Positives (Severity: Low)
+
+The L4 behavioral chain detector flags a session as suspicious when:
+- 3 or more tool calls are blocked within a 60-second window, OR
+- 5 or more unique tools are called within 60 seconds
+
+During testing:
+- Legitimate power users were flagged and blocked during normal intensive use (e.g., using 6 different tools in a workflow)
+- The false positive rate was 18% of legitimate sessions during peak usage
+- No tuning mechanism exists to adjust thresholds per user or use case
+
+## Your Task
+
+Write a formal security audit report covering these three findings.
+
+### Required Sections
+
+1. **Executive Summary** (3–4 sentences)
+   - Overall security posture
+   - Number and severity of findings
+   - Key recommendation
+
+2. **Finding Details** (one section per finding)
+   For each finding:
+   - Finding title and severity (Critical/High/Medium/Low)
+   - Description of the issue
+   - Evidence (reference the evidence above)
+   - Risk assessment: What is the potential impact if unaddressed?
+   - Recommendation: Specific, actionable fix
+
+3. **Remediation Priority Matrix**
+   A table showing all 3 findings ordered by priority, with columns:
+   | Finding | Severity | Effort to Fix | Priority | Target Date |
+
+4. **Positive Findings**
+   2–3 things ClawGuard does well (you can infer these from the plugin description)
+
+5. **Conclusion**
+   Final recommendation: Is ClawGuard suitable for production use as-is? What is the minimum required before production deployment?
+
+## Format
+
+Write this as a professional internal security report. Use clear section headers. Be specific and avoid vague language. Total length: 600–900 words.</pre>
+</body></html>

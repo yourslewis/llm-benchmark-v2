@@ -1,0 +1,19 @@
+{
+  "task_id": "code-05",
+  "model_id": "gpt-5.4",
+  "status": "ok",
+  "response_text": "```python\nfrom typing import List\nimport heapq\n\n\ndef findMedianSortedArrays(nums1: List[int], nums2: List[int]) -> float:\n    \"\"\"\n    Find the median of two sorted arrays in O(log(min(m, n))).\n\n    Uses binary search on the smaller array to find a valid partition.\n    \"\"\"\n    if not nums1 and not nums2:\n        raise ValueError(\"At least one array must be non-empty.\")\n\n    # Always binary search on the smaller array\n    if len(nums1) > len(nums2):\n        nums1, nums2 = nums2, nums1\n\n    m, n = len(nums1), len(nums2)\n    total_left = (m + n + 1) // 2\n\n    left, right = 0, m\n\n    while left <= right:\n        i = (left + right) // 2\n        j = total_left - i\n\n        nums1_left = nums1[i - 1] if i > 0 else float(\"-inf\")\n        nums1_right = nums1[i] if i < m else float(\"inf\")\n        nums2_left = nums2[j - 1] if j > 0 else float(\"-inf\")\n        nums2_right = nums2[j] if j < n else float(\"inf\")\n\n        if nums1_left <= nums2_right and nums2_left <= nums1_right:\n            if (m + n) % 2 == 1:\n                return float(max(nums1_left, nums2_left))\n            return (max(nums1_left, nums2_left) + min(nums1_right, nums2_right)) / 2.0\n\n        if nums1_left > nums2_right:\n            right = i - 1\n        else:\n            left = i + 1\n\n    raise RuntimeError(\"Unexpected state: partition not found.\")\n\n\nclass StreamingMedian:\n    \"\"\"\n    Maintain the median of a stream using two heaps:\n    - lower: max-heap (implemented with negated values)\n    - upper: min-heap\n    \"\"\"\n\n    def __init__(self) -> None:\n        self.lower: List[int] = []  # max-heap via negatives\n        self.upper: List[int] = []  # min-heap\n\n    def add(self, num: int) -> None:\n        \"\"\"Add a number to the stream in O(log n).\"\"\"\n        if not self.lower or num <= -self.lower[0]:\n            heapq.heappush(self.lower, -num)\n        else:\n            heapq.heappush(self.upper, num)\n\n        # Rebalance heaps so:\n        # len(lower) == len(upper) or len(lower) == len(upper) + 1\n        if len(self.lower) > len(self.upper) + 1:\n            heapq.heappush(self.upper, -heapq.heappop(self.lower))\n        elif len(self.upper) > len(self.lower):\n            heapq.heappush(self.lower, -heapq.heappop(self.upper))\n\n    def median(self) -> float:\n        \"\"\"Return the current median in O(1).\"\"\"\n        if not self.lower and not self.upper:\n            raise ValueError(\"No numbers have been added.\")\n\n        if len(self.lower) > len(self.upper):\n            return float(-self.lower[0])\n\n        return (-self.lower[0] + self.upper[0]) / 2.0\n```\n\n### Complexity\n\n#### Part 1\n- `findMedianSortedArrays`: `O(log(min(m, n)))`\n- Space: `O(1)`\n\n#### Part 2\n- `add`: `O(log n)`\n- `median`: `O(1)`\n- Space: `O(n)`\n\n### Quick checks\n\n```python\nprint(findMedianSortedArrays([1, 3], [2]))                    # 2.0\nprint(findMedianSortedArrays([1, 2], [3, 4]))                # 2.5\nprint(findMedianSortedArrays([], [1]))                       # 1.0\nprint(findMedianSortedArrays([1,3,5,7,9,11], [2,4,6,8,10,12]))  # 6.5\n\nsm = StreamingMedian()\nsm.add(1)\nprint(sm.median())  # 1.0\nsm.add(2)\nprint(sm.median())  # 1.5\nsm.add(3)\nprint(sm.median())  # 2.0\n```\n\nIf you want, I can also provide:\n1. a version with inline comments removed for interviews, or  \n2. a small test suite using `assert`.",
+  "metrics": {
+    "input_tokens": 440,
+    "output_tokens": 1490,
+    "ttft_ms": null,
+    "total_latency_ms": 19991.3,
+    "tokens_per_sec": 74.5,
+    "thinking_skipped": false,
+    "cost_usd": 0.016,
+    "code_pass_rate": 100
+  },
+  "category": "code",
+  "difficulty": "hard",
+  "family": "openai"
+}

@@ -1,0 +1,18 @@
+{
+  "task_id": "plan-03",
+  "model_id": "gemini-3-flash-preview",
+  "status": "ok",
+  "response_text": "Subject: Receipt Request: Visit on March 12 (Alex Chen - Contoso Technologies)\n\nHi Boardwalk Restaurant Team,\n\nI\u2019m reaching out to see if it might be possible to get a copy of a receipt from a business lunch I hosted at your restaurant recently. Unfortunately, I\u2019ve misplaced my paper copy and need it to complete my monthly expense report.\n\nHere are the details for the transaction:\n*   **Date:** March 12, 2026\n*   **Time:** Approximately 1:58 PM\n*   **Total Amount:** $515.56\n*   **Payment Method:** American Express\n\nIf you are able to locate the record, a scanned PDF or even a clear photo of the receipt would be perfect. If a duplicate receipt isn't available, a brief written confirmation of the charge would also work for my records.\n\nI\u2019m hoping to submit my report by the end of the month, so I would really appreciate any help you can provide with this.\n\nThanks so much for your time and assistance!\n\nBest regards,\n\nAlex Chen\nAccount Manager\nContoso Technologies\nalex.chen@contoso.com\n(555) 0147",
+  "metrics": {
+    "input_tokens": 417,
+    "output_tokens": 257,
+    "ttft_ms": 1502.7,
+    "total_latency_ms": 2964.9,
+    "tokens_per_sec": 175.8,
+    "cost_usd": 0.000217,
+    "code_pass_rate": null
+  },
+  "category": "plan",
+  "difficulty": "easy",
+  "family": "google"
+}

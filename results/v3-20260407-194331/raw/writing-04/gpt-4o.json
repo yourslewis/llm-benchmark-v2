@@ -1,0 +1,18 @@
+{
+  "task_id": "writing-04",
+  "model_id": "gpt-4o",
+  "status": "ok",
+  "response_text": "**Subject:** Scheduling a 1:1 to Discuss Performance and Support  \n\nHi Alex,  \n\nI hope you're doing well. I wanted to schedule some time for a 1:1 to discuss your recent performance and how I can better support you moving forward.  \n\nOver the past quarter, I\u2019ve noticed some challenges that I think we should address together. For example, the Persona V3 integration was delivered 13 days late, and the evaluation pipeline is still incomplete. Additionally, I\u2019ve received feedback from the team that your code reviews have been less thorough than usual, with some PRs receiving only brief comments. There have also been a few communication gaps, such as missed standups and periods of unresponsiveness on Teams.  \n\nI want to be clear that this conversation is not about blame. You\u2019ve been a top performer in the past, leading the Persona V2 launch and mentoring junior engineers, and I know the quality of work you\u2019re capable of. That\u2019s why I want to understand what\u2019s been going on and how I can help you get back to that level.  \n\nIn our meeting, I\u2019d like to discuss:  \n1. What challenges you\u2019ve been facing recently, whether personal or professional.  \n2. How we can address these issues together and set you up for success.  \n3. Clear next steps and expectations moving forward.  \n\nPlease let me know a time that works for you this week. I want this to be a constructive conversation and an opportunity to realign.  \n\nLooking forward to hearing from you.  \n\nBest regards,  \n[Your Name]  ",
+  "metrics": {
+    "input_tokens": 405,
+    "output_tokens": 320,
+    "ttft_ms": 869.0,
+    "total_latency_ms": 4520.1,
+    "tokens_per_sec": 87.6,
+    "cost_usd": 0.004213,
+    "code_pass_rate": null
+  },
+  "category": "writing",
+  "difficulty": "hard",
+  "family": "openai"
+}

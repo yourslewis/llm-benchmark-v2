@@ -1,0 +1,14 @@
+{
+  "category": "code",
+  "difficulty": "easy",
+  "grading": "automated",
+  "criteria": [
+    {"name": "syntax", "weight": 20, "description": "Valid Python that parses without errors"},
+    {"name": "json_loading", "weight": 15, "description": "Loads model list from command-line JSON file"},
+    {"name": "api_call", "weight": 20, "description": "Makes HTTP POST to the correct endpoint with correct payload"},
+    {"name": "error_handling", "weight": 15, "description": "Handles HTTP errors and timeouts gracefully"},
+    {"name": "table_output", "weight": 15, "description": "Prints formatted table with Model, Status, Latency, Response columns"},
+    {"name": "summary_line", "weight": 10, "description": "Prints summary with total/pass/fail counts"},
+    {"name": "stdlib_only", "weight": 5, "description": "Uses only standard library, no pip imports"}
+  ]
+}

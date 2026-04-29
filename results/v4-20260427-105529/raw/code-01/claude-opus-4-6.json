@@ -1,0 +1,19 @@
+{
+  "task_id": "code-01",
+  "model_id": "claude-opus-4-6",
+  "status": "ok",
+  "response_text": "\n\n```python\n#!/usr/bin/env python3\n\nimport json\nimport sys\nimport time\nimport urllib.request\nimport urllib.error\n\ndef test_model(model_name):\n    url = \"http://127.0.0.1:4000/v1/chat/completions\"\n    payload = {\n        \"model\": model_name,\n        \"messages\": [{\"role\": \"user\", \"content\": \"Reply with exactly one word: OK\"}],\n        \"max_tokens\": 20,\n    }\n\n    # First try with temperature\n    for attempt in range(2):\n        if attempt == 0:\n            payload[\"temperature\"] = 0.0\n        else:\n            payload.pop(\"temperature\", None)\n\n        data = json.dumps(payload).encode()\n        req = urllib.request.Request(url, data=data, headers={\"Content-Type\": \"application/json\"})\n\n        try:\n            start = time.time()\n            with urllib.request.urlopen(req, timeout=30) as resp:\n                latency = time.time() - start\n                body = json.loads(resp.read())\n                text = body[\"choices\"][0][\"message\"][\"content\"].strip()\n                return True, latency, text\n        except urllib.error.HTTPError as e:\n            err_body = e.read().decode(errors=\"replace\")\n            if attempt == 0 and \"temperature\" in err_body.lower():\n                continue\n            return False, 0, err_body[:50]\n        except Exception as e:\n            return False, 0, str(e)[:50]\n\n    return False, 0, \"unknown error\"\n\ndef main():\n    if len(sys.argv) < 2:\n        print(\"Usage: python solution.py <config.json>\")\n        sys.exit(1)\n\n    with open(sys.argv[1]) as f:\n        models = json.load(f)\n\n    if isinstance(models, dict):\n        models = models.get(\"models\", models.get(\"model_list\", list(models.values())[0]))\n\n    results = []\n    for model in models:\n        name = model if isinstance(model, str) else model.get(\"model_name\", model.get(\"model\", str(model)))\n        ok, lat, text = test_model(name)\n        results.append((name, ok, lat, text[:50]))\n\n    # Print table\n    w = max(len(r[0]) for r in results) if results else 5\n    w = max(w, 5)\n    header = f\"{'Model':<{w}}  {'Status':<6}  {'Latency':<10}  {'Response'}\"\n    print(header)\n    print(\"-\" * len(header))\n    for name, ok, lat, text in results:\n        status = \"\u2705\" if ok else \"\u274c\"\n        lat_s = f\"{lat:.2f}s\" if ok else \"N/A\"\n        print(f\"{name:<{w}}  {status:<6}  {lat_s:<10}  {text}\")\n\n    working = sum(1 for _, ok, _, _ in results if ok)\n    failed = len(results) - working\n    print(f\"\\nTotal: {len(results)} models | \u2705 {working} working | \u274c {failed} failed\")\n\nif __name__ == \"__main__\":\n    main()\n```",
+  "metrics": {
+    "input_tokens": 206,
+    "output_tokens": 632,
+    "ttft_ms": 1589.2,
+    "total_latency_ms": 10732.6,
+    "tokens_per_sec": 69.1,
+    "thinking_skipped": false,
+    "cost_usd": 0.01683,
+    "code_pass_rate": 100
+  },
+  "category": "code",
+  "difficulty": "easy",
+  "family": "claude"
+}

@@ -1,0 +1,12 @@
+{
+  "category": "tool-use",
+  "difficulty": "hard",
+  "grading": "judge",
+  "criteria": [
+    {"name": "root_cause_analysis", "weight": 25, "description": "Correctly identifies root cause for each failure"},
+    {"name": "recovery_strategy", "weight": 25, "description": "Appropriate recovery for each error type"},
+    {"name": "corrected_calls", "weight": 25, "description": "Corrected tool calls are syntactically valid and fix the issues"},
+    {"name": "prevention", "weight": 15, "description": "Practical prevention strategies for each error class"},
+    {"name": "sequence_coherence", "weight": 10, "description": "Final corrected sequence is logically ordered"}
+  ]
+}

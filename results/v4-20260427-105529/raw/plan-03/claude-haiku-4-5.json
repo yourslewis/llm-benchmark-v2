@@ -1,0 +1,19 @@
+{
+  "task_id": "plan-03",
+  "model_id": "claude-haiku-4-5",
+  "status": "ok",
+  "response_text": "**Subject:** Receipt Request for March 12 Business Lunch\n\n---\n\nDear Boardwalk Restaurant,\n\nI hope this message finds you well. I'm reaching out because I need a receipt copy for a business meal I hosted at your restaurant and unfortunately misplaced the original.\n\nHere are the details of the transaction:\n\n- **Date:** March 12, 2026\n- **Time:** Approximately 1:58 PM\n- **Amount:** $515.56\n- **Payment method:** American Express\n\nI'd greatly appreciate it if you could provide either a copy of the receipt or written confirmation of this transaction. I need this for my company's expense reporting system, and our reimbursement deadline is end of month.\n\nPlease feel free to reach out if you need any additional information to locate the transaction. You can reply to this email or contact me directly at the information below.\n\nThank you for your help!\n\nBest regards,\n\n**Alex Chen**  \nAccount Manager  \nContoso Technologies  \nalex.chen@contoso.com  \n555-0147",
+  "metrics": {
+    "input_tokens": 395,
+    "output_tokens": 239,
+    "ttft_ms": 1117.6,
+    "total_latency_ms": 3344.4,
+    "tokens_per_sec": 107.3,
+    "thinking_skipped": true,
+    "cost_usd": 0.00159,
+    "code_pass_rate": null
+  },
+  "category": "plan",
+  "difficulty": "easy",
+  "family": "claude"
+}

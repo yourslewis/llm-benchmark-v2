@@ -1,0 +1,19 @@
+{
+  "task_id": "tool-2",
+  "model_id": "claude-opus-4-6-1m",
+  "status": "ok",
+  "response_text": "# Failed Tool Call Analysis\n\n## Call 1 \u2014 Rate Limited\n\n**Root cause:** Rate limit exhausted (0 remaining). The `Retry-After` header says wait 30 seconds.\n\n**Recovery strategy:** Delayed retry after 30 seconds. No parameter change needed.\n\n**Corrected call:**\n```json\n// Wait 30 seconds, then:\n{\"tool\": \"web_search\", \"input\": {\"query\": \"OpenClaw changelog April 2026\", \"count\": 5}}\n```\n\n**Prevention:** Track `X-RateLimit-Remaining` from prior responses. When low, proactively throttle. Implement exponential backoff on 429s.\n\n---\n\n## Call 2 \u2014 Schema Mismatch\n\n**Root cause:** Field name typo \u2014 `contents` instead of `content`.\n\n**Recovery strategy:** Immediate retry with corrected parameter name.\n\n**Corrected call:**\n```json\n{\"tool\": \"file_write\", \"input\": {\"path\": \"/tmp/report.md\", \"content\": \"# Report\\n...\", \"mode\": \"overwrite\"}}\n```\n\n**Prevention:** Validate input against the tool schema *before* calling. Cache/reference tool schemas and use them as the source of truth for field names.\n\n---\n\n## Call 3 \u2014 Timeout\n\n**Root cause:** 10-second timeout for a job processing 250K rows (only reached 15K in 10s \u2014 ~6% done, implying ~170s needed).\n\n**Recovery strategy:** Retry with a much larger timeout (~300s for safety margin). Alternatively, chunk the input.\n\n**Corrected call:**\n```json\n{\"tool\": \"exec\", \"input\": {\"command\": \"python3 analyze.py --input data.csv --output results.json\", \"timeout\": 300}}\n```\n\n**Prevention:** Estimate runtime relative to input size before setting timeouts. For unknown workloads, use generous defaults (300s+) and only tighten after profiling.\n\n---\n\n# Complete Corrected Sequence\n\n```python\nimport time\n\n# Step 1: Web search (with rate-limit awareness)\ntry:\n    result1 = call_tool(\"web_search\", {\n        \"query\": \"OpenClaw changelog April 2026\",\n        \"count\": 5\n    })\nexcept RateLimitError as e:\n    wait = int(e.headers.get(\"Retry-After\", 30))\n    time.sleep(wait)\n    result1 = call_tool(\"web_search\", {\n        \"query\": \"OpenClaw changelog April 2026\",\n        \"count\": 5\n    })\n\n# Step 2: File write (corrected field name)\ntry:\n    result2 = call_tool(\"file_write\", {\n        \"path\": \"/tmp/report.md\",\n        \"content\": \"# Report\\n...\",\n        \"mode\": \"overwrite\"\n    })\nexcept ValidationError:\n    raise  # Schema errors are bugs, not transient \u2014 fail fast\n\n# Step 3: Long-running analysis (adequate timeout)\ntry:\n    result3 = call_tool(\"exec\", {\n        \"command\": \"python3 analyze.py --input data.csv --output results.json\",\n        \"timeout\": 300\n    })\nexcept TimeoutError:\n    # Graceful degradation: try chunked approach\n    result3 = call_tool(\"exec\", {\n        \"command\": \"python3 analyze.py --input data.csv --output results.json --chunk-size 50000\",\n        \"timeout\": 600\n    })\n```\n\n**Key ordering rationale:** The sequence stays the same (search \u2192 write \u2192 exec) because step 1 produces content for step 2's report, and step 3 is independent analysis. The 30-second wait on step 1 is unavoidable but only delays the pipeline once.",
+  "metrics": {
+    "input_tokens": 378,
+    "output_tokens": 748,
+    "ttft_ms": 2520.4,
+    "total_latency_ms": 16988.5,
+    "tokens_per_sec": 51.7,
+    "thinking_skipped": false,
+    "cost_usd": 0.02059,
+    "code_pass_rate": null
+  },
+  "category": "tool-use",
+  "difficulty": "hard",
+  "family": "claude"
+}

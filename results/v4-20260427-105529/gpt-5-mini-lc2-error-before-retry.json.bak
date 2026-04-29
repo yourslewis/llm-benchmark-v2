@@ -1,0 +1,11 @@
+{
+  "task_id": "lc-2",
+  "model_id": "gpt-5-mini",
+  "status": "error",
+  "error": "timed out",
+  "metrics": {
+    "error": "timed out",
+    "total_latency_ms": 450007.83610343933,
+    "thinking_skipped": false
+  }
+}

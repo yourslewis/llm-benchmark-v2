@@ -1,0 +1,19 @@
+{
+  "task_id": "writing-04",
+  "model_id": "gemini-3.1-pro-preview",
+  "status": "ok",
+  "response_text": "Subject: Agenda for our upcoming 1:1: Checking in on recent projects\n\nHi Alex,\n\nI\u2019m writing to share the agenda for our next 1:1 so we can both come prepared. I want to use this time to check in on your recent performance, as I\u2019ve noticed a shift in your work over the past quarter.\n\nYou were a vital part of the team last year\u2014leading the Persona V2 launch and doing excellent work mentoring our junior engineers. Because I know the high caliber of work you are capable of, I want to discuss a few recent areas where things seem to have slipped:\n\n*   **Project timelines:** The Persona V3 integration shipped on March 28, which was 13 days past the target, and the evaluation pipeline is still pending after the April 1 deadline. \n*   **Code reviews:** I\u2019ve noticed, and heard from the team, that your recent reviews on complex PRs have been brief (often just a quick \"LGTM\"), missing the detailed technical feedback you usually provide.\n*   **Availability:** You missed two recent team standups without prior notice, and there have been multiple occasions where you were unresponsive on Teams for three or more hours during core working time.\n\nMy goal for our meeting is to understand what is driving this change. I want to know if there are roadblocks on the team, process issues, or factors outside of work that are affecting you. \n\nThis conversation is about supporting you and figuring out how we can get things back to the baseline I know you can achieve. Please take some time to reflect on the points above before we meet. If you need to adjust the time of our 1:1, just let me know. \n\nBest,\n\n[Your Name]",
+  "metrics": {
+    "input_tokens": 410,
+    "output_tokens": 403,
+    "ttft_ms": 18757.4,
+    "total_latency_ms": 22575.4,
+    "tokens_per_sec": 105.6,
+    "thinking_skipped": false,
+    "cost_usd": 0.005656,
+    "code_pass_rate": null
+  },
+  "category": "writing",
+  "difficulty": "hard",
+  "family": "google"
+}

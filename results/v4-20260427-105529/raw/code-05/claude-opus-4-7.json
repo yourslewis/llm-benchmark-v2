@@ -1,0 +1,19 @@
+{
+  "task_id": "code-05",
+  "model_id": "claude-opus-4-7",
+  "status": "ok",
+  "response_text": "```python\nfrom typing import List\nimport heapq\n\n\ndef findMedianSortedArrays(nums1: List[int], nums2: List[int]) -> float:\n    \"\"\"Find median of two sorted arrays in O(log(min(m, n))).\n\n    Uses binary search on the smaller array to partition both arrays\n    such that left side and right side have equal length (or differ by 1)\n    and max(left) <= min(right).\n    \"\"\"\n    # Ensure nums1 is the smaller array\n    if len(nums1) > len(nums2):\n        nums1, nums2 = nums2, nums1\n\n    m, n = len(nums1), len(nums2)\n    total = m + n\n    half = (total + 1) // 2  # size of left partition\n\n    lo, hi = 0, m\n    while lo <= hi:\n        i = (lo + hi) // 2  # take i from nums1\n        j = half - i        # take j from nums2\n\n        left1 = nums1[i - 1] if i > 0 else float('-inf')\n        right1 = nums1[i] if i < m else float('inf')\n        left2 = nums2[j - 1] if j > 0 else float('-inf')\n        right2 = nums2[j] if j < n else float('inf')\n\n        if left1 <= right2 and left2 <= right1:\n            if total % 2 == 1:\n                return float(max(left1, left2))\n            return (max(left1, left2) + min(right1, right2)) / 2.0\n        elif left1 > right2:\n            hi = i - 1\n        else:\n            lo = i + 1\n\n    raise ValueError(\"Input arrays are not sorted\")\n\n\nclass StreamingMedian:\n    \"\"\"Maintain a running median over a stream of integers.\n\n    Two heaps:\n      - `lower` is a max-heap (negated) holding the smaller half.\n      - `upper` is a min-heap holding the larger half.\n    Invariant: len(lower) == len(upper) or len(lower) == len(upper) + 1.\n    \"\"\"\n\n    def __init__(self) -> None:\n        self._lower: List[int] = []  # max-heap (store negated)\n        self._upper: List[int] = []  # min-heap\n\n    def add(self, num: int) -> None:\n        # Push into lower first, then balance the top to upper.\n        heapq.heappush(self._lower, -num)\n        heapq.heappush(self._upper, -heapq.heappop(self._lower))\n        # Rebalance so lower has equal or one more element than upper.\n        if len(self._upper) > len(self._lower):\n            heapq.heappush(self._lower, -heapq.heappop(self._upper))\n\n    def median(self) -> float:\n        if not self._lower:\n            raise ValueError(\"No elements in the stream\")\n        if len(self._lower) > len(self._upper):\n            return float(-self._lower[0])\n        return (-self._lower[0] + self._upper[0]) / 2.0\n```",
+  "metrics": {
+    "input_tokens": 354,
+    "output_tokens": 597,
+    "ttft_ms": 1549.5,
+    "total_latency_ms": 15565.2,
+    "tokens_per_sec": 42.6,
+    "thinking_skipped": false,
+    "cost_usd": 0.016695,
+    "code_pass_rate": 100
+  },
+  "category": "code",
+  "difficulty": "hard",
+  "family": "claude"
+}

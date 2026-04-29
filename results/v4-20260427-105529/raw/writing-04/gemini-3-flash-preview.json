@@ -1,0 +1,19 @@
+{
+  "task_id": "writing-04",
+  "model_id": "gemini-3-flash-preview",
+  "status": "ok",
+  "response_text": "Subject: Discussion regarding recent performance and project delivery\n\nHi Alex,\n\nI\u2019m writing to schedule a dedicated 1:1 this Thursday to discuss your performance over the last quarter. I want to be transparent about my concerns so we can have a productive conversation and focus on how I can best support you.\n\nWhile your work on the Persona V2 launch last year was exemplary, I\u2019ve noticed a recent shift in your output and engagement that doesn\u2019t align with the high standard you\u2019ve set. Specifically, I\u2019d like to discuss the following:\n\n*   **Project Timelines:** The Persona V3 integration shipped 13 days late, and the evaluation pipeline remains incomplete past the April 1 deadline.\n*   **Code Review Depth:** Feedback suggests your recent reviews have been superficial (e.g., \"LGTM\" on complex PRs), which is a departure from the rigorous technical leadership you\u2019ve shown previously.\n*   **Communication:** There have been a few instances of missed standups without notice and several periods of unresponsiveness on Teams during core hours.\n\nBecause you were a top performer last year and a valued mentor to our junior engineers, these gaps suggest to me that something may have changed. My goal for this meeting is to understand any blockers you\u2019re facing\u2014whether they are technical, personal, or related to burnout\u2014and to collaborate on a plan to get you back to that \"Exceeds\" baseline.\n\nI value your presence on this team and want to ensure you have what you need to succeed. Please let me know if the 2:00 PM invite I sent works for you, or if you\u2019d prefer a different time this week.\n\nBest regards,\n\n[Your Name]\nEngineering Manager",
+  "metrics": {
+    "input_tokens": 410,
+    "output_tokens": 411,
+    "ttft_ms": 6168.9,
+    "total_latency_ms": 6985.9,
+    "tokens_per_sec": 503.0,
+    "thinking_skipped": false,
+    "cost_usd": 0.000308,
+    "code_pass_rate": null
+  },
+  "category": "writing",
+  "difficulty": "hard",
+  "family": "google"
+}

@@ -1,0 +1,7 @@
+Judging results in: /Users/yourslewis/.openclaw/workspace-chloe/benchmark/results/v3-20260407-194331
+Judging analysis-02 × gpt-5.2-codex (2 judges)... median=10 spread=1
+Judging analysis-02 × gpt-5.2 (2 judges)... median=10 spread=1
+Judging analysis-02 × gpt-5.3-codex (2 judges)... median=10 spread=1
+Judging analysis-02 × gpt-5.4-mini (2 judges)... median=10 spread=1
+Judging analysis-02 × gpt-5.4 (2 judges)... median=10 spread=1
+Judging analysis-03 × azure/gpt-5.1-codex-mini (2 judges)... 

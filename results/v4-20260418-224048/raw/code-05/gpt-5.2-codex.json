@@ -1,0 +1,19 @@
+{
+  "task_id": "code-05",
+  "model_id": "gpt-5.2-codex",
+  "status": "ok",
+  "response_text": "Below is a clean **O(log(min(m, n)))** solution for the classic median problem **plus** a streaming median class using two heaps.\n\n---\n\n## \u2705 Part 1 \u2014 Median of Two Sorted Arrays (Binary Search Partition)\n\n```python\nfrom typing import List\nimport heapq\n\ndef findMedianSortedArrays(nums1: List[int], nums2: List[int]) -> float:\n    # Ensure nums1 is the smaller array\n    if len(nums1) > len(nums2):\n        nums1, nums2 = nums2, nums1\n\n    m, n = len(nums1), len(nums2)\n    total_left = (m + n + 1) // 2  # size of left half\n\n    left, right = 0, m\n    while left <= right:\n        i = (left + right) // 2   # partition in nums1\n        j = total_left - i        # partition in nums2\n\n        maxLeft1 = float('-inf') if i == 0 else nums1[i - 1]\n        minRight1 = float('inf') if i == m else nums1[i]\n\n        maxLeft2 = float('-inf') if j == 0 else nums2[j - 1]\n        minRight2 = float('inf') if j == n else nums2[j]\n\n        if maxLeft1 <= minRight2 and maxLeft2 <= minRight1:\n            # correct partition\n            if (m + n) % 2 == 1:\n                return float(max(maxLeft1, maxLeft2))\n            return (max(maxLeft1, maxLeft2) + min(minRight1, minRight2)) / 2.0\n        elif maxLeft1 > minRight2:\n            right = i - 1\n        else:\n            left = i + 1\n\n    raise ValueError(\"Invalid input arrays\")\n```\n\n---\n\n## \u2705 Part 2 \u2014 Streaming Median with Two Heaps\n\n```python\nclass StreamingMedian:\n    def __init__(self) -> None:\n        self.lower: List[int] = []  # max-heap (store negatives)\n        self.upper: List[int] = []  # min-heap\n\n    def add(self, num: int) -> None:\n        if not self.lower or num <= -self.lower[0]:\n            heapq.heappush(self.lower, -num)\n        else:\n            heapq.heappush(self.upper, num)\n\n        # Rebalance heaps\n        if len(self.lower) > len(self.upper) + 1:\n            heapq.heappush(self.upper, -heapq.heappop(self.lower))\n        elif len(self.upper) > len(self.lower):\n            heapq.heappush(self.lower, -heapq.heappop(self.upper))\n\n    def median(self) -> float:\n        if not self.lower and not self.upper:\n            raise ValueError(\"No elements in stream\")\n\n        if len(self.lower) == len(self.upper):\n            return (-self.lower[0] + self.upper[0]) / 2.0\n        return float(-self.lower[0])\n```\n\n---\n\n### \u2705 Complexity\n- **Part 1:** O(log(min(m, n))) time, O(1) space  \n- **Part 2:** `add()` O(log n), `median()` O(1)\n\n---\n\nIf you'd like, I can also provide unit tests or a combined runnable script.",
+  "metrics": {
+    "input_tokens": 440,
+    "output_tokens": 1673,
+    "ttft_ms": null,
+    "total_latency_ms": 14361.2,
+    "tokens_per_sec": 116.5,
+    "thinking_skipped": false,
+    "cost_usd": 0.01783,
+    "code_pass_rate": 75
+  },
+  "category": "code",
+  "difficulty": "hard",
+  "family": "openai"
+}

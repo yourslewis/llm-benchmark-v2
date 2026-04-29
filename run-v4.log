@@ -1,0 +1,600 @@
+=== Benchmark v4 starting at Sat Apr 18 22:40:48 UTC 2026 ===
+--- Phase 1: Contender Run ---
+Loaded 29 tasks, 17 models
+Total runs: 493
+/Users/yourslewis/.openclaw/workspace-chloe/benchmark/run.py:365: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  timestamp = datetime.utcnow().strftime("%Y%m%d-%H%M%S")
+[1/493] analysis-01 × claude-opus-4-7... ✅ 42 tok/s | TTFT 1253ms | 29641ms
+[2/493] analysis-01 × claude-opus-4-6-1m... ✅ 44 tok/s | TTFT 1416ms | 14677ms
+[3/493] analysis-01 × claude-opus-4-6... ✅ 40 tok/s | TTFT 1355ms | 14055ms
+[4/493] analysis-01 × claude-sonnet-4-6... ✅ 48 tok/s | TTFT 1730ms | 33551ms
+[5/493] analysis-01 × claude-haiku-4-5... ✅ 90 tok/s | TTFT 875ms | 17276ms [no-think]
+[6/493] analysis-01 × claude-sonnet-4-5... ✅ 40 tok/s | TTFT 1017ms | 35137ms
+[7/493] analysis-01 × gpt-5.4... ✅ 70 tok/s | no TTFT | 86930ms
+[8/493] analysis-01 × gpt-5.4-mini... ✅ 202 tok/s | no TTFT | 53995ms
+[9/493] analysis-01 × gpt-5.3-codex... ✅ 80 tok/s | no TTFT | 43835ms
+[10/493] analysis-01 × gpt-5.2... ✅ 67 tok/s | no TTFT | 46753ms
+[11/493] analysis-01 × gpt-5.2-codex... ✅ 124 tok/s | no TTFT | 52692ms
+[12/493] analysis-01 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[13/493] analysis-01 × gpt-5-mini... ✅ 72 tok/s | TTFT 169987ms | 193328ms
+[14/493] analysis-01 × gemini-3-flash-preview... ✅ 212 tok/s | TTFT 8239ms | 12337ms
+[15/493] analysis-01 × gemini-3.1-pro-preview... ✅ 88 tok/s | TTFT 12933ms | 21624ms
+[16/493] analysis-01 × azure/gpt-5.3-codex... ✅ 63 tok/s | no TTFT | 66854ms
+[17/493] analysis-01 × azure/gpt-5.1-codex-mini... ✅ 126 tok/s | no TTFT | 23339ms
+[18/493] analysis-02 × claude-opus-4-7... ✅ 44 tok/s | TTFT 4425ms | 31540ms
+[19/493] analysis-02 × claude-opus-4-6-1m... ✅ 43 tok/s | TTFT 1402ms | 25007ms
+[20/493] analysis-02 × claude-opus-4-6... ✅ 42 tok/s | TTFT 1502ms | 23105ms
+[21/493] analysis-02 × claude-sonnet-4-6... ✅ 49 tok/s | TTFT 1380ms | 51394ms
+[22/493] analysis-02 × claude-haiku-4-5... ✅ 108 tok/s | TTFT 818ms | 16628ms [no-think]
+[23/493] analysis-02 × claude-sonnet-4-5... ✅ 44 tok/s | TTFT 1056ms | 49564ms
+[24/493] analysis-02 × gpt-5.4... ✅ 65 tok/s | no TTFT | 111239ms
+[25/493] analysis-02 × gpt-5.4-mini... ✅ 186 tok/s | no TTFT | 40931ms
+[26/493] analysis-02 × gpt-5.3-codex... ✅ 84 tok/s | no TTFT | 30430ms
+[27/493] analysis-02 × gpt-5.2... ✅ 66 tok/s | no TTFT | 38128ms
+[28/493] analysis-02 × gpt-5.2-codex... ✅ 140 tok/s | no TTFT | 54658ms
+[29/493] analysis-02 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[30/493] analysis-02 × gpt-5-mini... ✅ 76 tok/s | TTFT 103726ms | 129532ms
+[31/493] analysis-02 × gemini-3-flash-preview... ✅ 225 tok/s | TTFT 6031ms | 10729ms
+[32/493] analysis-02 × gemini-3.1-pro-preview... ✅ 155 tok/s | TTFT 10548ms | 17690ms
+[33/493] analysis-02 × azure/gpt-5.3-codex... ✅ 66 tok/s | no TTFT | 31718ms
+[34/493] analysis-02 × azure/gpt-5.1-codex-mini... ✅ 18 tok/s | no TTFT | 90466ms
+[35/493] analysis-03 × claude-opus-4-7... ✅ 54 tok/s | TTFT 1164ms | 15797ms
+[36/493] analysis-03 × claude-opus-4-6-1m... ✅ 52 tok/s | TTFT 3746ms | 16418ms
+[37/493] analysis-03 × claude-opus-4-6... ✅ 51 tok/s | TTFT 11828ms | 23788ms
+[38/493] analysis-03 × claude-sonnet-4-6... ✅ 56 tok/s | TTFT 19206ms | 40612ms
+[39/493] analysis-03 × claude-haiku-4-5... ✅ 116 tok/s | TTFT 765ms | 8547ms [no-think]
+[40/493] analysis-03 × claude-sonnet-4-5... ✅ 46 tok/s | TTFT 1970ms | 21368ms
+[41/493] analysis-03 × gpt-5.4... ✅ 57 tok/s | no TTFT | 180788ms
+[42/493] analysis-03 × gpt-5.4-mini... ✅ 195 tok/s | no TTFT | 65961ms
+[43/493] analysis-03 × gpt-5.3-codex... ✅ 84 tok/s | no TTFT | 65154ms
+[44/493] analysis-03 × gpt-5.2... ✅ 41 tok/s | no TTFT | 98888ms
+[45/493] analysis-03 × gpt-5.2-codex... ✅ 139 tok/s | no TTFT | 91035ms
+[46/493] analysis-03 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[47/493] analysis-03 × gpt-5-mini... ✅ 54 tok/s | TTFT 118807ms | 146700ms
+[48/493] analysis-03 × gemini-3-flash-preview... ✅ 173 tok/s | TTFT 6898ms | 11660ms
+[49/493] analysis-03 × gemini-3.1-pro-preview... ✅ 94 tok/s | TTFT 12411ms | 20658ms
+[50/493] analysis-03 × azure/gpt-5.3-codex... ✅ 62 tok/s | no TTFT | 84548ms
+[51/493] analysis-03 × azure/gpt-5.1-codex-mini... ✅ 172 tok/s | no TTFT | 62642ms
+[52/493] code-01 × claude-opus-4-7... ✅ 76 tok/s | TTFT 1285ms | 12182ms code=100%
+[53/493] code-01 × claude-opus-4-6-1m... ✅ 69 tok/s | TTFT 1410ms | 10372ms code=100%
+[54/493] code-01 × claude-opus-4-6... ✅ 64 tok/s | TTFT 1378ms | 10994ms code=100%
+[55/493] code-01 × claude-sonnet-4-6... ✅ 79 tok/s | TTFT 1431ms | 34039ms code=100%
+[56/493] code-01 × claude-haiku-4-5... ✅ 169 tok/s | TTFT 1150ms | 15133ms code=100% [no-think]
+[57/493] code-01 × claude-sonnet-4-5... ✅ 68 tok/s | TTFT 988ms | 24106ms code=100%
+[58/493] code-01 × gpt-5.4... ✅ 52 tok/s | no TTFT | 146742ms code=100%
+[59/493] code-01 × gpt-5.4-mini... ✅ 180 tok/s | no TTFT | 87626ms code=100%
+[60/493] code-01 × gpt-5.3-codex... ✅ 93 tok/s | no TTFT | 39617ms code=100%
+[61/493] code-01 × gpt-5.2... ✅ 73 tok/s | no TTFT | 36213ms code=100%
+[62/493] code-01 × gpt-5.2-codex... ✅ 144 tok/s | no TTFT | 28564ms code=100%
+[63/493] code-01 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[64/493] code-01 × gpt-5-mini...   ⚠ Retry 1/3 in 2s...
+✅ 76 tok/s | TTFT 139805ms | 171524ms code=100%
+[65/493] code-01 × gemini-3-flash-preview... ✅ 204 tok/s | TTFT 1413ms | 5768ms code=100%
+[66/493] code-01 × gemini-3.1-pro-preview... ✅ 129 tok/s | TTFT 8569ms | 17182ms code=100%
+[67/493] code-01 × azure/gpt-5.3-codex... ✅ 74 tok/s | no TTFT | 38951ms code=100%
+[68/493] code-01 × azure/gpt-5.1-codex-mini... ✅ 148 tok/s | no TTFT | 27731ms code=29%
+[69/493] code-02 × claude-opus-4-7... ✅ 64 tok/s | TTFT 1434ms | 31687ms code=100%
+[70/493] code-02 × claude-opus-4-6-1m... ✅ 65 tok/s | TTFT 1347ms | 30460ms code=100%
+[71/493] code-02 × claude-opus-4-6... ✅ 64 tok/s | TTFT 1261ms | 30761ms code=100%
+[72/493] code-02 × claude-sonnet-4-6... ✅ 76 tok/s | TTFT 1483ms | 34420ms code=100%
+[73/493] code-02 × claude-haiku-4-5...   ⚠ Retry 1/3 in 2s...
+✅ 133 tok/s | TTFT 844ms | 17230ms code=100% [no-think]
+[74/493] code-02 × claude-sonnet-4-5... ✅ 58 tok/s | TTFT 1021ms | 33965ms code=100%
+[75/493] code-02 × gpt-5.4... ✅ 93 tok/s | no TTFT | 32396ms code=100%
+[76/493] code-02 × gpt-5.4-mini... ✅ 195 tok/s | no TTFT | 23705ms code=100%
+[77/493] code-02 × gpt-5.3-codex... ✅ 119 tok/s | no TTFT | 24883ms code=100%
+[78/493] code-02 × gpt-5.2... ✅ 92 tok/s | no TTFT | 27494ms code=100%
+[79/493] code-02 × gpt-5.2-codex... ✅ 145 tok/s | no TTFT | 37221ms code=100%
+[80/493] code-02 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[81/493] code-02 × gpt-5-mini... ✅ 56 tok/s | TTFT 35720ms | 73589ms code=100%
+[82/493] code-02 × gemini-3-flash-preview... ✅ 204 tok/s | TTFT 1233ms | 11730ms code=89%
+[83/493] code-02 × gemini-3.1-pro-preview... ✅ 85 tok/s | TTFT 9500ms | 31225ms code=100%
+[84/493] code-02 × azure/gpt-5.3-codex... ✅ 126 tok/s | no TTFT | 23530ms code=100%
+[85/493] code-02 × azure/gpt-5.1-codex-mini... ✅ 132 tok/s | no TTFT | 40339ms code=100%
+[86/493] code-03 × claude-opus-4-7... ✅ 87 tok/s | TTFT 3169ms | 27112ms code=100%
+[87/493] code-03 × claude-opus-4-6-1m... ✅ 82 tok/s | TTFT 1172ms | 16743ms code=100%
+[88/493] code-03 × claude-opus-4-6... ✅ 84 tok/s | TTFT 1198ms | 19143ms code=100%
+[89/493] code-03 × claude-sonnet-4-6... ✅ 98 tok/s | TTFT 1190ms | 32620ms code=100%
+[90/493] code-03 × claude-haiku-4-5... ✅ 202 tok/s | TTFT 851ms | 19548ms code=100% [no-think]
+[91/493] code-03 × claude-sonnet-4-5... ✅ 82 tok/s | TTFT 1178ms | 46311ms code=100%
+[92/493] code-03 × gpt-5.4... ✅ 76 tok/s | no TTFT | 197095ms code=100%
+[93/493] code-03 × gpt-5.4-mini... ✅ 191 tok/s | no TTFT | 83734ms code=17%
+[94/493] code-03 × gpt-5.3-codex... ✅ 94 tok/s | no TTFT | 88808ms code=100%
+[95/493] code-03 × gpt-5.2... ✅ 71 tok/s | no TTFT | 81590ms code=100%
+[96/493] code-03 × gpt-5.2-codex... ✅ 143 tok/s | no TTFT | 110382ms code=100%
+[97/493] code-03 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[98/493] code-03 × gpt-5-mini... ✅ 71 tok/s | TTFT 192910ms | 266606ms code=100%
+[99/493] code-03 × gemini-3-flash-preview... ✅ 220 tok/s | TTFT 1080ms | 8795ms code=100%
+[100/493] code-03 × gemini-3.1-pro-preview... ✅ 142 tok/s | TTFT 10896ms | 23461ms code=100%
+[101/493] code-03 × azure/gpt-5.3-codex... ✅ 95 tok/s | no TTFT | 92559ms code=100%
+[102/493] code-03 × azure/gpt-5.1-codex-mini... ✅ 158 tok/s | no TTFT | 95566ms code=100%
+[103/493] code-04 × claude-opus-4-7... ✅ 62 tok/s | TTFT 3496ms | 19344ms code=100%
+[104/493] code-04 × claude-opus-4-6-1m... ✅ 71 tok/s | TTFT 1756ms | 12610ms code=100%
+[105/493] code-04 × claude-opus-4-6... ✅ 81 tok/s | TTFT 1606ms | 9899ms code=100%
+[106/493] code-04 × claude-sonnet-4-6... ✅ 83 tok/s | TTFT 187062ms | 208302ms code=100%
+[107/493] code-04 × claude-haiku-4-5... ✅ 161 tok/s | TTFT 1239ms | 23496ms code=100% [no-think]
+[108/493] code-04 × claude-sonnet-4-5... ✅ 73 tok/s | TTFT 1246ms | 34080ms code=100%
+[109/493] code-04 × gpt-5.4... ✅ 64 tok/s | no TTFT | 158218ms code=100%
+[110/493] code-04 × gpt-5.4-mini... ✅ 171 tok/s | no TTFT | 93420ms code=12%
+[111/493] code-04 × gpt-5.3-codex... ✅ 74 tok/s | no TTFT | 136983ms code=100%
+[112/493] code-04 × gpt-5.2... ✅ 62 tok/s | no TTFT | 179559ms code=100%
+[113/493] code-04 × gpt-5.2-codex... ✅ 112 tok/s | no TTFT | 142550ms code=12%
+[114/493] code-04 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[115/493] code-04 × gpt-5-mini... ✅ 134 tok/s | TTFT 262399ms | 281484ms code=100%
+[116/493] code-04 × gemini-3-flash-preview... ✅ 202 tok/s | TTFT 1159ms | 8058ms code=88%
+[117/493] code-04 × gemini-3.1-pro-preview... ✅ 152 tok/s | TTFT 16874ms | 25560ms code=100%
+[118/493] code-04 × azure/gpt-5.3-codex... ✅ 73 tok/s | no TTFT | 100409ms code=100%
+[119/493] code-04 × azure/gpt-5.1-codex-mini... ✅ 0 tok/s | no TTFT | 101389ms code=0%
+[120/493] code-05 × claude-opus-4-7... ✅ 71 tok/s | TTFT 1400ms | 13083ms code=100%
+[121/493] code-05 × claude-opus-4-6-1m... ✅ 68 tok/s | TTFT 1209ms | 6499ms code=100%
+[122/493] code-05 × claude-opus-4-6... ✅ 70 tok/s | TTFT 1176ms | 6396ms code=100%
+[123/493] code-05 × claude-sonnet-4-6... ✅ 66 tok/s | TTFT 1408ms | 25651ms code=100%
+[124/493] code-05 × claude-haiku-4-5... ✅ 146 tok/s | TTFT 1387ms | 15742ms code=100% [no-think]
+[125/493] code-05 × claude-sonnet-4-5... ✅ 59 tok/s | TTFT 998ms | 24346ms code=100%
+[126/493] code-05 × gpt-5.4... ✅ 76 tok/s | no TTFT | 22631ms code=100%
+[127/493] code-05 × gpt-5.4-mini... ✅ 167 tok/s | no TTFT | 8593ms code=100%
+[128/493] code-05 × gpt-5.3-codex... ✅ 98 tok/s | no TTFT | 15407ms code=100%
+[129/493] code-05 × gpt-5.2... ✅ 71 tok/s | no TTFT | 13626ms code=100%
+[130/493] code-05 × gpt-5.2-codex... ✅ 116 tok/s | no TTFT | 14361ms code=75%
+[131/493] code-05 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[132/493] code-05 × gpt-5-mini... ✅ 56 tok/s | TTFT 42340ms | 57203ms code=100%
+[133/493] code-05 × gemini-3-flash-preview... ✅ 181 tok/s | TTFT 1059ms | 6169ms code=100%
+[134/493] code-05 × gemini-3.1-pro-preview... ✅ 154 tok/s | TTFT 7105ms | 13533ms code=100%
+[135/493] code-05 × azure/gpt-5.3-codex... ✅ 100 tok/s | no TTFT | 15479ms code=100%
+[136/493] code-05 × azure/gpt-5.1-codex-mini... ✅ 153 tok/s | no TTFT | 17258ms code=100%
+[137/493] code-h1 × claude-opus-4-7... ✅ 74 tok/s | TTFT 17318ms | 62307ms code=100%
+[138/493] code-h1 × claude-opus-4-6-1m... ✅ 88 tok/s | TTFT 2166ms | 28925ms code=100%
+[139/493] code-h1 × claude-opus-4-6... ✅ 86 tok/s | TTFT 4952ms | 32689ms code=100%
+[140/493] code-h1 × claude-sonnet-4-6... ✅ 93 tok/s | TTFT 35241ms | 69699ms code=100%
+[141/493] code-h1 × claude-haiku-4-5... ✅ 164 tok/s | TTFT 877ms | 18942ms code=0% [no-think]
+[142/493] code-h1 × claude-sonnet-4-5... ✅ 69 tok/s | TTFT 995ms | 44398ms code=0%
+[143/493] code-h1 × gpt-5.4... ✅ 74 tok/s | no TTFT | 198978ms code=100%
+[144/493] code-h1 × gpt-5.4-mini... ✅ 202 tok/s | no TTFT | 79144ms code=0%
+[145/493] code-h1 × gpt-5.3-codex... ✅ 89 tok/s | no TTFT | 78169ms code=100%
+[146/493] code-h1 × gpt-5.2... ✅ 65 tok/s | no TTFT | 216262ms code=0%
+[147/493] code-h1 × gpt-5.2-codex... ✅ 66 tok/s | no TTFT | 241950ms code=0%
+[148/493] code-h1 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[149/493] code-h1 × gpt-5-mini... ✅ 77 tok/s | TTFT 186653ms | 232856ms code=100%
+[150/493] code-h1 × gemini-3-flash-preview... ✅ 213 tok/s | TTFT 1255ms | 10280ms code=0%
+[151/493] code-h1 × gemini-3.1-pro-preview... ✅ 151 tok/s | TTFT 13514ms | 33250ms code=0%
+[152/493] code-h1 × azure/gpt-5.3-codex... ✅ 77 tok/s | no TTFT | 131025ms code=0%
+[153/493] code-h1 × azure/gpt-5.1-codex-mini... ✅ 145 tok/s | no TTFT | 96801ms code=0%
+[154/493] code-h2 × claude-opus-4-7... ✅ 80 tok/s | TTFT 2163ms | 17837ms code=100%
+[155/493] code-h2 × claude-opus-4-6-1m... ✅ 73 tok/s | TTFT 3090ms | 18053ms code=100%
+[156/493] code-h2 × claude-opus-4-6... ✅ 74 tok/s | TTFT 1198ms | 15984ms code=100%
+[157/493] code-h2 × claude-sonnet-4-6... ✅ 77 tok/s | TTFT 1300ms | 32291ms code=100%
+[158/493] code-h2 × claude-haiku-4-5... ✅ 185 tok/s | TTFT 887ms | 11742ms code=100% [no-think]
+[159/493] code-h2 × claude-sonnet-4-5... ✅ 83 tok/s | TTFT 1108ms | 23961ms code=100%
+[160/493] code-h2 × gpt-5.4... ✅ 48 tok/s | no TTFT | 237827ms code=100%
+[161/493] code-h2 × gpt-5.4-mini... ✅ 175 tok/s | no TTFT | 91202ms code=0%
+[162/493] code-h2 × gpt-5.3-codex... ✅ 89 tok/s | no TTFT | 53065ms code=100%
+[163/493] code-h2 × gpt-5.2... ✅ 70 tok/s | no TTFT | 48947ms code=100%
+[164/493] code-h2 × gpt-5.2-codex... ✅ 140 tok/s | no TTFT | 53277ms code=100%
+[165/493] code-h2 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[166/493] code-h2 × gpt-5-mini... ✅ 69 tok/s | TTFT 70478ms | 93697ms code=100%
+[167/493] code-h2 × gemini-3-flash-preview... ✅ 222 tok/s | TTFT 1244ms | 8030ms code=100%
+[168/493] code-h2 × gemini-3.1-pro-preview... ✅ 87 tok/s | TTFT 27400ms | 44904ms code=100%
+[169/493] code-h2 × azure/gpt-5.3-codex... ✅ 89 tok/s | no TTFT | 53812ms code=100%
+[170/493] code-h2 × azure/gpt-5.1-codex-mini... ✅ 160 tok/s | no TTFT | 54742ms code=100%
+[171/493] code-h3 × claude-opus-4-7... /Users/yourslewis/.openclaw/workspace-chloe/benchmark/run.py:365: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  timestamp = datetime.utcnow().strftime("%Y%m%d-%H%M%S")
+Loaded 29 tasks, 17 models
+Total runs: 493
+Resuming from /Users/yourslewis/.openclaw/workspace-chloe/benchmark/results/v4-20260418-224048
+[171/493] code-h3 × claude-opus-4-7... ✅ 92 tok/s | TTFT 117590ms | 144868ms
+[172/493] code-h3 × claude-opus-4-6-1m... ✅ 76 tok/s | TTFT 1764ms | 34809ms
+[173/493] code-h3 × claude-opus-4-6... ✅ 84 tok/s | TTFT 1198ms | 35728ms
+[174/493] code-h3 × claude-sonnet-4-6... ✅ 0 tok/s | no TTFT | 180960ms
+[175/493] code-h3 × claude-haiku-4-5... ✅ 175 tok/s | TTFT 1111ms | 31218ms [no-think]
+[176/493] code-h3 × claude-sonnet-4-5... ✅ 75 tok/s | TTFT 992ms | 53772ms
+[177/493] code-h3 × gpt-5.4... ✅ 62 tok/s | no TTFT | 257784ms
+[178/493] code-h3 × gpt-5.4-mini... ✅ 171 tok/s | no TTFT | 93757ms
+[179/493] code-h3 × gpt-5.3-codex... ✅ 75 tok/s | no TTFT | 213341ms
+[180/493] code-h3 × gpt-5.2... ✅ 62 tok/s | no TTFT | 259268ms
+[181/493] code-h3 × gpt-5.2-codex... ✅ 113 tok/s | no TTFT | 141622ms
+[182/493] code-h3 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[183/493] code-h3 × gpt-5-mini... ✅ 115 tok/s | TTFT 146133ms | 190534ms
+[184/493] code-h3 × gemini-3-flash-preview... ✅ 201 tok/s | TTFT 1572ms | 18701ms
+[185/493] code-h3 × gemini-3.1-pro-preview... ✅ 178 tok/s | TTFT 127312ms | 143907ms
+[186/493] code-h3 × azure/gpt-5.3-codex... ✅ 64 tok/s | no TTFT | 250433ms
+[187/493] code-h3 × azure/gpt-5.1-codex-mini... ✅ 118 tok/s | no TTFT | 135422ms
+[188/493] code-h4 × claude-opus-4-7... ✅ 68 tok/s | TTFT 4449ms | 39770ms code=0%
+[189/493] code-h4 × claude-opus-4-6-1m... ✅ 83 tok/s | TTFT 1237ms | 27694ms code=100%
+[190/493] code-h4 × claude-opus-4-6... ✅ 89 tok/s | TTFT 1771ms | 25795ms code=100%
+[191/493] code-h4 × claude-sonnet-4-6... ✅ 89 tok/s | TTFT 1432ms | 36300ms code=0%
+[192/493] code-h4 × claude-haiku-4-5... ✅ 168 tok/s | TTFT 1195ms | 29403ms code=0% [no-think]
+[193/493] code-h4 × claude-sonnet-4-5... ✅ 78 tok/s | TTFT 1037ms | 50501ms code=0%
+[194/493] code-h4 × gpt-5.4... ✅ 80 tok/s | no TTFT | 89402ms code=0%
+[195/493] code-h4 × gpt-5.4-mini... ✅ 199 tok/s | no TTFT | 80308ms code=0%
+[196/493] code-h4 × gpt-5.3-codex... ✅ 92 tok/s | no TTFT | 66764ms code=95%
+[197/493] code-h4 × gpt-5.2... ✅ 70 tok/s | no TTFT | 99585ms code=0%
+[198/493] code-h4 × gpt-5.2-codex... ✅ 131 tok/s | no TTFT | 122251ms code=100%
+[199/493] code-h4 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[200/493] code-h4 × gpt-5-mini... ✅ 52 tok/s | TTFT 102425ms | 157209ms code=95%
+[201/493] code-h4 × gemini-3-flash-preview... ✅ 213 tok/s | TTFT 4429ms | 16171ms code=0%
+[202/493] code-h4 × gemini-3.1-pro-preview... ✅ 155 tok/s | TTFT 8485ms | 22694ms code=100%
+[203/493] code-h4 × azure/gpt-5.3-codex... ✅ 70 tok/s | no TTFT | 73312ms code=100%
+[204/493] code-h4 × azure/gpt-5.1-codex-mini... ✅ 162 tok/s | no TTFT | 68814ms code=0%
+[205/493] code-h5 × claude-opus-4-7... ✅ 55 tok/s | TTFT 5665ms | 51546ms
+[206/493] code-h5 × claude-opus-4-6-1m... ✅ 63 tok/s | TTFT 1257ms | 32047ms
+[207/493] code-h5 × claude-opus-4-6... ✅ 62 tok/s | TTFT 1247ms | 33541ms
+[208/493] code-h5 × claude-sonnet-4-6... ✅ 76 tok/s | TTFT 1554ms | 48096ms
+[209/493] code-h5 × claude-haiku-4-5... ✅ 132 tok/s | TTFT 1114ms | 25764ms [no-think]
+[210/493] code-h5 × claude-sonnet-4-5... ✅ 62 tok/s | TTFT 1036ms | 41337ms
+[211/493] code-h5 × gpt-5.4... ✅ 68 tok/s | no TTFT | 236502ms
+[212/493] code-h5 × gpt-5.4-mini... ✅ 187 tok/s | no TTFT | 85699ms
+[213/493] code-h5 × gpt-5.3-codex... ✅ 79 tok/s | no TTFT | 201756ms
+[214/493] code-h5 × gpt-5.2... ✅ 69 tok/s | no TTFT | 157139ms
+[215/493] code-h5 × gpt-5.2-codex... /Users/yourslewis/.openclaw/workspace-chloe/benchmark/run.py:365: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  timestamp = datetime.utcnow().strftime("%Y%m%d-%H%M%S")
+Loaded 29 tasks, 17 models
+Total runs: 493
+Resuming from /Users/yourslewis/.openclaw/workspace-chloe/benchmark/results/v4-20260418-224048
+[215/493] code-h5 × gpt-5.2-codex... ✅ 109 tok/s | no TTFT | 146587ms
+[216/493] code-h5 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[217/493] code-h5 × gpt-5-mini... ✅ 46 tok/s | TTFT 393986ms | 464754ms
+[218/493] code-h5 × gemini-3-flash-preview... ✅ 178 tok/s | TTFT 1115ms | 11010ms
+[219/493] code-h5 × gemini-3.1-pro-preview... ✅ 158 tok/s | TTFT 6276ms | 19271ms
+[220/493] code-h5 × azure/gpt-5.3-codex... ✅ 0 tok/s | no TTFT | 44168ms
+[221/493] code-h5 × azure/gpt-5.1-codex-mini... ✅ 159 tok/s | no TTFT | 100476ms
+[222/493] debug-01 × claude-opus-4-7... ✅ 48 tok/s | TTFT 2729ms | 35958ms
+[223/493] debug-01 × claude-opus-4-6-1m... ✅ 44 tok/s | TTFT 1746ms | 25753ms
+[224/493] debug-01 × claude-opus-4-6... ✅ 46 tok/s | TTFT 1917ms | 23107ms
+[225/493] debug-01 × claude-sonnet-4-6... ✅ 59 tok/s | TTFT 1244ms | 27499ms
+[226/493] debug-01 × claude-haiku-4-5... ✅ 126 tok/s | TTFT 815ms | 25125ms [no-think]
+[227/493] debug-01 × claude-sonnet-4-5... ✅ 54 tok/s | TTFT 995ms | 63127ms
+[228/493] debug-01 × gpt-5.4... ✅ 66 tok/s | no TTFT | 186781ms
+[229/493] debug-01 × gpt-5.4-mini... ✅ 182 tok/s | no TTFT | 81299ms
+[230/493] debug-01 × gpt-5.3-codex... ✅ 72 tok/s | no TTFT | 122293ms
+[231/493] debug-01 × gpt-5.2... ✅ 72 tok/s | no TTFT | 121290ms
+[232/493] debug-01 × gpt-5.2-codex... ✅ 123 tok/s | no TTFT | 130229ms
+[233/493] debug-01 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[234/493] debug-01 × gpt-5-mini... ✅ 101 tok/s | TTFT 79055ms | 97419ms
+[235/493] debug-01 × gemini-3-flash-preview... ✅ 163 tok/s | TTFT 1245ms | 8967ms
+[236/493] debug-01 × gemini-3.1-pro-preview... ✅ 76 tok/s | TTFT 25289ms | 39864ms
+[237/493] debug-01 × azure/gpt-5.3-codex... ✅ 76 tok/s | no TTFT | 126564ms
+[238/493] debug-01 × azure/gpt-5.1-codex-mini... ✅ 158 tok/s | no TTFT | 60152ms
+[239/493] debug-02 × claude-opus-4-7... ✅ 76 tok/s | TTFT 2317ms | 10605ms code=100%
+[240/493] debug-02 × claude-opus-4-6-1m... ✅ 70 tok/s | TTFT 1805ms | 8942ms code=100%
+[241/493] debug-02 × claude-opus-4-6... ✅ 71 tok/s | TTFT 2167ms | 9269ms code=100%
+[242/493] debug-02 × claude-sonnet-4-6... ✅ 75 tok/s | TTFT 1340ms | 12726ms code=100%
+[243/493] debug-02 × claude-haiku-4-5... ✅ 161 tok/s | TTFT 3312ms | 11435ms code=100% [no-think]
+[244/493] debug-02 × claude-sonnet-4-5... ✅ 80 tok/s | TTFT 986ms | 17488ms code=100%
+[245/493] debug-02 × gpt-5.4... ✅ 54 tok/s | no TTFT | 76420ms code=100%
+[246/493] debug-02 × gpt-5.4-mini... ✅ 194 tok/s | no TTFT | 45410ms code=100%
+[247/493] debug-02 × gpt-5.3-codex... ✅ 78 tok/s | no TTFT | 31754ms code=100%
+[248/493] debug-02 × gpt-5.2... ✅ 91 tok/s | no TTFT | 16656ms code=100%
+[249/493] debug-02 × gpt-5.2-codex... ✅ 141 tok/s | no TTFT | 45202ms code=100%
+[250/493] debug-02 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[251/493] debug-02 × gpt-5-mini... ✅ 99 tok/s | TTFT 55447ms | 70392ms code=100%
+[252/493] debug-02 × gemini-3-flash-preview... ✅ 185 tok/s | TTFT 1296ms | 5298ms code=100%
+[253/493] debug-02 × gemini-3.1-pro-preview... ✅ 162 tok/s | TTFT 7938ms | 12409ms code=100%
+[254/493] debug-02 × azure/gpt-5.3-codex... ✅ 100 tok/s | no TTFT | 24206ms code=100%
+[255/493] debug-02 × azure/gpt-5.1-codex-mini... ✅ 134 tok/s | no TTFT | 78637ms code=100%
+[256/493] design-01 × claude-opus-4-7... ✅ 38 tok/s | TTFT 1604ms | 107457ms
+[257/493] design-01 × claude-opus-4-6-1m... ✅ 37 tok/s | TTFT 2226ms | 90170ms
+[258/493] design-01 × claude-opus-4-6... ✅ 38 tok/s | TTFT 2701ms | 90084ms
+[259/493] design-01 × claude-sonnet-4-6... ✅ 48 tok/s | TTFT 1515ms | 224204ms
+[260/493] design-01 × claude-haiku-4-5...   ⚠ Retry 1/3 in 2s...
+✅ 97 tok/s | TTFT 1180ms | 129714ms [no-think]
+[261/493] design-01 × claude-sonnet-4-5... ✅ 46 tok/s | TTFT 1738ms | 292988ms
+[262/493] design-01 × gpt-5.4... ✅ 55 tok/s | no TTFT | 290328ms
+[263/493] design-01 × gpt-5.4-mini... ✅ 155 tok/s | no TTFT | 103500ms
+[264/493] design-01 × gpt-5.3-codex... ✅ 64 tok/s | no TTFT | 114890ms
+[265/493] design-01 × gpt-5.2... ✅ 66 tok/s | no TTFT | 123096ms
+[266/493] design-01 × gpt-5.2-codex... ✅ 116 tok/s | no TTFT | 61886ms
+[267/493] design-01 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[268/493] design-01 × gpt-5-mini... ✅ 101 tok/s | TTFT 127137ms | 207552ms
+[269/493] design-01 × gemini-3-flash-preview... ✅ 159 tok/s | TTFT 1481ms | 11564ms
+[270/493] design-01 × gemini-3.1-pro-preview... ✅ 72 tok/s | TTFT 16516ms | 43791ms
+[271/493] design-01 × azure/gpt-5.3-codex... ✅ 68 tok/s | no TTFT | 114309ms
+[272/493] design-01 × azure/gpt-5.1-codex-mini... ✅ 138 tok/s | no TTFT | 30525ms
+[273/493] design-02 × claude-opus-4-7... ✅ 38 tok/s | TTFT 3058ms | 137289ms
+[274/493] design-02 × claude-opus-4-6-1m... ✅ 40 tok/s | TTFT 2219ms | 162536ms
+[275/493] design-02 × claude-opus-4-6... ✅ 39 tok/s | TTFT 2042ms | 147492ms
+[276/493] design-02 × claude-sonnet-4-6... ✅ 57 tok/s | TTFT 1301ms | 234684ms
+[277/493] design-02 × claude-haiku-4-5... ✅ 143 tok/s | TTFT 3627ms | 100694ms [no-think]
+[278/493] design-02 × claude-sonnet-4-5... ✅ 58 tok/s | TTFT 1270ms | 231163ms
+[279/493] design-02 × gpt-5.4... ✅ 63 tok/s | no TTFT | 253292ms
+[280/493] design-02 × gpt-5.4-mini... ✅ 163 tok/s | no TTFT | 98113ms
+[281/493] design-02 × gpt-5.3-codex... ✅ 70 tok/s | no TTFT | 144178ms
+[282/493] design-02 × gpt-5.2... ✅ 65 tok/s | no TTFT | 143963ms
+[283/493] design-02 × gpt-5.2-codex... ✅ 110 tok/s | no TTFT | 57582ms
+[284/493] design-02 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[285/493] design-02 × gpt-5-mini... ✅ 72 tok/s | TTFT 155972ms | 292952ms
+[286/493] design-02 × gemini-3-flash-preview... ✅ 145 tok/s | TTFT 1486ms | 13391ms
+[287/493] design-02 × gemini-3.1-pro-preview... ✅ 102 tok/s | TTFT 10310ms | 30227ms
+[288/493] design-02 × azure/gpt-5.3-codex... ✅ 52 tok/s | no TTFT | 183266ms
+[289/493] design-02 × azure/gpt-5.1-codex-mini... ✅ 139 tok/s | no TTFT | 27282ms
+[290/493] lc-1 × claude-opus-4-7... ✅ 36 tok/s | TTFT 3356ms | 62124ms
+[291/493] lc-1 × claude-opus-4-6-1m... ✅ 33 tok/s | TTFT 3898ms | 59713ms
+[292/493] lc-1 × claude-opus-4-6... ✅ 33 tok/s | TTFT 3861ms | 53761ms
+[293/493] lc-1 × claude-sonnet-4-6... ✅ 56 tok/s | TTFT 74504ms | 116397ms
+[294/493] lc-1 × claude-haiku-4-5... ✅ 90 tok/s | TTFT 2671ms | 61809ms [no-think]
+[295/493] lc-1 × claude-sonnet-4-5... ✅ 38 tok/s | TTFT 3551ms | 87253ms
+[296/493] lc-1 × gpt-5.4... ✅ 81 tok/s | no TTFT | 198596ms
+[297/493] lc-1 × gpt-5.4-mini... ✅ 192 tok/s | no TTFT | 83537ms
+[298/493] lc-1 × gpt-5.3-codex... ✅ 80 tok/s | no TTFT | 156966ms
+[299/493] lc-1 × gpt-5.2... ✅ 73 tok/s | no TTFT | 218573ms
+[300/493] lc-1 × gpt-5.2-codex... ✅ 121 tok/s | no TTFT | 127120ms
+[301/493] lc-1 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[302/493] lc-1 × gpt-5-mini... ✅ 87 tok/s | TTFT 141696ms | 225794ms
+[303/493] lc-1 × gemini-3-flash-preview... ✅ 154 tok/s | TTFT 2418ms | 10371ms
+[304/493] lc-1 × gemini-3.1-pro-preview... ✅ 108 tok/s | TTFT 26782ms | 39245ms
+[305/493] lc-1 × azure/gpt-5.3-codex... ✅ 81 tok/s | no TTFT | 161897ms
+[306/493] lc-1 × azure/gpt-5.1-codex-mini... ✅ 80 tok/s | no TTFT | 201184ms
+[307/493] lc-2 × claude-opus-4-7... ✅ 36 tok/s | TTFT 2551ms | 48624ms
+[308/493] lc-2 × claude-opus-4-6-1m... ✅ 34 tok/s | TTFT 2823ms | 37621ms
+[309/493] lc-2 × claude-opus-4-6... ✅ 35 tok/s | TTFT 9278ms | 44350ms
+[310/493] lc-2 × claude-sonnet-4-6... ✅ 43 tok/s | TTFT 17473ms | 82492ms
+[311/493] lc-2 × claude-haiku-4-5... ✅ 88 tok/s | TTFT 2545ms | 26771ms [no-think]
+[312/493] lc-2 × claude-sonnet-4-5... ✅ 38 tok/s | TTFT 2929ms | 56569ms
+[313/493] lc-2 × gpt-5.4... ✅ 88 tok/s | no TTFT | 182516ms
+[314/493] lc-2 × gpt-5.4-mini... ✅ 193 tok/s | no TTFT | 82825ms
+[315/493] lc-2 × gpt-5.3-codex... ✅ 98 tok/s | no TTFT | 163735ms
+[316/493] lc-2 × gpt-5.2... ✅ 80 tok/s | no TTFT | 199055ms
+[317/493] lc-2 × gpt-5.2-codex... ✅ 145 tok/s | no TTFT | 110545ms
+[318/493] lc-2 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[319/493] lc-2 × gpt-5-mini...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ timed out
+[320/493] lc-2 × gemini-3-flash-preview... ✅ 162 tok/s | TTFT 2220ms | 10357ms
+[321/493] lc-2 × gemini-3.1-pro-preview... ✅ 245 tok/s | TTFT 135186ms | 140129ms
+[322/493] lc-2 × azure/gpt-5.3-codex... ✅ 98 tok/s | no TTFT | 162683ms
+[323/493] lc-2 × azure/gpt-5.1-codex-mini... ✅ 81 tok/s | no TTFT | 70185ms
+[324/493] plan-01 × claude-opus-4-7... ✅ 34 tok/s | TTFT 2710ms | 59808ms
+[325/493] plan-01 × claude-opus-4-6-1m... ✅ 34 tok/s | TTFT 2029ms | 123037ms
+[326/493] plan-01 × claude-opus-4-6... ✅ 34 tok/s | TTFT 1976ms | 131758ms
+[327/493] plan-01 × claude-sonnet-4-6... ✅ 40 tok/s | TTFT 1986ms | 169710ms
+[328/493] plan-01 × claude-haiku-4-5... ✅ 82 tok/s | TTFT 882ms | 102399ms [no-think]
+[329/493] plan-01 × claude-sonnet-4-5... ✅ 34 tok/s | TTFT 1660ms | 143068ms
+[330/493] plan-01 × gpt-5.4... ✅ 54 tok/s | no TTFT | 295850ms
+[331/493] plan-01 × gpt-5.4-mini... ✅ 148 tok/s | no TTFT | 107800ms
+[332/493] plan-01 × gpt-5.3-codex... ✅ 58 tok/s | no TTFT | 104054ms
+[333/493] plan-01 × gpt-5.2... ✅ 61 tok/s | no TTFT | 117245ms
+[334/493] plan-01 × gpt-5.2-codex... ✅ 102 tok/s | no TTFT | 73985ms
+[335/493] plan-01 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[336/493] plan-01 × gpt-5-mini... ✅ 112 tok/s | TTFT 133431ms | 165656ms
+[337/493] plan-01 × gemini-3-flash-preview... ✅ 152 tok/s | TTFT 1335ms | 13256ms
+[338/493] plan-01 × gemini-3.1-pro-preview... ✅ 125 tok/s | TTFT 8923ms | 22536ms
+[339/493] plan-01 × azure/gpt-5.3-codex... ✅ 55 tok/s | no TTFT | 151923ms
+[340/493] plan-01 × azure/gpt-5.1-codex-mini... ✅ 0 tok/s | no TTFT | 5140ms
+[341/493] plan-02 × claude-opus-4-7... ✅ 45 tok/s | TTFT 1456ms | 75217ms
+[342/493] plan-02 × claude-opus-4-6-1m... ✅ 43 tok/s | TTFT 1427ms | 79357ms
+[343/493] plan-02 × claude-opus-4-6... ✅ 43 tok/s | TTFT 2291ms | 82842ms
+[344/493] plan-02 × claude-sonnet-4-6... ✅ 55 tok/s | TTFT 1299ms | 103401ms
+[345/493] plan-02 × claude-haiku-4-5... ✅ 103 tok/s | TTFT 818ms | 63810ms [no-think]
+[346/493] plan-02 × claude-sonnet-4-5... ✅ 47 tok/s | TTFT 968ms | 130648ms
+[347/493] plan-02 × gpt-5.4... ✅ 48 tok/s | no TTFT | 228098ms
+[348/493] plan-02 × gpt-5.4-mini... ✅ 158 tok/s | no TTFT | 60062ms
+[349/493] plan-02 × gpt-5.3-codex... ✅ 69 tok/s | no TTFT | 71444ms
+[350/493] plan-02 × gpt-5.2... ✅ 62 tok/s | no TTFT | 62210ms
+[351/493] plan-02 × gpt-5.2-codex... ✅ 122 tok/s | no TTFT | 44699ms
+[352/493] plan-02 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[353/493] plan-02 × gpt-5-mini... ✅ 66 tok/s | TTFT 131903ms | 209614ms
+[354/493] plan-02 × gemini-3-flash-preview... ✅ 179 tok/s | TTFT 1629ms | 14899ms
+[355/493] plan-02 × gemini-3.1-pro-preview... ✅ 79 tok/s | TTFT 14438ms | 48018ms
+[356/493] plan-02 × azure/gpt-5.3-codex... ✅ 58 tok/s | no TTFT | 70884ms
+[357/493] plan-02 × azure/gpt-5.1-codex-mini... ✅ 135 tok/s | no TTFT | 24244ms
+[358/493] plan-03 × claude-opus-4-7... ✅ 49 tok/s | TTFT 1173ms | 7162ms
+[359/493] plan-03 × claude-opus-4-6-1m... ✅ 52 tok/s | TTFT 1992ms | 6748ms
+[360/493] plan-03 × claude-opus-4-6... ✅ 50 tok/s | TTFT 1781ms | 7015ms
+[361/493] plan-03 × claude-sonnet-4-6... ✅ 51 tok/s | TTFT 1967ms | 7842ms
+[362/493] plan-03 × claude-haiku-4-5... ✅ 133 tok/s | TTFT 1069ms | 2750ms [no-think]
+[363/493] plan-03 × claude-sonnet-4-5... ✅ 57 tok/s | TTFT 1212ms | 5462ms
+[364/493] plan-03 × gpt-5.4... ✅ 47 tok/s | no TTFT | 7084ms
+[365/493] plan-03 × gpt-5.4-mini... ✅ 135 tok/s | no TTFT | 5388ms
+[366/493] plan-03 × gpt-5.3-codex... ✅ 68 tok/s | no TTFT | 9676ms
+[367/493] plan-03 × gpt-5.2... ✅ 54 tok/s | no TTFT | 5101ms
+[368/493] plan-03 × gpt-5.2-codex... ✅ 65 tok/s | no TTFT | 5049ms
+[369/493] plan-03 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[370/493] plan-03 × gpt-5-mini... ✅ 59 tok/s | TTFT 74621ms | 78326ms
+[371/493] plan-03 × gemini-3-flash-preview... ✅ 245 tok/s | TTFT 1424ms | 2334ms
+[372/493] plan-03 × gemini-3.1-pro-preview... ✅ 170 tok/s | TTFT 8031ms | 9588ms
+[373/493] plan-03 × azure/gpt-5.3-codex... ✅ 63 tok/s | no TTFT | 9722ms
+[374/493] plan-03 × azure/gpt-5.1-codex-mini... ✅ 82 tok/s | no TTFT | 4368ms
+[375/493] tool-1 × claude-opus-4-7... ✅ 41 tok/s | TTFT 2639ms | 14221ms
+[376/493] tool-1 × claude-opus-4-6-1m... ✅ 46 tok/s | TTFT 3159ms | 7204ms
+[377/493] tool-1 × claude-opus-4-6... ✅ 41 tok/s | TTFT 3050ms | 8312ms
+[378/493] tool-1 × claude-sonnet-4-6... ✅ 47 tok/s | TTFT 1224ms | 7543ms
+[379/493] tool-1 × claude-haiku-4-5... ✅ 91 tok/s | TTFT 1133ms | 9618ms [no-think]
+[380/493] tool-1 × claude-sonnet-4-5... ✅ 45 tok/s | TTFT 2115ms | 76771ms
+[381/493] tool-1 × gpt-5.4... ✅ 66 tok/s | no TTFT | 65122ms
+[382/493] tool-1 × gpt-5.4-mini... ✅ 169 tok/s | no TTFT | 8759ms
+[383/493] tool-1 × gpt-5.3-codex... ✅ 56 tok/s | no TTFT | 10940ms
+[384/493] tool-1 × gpt-5.2... ✅ 64 tok/s | no TTFT | 78659ms
+[385/493] tool-1 × gpt-5.2-codex... ✅ 112 tok/s | no TTFT | 61918ms
+[386/493] tool-1 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[387/493] tool-1 × gpt-5-mini... ✅ 67 tok/s | TTFT 221504ms | 290131ms
+[388/493] tool-1 × gemini-3-flash-preview... ✅ 162 tok/s | TTFT 1198ms | 7096ms
+[389/493] tool-1 × gemini-3.1-pro-preview... ✅ 64 tok/s | TTFT 10825ms | 32630ms
+[390/493] tool-1 × azure/gpt-5.3-codex... ✅ 58 tok/s | no TTFT | 25786ms
+[391/493] tool-1 × azure/gpt-5.1-codex-mini... ✅ 131 tok/s | no TTFT | 15521ms
+[392/493] tool-2 × claude-opus-4-7... ✅ 45 tok/s | TTFT 1391ms | 32376ms
+[393/493] tool-2 × claude-opus-4-6-1m... ✅ 52 tok/s | TTFT 2520ms | 16988ms
+[394/493] tool-2 × claude-opus-4-6... ✅ 49 tok/s | TTFT 2256ms | 17040ms
+[395/493] tool-2 × claude-sonnet-4-6... ✅ 50 tok/s | TTFT 1226ms | 42750ms
+[396/493] tool-2 × claude-haiku-4-5... ✅ 125 tok/s | TTFT 897ms | 15736ms [no-think]
+[397/493] tool-2 × claude-sonnet-4-5... ✅ 51 tok/s | TTFT 1042ms | 29307ms
+[398/493] tool-2 × gpt-5.4... ✅ 66 tok/s | no TTFT | 89006ms
+[399/493] tool-2 × gpt-5.4-mini... ✅ 142 tok/s | no TTFT | 21894ms
+[400/493] tool-2 × gpt-5.3-codex... ✅ 65 tok/s | no TTFT | 41932ms
+[401/493] tool-2 × gpt-5.2... ✅ 58 tok/s | no TTFT | 50924ms
+[402/493] tool-2 × gpt-5.2-codex... ✅ 124 tok/s | no TTFT | 33682ms
+[403/493] tool-2 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[404/493] tool-2 × gpt-5-mini... ✅ 102 tok/s | TTFT 45642ms | 65552ms
+[405/493] tool-2 × gemini-3-flash-preview... ✅ 191 tok/s | TTFT 1223ms | 5927ms
+[406/493] tool-2 × gemini-3.1-pro-preview... ✅ 126 tok/s | TTFT 9441ms | 16151ms
+[407/493] tool-2 × azure/gpt-5.3-codex... ✅ 43 tok/s | no TTFT | 73518ms
+[408/493] tool-2 × azure/gpt-5.1-codex-mini... ✅ 115 tok/s | no TTFT | 8740ms
+[409/493] tool-3 × claude-opus-4-7... ✅ 59 tok/s | TTFT 1199ms | 70900ms
+[410/493] tool-3 × claude-opus-4-6-1m... ✅ 65 tok/s | TTFT 2388ms | 111756ms
+[411/493] tool-3 × claude-opus-4-6... ✅ 65 tok/s | TTFT 3182ms | 94365ms
+[412/493] tool-3 × claude-sonnet-4-6... ✅ 77 tok/s | TTFT 1398ms | 144576ms
+[413/493] tool-3 × claude-haiku-4-5... ✅ 178 tok/s | TTFT 1134ms | 65247ms [no-think]
+[414/493] tool-3 × claude-sonnet-4-5... ✅ 78 tok/s | TTFT 1275ms | 173963ms
+[415/493] tool-3 × gpt-5.4... ✅ 66 tok/s | no TTFT | 243308ms
+[416/493] tool-3 × gpt-5.4-mini... ✅ 162 tok/s | no TTFT | 98922ms
+[417/493] tool-3 × gpt-5.3-codex... ✅ 66 tok/s | no TTFT | 105737ms
+[418/493] tool-3 × gpt-5.2... ✅ 73 tok/s | no TTFT | 73721ms
+[419/493] tool-3 × gpt-5.2-codex... ✅ 119 tok/s | no TTFT | 51592ms
+[420/493] tool-3 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[421/493] tool-3 × gpt-5-mini... ✅ 98 tok/s | TTFT 124770ms | 212569ms
+[422/493] tool-3 × gemini-3-flash-preview... ✅ 183 tok/s | TTFT 1692ms | 12273ms
+[423/493] tool-3 × gemini-3.1-pro-preview... ✅ 167 tok/s | TTFT 8498ms | 27083ms
+[424/493] tool-3 × azure/gpt-5.3-codex... ✅ 55 tok/s | no TTFT | 158998ms
+[425/493] tool-3 × azure/gpt-5.1-codex-mini... /Users/yourslewis/.openclaw/workspace-chloe/benchmark/run.py:365: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  timestamp = datetime.utcnow().strftime("%Y%m%d-%H%M%S")
+Loaded 29 tasks, 17 models
+Total runs: 493
+Resuming from /Users/yourslewis/.openclaw/workspace-chloe/benchmark/results/v4-20260418-224048
+[425/493] tool-3 × azure/gpt-5.1-codex-mini... ✅ 113 tok/s | no TTFT | 27062ms
+[426/493] writing-01 × claude-opus-4-7... ✅ 44 tok/s | TTFT 1099ms | 89871ms
+[427/493] writing-01 × claude-opus-4-6-1m... ✅ 47 tok/s | TTFT 2130ms | 148898ms
+[428/493] writing-01 × claude-opus-4-6... ✅ 45 tok/s | TTFT 2353ms | 130666ms
+[429/493] writing-01 × claude-sonnet-4-6... ✅ 57 tok/s | TTFT 1342ms | 241984ms
+[430/493] writing-01 × claude-haiku-4-5... ✅ 106 tok/s | TTFT 1113ms | 82328ms [no-think]
+[431/493] writing-01 × claude-sonnet-4-5... ✅ 52 tok/s | TTFT 1259ms | 246191ms
+[432/493] writing-01 × gpt-5.4...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+✅ 54 tok/s | no TTFT | 299017ms
+[433/493] writing-01 × gpt-5.4-mini... ✅ 155 tok/s | no TTFT | 102996ms
+[434/493] writing-01 × gpt-5.3-codex... ✅ 59 tok/s | no TTFT | 125455ms
+[435/493] writing-01 × gpt-5.2... ✅ 70 tok/s | no TTFT | 113702ms
+[436/493] writing-01 × gpt-5.2-codex... ✅ 119 tok/s | no TTFT | 37006ms
+[437/493] writing-01 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[438/493] writing-01 × gpt-5-mini... ✅ 79 tok/s | TTFT 147809ms | 281958ms
+[439/493] writing-01 × gemini-3-flash-preview... ✅ 157 tok/s | TTFT 1163ms | 11846ms
+[440/493] writing-01 × gemini-3.1-pro-preview... ✅ 117 tok/s | TTFT 9051ms | 26185ms
+[441/493] writing-01 × azure/gpt-5.3-codex... ✅ 69 tok/s | no TTFT | 145758ms
+[442/493] writing-01 × azure/gpt-5.1-codex-mini... ✅ 153 tok/s | no TTFT | 39121ms
+[443/493] writing-02 × claude-opus-4-7... ✅ 52 tok/s | TTFT 1180ms | 32534ms
+[444/493] writing-02 × claude-opus-4-6-1m... ✅ 51 tok/s | TTFT 2145ms | 32907ms
+[445/493] writing-02 × claude-opus-4-6... ✅ 51 tok/s | TTFT 2129ms | 34134ms
+[446/493] writing-02 × claude-sonnet-4-6... ✅ 58 tok/s | TTFT 1463ms | 32881ms
+[447/493] writing-02 × claude-haiku-4-5... ✅ 117 tok/s | TTFT 923ms | 19358ms [no-think]
+[448/493] writing-02 × claude-sonnet-4-5... ✅ 53 tok/s | TTFT 1196ms | 39444ms
+[449/493] writing-02 × gpt-5.4... ✅ 88 tok/s | no TTFT | 28992ms
+[450/493] writing-02 × gpt-5.4-mini... ✅ 137 tok/s | no TTFT | 16531ms
+[451/493] writing-02 × gpt-5.3-codex... ✅ 65 tok/s | no TTFT | 29456ms
+[452/493] writing-02 × gpt-5.2... ✅ 61 tok/s | no TTFT | 32552ms
+[453/493] writing-02 × gpt-5.2-codex... ✅ 107 tok/s | no TTFT | 15345ms
+[454/493] writing-02 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[455/493] writing-02 × gpt-5-mini... ✅ 117 tok/s | TTFT 38134ms | 51550ms
+[456/493] writing-02 × gemini-3-flash-preview... ✅ 204 tok/s | TTFT 1620ms | 9474ms
+[457/493] writing-02 × gemini-3.1-pro-preview... ✅ 146 tok/s | TTFT 7591ms | 18245ms
+[458/493] writing-02 × azure/gpt-5.3-codex... ✅ 67 tok/s | no TTFT | 32097ms
+[459/493] writing-02 × azure/gpt-5.1-codex-mini... ✅ 125 tok/s | no TTFT | 12866ms
+[460/493] writing-03 × claude-opus-4-7... ✅ 38 tok/s | TTFT 1192ms | 29648ms
+[461/493] writing-03 × claude-opus-4-6-1m... ✅ 35 tok/s | TTFT 2841ms | 34080ms
+[462/493] writing-03 × claude-opus-4-6... ✅ 35 tok/s | TTFT 1811ms | 35410ms
+[463/493] writing-03 × claude-sonnet-4-6... ✅ 46 tok/s | TTFT 1230ms | 29363ms
+[464/493] writing-03 × claude-haiku-4-5... ✅ 91 tok/s | TTFT 1227ms | 14420ms [no-think]
+[465/493] writing-03 × claude-sonnet-4-5... ✅ 39 tok/s | TTFT 1009ms | 31830ms
+[466/493] writing-03 × gpt-5.4... ✅ 56 tok/s | no TTFT | 44827ms
+[467/493] writing-03 × gpt-5.4-mini... ✅ 147 tok/s | no TTFT | 19518ms
+[468/493] writing-03 × gpt-5.3-codex... ✅ 58 tok/s | no TTFT | 25472ms
+[469/493] writing-03 × gpt-5.2... ✅ 50 tok/s | no TTFT | 28758ms
+[470/493] writing-03 × gpt-5.2-codex... ✅ 93 tok/s | no TTFT | 16041ms
+[471/493] writing-03 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[472/493] writing-03 × gpt-5-mini... ✅ 149 tok/s | TTFT 23584ms | 31376ms
+[473/493] writing-03 × gemini-3-flash-preview... ✅ 196 tok/s | TTFT 1314ms | 7221ms
+[474/493] writing-03 × gemini-3.1-pro-preview... ✅ 87 tok/s | TTFT 16120ms | 28780ms
+[475/493] writing-03 × azure/gpt-5.3-codex... ✅ 55 tok/s | no TTFT | 38111ms
+[476/493] writing-03 × azure/gpt-5.1-codex-mini... ✅ 123 tok/s | no TTFT | 9938ms
+[477/493] writing-04 × claude-opus-4-7... ✅ 41 tok/s | TTFT 1252ms | 12171ms
+[478/493] writing-04 × claude-opus-4-6-1m... ✅ 40 tok/s | TTFT 1983ms | 12763ms
+[479/493] writing-04 × claude-opus-4-6... ✅ 40 tok/s | TTFT 2295ms | 13218ms
+[480/493] writing-04 × claude-sonnet-4-6... ✅ 44 tok/s | TTFT 1097ms | 10676ms
+[481/493] writing-04 × claude-haiku-4-5... ✅ 95 tok/s | TTFT 1021ms | 5441ms [no-think]
+[482/493] writing-04 × claude-sonnet-4-5... ✅ 43 tok/s | TTFT 1091ms | 10428ms
+[483/493] writing-04 × gpt-5.4... ✅ 66 tok/s | no TTFT | 13306ms
+[484/493] writing-04 × gpt-5.4-mini... ✅ 112 tok/s | no TTFT | 7423ms
+[485/493] writing-04 × gpt-5.3-codex... ✅ 58 tok/s | no TTFT | 13205ms
+[486/493] writing-04 × gpt-5.2... ✅ 56 tok/s | no TTFT | 7532ms
+[487/493] writing-04 × gpt-5.2-codex... ✅ 107 tok/s | no TTFT | 16263ms
+[488/493] writing-04 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[489/493] writing-04 × gpt-5-mini... ✅ 143 tok/s | TTFT 34393ms | 37060ms
+[490/493] writing-04 × gemini-3-flash-preview... ✅ 272 tok/s | TTFT 5300ms | 6791ms
+[491/493] writing-04 × gemini-3.1-pro-preview... ✅ 151 tok/s | TTFT 8099ms | 10700ms
+[492/493] writing-04 × azure/gpt-5.3-codex... ✅ 61 tok/s | no TTFT | 12464ms
+[493/493] writing-04 × azure/gpt-5.1-codex-mini... ✅ 103 tok/s | no TTFT | 5680ms
+
+============================================================
+Benchmark complete: /Users/yourslewis/.openclaw/workspace-chloe/benchmark/results/v4-20260418-224048
+  Completed: 69
+  Skipped (resumed): 424
+  Failed: 4
+  Results: /Users/yourslewis/.openclaw/workspace-chloe/benchmark/results/v4-20260418-224048/raw
+Loading results from: /Users/yourslewis/.openclaw/workspace-chloe/benchmark/results/v4-20260418-224048
+  493 result files, 318 judge scores
+HTML report: /Users/yourslewis/.openclaw/workspace-chloe/benchmark/results/v4-20260418-224048/report.html
+Text report: /Users/yourslewis/.openclaw/workspace-chloe/benchmark/results/v4-20260418-224048/report.txt
+
+Routing Table:
+  analysis     → gpt-5.4-mini                   (fallback: claude-opus-4-7)
+  code         → gpt-5-mini                     (fallback: claude-opus-4-6-1m)
+  debug        → claude-sonnet-4-6              (fallback: azure/gpt-5.3-codex)
+  design       → gemini-3.1-pro-preview         (fallback: gemini-3-flash-preview)
+  long-context → gpt-5.2-codex                  (fallback: claude-opus-4-6)
+  plan         → gemini-3-flash-preview         (fallback: gemini-3.1-pro-preview)
+  tool-use     → gemini-3-flash-preview         (fallback: gemini-3.1-pro-preview)
+  writing      → gemini-3-flash-preview         (fallback: azure/gpt-5.3-codex)

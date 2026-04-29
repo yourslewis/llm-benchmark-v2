@@ -1,0 +1,41 @@
+Model Benchmark Report v4 — 2026-04-21 01:08
+Results: /Users/yourslewis/.openclaw/workspace-chloe/benchmark/results/v4-20260418-224048
+
+ # Model                          Overall  Grnd  Relv  Quality   tok/s    Cost/t     Q/$  Code%    TTFT  Lat p50
+------------------------------------------------------------------------------------------------------------------------
+ 1 gemini-3-flash-preview           0.945   7.7   8.3     8.00     192   $0.0016  5018.8    75%    1413    10357
+ 2 gemini-3.1-pro-preview           0.939   7.9   8.1     9.00     128   $0.0283   318.5    89%   10548    25560
+ 3 claude-opus-4-7                  0.915   8.2   8.1     9.00      55   $0.0721   124.8    89%    2163    32376
+ 4 gpt-5.3-codex                    0.911   8.2   7.7     9.00      77   $0.0762   118.1    99%       —    66764
+ 5 azure/gpt-5.3-codex              0.898   8.3   7.3     9.00      72   $0.0760   118.4    89%       —    73312
+ 6 gpt-5-mini                       0.896   7.9   7.4     9.00      86   $0.0071  1270.5    99%  125954   168590
+ 7 claude-opus-4-6                  0.890   8.1   7.5     9.00      55   $0.0718   125.4   100%    1976    25795
+ 8 claude-opus-4-6-1m               0.883   7.8   7.6     9.00      55   $0.0736   122.2   100%    1992    27694
+ 9 claude-sonnet-4-6                0.867   8.0   7.8     8.00      63   $0.0682   117.2    89%    1420    40612
+10 gpt-5.2-codex                    0.822   7.4   6.4     8.00     119   $0.1002    79.9    76%       —    54658
+11 gpt-5.2                          0.821   8.2   7.2     7.00      67   $0.0767    91.3    78%       —    78659
+12 gpt-5.4                          0.804   7.2   5.9     9.00      66   $0.1118    80.5    89%       —   180788
+13 claude-sonnet-4-5                0.802   7.6   7.4     7.00      57   $0.0731    95.8    78%    1091    44398
+14 claude-haiku-4-5                 0.793   7.5   7.2     6.00     130   $0.0249   241.4    78%    1111    19358
+15 azure/gpt-5.1-codex-mini         0.730   7.5   6.4     5.00     128   $0.0130   385.1    59%       —    39121
+16 gpt-5.4-mini                     0.559   6.6   4.8     2.00     171   $0.0201    99.7    48%       —    80308
+17 gpt-5.1                          0.000   0.0   0.0     0.00       —         —       —      —       —        —
+
+Routing Table:
+  analysis     → gpt-5.4                        (fallback: azure/gpt-5.3-codex)
+  code         → gpt-5.3-codex                  (fallback: claude-opus-4-6)
+  debug        → gpt-5.4                        (fallback: azure/gpt-5.3-codex)
+  design       → gemini-3.1-pro-preview         (fallback: gemini-3-flash-preview)
+  long-context → claude-opus-4-6                (fallback: claude-opus-4-7)
+  plan         → gemini-3.1-pro-preview         (fallback: azure/gpt-5.3-codex)
+  tool-use     → gemini-3-flash-preview         (fallback: gpt-5.2-codex)
+  writing      → gemini-3-flash-preview         (fallback: gemini-3.1-pro-preview)
+
+Routing changes v3→v4:
+  analysis: azure/gpt-5.3-codex → gpt-5.4
+  code: gpt-5-mini → gpt-5.3-codex
+  debug: claude-sonnet-4-6 → gpt-5.4
+  long-context: — → claude-opus-4-6
+  plan: gpt-5.2-codex → gemini-3.1-pro-preview
+  tool-use: — → gemini-3-flash-preview
+  writing: gemini-3.1-pro-preview → gemini-3-flash-preview

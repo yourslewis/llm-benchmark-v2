@@ -1,0 +1,18 @@
+{
+  "task_id": "writing-04",
+  "model_id": "gemini-3.1-pro-preview",
+  "status": "ok",
+  "response_text": "Subject: Upcoming 1:1: Discussing recent performance and support\n\nHi Alex,\n\nI want to dedicate our upcoming 1:1 this Thursday to discussing your performance over the last quarter and figuring out how I can better support you.\n\nYou have consistently been a cornerstone of this team. Your leadership on the Persona V2 launch and your dedicated mentorship of our junior engineers last year were outstanding and resulted in a well-deserved \"Exceeds\" rating. Because I know the high caliber of your work, I want to directly address some recent trends that are out of character for you.\n\nOver the past few months, I have noticed the following:\n* **Deadlines:** The Persona V3 integration shipped 13 days past the March 15 deadline, and the evaluation pipeline is still pending after its April 1 due date.\n* **Code Reviews:** Several team members have mentioned that your recent code reviews are unusually brief (often just a one-line approval) on complex pull requests, which impacts our overall code quality.\n* **Communication:** You have missed two recent team standups without notice and have been unreachable on Teams for blocks of three or more hours on multiple occasions.\n\nGiven your history of excellence, this shift tells me that something may be blocking you, your workload has become unmanageable, or priorities have become misaligned. This conversation is not a reprimand; it is an opportunity to course-correct. \n\nMy goal for our meeting is to understand your perspective on these points, identify any roadblocks you are facing, and work together on a clear plan to help you return to your usual high standard of work. \n\nPlease take some time to reflect on these areas before we talk. Let me know if the current calendar invite still works for you.\n\nBest,\n\n[Your Name]",
+  "metrics": {
+    "input_tokens": 421,
+    "output_tokens": 372,
+    "ttft_ms": 19995.7,
+    "total_latency_ms": 23570.6,
+    "tokens_per_sec": 104.1,
+    "cost_usd": 0.005306,
+    "code_pass_rate": null
+  },
+  "category": "writing",
+  "difficulty": "hard",
+  "family": "google"
+}

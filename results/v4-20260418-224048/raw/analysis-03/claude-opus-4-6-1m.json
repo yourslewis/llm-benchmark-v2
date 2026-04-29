@@ -1,0 +1,19 @@
+{
+  "task_id": "analysis-03",
+  "model_id": "claude-opus-4-6-1m",
+  "status": "ok",
+  "response_text": "## 1. Corrected Table\n\n| Model ID | Actual Max Output Tokens | Current Setting | Recommended Setting | Action Needed |\n|----------|--------------------------|-----------------|---------------------|---------------|\n| gpt-4o | 16,384 | 16384 | 16384 | \u2705 OK |\n| gpt-4o-mini | 16,384 | 16384 | 16384 | \u2705 OK |\n| o3-mini | 100,000 | 16384 | 65536 | Increase |\n| claude-opus-4 | 32,000 | 16384 | 32000 | Increase |\n| claude-sonnet-4 | 16,000 | 16384 | 16000 | **Decrease** |\n| claude-haiku-3.5 | 8,192 | 16384 | 8192 | **Decrease** |\n| gemini-2.0-flash | 8,192 | 16384 | 8192 | **Decrease** |\n| mistral-large | 8,192 | 16384 | 8192 | **Decrease** |\n| llama-3.3-70b | 8,192 | 16384 | 8192 | **Decrease** |\n| phi-3-mini-128k | 4,096 | 16384 | 4096 | **Decrease** |\n\n## 2. Dangerous Misconfigurations\n\n**Six models** are set above their actual limit: claude-sonnet-4, claude-haiku-3.5, gemini-2.0-flash, mistral-large, llama-3.3-70b, and phi-3-mini-128k.\n\nWhat happens depends on the provider:\n- **API rejection/error** \u2014 most providers will return a `400` validation error if `maxTokens` exceeds the allowed value (Groq, Mistral, Azure typically do this)\n- **Silent clamping** \u2014 some providers silently cap to their max (Anthropic may do this in some cases)\n- **Intermittent failures** \u2014 requests may succeed when output is short but fail unpredictably when the model tries to produce longer output\n\n## 3. Priority Ranking\n\n### Critical (will cause API errors)\n1. **phi-3-mini-128k** \u2014 set to 4\u00d7 its actual limit (4,096)\n2. **llama-3.3-70b** \u2014 set to 2\u00d7 its actual limit (8,192)\n3. **mistral-large** \u2014 set to 2\u00d7 its actual limit (8,192)\n4. **gemini-2.0-flash** \u2014 set to 2\u00d7 its actual limit (8,192)\n5. **claude-haiku-3.5** \u2014 set to 2\u00d7 its actual limit (8,192)\n\n### Important (limits capability)\n6. **o3-mini** \u2014 capped at ~16% of its potential (100K)\n7. **claude-opus-4** \u2014 capped at ~51% of its potential (32K)\n\n### Low Priority\n8. **claude-sonnet-4** \u2014 only 384 tokens over (16,384 vs 16,000)\n9. **gpt-4o** \u2014 OK\n10. **gpt-4o-mini** \u2014 OK\n\n## 4. Config Snippets (Top 3 Priority)\n\n```json\n{\n  \"model\": \"phi-3-mini-128k\",\n  \"maxTokens\": 4096,\n  \"reason\": \"Changed from 16384: actual API limit is 4,096. Previous setting was 4x the limit, causing request failures.\"\n}\n```\n\n```json\n{\n  \"model\": \"llama-3.3-70b\",\n  \"maxTokens\": 8192,\n  \"reason\": \"Changed from 16384: actual Groq API limit is 8,192. Previous setting caused validation errors.\"\n}\n```\n\n```json\n{\n  \"model\": \"mistral-large\",\n  \"maxTokens\": 8192,\n  \"reason\": \"Changed from 16384: actual Mistral API limit is 8,192. Previous setting caused validation errors.\"\n}\n```",
+  "metrics": {
+    "input_tokens": 587,
+    "output_tokens": 653,
+    "ttft_ms": 3745.6,
+    "total_latency_ms": 16418.4,
+    "tokens_per_sec": 51.5,
+    "thinking_skipped": false,
+    "cost_usd": 0.01926,
+    "code_pass_rate": null
+  },
+  "category": "analysis",
+  "difficulty": "easy",
+  "family": "claude"
+}

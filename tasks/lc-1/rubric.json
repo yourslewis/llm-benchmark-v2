@@ -1,0 +1,12 @@
+{
+  "category": "long-context",
+  "difficulty": "hard",
+  "grading": "judge",
+  "criteria": [
+    {"name": "data_flow", "weight": 20, "description": "Correctly traces full data pipeline with file+function references"},
+    {"name": "model_architectures", "weight": 20, "description": "Lists all model types with accurate config parameters"},
+    {"name": "cv_strategy", "weight": 20, "description": "Identifies CV strategies and data leakage risks"},
+    {"name": "ensemble_methods", "weight": 20, "description": "Describes all ensemble/blending techniques with citations"},
+    {"name": "bug_hunt", "weight": 20, "description": "Finds 3+ real bugs/issues with specific file references"}
+  ]
+}

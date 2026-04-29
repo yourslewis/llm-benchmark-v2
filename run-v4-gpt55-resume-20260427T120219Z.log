@@ -1,0 +1,491 @@
+/Users/yourslewis/.openclaw/workspace-chloe/benchmark/run.py:365: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  timestamp = datetime.utcnow().strftime("%Y%m%d-%H%M%S")
+Loaded 29 tasks, 18 models
+Total runs: 522
+Resuming from /Users/yourslewis/.openclaw/workspace-chloe/benchmark/results/v4-20260427-105529
+[8/522] analysis-01 × gpt-5.4-mini... ✅ 146 tok/s | no TTFT | 85617ms
+[9/522] analysis-01 × gpt-5.3-codex... ✅ 44 tok/s | no TTFT | 73671ms
+[10/522] analysis-01 × gpt-5.2... ✅ 65 tok/s | no TTFT | 47979ms
+[11/522] analysis-01 × gpt-5.2-codex... ✅ 71 tok/s | no TTFT | 88214ms
+[12/522] analysis-01 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[13/522] analysis-01 × gpt-5-mini... ✅ 58 tok/s | TTFT 167939ms | 195210ms
+[14/522] analysis-01 × gemini-3-flash-preview... ✅ 186 tok/s | TTFT 1474ms | 6150ms
+[15/522] analysis-01 × gemini-3.1-pro-preview... ✅ 127 tok/s | TTFT 10258ms | 16036ms
+[16/522] analysis-01 × azure/gpt-5.3-codex...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ Failed to get vault secret
+[17/522] analysis-01 × azure/gpt-5.1-codex-mini...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ Failed to get vault secret
+[18/522] analysis-01 × gpt-5.5... ✅ 62 tok/s | no TTFT | 132997ms
+[19/522] analysis-02 × claude-opus-4-7... ✅ 39 tok/s | TTFT 980ms | 35602ms
+[20/522] analysis-02 × claude-opus-4-6-1m... ✅ 43 tok/s | TTFT 2576ms | 24428ms
+[21/522] analysis-02 × claude-opus-4-6... ✅ 40 tok/s | TTFT 1620ms | 28767ms
+[22/522] analysis-02 × claude-sonnet-4-6... ✅ 42 tok/s | TTFT 1273ms | 56886ms
+[23/522] analysis-02 × claude-haiku-4-5... ✅ 116 tok/s | TTFT 959ms | 14164ms [no-think]
+[24/522] analysis-02 × claude-sonnet-4-5... ✅ 46 tok/s | TTFT 1891ms | 49724ms
+[25/522] analysis-02 × gpt-5.4... ✅ 57 tok/s | no TTFT | 94938ms
+[26/522] analysis-02 × gpt-5.4-mini... ✅ 123 tok/s | no TTFT | 73135ms
+[27/522] analysis-02 × gpt-5.3-codex... ✅ 62 tok/s | no TTFT | 46457ms
+[28/522] analysis-02 × gpt-5.2... ✅ 56 tok/s | no TTFT | 49805ms
+[29/522] analysis-02 × gpt-5.2-codex... ✅ 73 tok/s | no TTFT | 84498ms
+[30/522] analysis-02 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[31/522] analysis-02 × gpt-5-mini... ✅ 93 tok/s | TTFT 75883ms | 101476ms
+[32/522] analysis-02 × gemini-3-flash-preview... ✅ 201 tok/s | TTFT 6126ms | 11037ms
+[33/522] analysis-02 × gemini-3.1-pro-preview... ✅ 123 tok/s | TTFT 9265ms | 19551ms
+[34/522] analysis-02 × azure/gpt-5.3-codex...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ Failed to get vault secret
+[35/522] analysis-02 × azure/gpt-5.1-codex-mini...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ Failed to get vault secret
+[36/522] analysis-02 × gpt-5.5... ✅ 57 tok/s | no TTFT | 64974ms
+[37/522] analysis-03 × claude-opus-4-7... ✅ 40 tok/s | TTFT 1181ms | 22257ms
+[38/522] analysis-03 × claude-opus-4-6-1m... ✅ 36 tok/s | TTFT 3899ms | 20937ms
+[39/522] analysis-03 × claude-opus-4-6... ✅ 37 tok/s | TTFT 5592ms | 23131ms
+[40/522] analysis-03 × claude-sonnet-4-6... ✅ 50 tok/s | TTFT 21235ms | 48838ms
+[41/522] analysis-03 × claude-haiku-4-5... ✅ 92 tok/s | TTFT 830ms | 14469ms [no-think]
+[42/522] analysis-03 × claude-sonnet-4-5... ✅ 41 tok/s | TTFT 2009ms | 23882ms
+[43/522] analysis-03 × gpt-5.4... ✅ 62 tok/s | no TTFT | 201985ms
+[44/522] analysis-03 × gpt-5.4-mini... ✅ 132 tok/s | no TTFT | 85963ms
+[45/522] analysis-03 × gpt-5.3-codex... ✅ 53 tok/s | no TTFT | 80236ms
+[46/522] analysis-03 × gpt-5.2... ✅ 59 tok/s | no TTFT | 76292ms
+[47/522] analysis-03 × gpt-5.2-codex... ✅ 89 tok/s | no TTFT | 179416ms
+[48/522] analysis-03 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[49/522] analysis-03 × gpt-5-mini... ✅ 41 tok/s | TTFT 169228ms | 208264ms
+[50/522] analysis-03 × gemini-3-flash-preview... ✅ 120 tok/s | TTFT 1415ms | 8194ms
+[51/522] analysis-03 × gemini-3.1-pro-preview... ✅ 106 tok/s | TTFT 11676ms | 19461ms
+[52/522] analysis-03 × azure/gpt-5.3-codex...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ Failed to get vault secret
+[53/522] analysis-03 × azure/gpt-5.1-codex-mini...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ Failed to get vault secret
+[54/522] analysis-03 × gpt-5.5... ✅ 59 tok/s | no TTFT | 186042ms
+[55/522] code-01 × claude-opus-4-7... ✅ 51 tok/s | TTFT 1723ms | 18356ms code=100%
+[56/522] code-01 × claude-opus-4-6-1m... ✅ 41 tok/s | TTFT 1352ms | 16420ms code=100%
+[57/522] code-01 × claude-opus-4-6... ✅ 69 tok/s | TTFT 1589ms | 10733ms code=100%
+[58/522] code-01 × claude-sonnet-4-6... ✅ 60 tok/s | TTFT 1932ms | 38161ms code=100%
+[59/522] code-01 × claude-haiku-4-5... ✅ 194 tok/s | TTFT 1140ms | 13958ms code=100% [no-think]
+[60/522] code-01 × claude-sonnet-4-5... ✅ 60 tok/s | TTFT 2048ms | 32673ms code=100%
+[61/522] code-01 × gpt-5.4... ✅ 60 tok/s | no TTFT | 92750ms code=100%
+[62/522] code-01 × gpt-5.4-mini... ✅ 146 tok/s | no TTFT | 109567ms code=29%
+[63/522] code-01 × gpt-5.3-codex... ✅ 54 tok/s | no TTFT | 78640ms code=100%
+[64/522] code-01 × gpt-5.2... ✅ 80 tok/s | no TTFT | 45711ms code=100%
+[65/522] code-01 × gpt-5.2-codex... ✅ 80 tok/s | no TTFT | 95662ms code=29%
+[66/522] code-01 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[67/522] code-01 × gpt-5-mini... ✅ 60 tok/s | TTFT 112047ms | 150472ms code=100%
+[68/522] code-01 × gemini-3-flash-preview... ✅ 182 tok/s | TTFT 1622ms | 7028ms code=100%
+[69/522] code-01 × gemini-3.1-pro-preview...   ⚠ Retry 1/3 in 2s...
+✅ 69 tok/s | TTFT 9750ms | 23708ms code=29%
+[70/522] code-01 × azure/gpt-5.3-codex...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ Failed to get vault secret
+[71/522] code-01 × azure/gpt-5.1-codex-mini...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ Failed to get vault secret
+[72/522] code-01 × gpt-5.5... ✅ 54 tok/s | no TTFT | 87202ms code=100%
+[73/522] code-02 × claude-opus-4-7... ✅ 71 tok/s | TTFT 2854ms | 30437ms code=100%
+[74/522] code-02 × claude-opus-4-6-1m... ✅ 55 tok/s | TTFT 3523ms | 37782ms code=100%
+[75/522] code-02 × claude-opus-4-6... ✅ 55 tok/s | TTFT 1736ms | 36710ms code=100%
+[76/522] code-02 × claude-sonnet-4-6... ✅ 66 tok/s | TTFT 1639ms | 38327ms code=100%
+[77/522] code-02 × claude-haiku-4-5... ✅ 46 tok/s | TTFT 14475ms | 62124ms code=100% [no-think]
+[78/522] code-02 × claude-sonnet-4-5... ✅ 80 tok/s | TTFT 1368ms | 25288ms code=100%
+[79/522] code-02 × gpt-5.4... ✅ 53 tok/s | no TTFT | 69882ms code=100%
+[80/522] code-02 × gpt-5.4-mini... ✅ 149 tok/s | no TTFT | 29651ms code=100%
+[81/522] code-02 × gpt-5.3-codex... ✅ 83 tok/s | no TTFT | 35829ms code=100%
+[82/522] code-02 × gpt-5.2... ✅ 57 tok/s | no TTFT | 53658ms code=100%
+[83/522] code-02 × gpt-5.2-codex... ✅ 79 tok/s | no TTFT | 43598ms code=100%
+[84/522] code-02 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[85/522] code-02 × gpt-5-mini... ✅ 64 tok/s | TTFT 17342ms | 50048ms code=100%
+[86/522] code-02 × gemini-3-flash-preview... ✅ 26 tok/s | TTFT 11426ms | 92178ms code=100%
+[87/522] code-02 × gemini-3.1-pro-preview... ✅ 67 tok/s | TTFT 10923ms | 38630ms code=100%
+[88/522] code-02 × azure/gpt-5.3-codex...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ Failed to get vault secret
+[89/522] code-02 × azure/gpt-5.1-codex-mini...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ Failed to get vault secret
+[90/522] code-02 × gpt-5.5... ✅ 99 tok/s | no TTFT | 29428ms code=89%
+[91/522] code-03 × claude-opus-4-7... ✅ 71 tok/s | TTFT 3081ms | 31503ms code=100%
+[92/522] code-03 × claude-opus-4-6-1m... ✅ 61 tok/s | TTFT 1555ms | 28226ms code=100%
+[93/522] code-03 × claude-opus-4-6... ✅ 63 tok/s | TTFT 1350ms | 22412ms code=100%
+[94/522] code-03 × claude-sonnet-4-6... ✅ 73 tok/s | TTFT 2716ms | 48007ms code=100%
+[95/522] code-03 × claude-haiku-4-5... ✅ 160 tok/s | TTFT 1179ms | 26013ms code=100% [no-think]
+[96/522] code-03 × claude-sonnet-4-5... ✅ 80 tok/s | TTFT 2420ms | 50754ms code=100%
+[97/522] code-03 × gpt-5.4... ✅ 67 tok/s | no TTFT | 227049ms code=100%
+[98/522] code-03 × gpt-5.4-mini... ✅ 135 tok/s | no TTFT | 118779ms code=17%
+[99/522] code-03 × gpt-5.3-codex... ✅ 62 tok/s | no TTFT | 153802ms code=100%
+[100/522] code-03 × gpt-5.2... ✅ 65 tok/s | no TTFT | 112996ms code=100%
+[101/522] code-03 × gpt-5.2-codex... ✅ 87 tok/s | no TTFT | 179813ms code=100%
+[102/522] code-03 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[103/522] code-03 × gpt-5-mini... ✅ 108 tok/s | TTFT 87231ms | 135226ms code=100%
+[104/522] code-03 × gemini-3-flash-preview... ✅ 177 tok/s | TTFT 1499ms | 10376ms code=100%
+[105/522] code-03 × gemini-3.1-pro-preview... ✅ 122 tok/s | TTFT 12183ms | 27272ms code=100%
+[106/522] code-03 × azure/gpt-5.3-codex...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ Failed to get vault secret
+[107/522] code-03 × azure/gpt-5.1-codex-mini...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ Failed to get vault secret
+[108/522] code-03 × gpt-5.5... ✅ 54 tok/s | no TTFT | 297413ms code=17%
+[109/522] code-04 × claude-opus-4-7... ✅ 47 tok/s | TTFT 2516ms | 27356ms code=88%
+[110/522] code-04 × claude-opus-4-6-1m... ✅ 67 tok/s | TTFT 2381ms | 15382ms code=100%
+[111/522] code-04 × claude-opus-4-6... ✅ 48 tok/s | TTFT 2237ms | 19849ms code=100%
+[112/522] code-04 × claude-sonnet-4-6... ✅ 61 tok/s | TTFT 13246ms | 50988ms code=0%
+[113/522] code-04 × claude-haiku-4-5... ✅ 142 tok/s | TTFT 1208ms | 22430ms code=100% [no-think]
+[114/522] code-04 × claude-sonnet-4-5... ✅ 65 tok/s | TTFT 2052ms | 33216ms code=100%
+[115/522] code-04 × gpt-5.4... ✅ 55 tok/s | no TTFT | 291850ms code=100%
+[116/522] code-04 × gpt-5.4-mini... ✅ 125 tok/s | no TTFT | 128098ms code=12%
+[117/522] code-04 × gpt-5.3-codex... ✅ 60 tok/s | no TTFT | 186810ms code=100%
+[118/522] code-04 × gpt-5.2... ✅ 56 tok/s | no TTFT | 208097ms code=100%
+[119/522] code-04 × gpt-5.2-codex... ✅ 78 tok/s | no TTFT | 206582ms code=12%
+[120/522] code-04 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[121/522] code-04 × gpt-5-mini... ✅ 62 tok/s | TTFT 108655ms | 140403ms code=100%
+[122/522] code-04 × gemini-3-flash-preview... ✅ 174 tok/s | TTFT 1674ms | 8952ms code=88%
+[123/522] code-04 × gemini-3.1-pro-preview... ✅ 142 tok/s | TTFT 35954ms | 43803ms code=100%
+[124/522] code-04 × azure/gpt-5.3-codex...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ Failed to get vault secret
+[125/522] code-04 × azure/gpt-5.1-codex-mini...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ Failed to get vault secret
+[126/522] code-04 × gpt-5.5... ✅ 49 tok/s | no TTFT | 174547ms code=100%
+[127/522] code-05 × claude-opus-4-7... ✅ 43 tok/s | TTFT 1550ms | 15565ms code=100%
+[128/522] code-05 × claude-opus-4-6-1m... ✅ 33 tok/s | TTFT 1889ms | 12670ms code=100%
+[129/522] code-05 × claude-opus-4-6... ✅ 34 tok/s | TTFT 2095ms | 12794ms code=100%
+[130/522] code-05 × claude-sonnet-4-6... ✅ 51 tok/s | TTFT 2874ms | 34327ms code=100%
+[131/522] code-05 × claude-haiku-4-5... ✅ 113 tok/s | TTFT 1368ms | 19467ms code=100% [no-think]
+[132/522] code-05 × claude-sonnet-4-5... ✅ 68 tok/s | TTFT 1584ms | 19717ms code=100%
+[133/522] code-05 × gpt-5.4... ✅ 74 tok/s | no TTFT | 19991ms code=100%
+[134/522] code-05 × gpt-5.4-mini... ✅ 120 tok/s | no TTFT | 11510ms code=100%
+[135/522] code-05 × gpt-5.3-codex... ✅ 48 tok/s | no TTFT | 26558ms code=100%
+[136/522] code-05 × gpt-5.2... ✅ 60 tok/s | no TTFT | 24391ms code=100%
+[137/522] code-05 × gpt-5.2-codex... ✅ 41 tok/s | no TTFT | 50974ms code=75%
+[138/522] code-05 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[139/522] code-05 × gpt-5-mini... ✅ 43 tok/s | TTFT 31694ms | 56178ms code=100%
+[140/522] code-05 × gemini-3-flash-preview... ✅ 176 tok/s | TTFT 1233ms | 6804ms code=100%
+[141/522] code-05 × gemini-3.1-pro-preview... ✅ 126 tok/s | TTFT 5245ms | 12244ms code=100%
+[142/522] code-05 × azure/gpt-5.3-codex...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ Failed to get vault secret
+[143/522] code-05 × azure/gpt-5.1-codex-mini...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ Failed to get vault secret
+[144/522] code-05 × gpt-5.5... ✅ 36 tok/s | no TTFT | 39413ms code=100%
+[145/522] code-h1 × claude-opus-4-7... ✅ 63 tok/s | TTFT 14785ms | 76134ms code=100%
+[146/522] code-h1 × claude-opus-4-6-1m... ✅ 82 tok/s | TTFT 2442ms | 30872ms code=100%
+[147/522] code-h1 × claude-opus-4-6... ✅ 98 tok/s | TTFT 5373ms | 29364ms code=100%
+[148/522] code-h1 × claude-sonnet-4-6... ✅ 73 tok/s | TTFT 19904ms | 67933ms code=100%
+[149/522] code-h1 × claude-haiku-4-5... ✅ 131 tok/s | TTFT 1076ms | 26157ms code=0% [no-think]
+[150/522] code-h1 × claude-sonnet-4-5... ✅ 90 tok/s | TTFT 2259ms | 38025ms code=0%
+[151/522] code-h1 × gpt-5.4... ✅ 62 tok/s | no TTFT | 221373ms code=100%
+[152/522] code-h1 × gpt-5.4-mini... ✅ 149 tok/s | no TTFT | 107699ms code=0%
+[153/522] code-h1 × gpt-5.3-codex... ✅ 64 tok/s | no TTFT | 141251ms code=100%
+[154/522] code-h1 × gpt-5.2... ✅ 59 tok/s | no TTFT | 236788ms code=0%
+[155/522] code-h1 × gpt-5.2-codex... ✅ 74 tok/s | no TTFT | 217463ms code=0%
+[156/522] code-h1 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[157/522] code-h1 × gpt-5-mini... ✅ 98 tok/s | TTFT 76590ms | 111510ms code=100%
+[158/522] code-h1 × gemini-3-flash-preview... ✅ 212 tok/s | TTFT 1264ms | 11260ms code=100%
+[159/522] code-h1 × gemini-3.1-pro-preview... ✅ 151 tok/s | TTFT 19179ms | 38734ms code=100%
+[160/522] code-h1 × azure/gpt-5.3-codex...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ Failed to get vault secret
+[161/522] code-h1 × azure/gpt-5.1-codex-mini...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ Failed to get vault secret
+[162/522] code-h1 × gpt-5.5... ✅ 58 tok/s | no TTFT | 274932ms code=0%
+[163/522] code-h2 × claude-opus-4-7... ✅ 64 tok/s | TTFT 1383ms | 20681ms code=100%
+[164/522] code-h2 × claude-opus-4-6-1m... ✅ 63 tok/s | TTFT 1898ms | 19742ms code=100%
+[165/522] code-h2 × claude-opus-4-6... ✅ 80 tok/s | TTFT 2180ms | 16685ms code=100%
+[166/522] code-h2 × claude-sonnet-4-6... ✅ 74 tok/s | TTFT 1578ms | 32656ms code=100%
+[167/522] code-h2 × claude-haiku-4-5... ✅ 122 tok/s | TTFT 1229ms | 17487ms code=100% [no-think]
+[168/522] code-h2 × claude-sonnet-4-5... ✅ 76 tok/s | TTFT 1643ms | 28089ms code=100%
+[169/522] code-h2 × gpt-5.4... ✅ 70 tok/s | no TTFT | 101743ms code=100%
+[170/522] code-h2 × gpt-5.4-mini... ✅ 125 tok/s | no TTFT | 127988ms code=0%
+[171/522] code-h2 × gpt-5.3-codex... ✅ 53 tok/s | no TTFT | 87799ms code=100%
+[172/522] code-h2 × gpt-5.2... ✅ 63 tok/s | no TTFT | 52868ms code=100%
+[173/522] code-h2 × gpt-5.2-codex... ✅ 82 tok/s | no TTFT | 72802ms code=100%
+[174/522] code-h2 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[175/522] code-h2 × gpt-5-mini... ✅ 77 tok/s | TTFT 75256ms | 97070ms code=100%
+[176/522] code-h2 × gemini-3-flash-preview... ✅ 213 tok/s | TTFT 1085ms | 8385ms code=100%
+[177/522] code-h2 × gemini-3.1-pro-preview... ✅ 77 tok/s | TTFT 26240ms | 43675ms code=100%
+[178/522] code-h2 × azure/gpt-5.3-codex...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ Failed to get vault secret
+[179/522] code-h2 × azure/gpt-5.1-codex-mini...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ Failed to get vault secret
+[180/522] code-h2 × gpt-5.5... ✅ 59 tok/s | no TTFT | 234188ms code=100%
+[181/522] code-h3 × claude-opus-4-7... ✅ 79 tok/s | TTFT 145869ms | 161002ms
+[182/522] code-h3 × claude-opus-4-6-1m... ✅ 77 tok/s | TTFT 108524ms | 154397ms
+[183/522] code-h3 × claude-opus-4-6... ✅ 72 tok/s | TTFT 2946ms | 36652ms
+[184/522] code-h3 × claude-sonnet-4-6... ✅ 0 tok/s | no TTFT | 178346ms
+[185/522] code-h3 × claude-haiku-4-5... ✅ 162 tok/s | TTFT 958ms | 34256ms [no-think]
+[186/522] code-h3 × claude-sonnet-4-5... ✅ 85 tok/s | TTFT 2497ms | 54439ms
+[187/522] code-h3 × gpt-5.4... ✅ 46 tok/s | no TTFT | 347083ms
+[188/522] code-h3 × gpt-5.4-mini... ✅ 101 tok/s | no TTFT | 157840ms
+[189/522] code-h3 × gpt-5.3-codex... ✅ 60 tok/s | no TTFT | 268554ms
+[190/522] code-h3 × gpt-5.2... ✅ 60 tok/s | no TTFT | 265018ms
+[191/522] code-h3 × gpt-5.2-codex... ✅ 83 tok/s | no TTFT | 193671ms
+[192/522] code-h3 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[193/522] code-h3 × gpt-5-mini... ✅ 86 tok/s | TTFT 278950ms | 336022ms
+[194/522] code-h3 × gemini-3-flash-preview... ✅ 172 tok/s | TTFT 1606ms | 18196ms
+[195/522] code-h3 × gemini-3.1-pro-preview... ✅ 72 tok/s | TTFT 28322ms | 67251ms
+[196/522] code-h3 × azure/gpt-5.3-codex...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ Failed to get vault secret
+[197/522] code-h3 × azure/gpt-5.1-codex-mini...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ Failed to get vault secret
+[198/522] code-h3 × gpt-5.5... ✅ 57 tok/s | no TTFT | 280390ms
+[199/522] code-h4 × claude-opus-4-7... ✅ 68 tok/s | TTFT 7457ms | 44529ms code=100%
+[200/522] code-h4 × claude-opus-4-6-1m... ✅ 82 tok/s | TTFT 1920ms | 28183ms code=100%
+[201/522] code-h4 × claude-opus-4-6... ✅ 90 tok/s | TTFT 2082ms | 25643ms code=100%
+[202/522] code-h4 × claude-sonnet-4-6... ✅ 59 tok/s | TTFT 2542ms | 51160ms code=0%
+[203/522] code-h4 × claude-haiku-4-5... ✅ 147 tok/s | TTFT 2156ms | 33193ms code=0% [no-think]
+[204/522] code-h4 × claude-sonnet-4-5... ✅ 86 tok/s | TTFT 2341ms | 45183ms code=0%
+[205/522] code-h4 × gpt-5.4... ✅ 76 tok/s | no TTFT | 100525ms code=95%
+[206/522] code-h4 × gpt-5.4-mini... ✅ 134 tok/s | no TTFT | 93166ms code=100%
+[207/522] code-h4 × gpt-5.3-codex... ✅ 61 tok/s | no TTFT | 89041ms code=95%
+[208/522] code-h4 × gpt-5.2... ✅ 72 tok/s | no TTFT | 61265ms code=100%
+[209/522] code-h4 × gpt-5.2-codex... ✅ 85 tok/s | no TTFT | 89311ms code=100%
+[210/522] code-h4 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[211/522] code-h4 × gpt-5-mini... ✅ 83 tok/s | TTFT 81076ms | 115492ms code=95%
+[212/522] code-h4 × gemini-3-flash-preview... ✅ 218 tok/s | TTFT 5129ms | 14488ms code=0%
+[213/522] code-h4 × gemini-3.1-pro-preview... ✅ 72 tok/s | TTFT 12800ms | 43193ms code=100%
+[214/522] code-h4 × azure/gpt-5.3-codex...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ Failed to get vault secret
+[215/522] code-h4 × azure/gpt-5.1-codex-mini...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ Failed to get vault secret
+[216/522] code-h4 × gpt-5.5... ✅ 67 tok/s | no TTFT | 146174ms code=95%
+[217/522] code-h5 × claude-opus-4-7... ✅ 56 tok/s | TTFT 3973ms | 49278ms
+[218/522] code-h5 × claude-opus-4-6-1m... ✅ 64 tok/s | TTFT 2113ms | 39778ms
+[219/522] code-h5 × claude-opus-4-6... ✅ 64 tok/s | TTFT 1947ms | 33409ms
+[220/522] code-h5 × claude-sonnet-4-6... ✅ 73 tok/s | TTFT 1641ms | 47465ms
+[221/522] code-h5 × claude-haiku-4-5... ✅ 102 tok/s | TTFT 1383ms | 26581ms [no-think]
+[222/522] code-h5 × claude-sonnet-4-5... ✅ 67 tok/s | TTFT 1602ms | 36187ms
+[223/522] code-h5 × gpt-5.4... ✅ 69 tok/s | no TTFT | 231728ms
+[224/522] code-h5 × gpt-5.4-mini... ✅ 137 tok/s | no TTFT | 116612ms
+[225/522] code-h5 × gpt-5.3-codex... ✅ 71 tok/s | no TTFT | 208105ms
+[226/522] code-h5 × gpt-5.2... ✅ 65 tok/s | no TTFT | 159188ms
+[227/522] code-h5 × gpt-5.2-codex... ✅ 73 tok/s | no TTFT | 218942ms
+[228/522] code-h5 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[229/522] code-h5 × gpt-5-mini... ✅ 49 tok/s | TTFT 214308ms | 274348ms
+[230/522] code-h5 × gemini-3-flash-preview... ✅ 169 tok/s | TTFT 6113ms | 16879ms
+[231/522] code-h5 × gemini-3.1-pro-preview... ✅ 105 tok/s | TTFT 18251ms | 36948ms
+[232/522] code-h5 × azure/gpt-5.3-codex...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ Failed to get vault secret
+[233/522] code-h5 × azure/gpt-5.1-codex-mini...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ Failed to get vault secret
+[234/522] code-h5 × gpt-5.5...   ⚠ Retry 1/3 in 2s...
+✅ 58 tok/s | no TTFT | 277636ms
+[235/522] debug-01 × claude-opus-4-7... ✅ 46 tok/s | TTFT 2685ms | 38845ms
+[236/522] debug-01 × claude-opus-4-6-1m... ✅ 42 tok/s | TTFT 2749ms | 25082ms
+[237/522] debug-01 × claude-opus-4-6... ✅ 36 tok/s | TTFT 1472ms | 29846ms
+[238/522] debug-01 × claude-sonnet-4-6... ✅ 48 tok/s | TTFT 1857ms | 36324ms
+[239/522] debug-01 × claude-haiku-4-5... ✅ 114 tok/s | TTFT 1447ms | 29186ms [no-think]
+[240/522] debug-01 × claude-sonnet-4-5... ✅ 60 tok/s | TTFT 2326ms | 48873ms
+[241/522] debug-01 × gpt-5.4... ✅ 66 tok/s | no TTFT | 143412ms
+[242/522] debug-01 × gpt-5.4-mini... ✅ 156 tok/s | no TTFT | 102393ms
+[243/522] debug-01 × gpt-5.3-codex... ✅ 62 tok/s | no TTFT | 149815ms
+[244/522] debug-01 × gpt-5.2... ✅ 65 tok/s | no TTFT | 220972ms
+[245/522] debug-01 × gpt-5.2-codex... ✅ 89 tok/s | no TTFT | 177048ms
+[246/522] debug-01 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[247/522] debug-01 × gpt-5-mini... ✅ 43 tok/s | TTFT 139976ms | 183639ms
+[248/522] debug-01 × gemini-3-flash-preview... ✅ 172 tok/s | TTFT 1338ms | 8490ms
+[249/522] debug-01 × gemini-3.1-pro-preview... ✅ 110 tok/s | TTFT 23525ms | 34424ms
+[250/522] debug-01 × azure/gpt-5.3-codex...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ Failed to get vault secret
+[251/522] debug-01 × azure/gpt-5.1-codex-mini...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ Failed to get vault secret
+[252/522] debug-01 × gpt-5.5... ✅ 66 tok/s | no TTFT | 177715ms
+[253/522] debug-02 × claude-opus-4-7... ✅ 66 tok/s | TTFT 2764ms | 12494ms code=100%
+[254/522] debug-02 × claude-opus-4-6-1m... ✅ 64 tok/s | TTFT 1648ms | 9369ms code=100%
+[255/522] debug-02 × claude-opus-4-6... ✅ 47 tok/s | TTFT 1399ms | 11825ms code=100%
+[256/522] debug-02 × claude-sonnet-4-6... ✅ 80 tok/s | TTFT 1465ms | 8781ms code=100%
+[257/522] debug-02 × claude-haiku-4-5... ✅ 154 tok/s | TTFT 1216ms | 9372ms code=100% [no-think]
+[258/522] debug-02 × claude-sonnet-4-5... ✅ 83 tok/s | TTFT 2434ms | 15920ms code=100%
+[259/522] debug-02 × gpt-5.4... ✅ 70 tok/s | no TTFT | 127646ms code=100%
+[260/522] debug-02 × gpt-5.4-mini... ✅ 157 tok/s | no TTFT | 102006ms code=18%
+[261/522] debug-02 × gpt-5.3-codex... ✅ 67 tok/s | no TTFT | 53849ms code=100%
+[262/522] debug-02 × gpt-5.2... ✅ 80 tok/s | no TTFT | 29903ms code=100%
+[263/522] debug-02 × gpt-5.2-codex... ✅ 88 tok/s | no TTFT | 29857ms code=100%
+[264/522] debug-02 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[265/522] debug-02 × gpt-5-mini... ✅ 65 tok/s | TTFT 84246ms | 105697ms code=100%
+[266/522] debug-02 × gemini-3-flash-preview... ✅ 184 tok/s | TTFT 1344ms | 5394ms code=100%
+[267/522] debug-02 × gemini-3.1-pro-preview... ✅ 74 tok/s | TTFT 19159ms | 29746ms code=100%
+[268/522] debug-02 × azure/gpt-5.3-codex...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ Failed to get vault secret
+[269/522] debug-02 × azure/gpt-5.1-codex-mini...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ Failed to get vault secret
+[270/522] debug-02 × gpt-5.5... ✅ 76 tok/s | no TTFT | 21045ms code=100%
+[271/522] design-01 × claude-opus-4-7... ✅ 36 tok/s | TTFT 2656ms | 103941ms
+[272/522] design-01 × claude-opus-4-6-1m... ✅ 36 tok/s | TTFT 2079ms | 103079ms
+[273/522] design-01 × claude-opus-4-6... ✅ 36 tok/s | TTFT 1859ms | 101150ms
+[274/522] design-01 × claude-sonnet-4-6... ✅ 46 tok/s | TTFT 1743ms | 257524ms
+[275/522] design-01 × claude-haiku-4-5... ✅ 118 tok/s | TTFT 1025ms | 107978ms [no-think]
+[276/522] design-01 × claude-sonnet-4-5... ✅ 58 tok/s | TTFT 2410ms | 241082ms
+[277/522] design-01 × gpt-5.4... ✅ 58 tok/s | no TTFT | 275648ms
+[278/522] design-01 × gpt-5.4-mini... ✅ 139 tok/s | no TTFT | 115040ms
+[279/522] design-01 × gpt-5.3-codex... ✅ 58 tok/s | no TTFT | 133595ms
+[280/522] design-01 × gpt-5.2... ✅ 57 tok/s | no TTFT | 133636ms
+[281/522] design-01 × gpt-5.2-codex... ✅ 76 tok/s | no TTFT | 65870ms
+[282/522] design-01 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[283/522] design-01 × gpt-5-mini... ✅ 85 tok/s | TTFT 122089ms | 212582ms
+[284/522] design-01 × gemini-3-flash-preview... ✅ 151 tok/s | TTFT 1813ms | 12828ms
+[285/522] design-01 × gemini-3.1-pro-preview... ✅ 58 tok/s | TTFT 13212ms | 46014ms
+[286/522] design-01 × azure/gpt-5.3-codex...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ Failed to get vault secret
+[287/522] design-01 × azure/gpt-5.1-codex-mini...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ Failed to get vault secret
+[288/522] design-01 × gpt-5.5... ✅ 62 tok/s | no TTFT | 257932ms
+[289/522] design-02 × claude-opus-4-7... ✅ 37 tok/s | TTFT 2700ms | 142612ms
+[290/522] design-02 × claude-opus-4-6-1m... ✅ 39 tok/s | TTFT 1672ms | 167881ms
+[291/522] design-02 × claude-opus-4-6... ✅ 39 tok/s | TTFT 4111ms | 167606ms
+[292/522] design-02 × claude-sonnet-4-6...   ⚠ Retry 1/3 in 2s...
+✅ 58 tok/s | TTFT 1886ms | 232780ms
+[293/522] design-02 × claude-haiku-4-5... ✅ 159 tok/s | TTFT 841ms | 86848ms [no-think]
+[294/522] design-02 × claude-sonnet-4-5... ✅ 75 tok/s | TTFT 2122ms | 193193ms
+[295/522] design-02 × gpt-5.4... ✅ 60 tok/s | no TTFT | 264692ms
+[296/522] design-02 × gpt-5.4-mini... ✅ 139 tok/s | no TTFT | 115044ms
+[297/522] design-02 × gpt-5.3-codex... ✅ 56 tok/s | no TTFT | 188317ms
+[298/522] design-02 × gpt-5.2... ✅ 61 tok/s | no TTFT | 144464ms
+[299/522] design-02 × gpt-5.2-codex... ✅ 74 tok/s | no TTFT | 139606ms
+[300/522] design-02 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[301/522] design-02 × gpt-5-mini... ✅ 93 tok/s | TTFT 183634ms | 299404ms
+[302/522] design-02 × gemini-3-flash-preview... ✅ 149 tok/s | TTFT 1730ms | 15077ms
+[303/522] design-02 × gemini-3.1-pro-preview... ✅ 120 tok/s | TTFT 20621ms | 36145ms
+[304/522] design-02 × azure/gpt-5.3-codex...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ Failed to get vault secret
+[305/522] design-02 × azure/gpt-5.1-codex-mini...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ Failed to get vault secret
+[306/522] design-02 × gpt-5.5... ✅ 57 tok/s | no TTFT | 279802ms
+[307/522] lc-1 × claude-opus-4-7... ✅ 34 tok/s | TTFT 3492ms | 68576ms
+[308/522] lc-1 × claude-opus-4-6-1m... ✅ 29 tok/s | TTFT 3038ms | 61178ms
+[309/522] lc-1 × claude-opus-4-6... ✅ 32 tok/s | TTFT 4469ms | 61507ms
+[310/522] lc-1 × claude-sonnet-4-6... ✅ 50 tok/s | TTFT 71660ms | 132667ms
+[311/522] lc-1 × claude-haiku-4-5... ✅ 88 tok/s | TTFT 3541ms | 47759ms [no-think]
+[312/522] lc-1 × claude-sonnet-4-5... ✅ 38 tok/s | TTFT 3829ms | 62595ms
+[313/522] lc-1 × gpt-5.4... ✅ 90 tok/s | no TTFT | 178709ms
+[314/522] lc-1 × gpt-5.4-mini... ✅ 147 tok/s | no TTFT | 108831ms
+[315/522] lc-1 × gpt-5.3-codex... ✅ 75 tok/s | no TTFT | 190932ms
+[316/522] lc-1 × gpt-5.2... ✅ 74 tok/s | no TTFT | 185290ms
+[317/522] lc-1 × gpt-5.2-codex... ✅ 72 tok/s | no TTFT | 198855ms
+[318/522] lc-1 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[319/522] lc-1 × gpt-5-mini...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+✅ 62 tok/s | TTFT 238852ms | 332804ms
+[320/522] lc-1 × gemini-3-flash-preview... ✅ 157 tok/s | TTFT 2291ms | 10292ms
+[321/522] lc-1 × gemini-3.1-pro-preview... ✅ 89 tok/s | TTFT 21238ms | 35646ms
+[322/522] lc-1 × azure/gpt-5.3-codex...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ Failed to get vault secret
+[323/522] lc-1 × azure/gpt-5.1-codex-mini...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ Failed to get vault secret
+[324/522] lc-1 × gpt-5.5... ✅ 77 tok/s | no TTFT | 207923ms
+[325/522] lc-2 × claude-opus-4-7... ✅ 30 tok/s | TTFT 2567ms | 56640ms
+[326/522] lc-2 × claude-opus-4-6-1m... ✅ 32 tok/s | TTFT 2587ms | 34490ms
+[327/522] lc-2 × claude-opus-4-6... ✅ 34 tok/s | TTFT 3134ms | 32163ms
+[328/522] lc-2 × claude-sonnet-4-6... ✅ 41 tok/s | TTFT 17700ms | 70822ms
+[329/522] lc-2 × claude-haiku-4-5... ✅ 99 tok/s | TTFT 2647ms | 20289ms [no-think]
+[330/522] lc-2 × claude-sonnet-4-5... ✅ 46 tok/s | TTFT 3490ms | 56691ms
+[331/522] lc-2 × gpt-5.4... ✅ 87 tok/s | no TTFT | 184613ms
+[332/522] lc-2 × gpt-5.4-mini... ✅ 159 tok/s | no TTFT | 100774ms
+[333/522] lc-2 × gpt-5.3-codex... ✅ 61 tok/s | no TTFT | 166966ms
+[334/522] lc-2 × gpt-5.2... ✅ 98 tok/s | no TTFT | 163325ms
+[335/522] lc-2 × gpt-5.2-codex... ✅ 87 tok/s | no TTFT | 183296ms
+[336/522] lc-2 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[337/522] lc-2 × gpt-5-mini...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ timed out
+[338/522] lc-2 × gemini-3-flash-preview... ✅ 172 tok/s | TTFT 2520ms | 10452ms
+[339/522] lc-2 × gemini-3.1-pro-preview... ✅ 112 tok/s | TTFT 22474ms | 33318ms
+[340/522] lc-2 × azure/gpt-5.3-codex...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ Failed to get vault secret
+[341/522] lc-2 × azure/gpt-5.1-codex-mini...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ Failed to get vault secret
+[342/522] lc-2 × gpt-5.5... ✅ 68 tok/s | no TTFT | 218688ms
+[343/522] plan-01 × claude-opus-4-7... ✅ 30 tok/s | TTFT 1420ms | 60344ms
+[344/522] plan-01 × claude-opus-4-6-1m... ✅ 33 tok/s | TTFT 2333ms | 144864ms
+[345/522] plan-01 × claude-opus-4-6... ✅ 33 tok/s | TTFT 1992ms | 137831ms
+[346/522] plan-01 × claude-sonnet-4-6... ✅ 41 tok/s | TTFT 1484ms | 137967ms
+[347/522] plan-01 × claude-haiku-4-5... ✅ 100 tok/s | TTFT 952ms | 57191ms [no-think]
+[348/522] plan-01 × claude-sonnet-4-5... ✅ 40 tok/s | TTFT 1698ms | 110634ms
+[349/522] plan-01 × gpt-5.4... ✅ 5 tok/s | no TTFT | 275013ms
+[350/522] plan-01 × gpt-5.4-mini... ✅ 135 tok/s | no TTFT | 118523ms
+[351/522] plan-01 × gpt-5.3-codex... ✅ 60 tok/s | no TTFT | 127190ms
+[352/522] plan-01 × gpt-5.2... ✅ 57 tok/s | no TTFT | 106872ms
+[353/522] plan-01 × gpt-5.2-codex... ✅ 66 tok/s | no TTFT | 76504ms
+[354/522] plan-01 × gpt-5.1...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ {"error":{"message":"litellm.BadRequestError: Github_copilotException - {\"error
+[355/522] plan-01 × gpt-5-mini... ✅ 54 tok/s | TTFT 248951ms | 320418ms
+[356/522] plan-01 × gemini-3-flash-preview... ✅ 162 tok/s | TTFT 1280ms | 11728ms
+[357/522] plan-01 × gemini-3.1-pro-preview... ✅ 102 tok/s | TTFT 12462ms | 32179ms
+[358/522] plan-01 × azure/gpt-5.3-codex...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ Failed to get vault secret
+[359/522] plan-01 × azure/gpt-5.1-codex-mini...   ⚠ Retry 1/3 in 2s...
+  ⚠ Retry 2/3 in 4s...
+❌ Failed to get vault secret
+[360/522] plan-01 × gpt-5.5...   ⚠ Retry 1/3 in 2s...
+✅ 52 tok/s | no TTFT | 248218ms
+[361/522] plan-02 × claude-opus-4-7... ✅ 44 tok/s | TTFT 1364ms | 79295ms
+[362/522] plan-02 × claude-opus-4-6-1m... ✅ 45 tok/s | TTFT 1769ms | 75226ms
+[363/522] plan-02 × claude-opus-4-6... ✅ 43 tok/s | TTFT 1621ms | 76718ms
+[364/522] plan-02 × claude-sonnet-4-6... ✅ 50 tok/s | TTFT 1393ms | 120716ms
+[365/522] plan-02 × claude-haiku-4-5... 

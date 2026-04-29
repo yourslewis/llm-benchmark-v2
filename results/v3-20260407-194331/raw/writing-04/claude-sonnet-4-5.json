@@ -1,0 +1,18 @@
+{
+  "task_id": "writing-04",
+  "model_id": "claude-sonnet-4-5",
+  "status": "ok",
+  "response_text": "**Subject:** 1:1 Request \u2014 Let's Talk About Recent Projects and Support\n\nHi Alex,\n\nI'd like to schedule a 1:1 with you this week to discuss how things have been going and some concerns I've noticed over the past quarter. I want to be upfront about the topics so we can have a productive conversation.\n\nI've observed a few patterns that are different from your usual performance:\n\n**Timelines:** The Persona V3 integration delivered 13 days late (March 28 vs. March 15), and the evaluation pipeline is still outstanding past its April 1 target. These delays have impacted dependent teams.\n\n**Code reviews:** I've received feedback that recent reviews have been brief \u2014 sometimes just \"LGTM\" on complex PRs that typically need deeper analysis.\n\n**Communication:** You've missed two standups without notice and have been unresponsive on Teams for extended periods on several occasions, which has made it difficult for the team to unblock work.\n\nThis stands in contrast to your strong track record \u2014 you led Persona V2 successfully, mentored Sarah and Jordan effectively, and earned an \"Exceeds\" rating last year. That's why these changes have caught my attention.\n\nI want to understand what's happening from your perspective. If there are obstacles I'm unaware of \u2014 whether technical, personal, or team-related \u2014 I'd like to discuss how I can support you. My goal is to help you get back on track, not to criticize past performance.\n\nPlease come prepared to talk about:\n- What's been challenging recently\n- What support or changes would help\n- How we can address the outstanding evaluation pipeline work\n\nCan you meet Thursday at 2pm or Friday at 10am? Let me know what works for you, or suggest another time this week.\n\nThanks,  \n[Your name]",
+  "metrics": {
+    "input_tokens": 462,
+    "output_tokens": 403,
+    "ttft_ms": 5531.8,
+    "total_latency_ms": 14541.3,
+    "tokens_per_sec": 44.7,
+    "cost_usd": 0.007431,
+    "code_pass_rate": null
+  },
+  "category": "writing",
+  "difficulty": "hard",
+  "family": "claude"
+}

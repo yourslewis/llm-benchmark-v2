@@ -1,0 +1,12 @@
+{
+  "category": "plan",
+  "difficulty": "medium",
+  "grading": "llm_judge",
+  "criteria": [
+    {"name": "agent_profiles", "weight": 30, "description": "Each agent has distinct personality, tone, and quirk; profiles feel differentiated and coherent, not generic"},
+    {"name": "skill_coverage", "weight": 25, "description": "Each agent has 6-8 specific, role-appropriate skills; no obvious skill gaps or duplications across agents"},
+    {"name": "model_justification", "weight": 20, "description": "Model choices are justified with reasoning tied to agent needs (latency, reasoning depth, cost); both primary and fallback provided"},
+    {"name": "routing_logic", "weight": 15, "description": "Routing rules are specific and actionable; inter-agent handoffs are clearly defined"},
+    {"name": "sample_workflow", "weight": 10, "description": "Multi-agent workflow for the log analysis scenario correctly chains all 4 agents with clear handoffs"}
+  ]
+}

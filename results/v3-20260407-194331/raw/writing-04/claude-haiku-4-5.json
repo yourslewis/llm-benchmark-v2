@@ -1,0 +1,18 @@
+{
+  "task_id": "writing-04",
+  "model_id": "claude-haiku-4-5",
+  "status": "ok",
+  "response_text": "**Subject: Let's discuss your workload and support \u2014 1:1 this week**\n\n---\n\nHi Alex,\n\nI'd like to schedule a 1:1 with you this week to discuss some patterns I've noticed over the past quarter that I want to address directly with you.\n\nYou've been a cornerstone of this team \u2014 your leadership on Persona V2, mentoring junior engineers, and consistent delivery have set a high bar. That's why I want to be straightforward: I'm seeing a shift that concerns me, and I want to understand what's happening.\n\n**Specifically:**\n\n- The Persona V3 integration shipped 13 days past deadline (March 28 vs. March 15), and the evaluation pipeline is still incomplete past its April 1 target.\n- Your code reviews have become more surface-level \u2014 I've heard from teammates that you're approving complex PRs with minimal feedback, which puts us at risk and isn't your usual standard.\n- You've missed two standups without notice and have been unresponsive on Teams for extended periods multiple times.\n\nThis isn't typical of your work, and I don't think it's sustainable for you or the team. Before jumping to conclusions, I want to hear directly from you. Something may have shifted \u2014 whether that's project complexity, bandwidth, personal circumstances, or something else entirely \u2014 and I want to understand.\n\n**What I want from our conversation:**\n- Your perspective on what's been happening\n- Whether there are blockers, resource constraints, or capacity issues I should know about\n- How we can get you back on track and set you up to succeed\n\nYou've shown what you're capable of. This conversation is about support and course-correction, not punishment. But I do need to see meaningful improvement in the coming weeks \u2014 on delivery, review quality, and communication.\n\nCan you grab 30 minutes with me on [day]? Let me know what works.\n\nThanks,\n[Your name]",
+  "metrics": {
+    "input_tokens": 420,
+    "output_tokens": 428,
+    "ttft_ms": 1166.3,
+    "total_latency_ms": 6412.6,
+    "tokens_per_sec": 81.6,
+    "cost_usd": 0.00256,
+    "code_pass_rate": null
+  },
+  "category": "writing",
+  "difficulty": "hard",
+  "family": "claude"
+}

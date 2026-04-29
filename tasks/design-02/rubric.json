@@ -1,0 +1,12 @@
+{
+  "category": "design",
+  "difficulty": "hard",
+  "grading": "llm_judge",
+  "criteria": [
+    {"name": "credential_vault", "weight": 20, "description": "AES-256-GCM encryption correctly specified; OS keychain integration for master key described; injection mechanism prevents secrets from appearing in logs; rotation procedure defined"},
+    {"name": "scanning_pipeline", "weight": 20, "description": "All 4 layers (L1-L4) fully specified with latency targets; L3 names a specific local model (e.g., phi-3-mini, tinyllama) with justification; L3 prompt template included"},
+    {"name": "behavioral_chain_state_machine", "weight": 20, "description": "State machine has at least 3 states with explicit transitions; at least 4 detection patterns defined; false positive mitigation for power users addressed"},
+    {"name": "pii_approval_workflow", "weight": 20, "description": "Async hold mechanism described; Telegram message template provided; approve/deny/approve-always options defined; timeout and non-response handling specified"},
+    {"name": "credential_redaction", "weight": 20, "description": "At least 8 regex patterns listed; placeholder format matches __REDACTED_TYPE_SERIAL__; redaction mapping lifecycle explained; double-redaction prevention addressed; placement in pipeline specified"}
+  ]
+}

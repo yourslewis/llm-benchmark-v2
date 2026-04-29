@@ -1,0 +1,18 @@
+{
+  "task_id": "writing-04",
+  "model_id": "claude-sonnet-4",
+  "status": "ok",
+  "response_text": "**Subject: 1:1 Tomorrow \u2014 Discussion on Recent Performance & Support**\n\nHi Alex,\n\nI'd like to schedule a 1:1 for tomorrow at 2pm to discuss some performance concerns I've observed this quarter. I want to be direct about the topic so you have time to prepare, and because I value our working relationship.\n\nI've noticed three patterns that are different from your typical strong performance:\n\n**Delivery timelines:** The Persona V3 integration shipped 13 days late (March 28 vs. March 15), and the evaluation pipeline is now overdue from its April 1 target. These delays have created downstream impacts for the product team.\n\n**Code review engagement:** I've received feedback that your recent reviews have been brief (\"LGTM\" without substantive comments), even on complex PRs that would normally get your thorough attention.\n\n**Communication consistency:** You've missed two standups without notice, and there have been several instances of 3+ hour gaps in Teams responsiveness during core hours.\n\nThis isn't consistent with the Alex I know \u2014 you led our successful V2 launch, mentored junior engineers effectively, and earned an \"Exceeds\" rating last year. That's why I want to understand what's changed.\n\nMy goal for our conversation is to:\n- Hear your perspective on what's happening\n- Understand if there are obstacles I can help remove\n- Discuss what support you need from me\n- Align on clear expectations going forward\n\nIf something is going on personally or professionally that's affecting your work, I want to support you through it. If there are team or organizational issues making your job harder, I need to know. This is a collaborative conversation about getting you back on track, not a formal disciplinary action.\n\nCan you confirm 2pm tomorrow works, or suggest an alternative time?\n\nThanks,\n[Your name]",
+  "metrics": {
+    "input_tokens": 460,
+    "output_tokens": 407,
+    "ttft_ms": 3695.1,
+    "total_latency_ms": 15352.4,
+    "tokens_per_sec": 34.9,
+    "cost_usd": 0.007485,
+    "code_pass_rate": null
+  },
+  "category": "writing",
+  "difficulty": "hard",
+  "family": "claude"
+}

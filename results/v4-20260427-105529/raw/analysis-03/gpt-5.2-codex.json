@@ -1,0 +1,19 @@
+{
+  "task_id": "analysis-03",
+  "model_id": "gpt-5.2-codex",
+  "status": "ok",
+  "response_text": "",
+  "metrics": {
+    "input_tokens": 618,
+    "output_tokens": 16000,
+    "ttft_ms": null,
+    "total_latency_ms": 179415.5,
+    "tokens_per_sec": 89.2,
+    "thinking_skipped": false,
+    "cost_usd": 0.161545,
+    "code_pass_rate": null
+  },
+  "category": "analysis",
+  "difficulty": "easy",
+  "family": "openai"
+}

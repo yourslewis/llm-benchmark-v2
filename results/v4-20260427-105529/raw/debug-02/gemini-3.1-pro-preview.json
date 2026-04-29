@@ -1,0 +1,19 @@
+{
+  "task_id": "debug-02",
+  "model_id": "gemini-3.1-pro-preview",
+  "status": "ok",
+  "response_text": "```python\n#!/usr/bin/env python3\nimport sys\nimport os\nimport json\nimport shutil\n\nCORRECT_LIMITS = {\n    \"gpt-4o\": 16384,\n    \"gpt-4o-mini\": 16384,\n    \"o3-mini\": 65536,\n    \"claude-opus-4\": 8096,\n    \"claude-sonnet-4\": 8096,\n    \"claude-haiku-3-5\": 8096,\n    \"gemini-2.0-flash\": 8192,\n    \"mistral-large\": 131072,\n    \"llama-3.3-70b\": 8192,\n    \"phi-3-mini-128k\": 4096\n}\n\ndef main():\n    # Parse arguments\n    dry_run = \"--dry-run\" in sys.argv\n    args = [arg for arg in sys.argv[1:] if arg != \"--dry-run\"]\n    \n    config_path_raw = args[0] if args else \"~/.openclaw/config.json\"\n    config_path = os.path.expanduser(config_path_raw)\n\n    # Load config\n    try:\n        with open(config_path, 'r', encoding='utf-8') as f:\n            config = json.load(f)\n    except FileNotFoundError:\n        print(f\"Error: Configuration file not found at {config_path}\")\n        sys.exit(1)\n    except json.JSONDecodeError as e:\n        print(f\"Error: Failed to parse JSON file at {config_path}\\nDetails: {e}\")\n        sys.exit(1)\n    except Exception as e:\n        print(f\"Error: Unexpected error reading {config_path}\\nDetails: {e}\")\n        sys.exit(1)\n\n    if \"models\" not in config or not isinstance(config[\"models\"], list):\n        print(\"Error: Invalid config format. Expected 'models' array.\")\n        sys.exit(1)\n\n    models = config[\"models\"]\n    total_models = len(models)\n    \n    print(f\"Checking {total_models} models...\")\n    if dry_run:\n        print(\"[DRY RUN MODE - No changes will be saved to disk]\")\n\n    updated_count = 0\n    unchanged_count = 0\n    skipped_count = 0\n\n    # Apply corrections\n    for model in models:\n        model_id = model.get(\"id\")\n        if not model_id:\n            continue\n\n        current_max = model.get(\"maxTokens\")\n        \n        if model_id in CORRECT_LIMITS:\n            correct_max = CORRECT_LIMITS[model_id]\n            if current_max == correct_max:\n                print(f\"  {model_id}: {current_max} \u2192 {correct_max} (no change)\")\n                unchanged_count += 1\n            else:\n                print(f\"  {model_id}: {current_max} \u2192 {correct_max} (UPDATED)\")\n                model[\"maxTokens\"] = correct_max\n                updated_count += 1\n        else:\n            print(f\"  {model_id}: {current_max} (WARNING: Unknown model, SKIPPED)\")\n            skipped_count += 1\n\n    print(f\"\\nSummary: {updated_count} updated, {unchanged_count} unchanged, {skipped_count} skipped\")\n\n    # Write output\n    if not dry_run:\n        if updated_count > 0:\n            backup_path = f\"{config_path}.bak\"\n            try:\n                shutil.copy2(config_path, backup_path)\n                print(f\"Backup created at: {backup_path}\")\n                \n                with open(config_path, 'w', encoding='utf-8') as f:\n                    json.dump(config, f, indent=2)\n                print(f\"Config saved to: {config_path}\")\n            except Exception as e:\n                print(f\"Error saving configuration: {e}\")\n                sys.exit(1)\n        else:\n            print(\"No updates required. File was not modified.\")\n\nif __name__ == \"__main__\":\n    main()\n```",
+  "metrics": {
+    "input_tokens": 692,
+    "output_tokens": 778,
+    "ttft_ms": 19159.2,
+    "total_latency_ms": 29746.5,
+    "tokens_per_sec": 73.5,
+    "thinking_skipped": false,
+    "cost_usd": 0.01072,
+    "code_pass_rate": 100
+  },
+  "category": "debug",
+  "difficulty": "medium",
+  "family": "google"
+}

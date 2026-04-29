@@ -1,0 +1,18 @@
+{
+  "task_id": "plan-03",
+  "model_id": "claude-opus-4-6",
+  "status": "ok",
+  "response_text": "**Subject:** Request for Duplicate Receipt \u2014 March 12, 2026 Visit\n\nDear Boardwalk Restaurant Team,\n\nI hope this message finds you well. I recently dined at your restaurant for a business lunch and unfortunately lost my original receipt. I'm hoping you might be able to help me obtain a copy or written confirmation of the transaction so I can submit it with my expense report.\n\nHere are the details that should help you locate the charge:\n\n- **Date of visit:** Thursday, March 12, 2026\n- **Time:** Approximately 1:58 PM\n- **Total charged:** $515.56\n- **Payment method:** American Express (I don't have the last four digits handy, but it was the only card used for the transaction)\n\nI was hosting a client lunch, so there would have been a party of several guests if that helps narrow things down.\n\nIf you're able to send a duplicate receipt or even a brief written confirmation of the transaction \u2014 including the date, amount, and that payment was received \u2014 that would be more than sufficient for my company's reimbursement process. A PDF or photo attachment would work perfectly.\n\nI'd appreciate receiving this by the end of the month if possible, as that's when my expense report is due. That said, I completely understand if it takes a few days to pull up \u2014 no rush beyond that window.\n\nPlease don't hesitate to reach out if you need any additional information from me to locate the record. I'm happy to provide whatever helps.\n\nThank you so much for your time, and thank you again for a wonderful meal. I look forward to hearing from you.\n\nBest regards,\n\n**Alex Chen**\nAccount Manager | Contoso Technologies\nalex.chen@contoso.com\n(555) 014-7",
+  "metrics": {
+    "input_tokens": 414,
+    "output_tokens": 388,
+    "ttft_ms": 1061.1,
+    "total_latency_ms": 9415.6,
+    "tokens_per_sec": 46.4,
+    "cost_usd": 0.01177,
+    "code_pass_rate": null
+  },
+  "category": "plan",
+  "difficulty": "easy",
+  "family": "claude"
+}

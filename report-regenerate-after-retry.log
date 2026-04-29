@@ -1,0 +1,14 @@
+Loading results from: results/v4-20260427-105529
+  522 result files, 299 judge scores
+HTML report: results/v4-20260427-105529/report.html
+Text report: results/v4-20260427-105529/report.txt
+
+Routing Table:
+  analysis     → gpt-5.4-mini                   (fallback: claude-opus-4-7)
+  code         → gemini-3-flash-preview         (fallback: gemini-3.1-pro-preview)
+  debug        → claude-sonnet-4-6              (fallback: gpt-5.2-codex)
+  design       → gemini-3-flash-preview         (fallback: gemini-3.1-pro-preview)
+  long-context → gemini-3.1-pro-preview         (fallback: gpt-5.3-codex)
+  plan         → gemini-3-flash-preview         (fallback: gemini-3.1-pro-preview)
+  tool-use     → gemini-3.1-pro-preview         (fallback: gemini-3-flash-preview)
+  writing      → gpt-5.3-codex                  (fallback: gemini-3-flash-preview)

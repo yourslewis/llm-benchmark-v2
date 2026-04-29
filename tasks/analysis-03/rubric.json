@@ -1,0 +1,11 @@
+{
+  "category": "analysis",
+  "difficulty": "easy",
+  "grading": "llm_judge",
+  "criteria": [
+    {"name": "token_limit_accuracy", "weight": 40, "description": "Actual token limits are correct or close to real API values (within +/- 20%); identifies that Claude models support 8192 output tokens, gpt-4o supports 16384, Gemini supports much more"},
+    {"name": "dangerous_flags", "weight": 25, "description": "Correctly identifies models where 16384 exceeds the actual limit (e.g., Claude Haiku 3.5 / phi-3-mini) and explains API error consequences"},
+    {"name": "priority_ranking", "weight": 20, "description": "Critical items are models where current config exceeds actual limit; important items are those significantly under-configured; priorities are logical"},
+    {"name": "config_snippet", "weight": 15, "description": "Provides 3 corrected JSON config blocks with correct values and clear reason strings"}
+  ]
+}

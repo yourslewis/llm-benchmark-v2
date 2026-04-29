@@ -1,0 +1,19 @@
+{
+  "task_id": "writing-04",
+  "model_id": "claude-haiku-4-5",
+  "status": "ok",
+  "response_text": "**Subject: Let's discuss your current workload and support needs**\n\n---\n\nHi Alex,\n\nI'd like to schedule a 1:1 this week to check in on how things are going. I've noticed some patterns over the past quarter that I want to understand better, and I think it's important we talk through them directly.\n\nSpecifically, I want to discuss:\n\n- **Project timeline slips** \u2014 Persona V3 shipped 13 days late, and the evaluation pipeline is still open past the April 1 deadline. I'm trying to understand what's blocking progress and whether you have what you need.\n- **Code review bandwidth** \u2014 I've heard from a couple of teammates that recent reviews have been brief, sometimes just \"LGTM\" on complex changes. I know thorough reviews take time, and I want to figure out if that's a capacity issue.\n- **Communication gaps** \u2014 You've missed two standups without notice and been unreachable for extended stretches. That's unusual for you and makes it harder for the team to coordinate.\n\nI want to be direct: I know you were a strong performer last year. You led Persona V2 successfully, mentored people well, and delivered consistently. This quarter feels different, and I'm genuinely curious what's changed. Are you dealing with something I should know about? Is the work misaligned with your interests? Are you overwhelmed? I want to help, but I need to understand what's happening first.\n\nThis conversation isn't about blame \u2014 it's about getting you back on track and making sure you have support. But I also need to be clear that the current pattern isn't sustainable. We need to see improvement on deadlines, code review quality, and communication over the next two sprints.\n\nCan you do Tuesday or Wednesday afternoon? Let me know what works.\n\n\u2014 [Your name]",
+  "metrics": {
+    "input_tokens": 410,
+    "output_tokens": 437,
+    "ttft_ms": 842.1,
+    "total_latency_ms": 4804.6,
+    "tokens_per_sec": 110.3,
+    "thinking_skipped": true,
+    "cost_usd": 0.002595,
+    "code_pass_rate": null
+  },
+  "category": "writing",
+  "difficulty": "hard",
+  "family": "claude"
+}

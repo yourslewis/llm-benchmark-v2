@@ -1,0 +1,19 @@
+{
+  "task_id": "writing-04",
+  "model_id": "claude-opus-4-6",
+  "status": "ok",
+  "response_text": "\n\nSubject: 1:1 Request \u2014 Checking In on This Quarter\n\nHi Alex,\n\nI'd like to schedule a 1:1 this week to talk about how things have been going for you this quarter. I want to be straightforward so this isn't a surprise: I have some concerns about recent performance that I want to discuss together.\n\nSpecifically, I want to talk through three things:\n\n- **Project timelines** \u2014 Persona V3 integration shipped 13 days past the March 15 deadline, and the evaluation pipeline (due April 1) is still in progress. I'd like to understand what's been getting in the way.\n- **Code reviews** \u2014 I've heard from a few teammates that reviews on complex PRs have been lighter than usual \u2014 short approvals without much feedback. That's a change from your norm.\n- **Communication** \u2014 There have been a couple of missed standups without a heads-up, and some stretches of being unreachable on Teams. I want to make sure we're on the same page about availability expectations.\n\nI'm raising this because it's a real shift from what I've seen from you. You led the V2 launch, you've been a mentor on this team, and you earned that \"Exceeds\" rating last year for good reason. So when I see a quarter that looks like this, my first instinct isn't to come down on you \u2014 it's to ask what's changed and how I can help.\n\nThis is a conversation, not a verdict. I want to hear your perspective, figure out what support you need, and work out a plan together so the next quarter looks different.\n\nCan you grab 45 minutes on my calendar this week? Sooner is better \u2014 I'd rather us talk than let things sit.\n\nThanks, Alex.\n\n[Your Name]",
+  "metrics": {
+    "input_tokens": 410,
+    "output_tokens": 400,
+    "ttft_ms": 1379.5,
+    "total_latency_ms": 11026.0,
+    "tokens_per_sec": 41.5,
+    "thinking_skipped": false,
+    "cost_usd": 0.01205,
+    "code_pass_rate": null
+  },
+  "category": "writing",
+  "difficulty": "hard",
+  "family": "claude"
+}

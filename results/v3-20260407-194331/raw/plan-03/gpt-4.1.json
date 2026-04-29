@@ -1,0 +1,18 @@
+{
+  "task_id": "plan-03",
+  "model_id": "gpt-4.1",
+  "status": "ok",
+  "response_text": "**Subject:** Request for Copy of Receipt \u2013 March 12 Business Lunch\n\nHi Boardwalk Team,\n\nI hope you\u2019re well. I\u2019m reaching out because I recently hosted a business lunch at Boardwalk Restaurant and unfortunately misplaced the receipt. I need a copy (or a written confirmation) for my company\u2019s expense report, which is due at the end of the month.\n\nHere are the details to help you locate the transaction:\n- **Date:** March 12, 2026\n- **Time:** Around 1:58 PM\n- **Amount:** $515.56\n- **Payment method:** American Express card (last 4 digits unknown)\n- **Purpose:** Business lunch with a client\n\nIf you could send me a copy of the receipt or a brief confirmation of the transaction, I\u2019d really appreciate it.\n\nPlease let me know if you need any more information from my end. You can reach me at this email or by phone at 555-0147.\n\nThanks so much for your help!\n\nBest,  \nAlex Chen  \nAccount Manager  \nContoso Technologies  \nalex.chen@contoso.com  \n555-0147",
+  "metrics": {
+    "input_tokens": 407,
+    "output_tokens": 229,
+    "ttft_ms": 476.5,
+    "total_latency_ms": 7421.3,
+    "tokens_per_sec": 33.0,
+    "cost_usd": 0.002646,
+    "code_pass_rate": null
+  },
+  "category": "plan",
+  "difficulty": "easy",
+  "family": "openai"
+}

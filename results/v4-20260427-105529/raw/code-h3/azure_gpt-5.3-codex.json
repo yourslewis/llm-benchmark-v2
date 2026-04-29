@@ -1,0 +1,9 @@
+{
+  "task_id": "code-h3",
+  "model_id": "azure/gpt-5.3-codex",
+  "status": "error",
+  "error": "Failed to get vault secret",
+  "metrics": {
+    "error": "Failed to get vault secret"
+  }
+}

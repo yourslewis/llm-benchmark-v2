@@ -1,0 +1,15 @@
+{
+  "category": "code",
+  "difficulty": "hard",
+  "grading": "automated",
+  "criteria": [
+    {"name": "syntax", "weight": 10, "description": "Valid Python"},
+    {"name": "lru_class", "weight": 10, "description": "LRUCache class with get/put methods"},
+    {"name": "doubly_linked_list", "weight": 15, "description": "Uses doubly-linked list or OrderedDict for LRU ordering"},
+    {"name": "hash_map", "weight": 10, "description": "O(1) lookup via dict/hashmap"},
+    {"name": "capacity_eviction", "weight": 15, "description": "Evicts LRU entry when capacity exceeded"},
+    {"name": "thread_safety", "weight": 20, "description": "Uses threading primitives (Lock, RLock, Condition, etc.)"},
+    {"name": "no_global_lock", "weight": 10, "description": "Does NOT use a single global lock wrapping entire operations"},
+    {"name": "correctness", "weight": 10, "description": "Passes basic LRU test cases"}
+  ]
+}

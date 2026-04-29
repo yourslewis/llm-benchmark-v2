@@ -1,0 +1,18 @@
+{
+  "task_id": "plan-03",
+  "model_id": "gemini-3.1-pro-preview",
+  "status": "ok",
+  "response_text": "**Subject:** Request for Receipt Copy - Transaction on March 12, 2026\n\nDear Boardwalk Restaurant Team,\n\nI recently hosted a client for a business lunch at your restaurant, and unfortunately, I have misplaced my paper receipt. I am hoping you can help me track down a duplicate copy so I can submit my expense report before the end of the month.\n\nTo help you locate the transaction, here are the details from my visit:\n\n* **Date:** March 12, 2026\n* **Time:** Approximately 1:58 PM\n* **Amount:** $515.56\n* **Payment Method:** American Express\n\nCould you please send a digital copy or photo of the receipt to this email address? If your system cannot generate a duplicate receipt, a brief reply confirming the transaction details and amount would be greatly appreciated. \n\nIf you need any more information to find the record, please feel free to email me or call me at the number below. \n\nThank you so much for your help!\n\nBest regards,\n\n**Alex Chen**\nAccount Manager\nContoso Technologies\nEmail: [Insert Alex's Email Address]\nPhone: 555-0147",
+  "metrics": {
+    "input_tokens": 419,
+    "output_tokens": 256,
+    "ttft_ms": 8434.1,
+    "total_latency_ms": 9621.2,
+    "tokens_per_sec": 215.6,
+    "cost_usd": 0.00391,
+    "code_pass_rate": null
+  },
+  "category": "plan",
+  "difficulty": "easy",
+  "family": "google"
+}

@@ -1,0 +1,14 @@
+{
+  "category": "code",
+  "difficulty": "hard",
+  "grading": "judge",
+  "criteria": [
+    {"name": "dry_run_flag", "weight": 10, "description": "Parses --dry-run correctly alongside other flags"},
+    {"name": "no_writes", "weight": 25, "description": "No file system modifications in dry-run mode"},
+    {"name": "unified_diff", "weight": 25, "description": "Correct unified diff format for new/modified/deleted files"},
+    {"name": "manifest_diff", "weight": 15, "description": "Shows manifest.json and skills.json changes"},
+    {"name": "summary", "weight": 10, "description": "Prints accurate summary of would-be changes"},
+    {"name": "hooks_listed", "weight": 10, "description": "Lists but doesn't execute hooks/deps"},
+    {"name": "completeness", "weight": 5, "description": "Returns complete working script"}
+  ]
+}

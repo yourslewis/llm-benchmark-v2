@@ -1,0 +1,15 @@
+{
+  "category": "code",
+  "difficulty": "hard",
+  "grading": "automated",
+  "criteria": [
+    {"name": "syntax", "weight": 10, "description": "Valid Python"},
+    {"name": "binary_search", "weight": 20, "description": "Uses binary search approach (not merge) for Part 1"},
+    {"name": "part1_correctness", "weight": 20, "description": "findMedianSortedArrays passes test cases"},
+    {"name": "streaming_class", "weight": 10, "description": "StreamingMedian class with add/median methods"},
+    {"name": "heap_approach", "weight": 15, "description": "Uses two heaps (heapq) for streaming"},
+    {"name": "part2_correctness", "weight": 15, "description": "StreamingMedian passes test cases"},
+    {"name": "type_hints", "weight": 5, "description": "Has type hints"},
+    {"name": "edge_cases", "weight": 5, "description": "Handles empty arrays, single elements"}
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "task_id": "analysis-01",
+  "model_id": "claude-opus-4-6-1m",
+  "status": "ok",
+  "response_text": "\n\n## 1. Root Cause Analysis\n\n**gpt-4o is experiencing systematic timeouts**, likely due to an OpenAI-side degradation or rate limiting. Every gpt-4o call times out at almost exactly the 5000ms threshold, while Claude and Gemini respond fine (~600-900ms). The consistency suggests gpt-4o is simply slow/degraded rather than a gateway misconfiguration \u2014 but the 5000ms timeout may also be too aggressive for a large model.\n\nSession `j1k2l3` reveals a critical config flaw: o3-mini falls back to gpt-4o, which is the very model that's degraded. Both time out, exhausting all fallbacks and causing a hard failure.\n\n## 2. Pattern Summary\n\n| Metric | Value |\n|--------|-------|\n| Total timeout events | 6 |\n| Primary model causing most timeouts | gpt-4o (5 of 6) |\n| % of sessions where failover succeeded | 60% (3 of 5) |\n| Sessions where all fallbacks exhausted | 1 (`j1k2l3`) |\n| Typical elapsed time at timeout | ~5100ms |\n\n## 3. Configuration Fix\n\n```yaml\ngateway:\n  timeout_ms: 10000            # Increase to 10s for large models\n  models:\n    - id: gpt-4o\n      provider: openai\n      timeout_ms: 10000        # Per-model override\n      fallback: claude-sonnet-4\n    - id: o3-mini\n      provider: openai\n      timeout_ms: 15000        # Reasoning model needs more time\n      fallback: claude-sonnet-4 # CHANGED: don't fall back to another degraded OpenAI model\n    - id: claude-sonnet-4\n      provider: anthropic\n      fallback: gemini-2.0-flash # Add a fallback instead of null\n    - id: gemini-2.0-flash\n      provider: google\n      fallback: null\n```\n\n**Key changes:**\n- **o3-mini fallback \u2192 claude-sonnet-4**: Avoid chaining two OpenAI models so a provider outage doesn't cascade.\n- **Higher timeouts**: 5s is too tight for large models under load.\n- **claude-sonnet-4 gets a fallback**: Eliminates the \"no more fallbacks\" dead end.\n\n## 4. Monitoring Recommendation\n\n```yaml\nalert:\n  name: model_timeout_rate_spike\n  metric: count(embedded_run_failover{reason=\"timeout\"}) grouped by model\n  condition: rate > 3 per 5-minute window for any single model\n  window: 5m\n  action:\n    - page on-call with model name and timeout count\n    - auto-disable degraded model as primary and route directly to fallbacks\n```\n\nThis catches provider degradations within minutes rather than waiting for customer-facing failures.",
+  "metrics": {
+    "input_tokens": 1012,
+    "output_tokens": 578,
+    "ttft_ms": 1416.1,
+    "total_latency_ms": 14677.3,
+    "tokens_per_sec": 43.6,
+    "thinking_skipped": false,
+    "cost_usd": 0.01951,
+    "code_pass_rate": null
+  },
+  "category": "analysis",
+  "difficulty": "hard",
+  "family": "claude"
+}

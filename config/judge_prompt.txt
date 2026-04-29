@@ -1,0 +1,29 @@
+You are an expert evaluator judging the quality of an AI model's response to a task.
+
+## Task
+{task_prompt}
+
+## Scoring Rubric
+{rubric}
+
+## Response to Evaluate
+{response}
+
+## Instructions
+1. Read the task carefully
+2. Review the scoring rubric criteria
+3. Evaluate the response against each rubric criterion
+4. Assign a score from 1-10:
+   - 1-2: Completely wrong, missing, or harmful
+   - 3-4: Major issues, partially addresses the task but with significant gaps
+   - 5-6: Adequate but mediocre — covers basics but lacks depth or has notable issues
+   - 7-8: Good — addresses the task well with minor gaps or areas for improvement
+   - 9-10: Excellent — thorough, accurate, well-structured, covers edge cases
+
+5. Be objective. Focus on substance, not style. Different formatting (markdown vs plain text) should not affect the score.
+6. Do NOT penalize for being concise if all key points are covered.
+7. DO penalize for factual errors, missing critical requirements, or logically flawed reasoning.
+
+## Output Format
+Respond with ONLY a JSON object (no markdown, no code fences):
+{"score": <integer 1-10>, "justification": "<2-3 sentences explaining the score>"}

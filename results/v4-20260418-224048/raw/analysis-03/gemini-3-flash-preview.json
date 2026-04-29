@@ -1,0 +1,19 @@
+{
+  "task_id": "analysis-03",
+  "model_id": "gemini-3-flash-preview",
+  "status": "ok",
+  "response_text": "This review identifies significant configuration errors. Most models in your list have an output limit **lower** than 16,384. Setting a value higher than the model's physical limit is \"dangerous\" because most providers will reject the request with a **400 Bad Request** error rather than simply truncating the output.\n\n### 1. Research & Corrected Table\n\n| Model ID | Actual Max Output Tokens | Current Setting | Recommended Setting | Action Needed |\n|----------|--------------------------|-----------------|---------------------|---------------|\n| **gpt-4o** | 16,384 | 16384 | 16,384 | OK |\n| **gpt-4o-mini** | 16,384 | 16384 | 16,384 | OK |\n| **o3-mini** | 100,000 | 16384 | 32,768 | **Increase** (Reasoning space) |\n| **claude-opus-4** (3.0)* | 4,096 | 16384 | 4,096 | **Decrease** (Critical) |\n| **claude-sonnet-4** (3.5)*| 8,192 | 16384 | 8,192 | **Decrease** (Critical) |\n| **claude-haiku-3-5** | 8,192 | 16384 | 8,192 | **Decrease** (Critical) |\n| **gemini-2.0-flash** | 8,192 | 16384 | 8,192 | **Decrease** (Critical) |\n| **mistral-large** | 4,096 | 16384 | 4,096 | **Decrease** (Critical) |\n| **llama-3.3-70b** (Groq) | 8,192 | 16384 | 8,192 | **Decrease** (Critical) |\n| **phi-3-mini-128k** | 4,096 | 16384 | 4,096 | **Decrease** (Critical) |\n\n*\\*Note: Anthropic has not released \"4.0\" versions; I have corrected the limits based on current 3.0/3.5 architecture.*\n\n---\n\n### 2. Flag Dangerous Misconfiguration\n\n**The \"Decrease\" models are currently dangerously misconfigured.**\n\nIf a user or your application sends a request to the AI gateway for **mistral-large** or **claude-opus** and leaves the `max_tokens` parameter at the default (16,384), the following will happen:\n\n1.  **API Error:** The upstream provider (Anthropic, Mistral, etc.) will return a `400 Invalid Request`.\n2.  **Failure Message:** `\"max_tokens: 16384 is greater than the maximum allowed value of 4096\"`.\n3.  **User Impact:** The end-user sees a \"Service Error\" or \"Model Failed,\" causing immediate downtime for that feature.\n\n---\n\n### 3. Priority Order\n\n1.  **Critical (Fix immediate API Failures):** \n    *   **mistral-large**, **claude-opus-4**, **phi-3-mini**: These have the lowest ceilings (4,096). They are currently 4x over the limit.\n    *   **claude-sonnet-4**, **gemini-2.0-flash**, **llama-3.3-70b**: Currently 2x over the limit.\n2.  **Important (Capability Unlock):** \n    *   **o3-mini**: This model uses \"reasoning tokens.\" If you cap it at 16k, the model may run out of space to \"think\" before it even begins to \"answer,\" resulting in truncated or poor-quality logic.\n3.  **Low Priority:** \n    *   **gpt-4o / mini**: No action needed.\n\n---\n\n### 4. Config Snippet (Highest Priority)\n\nThese corrections prevent 400-level errors and unlock the reasoning potential of the newest model.\n\n```json\n[\n  {\n    \"model\": \"mistral-large\",\n    \"maxTokens\": 4096,\n    \"reason\": \"Changed from 16384: Current value exceeds Mistral API output limit, causing 400 errors.\"\n  },\n  {\n    \"model\": \"claude-opus-4\",\n    \"maxTokens\": 4096,\n    \"reason\": \"Changed from 16384: Anthropic Claude 3 series models cap output at 4096.\"\n  },\n  {\n    \"model\": \"o3-mini\",\n    \"maxTokens\": 32768,\n    \"reason\": \"Changed from 16384: Model supports 100k; 32k is a practical limit to allow for deep reasoning tokens.\"\n  }\n]\n```",
+  "metrics": {
+    "input_tokens": 587,
+    "output_tokens": 822,
+    "ttft_ms": 6898.1,
+    "total_latency_ms": 11660.0,
+    "tokens_per_sec": 172.6,
+    "thinking_skipped": false,
+    "cost_usd": 0.000581,
+    "code_pass_rate": null
+  },
+  "category": "analysis",
+  "difficulty": "easy",
+  "family": "google"
+}

@@ -1,0 +1,19 @@
+{
+  "task_id": "plan-03",
+  "model_id": "claude-sonnet-4-6",
+  "status": "ok",
+  "response_text": "**To:** bwhost@microsoft.com\n**Subject:** Receipt Request \u2013 Business Lunch on March 12, 2026\n\n---\n\nHi Boardwalk Restaurant Team,\n\nI'm hoping you can help me out. I had lunch at your restaurant on **March 12, 2026, around 1:58 PM** and unfortunately misplaced my receipt before I could submit it for reimbursement.\n\nHere are the transaction details that might help you locate the record:\n\n- **Date & Time:** March 12, 2026 at 1:58 PM\n- **Amount:** $515.56\n- **Payment Method:** American Express\n\nIf you're able to pull up the transaction, I'd really appreciate either a duplicate receipt or a brief written confirmation showing the date, amount, and payment method. Either would work perfectly for my expense report.\n\nI'm trying to get everything submitted by the end of the month, so if you could get back to me by **March 27th**, that would be a huge help. That said, I completely understand if it takes a little time to dig up on your end.\n\nFeel free to reach out by email or phone if you need any additional information to locate the record.\n\nThank you so much \u2014 I really appreciate it!\n\nBest regards,\n\n**Alex Chen**\nAccount Manager\nContoso Technologies\nalex.chen@contoso.com\n(555) 0147",
+  "metrics": {
+    "input_tokens": 395,
+    "output_tokens": 297,
+    "ttft_ms": 1817.1,
+    "total_latency_ms": 7068.7,
+    "tokens_per_sec": 56.6,
+    "thinking_skipped": false,
+    "cost_usd": 0.00564,
+    "code_pass_rate": null
+  },
+  "category": "plan",
+  "difficulty": "easy",
+  "family": "claude"
+}

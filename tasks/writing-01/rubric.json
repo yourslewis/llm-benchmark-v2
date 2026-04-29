@@ -1,0 +1,12 @@
+{
+  "category": "writing",
+  "difficulty": "hard",
+  "grading": "llm_judge",
+  "criteria": [
+    {"name": "technical_depth", "weight": 25, "description": "Spec is detailed enough for implementation; includes concrete schemas, protocols, and algorithms, not just high-level descriptions"},
+    {"name": "judge_system_design", "weight": 25, "description": "Self-recusal rule clearly specified; judge selection algorithm defined; consensus calculation handles outliers; calibration/bias tracking included"},
+    {"name": "completeness", "weight": 25, "description": "All 9 required sections present and substantive; routing table schema fully defined; results JSON schema provided"},
+    {"name": "precision_and_clarity", "weight": 15, "description": "Definitions are precise (e.g., TTFT measured from request send, not response initiation); units specified; no ambiguous statements"},
+    {"name": "open_questions", "weight": 10, "description": "Open questions are genuine design decisions, not trivially answered; shows systems thinking about edge cases"}
+  ]
+}

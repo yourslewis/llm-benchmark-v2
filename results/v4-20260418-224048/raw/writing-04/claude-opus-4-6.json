@@ -1,0 +1,19 @@
+{
+  "task_id": "writing-04",
+  "model_id": "claude-opus-4-6",
+  "status": "ok",
+  "response_text": "\n\nSubject: 1:1 Request \u2014 Checking In on This Quarter\n\nHi Alex,\n\nI'd like to schedule a 1:1 this week to talk honestly about how things are going. I want to be upfront: I have some concerns about this quarter that I want to work through with you.\n\nHere's what I'm seeing:\n\n**Deadlines:** The Persona V3 integration shipped 13 days past the March 15 target, and the evaluation pipeline (due April 1) is still in progress. These are significant misses, and I don't have a clear picture of what drove them.\n\n**Code reviews:** I've gotten feedback from teammates that your reviews have been lighter than usual \u2014 approvals without substantive comments on complex PRs. That's a change from the standard you've set in the past.\n\n**Communication:** You've missed two standups without a heads-up, and there have been several stretches of 3+ hours unresponsive on Teams. The team notices, and it affects coordination.\n\nI'm raising these together because individually they might be off days, but the pattern over a quarter is something I need to address with you directly.\n\nI also want to say clearly: I know this isn't the Alex I saw lead the Persona V2 launch, mentor Priya and Jordan, and earn an Exceeds rating last year. That track record matters, and it's part of why I want to have this conversation now rather than let things drift further.\n\nIf something has changed \u2014 workload, motivation, things outside work \u2014 I want to understand that. My goal for this meeting is to figure out what's going on, what support you need, and agree on a plan for the rest of the quarter. This is a conversation, not a verdict.\n\nCan you grab 45 minutes on my calendar this week? I'd prefer in person if you're in the office, video call otherwise.\n\nThanks, Alex.\n\n[Your name]",
+  "metrics": {
+    "input_tokens": 410,
+    "output_tokens": 438,
+    "ttft_ms": 2294.9,
+    "total_latency_ms": 13217.7,
+    "tokens_per_sec": 40.1,
+    "thinking_skipped": false,
+    "cost_usd": 0.013,
+    "code_pass_rate": null
+  },
+  "category": "writing",
+  "difficulty": "hard",
+  "family": "claude"
+}

@@ -1,0 +1,12 @@
+{
+  "category": "analysis",
+  "difficulty": "medium",
+  "grading": "llm_judge",
+  "criteria": [
+    {"name": "failure_categorization", "weight": 30, "description": "Correctly identifies 4 distinct failure categories: deprecated (404), auth failure (401), upstream outage (503), config/timeout issues. All 14 failing models correctly grouped."},
+    {"name": "fix_plan", "weight": 25, "description": "Each category has actionable fix: remove deprecated models, rotate/check Mistral API key, wait/retry DeepSeek, investigate Alibaba/Azure config. Time estimates and owners are realistic."},
+    {"name": "removal_recommendations", "weight": 25, "description": "Correctly recommends removing the 4 deprecated models (gemini-1.5-pro, gemini-1.5-flash, gpt-3.5-turbo, claude-2.1); keeps others as fixable. Table format used."},
+    {"name": "passing_model_notes", "weight": 10, "description": "Flags o1 as unusually slow (8341ms TTFT); notes potential redundancy between similar models (e.g., multiple Groq Llama variants)"},
+    {"name": "executive_summary", "weight": 10, "description": "3-sentence summary is clear, accurate, and non-technical enough for a team lead"}
+  ]
+}

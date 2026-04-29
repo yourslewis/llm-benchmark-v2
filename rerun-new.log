@@ -1,0 +1,48 @@
+Loaded 19 tasks, 22 models
+Total runs: 418
+Resuming from /Users/yourslewis/.openclaw/workspace-chloe/benchmark/results/v3-20260406-003623
+[133/418] code-04 × claude-opus-4-6-1m... ✅ 63 tok/s | TTFT 2312ms | 65799ms code=100%
+[134/418] code-04 × claude-opus-4-6... ✅ 65 tok/s | TTFT 1354ms | 88784ms code=100%
+[135/418] code-04 × claude-sonnet-4-6... ✅ 64 tok/s | TTFT 3953ms | 54508ms code=88%
+[136/418] code-04 × claude-haiku-4-5... ✅ 156 tok/s | TTFT 766ms | 24409ms code=100%
+[137/418] code-04 × claude-opus-4-5... ✅ 79 tok/s | TTFT 1763ms | 54239ms code=100%
+[138/418] code-04 × claude-sonnet-4-5... ✅ 74 tok/s | TTFT 1390ms | 35136ms code=100%
+[139/418] code-04 × claude-sonnet-4... ✅ 76 tok/s | TTFT 1072ms | 31858ms code=88%
+[140/418] code-04 × gpt-5.4... ✅ 86 tok/s | TTFT 55948ms | 76029ms code=100%
+[141/418] code-04 × gpt-5.4-mini... ✅ 84 tok/s | TTFT 54636ms | 74681ms code=100%
+[142/418] code-04 × gpt-5.3-codex... ✅ 78 tok/s | TTFT 71341ms | 90610ms code=100%
+[143/418] code-04 × gpt-5.2... Loaded 19 tasks, 22 models
+Total runs: 418
+Resuming from /Users/yourslewis/.openclaw/workspace-chloe/benchmark/results/v3-20260406-003623
+[143/418] code-04 × gpt-5.2... ✅ 96 tok/s | TTFT 797ms | 23827ms code=100%
+[144/418] code-04 × gpt-5.2-codex... ❌ {"error":{"message":"Copilot API error (400): model \"gpt-5.2-codex\" is not acc
+[145/418] code-04 × gpt-5.1... ✅ 158 tok/s | TTFT 527ms | 13076ms code=100%
+[146/418] code-04 × gpt-5-mini... Traceback (most recent call last):
+  File "/Users/yourslewis/.openclaw/workspace-chloe/benchmark/run.py", line 395, in <module>
+    main()
+    ~~~~^^
+  File "/Users/yourslewis/.openclaw/workspace-chloe/benchmark/run.py", line 342, in main
+    response_text, metrics = send_request(model_id, model_cfg, task["prompt"])
+                             ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yourslewis/.openclaw/workspace-chloe/benchmark/run.py", line 238, in send_request
+    return send_chat_completion(model_id, model_cfg, prompt)
+  File "/Users/yourslewis/.openclaw/workspace-chloe/benchmark/run.py", line 103, in send_chat_completion
+    delta = chunk.get("choices", [{}])[0].get("delta", {})
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+Loaded 19 tasks, 22 models
+Total runs: 418
+Resuming from /Users/yourslewis/.openclaw/workspace-chloe/benchmark/results/v3-20260406-003623
+[146/418] code-04 × gpt-5-mini... ✅ 150 tok/s | TTFT 75387ms | 111540ms code=100%
+[147/418] code-04 × gpt-4.1... ✅ 84 tok/s | TTFT 1591ms | 18450ms code=0%
+[148/418] code-04 × gpt-4o... ✅ 93 tok/s | TTFT 887ms | 15932ms code=100%
+[149/418] code-04 × goldeneye... ❌ {"error":{"message":"Copilot API error (400): model \"goldeneye\" is not accessi
+[150/418] code-04 × gemini-2.5-pro... ✅ 123 tok/s | TTFT 5474ms | 35512ms code=88%
+[151/418] code-04 × gemini-3-flash-preview... ✅ 231 tok/s | TTFT 1177ms | 7268ms code=100%
+[152/418] code-04 × gemini-3.1-pro-preview... Loaded 19 tasks, 22 models
+Total runs: 418
+Resuming from /Users/yourslewis/.openclaw/workspace-chloe/benchmark/results/v3-20260406-003623
+[144/418] code-04 × gpt-5.2-codex... ❌ {"error":{"message":"Copilot API error (400): model \"gpt-5.2-codex\" is not acc
+[149/418] code-04 × goldeneye... ❌ {"error":{"message":"Copilot API error (400): model \"goldeneye\" is not accessi
+[152/418] code-04 × gemini-3.1-pro-preview... ✅ 88 tok/s | TTFT 20658ms | 39917ms code=88%
+[153/418] code-04 × azure/gpt-5.3-codex... 

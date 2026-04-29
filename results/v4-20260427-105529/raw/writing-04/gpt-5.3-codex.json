@@ -1,0 +1,19 @@
+{
+  "task_id": "writing-04",
+  "model_id": "gpt-5.3-codex",
+  "status": "ok",
+  "response_text": "**Subject:** 1:1 this week: performance concerns and support plan\n\nHi Alex,\n\nI want to schedule a 1:1 this week to discuss some performance concerns from the past quarter and how I can support you in getting back on track.\n\nI\u2019m sharing details now so this is clear going in and not a surprise:\n\n- Persona V3 integration was due **March 15** and shipped **March 28** (13 days late).  \n- The evaluation pipeline was due **April 1** and is still not complete.  \n- I\u2019ve heard feedback that recent code reviews have been too superficial for complex PRs (including one-line \u201cLGTM\u201d comments).  \n- You missed two team standups without notice, and there have been multiple times you were unresponsive on Teams for 3+ hours during core working time.\n\nYou were a top performer last year\u2014you led the Persona V2 launch, mentored two junior engineers, and earned an Exceeds rating. Because of that track record, I want to understand what may have changed and address this early.\n\nIn our meeting, I\u2019d like us to cover:\n\n1) what\u2019s contributing to these gaps,  \n2) clear expectations for delivery timelines, review quality, and communication, and  \n3) what support or adjustments would help you meet those expectations consistently.\n\nThis is a course-correction conversation, not a punishment. My goal is a clear, practical plan and follow-through on both sides.\n\nAre you available **Wednesday at 2:00 PM** or **Thursday at 10:30 AM** for a 45-minute 1:1?\n\nThanks,  \n[Your Name]",
+  "metrics": {
+    "input_tokens": 376,
+    "output_tokens": 841,
+    "ttft_ms": null,
+    "total_latency_ms": 12040.0,
+    "tokens_per_sec": 69.9,
+    "thinking_skipped": false,
+    "cost_usd": 0.00935,
+    "code_pass_rate": null
+  },
+  "category": "writing",
+  "difficulty": "hard",
+  "family": "openai"
+}

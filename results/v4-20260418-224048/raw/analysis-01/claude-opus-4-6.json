@@ -1,0 +1,19 @@
+{
+  "task_id": "analysis-01",
+  "model_id": "claude-opus-4-6",
+  "status": "ok",
+  "response_text": "\n\n## 1. Root Cause Analysis\n\n**gpt-4o is experiencing sustained elevated latency** \u2014 every gpt-4o call times out at almost exactly the 5000ms threshold. This is likely a model-side (OpenAI) degradation, not a gateway bug, since:\n\n- All timeouts cluster at ~5070\u20135160ms (just over the threshold), meaning the gateway timeout is working correctly\n- Claude and Gemini fallbacks respond fine (~600\u2013900ms TTFT)\n- Session `j1k2l3` reveals a critical config flaw: `o3-mini` falls back to `gpt-4o`, which is the model that's down \u2014 so both fail and the request is lost entirely\n\n## 2. Pattern Summary\n\n| Metric | Value |\n|--------|-------|\n| Total timeout events | 6 |\n| Primary model causing most timeouts | gpt-4o (5 of 6, including as fallback) |\n| % of sessions where failover succeeded | 60% (3 of 5: a1b2c3, d4e5f6, g7h8i9; m4n5o6 pending) |\n| Sessions where all fallbacks exhausted | 1 (j1k2l3) |\n| Typical elapsed time at timeout | ~5100ms |\n\n## 3. Configuration Fix\n\n```yaml\ngateway:\n  timeout_ms: 8000            # Increase to tolerate transient OpenAI slowness\n  models:\n    - id: gpt-4o\n      provider: openai\n      fallback: claude-sonnet-4\n    - id: o3-mini\n      provider: openai\n      fallback: claude-sonnet-4   # CHANGED: don't fall back to another failing OpenAI model\n    - id: claude-sonnet-4\n      provider: anthropic\n      fallback: gemini-2.0-flash  # CHANGED: add a fallback so it's not a dead end\n    - id: gemini-2.0-flash        # ADD: register this model explicitly\n      provider: google\n      fallback: claude-sonnet-4\n```\n\n**Key principles:** Never chain fallbacks within the same provider. Ensure every model has a cross-provider fallback.\n\n## 4. Monitoring Recommendation\n\n```yaml\nalert:\n  name: high_timeout_rate_by_model\n  metric: count(embedded_run_failover{reason=\"timeout\"}) grouped by model\n  threshold: \">= 3\"\n  window: 5m\n  action: page on-call, auto-disable model as primary and route to fallbacks\n```\n\nThis would have fired within ~2 minutes of the incident starting, before session `j1k2l3` experienced a total failure.",
+  "metrics": {
+    "input_tokens": 1012,
+    "output_tokens": 514,
+    "ttft_ms": 1355.3,
+    "total_latency_ms": 14055.3,
+    "tokens_per_sec": 40.5,
+    "thinking_skipped": false,
+    "cost_usd": 0.01791,
+    "code_pass_rate": null
+  },
+  "category": "analysis",
+  "difficulty": "hard",
+  "family": "claude"
+}

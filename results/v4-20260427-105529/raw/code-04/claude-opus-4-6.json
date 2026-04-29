@@ -1,0 +1,19 @@
+{
+  "task_id": "code-04",
+  "model_id": "claude-opus-4-6",
+  "status": "ok",
+  "response_text": "```python\nimport threading\nfrom typing import Optional\n\n\nclass _Node:\n    __slots__ = ('key', 'value', 'prev', 'next')\n\n    def __init__(self, key: str = '', value: str = ''):\n        self.key = key\n        self.value = value\n        self.prev: Optional['_Node'] = None\n        self.next: Optional['_Node'] = None\n\n\nclass LRUCache:\n    NUM_STRIPES = 16\n\n    def __init__(self, capacity: int):\n        self.capacity = capacity\n        # Striped locks for the hash map\n        self._stripe_locks = [threading.Lock() for _ in range(self.NUM_STRIPES)]\n        # Separate lock for the linked list structure\n        self._list_lock = threading.Lock()\n        self._map: dict[str, _Node] = {}\n        # Sentinel nodes\n        self._head = _Node()\n        self._tail = _Node()\n        self._head.next = self._tail\n        self._tail.prev = self._head\n        self._size = 0\n\n    def _stripe(self, key: str) -> threading.Lock:\n        return self._stripe_locks[hash(key) % self.NUM_STRIPES]\n\n    def _remove_node(self, node: _Node):\n        node.prev.next = node.next\n        node.next.prev = node.prev\n\n    def _add_to_front(self, node: _Node):\n        node.next = self._head.next\n        node.prev = self._head\n        self._head.next.prev = node\n        self._head.next = node\n\n    def get(self, key: str) -> Optional[str]:\n        stripe_lock = self._stripe(key)\n        with stripe_lock:\n            node = self._map.get(key)\n            if node is None:\n                return None\n            with self._list_lock:\n                self._remove_node(node)\n                self._add_to_front(node)\n            return node.value\n\n    def put(self, key: str, value: str) -> None:\n        stripe_lock = self._stripe(key)\n        with stripe_lock:\n            node = self._map.get(key)\n            if node is not None:\n                node.value = value\n                with self._list_lock:\n                    self._remove_node(node)\n                    self._add_to_front(node)\n                return\n\n            new_node = _Node(key, value)\n            self._map[key] = new_node\n\n            evict_node = None\n            with self._list_lock:\n                self._add_to_front(new_node)\n                self._size += 1\n                if self._size > self.capacity:\n                    evict_node = self._tail.prev\n                    self._remove_node(evict_node)\n                    self._size -= 1\n\n            if evict_node is not None:\n                evict_key = evict_node.key\n                if evict_key == key:\n                    # Same stripe, already holding lock\n                    self._map.pop(evict_key, None)\n                else:\n                    evict_stripe = self._stripe(evict_key)\n                    with evict_stripe:\n                        self._map.pop(evict_key, None)\n```\n\nThis implementation uses **striped locking** (16 stripe locks for hash map partitions) plus a **separate list lock** for the doubly-linked list, avoiding a single global lock:\n\n- **Stripe locks** \u2014 partition keys into 16 buckets by hash; concurrent operations on different stripes proceed in parallel\n- **List lock** \u2014 lightweight lock only for the brief linked-list pointer manipulation\n- **O(1)** \u2014 hash map lookup + constant-time list operations\n- Handles eviction across stripes safely, avoiding deadlocks by always acquiring stripe lock \u2192 list lock ordering",
+  "metrics": {
+    "input_tokens": 470,
+    "output_tokens": 842,
+    "ttft_ms": 2236.6,
+    "total_latency_ms": 19849.3,
+    "tokens_per_sec": 47.8,
+    "thinking_skipped": false,
+    "cost_usd": 0.0234,
+    "code_pass_rate": 100
+  },
+  "category": "code",
+  "difficulty": "hard",
+  "family": "claude"
+}

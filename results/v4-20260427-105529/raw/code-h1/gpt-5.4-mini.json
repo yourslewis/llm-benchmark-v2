@@ -1,0 +1,19 @@
+{
+  "task_id": "code-h1",
+  "model_id": "gpt-5.4-mini",
+  "status": "ok",
+  "response_text": "",
+  "metrics": {
+    "input_tokens": 1916,
+    "output_tokens": 16000,
+    "ttft_ms": null,
+    "total_latency_ms": 107698.6,
+    "tokens_per_sec": 148.6,
+    "thinking_skipped": false,
+    "cost_usd": 0.026366,
+    "code_pass_rate": 0
+  },
+  "category": "code",
+  "difficulty": "hard",
+  "family": "openai"
+}

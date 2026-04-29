@@ -1,0 +1,154 @@
+[
+  {
+    "id": "chloe_018",
+    "agent": "chloe",
+    "category": "code",
+    "prompt": "How can we benchmark these models in terms of over-kill for the jobs on a session? Costs are different, accuracy might be fine for most of the tasks.\nFor example, yesterday, I was using Sonnet for OpenClaw debugging, and it did great. Selin didn\u2019t find those issues with opus, so it was also about the contexts.\nWe also have a large selection of models from other companies, they should have weaknesses and strengths",
+    "prompt_length": 416,
+    "response_words": 556,
+    "source": "78f6ec47-55a1-448f-a429-a2569898b562.jsonl"
+  },
+  {
+    "id": "chloe_007",
+    "agent": "chloe",
+    "category": "data",
+    "prompt": "I need you to recreate the tasks under #Cycle#Quality, #Cycle#Serving, #Cycle#Team Efficiency and #Cycle#Foundation in Todoist., based on this C2 planning spreadsheet. Note that the spreadsheet has all the information you need to retain the same pattern of the current tasks. Give me a summary of your changes before actually making the change.",
+    "prompt_length": 344,
+    "response_words": 21,
+    "source": "78f6ec47-55a1-448f-a429-a2569898b562.jsonl"
+  },
+  {
+    "id": "chloe_001",
+    "agent": "chloe",
+    "category": "general",
+    "prompt": "I need to create a receipt (pdf) from broadwalk restaurant (https://boardwalk.diningwebsites.net/), we had a moral event there and I spent 515.56 USD there with my Amex card around 13:58, 2026-03-12. \nI lost my receipt and couldn't reimburse now.",
+    "prompt_length": 246,
+    "response_words": 167,
+    "source": "78f6ec47-55a1-448f-a429-a2569898b562.jsonl"
+  },
+  {
+    "id": "chloe_004",
+    "agent": "chloe",
+    "category": "monitoring",
+    "prompt": "Yes, please check, this can be considered as a project as well, Chloe. Just a note",
+    "prompt_length": 82,
+    "response_words": 25,
+    "source": "78f6ec47-55a1-448f-a429-a2569898b562.jsonl"
+  },
+  {
+    "id": "chloe_003",
+    "agent": "chloe",
+    "category": "planning",
+    "prompt": "I am having my Spring break with the family next week. Here is the plan:\n\nAlaska Airlines Flight: 494\n Depart Seattle, WA on Fri, Apr 10, 2026 10:53 AM\n Arrive San Antonio, TX on Fri, Apr 10, 2026 4:54 PM\n Duration: 4hrs 1min\nAlaska Airlines Flight: 439\n Depart Houston, TX on Sat, Apr 18, 2026 4:51 PM\n Arrive Seattle, WA on Sat, Apr 18, 2026 7:48 PM\n Duration: 4hrs 57min\n\nI need to reserve rental, can you give me a few suggestions.",
+    "prompt_length": 435,
+    "response_words": 72,
+    "source": "78f6ec47-55a1-448f-a429-a2569898b562.jsonl"
+  },
+  {
+    "id": "chloe_010",
+    "agent": "chloe",
+    "category": "research",
+    "prompt": "I think we need a new agent who\u2019s good at security. We can call her Selin. She has your security knowledge and has the research skills like Rex and has the data inspection habit like Don.",
+    "prompt_length": 187,
+    "response_words": 21,
+    "source": "78f6ec47-55a1-448f-a429-a2569898b562.jsonl"
+  },
+  {
+    "id": "selin_098",
+    "agent": "selin",
+    "category": "security",
+    "prompt": "[cron:eb59eab7-8c0c-4daf-a652-848f5f1fcae3 ClawGuard Daily Security Report] Run the daily ClawGuard security report. Execute: /opt/homebrew/Cellar/node/25.8.0/bin/node ~/.openclaw/extensions/clawguard/bin/daily-security-report.mjs\n\nSend the full output to Lewis via Telegram. If there are ACTION REQUIRED items, highlight them at the top. Add a note asking Lewis to review and reply with any action items.\n\nReturn your summary as plain text; it will be delivered automatically. If the task explicitly calls for messaging a specific external recipient, note who/where it should go instead of sending it yourself.",
+    "prompt_length": 611,
+    "response_words": 105,
+    "source": "f00d10a6-c3c5-4988-9ea1-c2aa9b2d91e8.jsonl"
+  },
+  {
+    "id": "chloe_011",
+    "agent": "chloe",
+    "category": "sysadmin",
+    "prompt": "Can you copy the BOOT.md we populated to all of you to Selin as well. Let me get the telegram bot",
+    "prompt_length": 97,
+    "response_words": 20,
+    "source": "78f6ec47-55a1-448f-a429-a2569898b562.jsonl"
+  },
+  {
+    "id": "code-h1",
+    "agent": "rex",
+    "category": "code",
+    "prompt_length": 8783,
+    "response_words": 0,
+    "source": "v4-authored"
+  },
+  {
+    "id": "code-h2",
+    "agent": "rex",
+    "category": "code",
+    "prompt_length": 5798,
+    "response_words": 0,
+    "source": "v4-authored"
+  },
+  {
+    "id": "code-h3",
+    "agent": "rex",
+    "category": "code",
+    "prompt_length": 7092,
+    "response_words": 0,
+    "source": "v4-authored"
+  },
+  {
+    "id": "code-h4",
+    "agent": "rex",
+    "category": "code",
+    "prompt_length": 6913,
+    "response_words": 0,
+    "source": "v4-authored"
+  },
+  {
+    "id": "code-h5",
+    "agent": "rex",
+    "category": "code",
+    "prompt_length": 5822,
+    "response_words": 0,
+    "source": "v4-authored"
+  },
+  {
+    "id": "lc-1",
+    "agent": "don",
+    "category": "long-context",
+    "prompt_length": 264276,
+    "response_words": 0,
+    "source": "v4-authored"
+  },
+  {
+    "id": "lc-2",
+    "agent": "don",
+    "category": "long-context",
+    "prompt_length": 200673,
+    "response_words": 0,
+    "source": "v4-authored"
+  },
+  {
+    "id": "tool-1",
+    "agent": "chloe",
+    "category": "tool-use",
+    "prompt_length": 1022,
+    "response_words": 0,
+    "source": "v4-authored"
+  },
+  {
+    "id": "tool-2",
+    "agent": "chloe",
+    "category": "tool-use",
+    "prompt_length": 1515,
+    "response_words": 0,
+    "source": "v4-authored"
+  },
+  {
+    "id": "tool-3",
+    "agent": "chloe",
+    "category": "tool-use",
+    "prompt_length": 1474,
+    "response_words": 0,
+    "source": "v4-authored"
+  }
+]

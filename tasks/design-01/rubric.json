@@ -1,0 +1,12 @@
+{
+  "category": "design",
+  "difficulty": "hard",
+  "grading": "llm_judge",
+  "criteria": [
+    {"name": "profile_schema", "weight": 20, "description": "All 5 layers defined with concrete fields, types, and examples; L5 Interest Cards have trigger patterns, expiry logic, and card schema specified"},
+    {"name": "generation_pipeline", "weight": 25, "description": "Each layer has input signals, LLM prompt template, trigger condition, and merge strategy defined; L3 prompt example is concrete and realistic"},
+    {"name": "storage_architecture", "weight": 20, "description": "P99 <5ms requirement addressed with credible solution (e.g., Redis + persistent store); caching strategy specified; async write path defined; 10M user scale considered"},
+    {"name": "llm_pipeline_detail", "weight": 20, "description": "Batching strategy defined; model choice justified by cost/quality tradeoff; output parsing and failure handling specified"},
+    {"name": "evaluation_framework", "weight": 15, "description": "Offline and online eval metrics defined; A/B test design is specific and measurable; privacy compliance check included"}
+  ]
+}

@@ -1,0 +1,14 @@
+=== Benchmark v4 starting at Mon Apr 27 10:55:28 UTC 2026 ===
+--- Phase 1: Contender Run ---
+Loaded 29 tasks, 18 models
+Total runs: 522
+/Users/yourslewis/.openclaw/workspace-chloe/benchmark/run.py:365: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  timestamp = datetime.utcnow().strftime("%Y%m%d-%H%M%S")
+[1/522] analysis-01 × claude-opus-4-7... ✅ 43 tok/s | TTFT 1110ms | 27544ms
+[2/522] analysis-01 × claude-opus-4-6-1m... ✅ 30 tok/s | TTFT 1587ms | 22086ms
+[3/522] analysis-01 × claude-opus-4-6... ✅ 31 tok/s | TTFT 1494ms | 21260ms
+[4/522] analysis-01 × claude-sonnet-4-6... ✅ 41 tok/s | TTFT 1742ms | 33711ms
+[5/522] analysis-01 × claude-haiku-4-5... ✅ 81 tok/s | TTFT 1457ms | 24320ms [no-think]
+[6/522] analysis-01 × claude-sonnet-4-5... ✅ 41 tok/s | TTFT 2570ms | 41203ms
+[7/522] analysis-01 × gpt-5.4... ✅ 58 tok/s | no TTFT | 99304ms
+[8/522] analysis-01 × gpt-5.4-mini... 

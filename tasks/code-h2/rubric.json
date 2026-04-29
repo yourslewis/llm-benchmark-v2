@@ -1,0 +1,11 @@
+{
+  "category": "code",
+  "difficulty": "hard",
+  "grading": "automated",
+  "criteria": [
+    {"name": "correctness", "weight": 35, "description": "All 47 unit tests pass"},
+    {"name": "performance", "weight": 30, "description": "3 perf tests pass (10K-node graph <500ms)"},
+    {"name": "api_preservation", "weight": 20, "description": "Public API unchanged"},
+    {"name": "complexity", "weight": 15, "description": "Achieves O((V+E) log V) or better"}
+  ]
+}

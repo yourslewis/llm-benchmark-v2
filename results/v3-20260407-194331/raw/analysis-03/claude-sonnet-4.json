@@ -1,0 +1,18 @@
+{
+  "task_id": "analysis-03",
+  "model_id": "claude-sonnet-4",
+  "status": "ok",
+  "response_text": "# Token Limit Audit & Correction Report\n\n## 1. Research & Correct\n\n| Model ID | Actual Max Output Tokens | Current Setting | Recommended Setting | Action Needed |\n|----------|--------------------------|-----------------|---------------------|---------------|\n| gpt-4o | 16,384 | 16384 | 16384 | **OK** |\n| gpt-4o-mini | 16,384 | 16384 | 16384 | **OK** |\n| o3-mini | 100,000 | 16384 | 65536 | **Increase** |\n| claude-opus-4 | 8,192 | 16384 | 8192 | **Decrease** \u26a0\ufe0f |\n| claude-sonnet-4 | 8,192 | 16384 | 8192 | **Decrease** \u26a0\ufe0f |\n| claude-haiku-3-5 | 8,192 | 16384 | 8192 | **Decrease** \u26a0\ufe0f |\n| gemini-2.0-flash | 8,192 | 16384 | 8192 | **Decrease** \u26a0\ufe0f |\n| mistral-large | 128,000 | 16384 | 32768 | **Increase** |\n| llama-3.3-70b | 8,192 | 16384 | 8192 | **Decrease** \u26a0\ufe0f |\n| phi-3-mini-128k | 4,096 | 16384 | 4096 | **Decrease** \u26a0\ufe0f |\n\n## 2. Dangerous Misconfiguration \u26a0\ufe0f\n\n**YES \u2014 6 models are critically misconfigured:**\n\n- **claude-opus-4, claude-sonnet-4, claude-haiku-3-5** (limit: 8,192)\n- **gemini-2.0-flash** (limit: 8,192)\n- **llama-3.3-70b** (limit: 8,192)\n- **phi-3-mini-128k** (limit: 4,096)\n\n**What will happen:** When a request specifies `maxTokens: 16384`, the API will return a **400 Bad Request error** stating the token limit exceeds the model's maximum. This will cause request failures and poor user experience.\n\n## 3. Priority Order\n\n### \ud83d\udd34 **CRITICAL** (will cause API errors)\n1. **phi-3-mini-128k** \u2014 current setting is **4x over limit** (16384 vs 4096)\n2. **claude-opus-4** \u2014 expensive model, setting is 2x over limit\n3. **claude-sonnet-4** \u2014 high-usage model, 2x over limit\n4. **claude-haiku-3-5** \u2014 2x over limit\n5. **gemini-2.0-flash** \u2014 2x over limit\n6. **llama-3.3-70b** \u2014 2x over limit\n\n### \ud83d\udfe1 **IMPORTANT** (limiting capability)\n7. **o3-mini** \u2014 can output 100K tokens but capped at 16K (84K unused)\n8. **mistral-large** \u2014 can output 128K tokens but capped at 16K (112K unused)\n\n### \ud83d\udfe2 **LOW PRIORITY** (correct as-is)\n9. **gpt-4o** \u2014 already at maximum\n10. **gpt-4o-mini** \u2014 already at maximum\n\n## 4. Corrected Config (Top 3 Priority)\n\n```json\n{\n  \"model\": \"phi-3-mini-128k\",\n  \"maxTokens\": 4096,\n  \"reason\": \"Changed from 16384: actual API limit is 4,096 (current setting is 4x over and will cause API errors)\"\n}\n```\n\n```json\n{\n  \"model\": \"claude-opus-4\",\n  \"maxTokens\": 8192,\n  \"reason\": \"Changed from 16384: actual API limit is 8,192 (current setting is 2x over and will cause API errors on large requests)\"\n}\n```\n\n```json\n{\n  \"model\": \"claude-sonnet-4\",\n  \"maxTokens\": 8192,\n  \"reason\": \"Changed from 16384: actual API limit is 8,192 (current setting is 2x over and will cause API errors on large requests)\"\n}\n```\n\n---\n\n## Summary\n\n- **6 models** will fail requests if users specify tokens near 16,384\n- **2 models** are significantly under-utilizing their capabilities\n- **2 models** are correctly configured\n- **Immediate action required** on all Claude models, Gemini, Llama, and Phi-3 to prevent production errors",
+  "metrics": {
+    "input_tokens": 734,
+    "output_tokens": 1155,
+    "ttft_ms": 2180.2,
+    "total_latency_ms": 16356.4,
+    "tokens_per_sec": 81.5,
+    "cost_usd": 0.019527,
+    "code_pass_rate": null
+  },
+  "category": "analysis",
+  "difficulty": "easy",
+  "family": "claude"
+}

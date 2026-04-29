@@ -1,0 +1,11 @@
+{
+  "category": "plan",
+  "difficulty": "easy",
+  "grading": "llm_judge",
+  "criteria": [
+    {"name": "completeness", "weight": 30, "description": "Email includes all required elements: subject, transaction details ($515.56, Mar 12, 1:58 PM, Amex), the specific ask, deadline mention, and contact info"},
+    {"name": "accuracy", "weight": 30, "description": "All factual details are correct: amount $515.56, date 2026-03-12, time 13:58, restaurant Boardwalk, email bwhost@microsoft.com, name Alex Chen, company Contoso Technologies"},
+    {"name": "tone_quality", "weight": 25, "description": "Professional but natural tone; not overly formal or template-sounding; polite and direct"},
+    {"name": "format", "weight": 15, "description": "Has clear subject line, proper opening/closing, and complete signature block with all requested elements"}
+  ]
+}

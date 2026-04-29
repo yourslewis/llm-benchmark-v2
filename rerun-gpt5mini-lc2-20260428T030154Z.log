@@ -1,0 +1,13 @@
+/Users/yourslewis/.openclaw/workspace-chloe/benchmark/run.py:365: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  timestamp = datetime.utcnow().strftime("%Y%m%d-%H%M%S")
+Loaded 29 tasks, 18 models
+Total runs: 522
+Resuming from /Users/yourslewis/.openclaw/workspace-chloe/benchmark/results/v4-20260427-105529
+[337/522] lc-2 × gpt-5-mini... ✅ 0 tok/s | no TTFT | 344650ms
+
+============================================================
+Benchmark complete: /Users/yourslewis/.openclaw/workspace-chloe/benchmark/results/v4-20260427-105529
+  Completed: 1
+  Skipped (resumed): 521
+  Failed: 0
+  Results: /Users/yourslewis/.openclaw/workspace-chloe/benchmark/results/v4-20260427-105529/raw

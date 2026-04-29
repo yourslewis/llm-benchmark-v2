@@ -1,0 +1,19 @@
+{
+  "task_id": "analysis-01",
+  "model_id": "gpt-5.2-codex",
+  "status": "ok",
+  "response_text": "Below is a concise diagnosis and a practical fix.\n\n---\n\n## 1) Root Cause Analysis\n\n**Most likely root cause:**  \n`gpt\u20114o` is consistently timing out at **~5.1s**, which is just above the configured **5000\u202fms** gateway timeout. That pattern strongly suggests a **gateway timeout threshold that is too aggressive**, not a hard provider failure. The model is likely responding, but the gateway cuts it off.\n\n**Evidence:**\n- **`gpt\u20114o` times out in every session where it is called** (5 of 6 timeouts).\n- Elapsed times are tightly clustered around **5070\u20135160\u202fms**, matching the configured timeout.\n- Other providers (Claude, Gemini) respond quickly, indicating the gateway can complete calls when not cut off.\n- **Session `j1k2l3`** shows that **both OpenAI models (o3\u2011mini \u2192 gpt\u20114o)** timed out, and there were **no non\u2011OpenAI fallbacks**, causing a full failure. This points to **OpenAI latency + insufficient fallback diversity**.\n\n**Conclusion:**  \nThe failures are **gateway timeout configuration + OpenAI latency**, not a total provider outage. The 5s timeout is too low for gpt\u20114o and o3\u2011mini.\n\n---\n\n## 2) Pattern Summary\n\n| Metric | Value |\n|--------|-------|\n| **Total timeout events** | **6** |\n| **Primary model causing most timeouts** | **gpt\u20114o (5 of 6)** |\n| **% of sessions where failover succeeded** | **~75% (3 of 4 completed; one pending in logs)** |\n| **Sessions where all fallbacks exhausted** | **j1k2l3 (1 session)** |\n| **Typical elapsed time at timeout** | **~5.1s (5070\u20135160\u202fms)** |\n\n---\n\n## 3) Configuration Fix (YAML)\n\n### Key fixes:\n1. **Raise timeout for OpenAI models** (or global timeout).\n2. **Add non\u2011OpenAI fallbacks** to avoid OpenAI\u2011only chains.\n3. Allow multiple fallbacks.\n\n```yaml\ngateway:\n  timeout_ms: 9000   # raise global timeout (or keep global, override per\u2011model)\n\n  models:\n    - id: gpt-4o\n      provider: openai\n      timeout_ms: 10000\n      fallbacks: [claude-sonnet-4, gemini-2.0-flash]\n\n    - id: o3-mini\n      provider: openai\n      timeout_ms: 10000\n      fallbacks: [claude-sonnet-4, gemini-2.0-flash]  # avoid OpenAI\u2192OpenAI only\n\n    - id: claude-sonnet-4\n      provider: anthropic\n      fallback: gemini-2.0-flash\n\n    - id: gemini-2.0-flash\n      provider: google\n      fallback: claude-sonnet-4\n```\n\n**Why this works:**  \nIt prevents premature timeouts, and avoids being locked into the same provider when one is slow.\n\n---\n\n## 4) Monitoring Recommendation\n\n**Add a timeout\u2011rate alert per model.**\n\n**Metric:**  \n`gateway.model.timeout_rate{model=*}`\n\n**Alert condition:**  \n- **timeout_rate > 5%** in a **5\u2011minute rolling window**  \n  **OR**  \n- **timeout_count > 3** in **5 minutes**\n\n**Action:**  \nPage on\u2011call + optionally auto\u2011deprioritize that model in routing.\n\n**Example:**\n\n> **Alert:** \u201cModel timeout rate high\u201d  \n> **Condition:** timeout_rate{model=gpt\u20114o} > 0.05 for 5m  \n> **Action:** Slack + PagerDuty + auto\u2011reduce routing weight\n\n---\n\nIf you want, I can also help craft an automatic mitigation policy (e.g., dynamic timeouts or circuit\u2011breaker style routing).",
+  "metrics": {
+    "input_tokens": 1296,
+    "output_tokens": 6260,
+    "ttft_ms": null,
+    "total_latency_ms": 88213.7,
+    "tokens_per_sec": 71.0,
+    "thinking_skipped": false,
+    "cost_usd": 0.06584,
+    "code_pass_rate": null
+  },
+  "category": "analysis",
+  "difficulty": "hard",
+  "family": "openai"
+}

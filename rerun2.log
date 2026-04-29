@@ -1,0 +1,22 @@
+Loaded 15 tasks, 23 models
+Total runs: 345
+Resuming from /Users/yourslewis/.openclaw/workspace-chloe/benchmark/results/v3-20260406-003623
+[21/345] analysis-01 × azure/gpt-5.4-pro... ✅ 35 tok/s | no TTFT | 118354ms
+[67/345] analysis-03 × azure/gpt-5.4-pro... ✅ 45 tok/s | no TTFT | 91605ms
+[90/345] code-01 × azure/gpt-5.4-pro... ✅ 41 tok/s | no TTFT | 100380ms code=29%
+[136/345] code-03 × azure/gpt-5.4-pro... ✅ 40 tok/s | no TTFT | 102650ms code=17%
+[138/345] code-03 × azure/gpt-5.1-codex-mini... ✅ 170 tok/s | no TTFT | 24066ms code=17%
+[159/345] debug-01 × azure/gpt-5.4-pro... ✅ 37 tok/s | no TTFT | 110753ms
+[161/345] debug-01 × azure/gpt-5.1-codex-mini... ✅ 174 tok/s | no TTFT | 23523ms
+[184/345] debug-02 × azure/gpt-5.1-codex-mini... ✅ 145 tok/s | no TTFT | 28323ms code=18%
+[205/345] design-01 × azure/gpt-5.4-pro... ✅ 33 tok/s | no TTFT | 125531ms
+[228/345] design-02 × azure/gpt-5.4-pro... ✅ 36 tok/s | no TTFT | 114801ms
+[251/345] plan-01 × azure/gpt-5.4-pro... ✅ 34 tok/s | no TTFT | 120644ms
+[320/345] writing-01 × azure/gpt-5.4-pro... ✅ 36 tok/s | no TTFT | 114020ms
+
+============================================================
+Benchmark complete: /Users/yourslewis/.openclaw/workspace-chloe/benchmark/results/v3-20260406-003623
+  Completed: 12
+  Skipped (resumed): 333
+  Failed: 0
+  Results: /Users/yourslewis/.openclaw/workspace-chloe/benchmark/results/v3-20260406-003623/raw

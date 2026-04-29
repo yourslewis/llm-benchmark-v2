@@ -1,0 +1,19 @@
+{
+  "task_id": "writing-04",
+  "model_id": "gemini-3-flash-preview",
+  "status": "ok",
+  "response_text": "Subject: Discussion: Recent project milestones and performance feedback\n\nHi Alex,\n\nI\u2019m writing to schedule a dedicated 1:1 later this week to discuss your performance over the past quarter.\n\nI want to be transparent: after your exceptional work on the Persona V2 launch and your strong \"Exceeds\" rating last year, I\u2019ve noticed a shift in your recent output. Specifically, I\u2019d like to discuss the following:\n\n*   **Project Timelines:** The Persona V3 integration shipped 13 days late, and the evaluation pipeline is currently past its April 1 deadline.\n*   **Code Reviews:** Several team members have noted that your recent reviews have become less detailed, often consisting of a single \"LGTM\" on complex pull requests that require deeper technical scrutiny.\n*   **Availability:** There have been a few instances of missed standups without prior notice and several periods where you were unreachable during core hours.\n\nI am bringing this up now because these trends don't match the high standard of work I know you are capable of. My goal for our meeting is to understand the \"why\" behind these shifts\u2014whether it\u2019s burnout, a lack of clarity on priorities, or something else\u2014so we can get you back to the level of impact you had last year.\n\nPlease come prepared to talk through these specific areas. I want to hear your perspective on what is blocking your progress and discuss how I can better support you in getting these projects back on track. \n\nI\u2019ve sent a calendar invite for Thursday at 2:00 PM. If that time doesn't work, let me know and we\u2019ll find an alternative.\n\nBest regards,\n\n[Your Name]\nEngineering Manager",
+  "metrics": {
+    "input_tokens": 410,
+    "output_tokens": 405,
+    "ttft_ms": 5300.0,
+    "total_latency_ms": 6791.4,
+    "tokens_per_sec": 271.6,
+    "thinking_skipped": false,
+    "cost_usd": 0.000304,
+    "code_pass_rate": null
+  },
+  "category": "writing",
+  "difficulty": "hard",
+  "family": "google"
+}

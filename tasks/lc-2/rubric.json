@@ -1,0 +1,12 @@
+{
+  "category": "long-context",
+  "difficulty": "hard",
+  "grading": "judge",
+  "criteria": [
+    {"name": "top3_accuracy", "weight": 30, "description": "Correctly identifies 3 most frequent error classes"},
+    {"name": "evidence_lines", "weight": 25, "description": "Cites real line numbers/quotes from the log"},
+    {"name": "severity_ranking", "weight": 20, "description": "Reasonable severity ranking with justification"},
+    {"name": "remediation", "weight": 15, "description": "Actionable and specific fix suggestions"},
+    {"name": "no_hallucination", "weight": 10, "description": "Does not fabricate errors not in the log"}
+  ]
+}

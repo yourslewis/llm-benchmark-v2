@@ -1,0 +1,19 @@
+{
+  "task_id": "code-04",
+  "model_id": "claude-opus-4-6",
+  "status": "ok",
+  "response_text": "```python\nimport threading\nfrom typing import Optional\n\n\nclass _Node:\n    __slots__ = ('key', 'value', 'prev', 'next')\n\n    def __init__(self, key: str = '', value: str = ''):\n        self.key = key\n        self.value = value\n        self.prev: Optional['_Node'] = None\n        self.next: Optional['_Node'] = None\n\n\nclass LRUCache:\n    NUM_STRIPES = 16\n\n    def __init__(self, capacity: int):\n        self.capacity = capacity\n        # Doubly-linked list with sentinel nodes\n        self.head = _Node()  # most recent\n        self.tail = _Node()  # least recent\n        self.head.next = self.tail\n        self.tail.prev = self.head\n        self.map: dict[str, _Node] = {}\n        # Striped locks for map access + a separate list lock\n        self.stripes = [threading.Lock() for _ in range(self.NUM_STRIPES)]\n        self.list_lock = threading.Lock()\n\n    def _stripe(self, key: str) -> threading.Lock:\n        return self.stripes[hash(key) % self.NUM_STRIPES]\n\n    def _remove(self, node: _Node):\n        node.prev.next = node.next\n        node.next.prev = node.prev\n\n    def _add_front(self, node: _Node):\n        node.prev = self.head\n        node.next = self.head.next\n        self.head.next.prev = node\n        self.head.next = node\n\n    def get(self, key: str) -> Optional[str]:\n        stripe = self._stripe(key)\n        with stripe:\n            node = self.map.get(key)\n            if node is None:\n                return None\n            value = node.value\n        # Move to front\n        with self.list_lock:\n            # Re-check node is still in map\n            with stripe:\n                if key not in self.map:\n                    return None\n            self._remove(node)\n            self._add_front(node)\n        return value\n\n    def put(self, key: str, value: str) -> None:\n        stripe = self._stripe(key)\n        evict_node = None\n\n        with self.list_lock:\n            with stripe:\n                node = self.map.get(key)\n                if node is not None:\n                    node.value = value\n                    self._remove(node)\n                    self._add_front(node)\n                    return\n\n                new_node = _Node(key, value)\n                self.map[key] = new_node\n                self._add_front(new_node)\n\n            # Check if eviction needed\n            if len(self.map) > self.capacity:\n                evict_node = self.tail.prev\n                if evict_node is not self.head:\n                    self._remove(evict_node)\n                    evict_key = evict_node.key\n                    evict_stripe = self._stripe(evict_key)\n                    with evict_stripe:\n                        self.map.pop(evict_key, None)\n```",
+  "metrics": {
+    "input_tokens": 470,
+    "output_tokens": 672,
+    "ttft_ms": 1606.1,
+    "total_latency_ms": 9899.0,
+    "tokens_per_sec": 81.0,
+    "thinking_skipped": false,
+    "cost_usd": 0.01915,
+    "code_pass_rate": 100
+  },
+  "category": "code",
+  "difficulty": "hard",
+  "family": "claude"
+}

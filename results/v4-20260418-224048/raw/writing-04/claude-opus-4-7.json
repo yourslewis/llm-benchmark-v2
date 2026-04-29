@@ -1,0 +1,19 @@
+{
+  "task_id": "writing-04",
+  "model_id": "claude-opus-4-7",
+  "status": "ok",
+  "response_text": "**Subject:** 1:1 Thursday \u2014 checking in on the last quarter\n\nHi Alex,\n\nI'd like to use our 1:1 this Thursday at 2pm to step back and talk about how the past quarter has been going. I want to be upfront that this is a performance conversation \u2014 not a formal review, but I have some concerns I'd like to discuss openly with you, and I don't want you walking in cold.\n\nSpecifically, I want to talk through:\n\n- **Delivery.** Persona V3 shipped on March 28, 13 days past the March 15 target, and the evaluation pipeline (due April 1) is still open. I'd like to understand what's blocking you and where we go from here.\n- **Code reviews.** A couple of teammates have mentioned that recent reviews on complex PRs have been very brief \u2014 sometimes a single \"LGTM.\" I want to hear your perspective before drawing conclusions.\n- **Availability.** You've missed two standups without a heads-up, and there have been a few stretches (3+ hours) where you've been offline on Teams during the workday. I want to make sure I understand what's going on.\n\nI'm raising this because it's a real shift from the Alex I worked with last year \u2014 the person who led Persona V2, mentored Priya and Jordan, and earned an Exceeds rating. That track record is exactly why I'd rather have this conversation now than let things drift. Something seems to have changed, and I'd genuinely like to understand what \u2014 whether it's workload, the projects you're on, something outside of work, or something I'm doing (or not doing) as your manager.\n\nGoing into Thursday, it would help if you came ready to share your read on the quarter, anything you need from me, and a realistic path to closing out the evaluation pipeline. We'll use the time to talk, not to hand down decisions.\n\nThanks, Alex. I'm on your side here.\n\n\u2014 [Your name]",
+  "metrics": {
+    "input_tokens": 410,
+    "output_tokens": 448,
+    "ttft_ms": 1252.5,
+    "total_latency_ms": 12171.0,
+    "tokens_per_sec": 41.0,
+    "thinking_skipped": false,
+    "cost_usd": 0.01325,
+    "code_pass_rate": null
+  },
+  "category": "writing",
+  "difficulty": "hard",
+  "family": "claude"
+}

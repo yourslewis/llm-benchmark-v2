@@ -1,0 +1,520 @@
+Loaded 18 task prompts
+Relevance judge: 463 calls to make (0 tasks already done)
+Estimated time: ~154 minutes at ~20s/call
+[1/463] analysis-01 × azure/gpt-5.1-codex-mini... score=9
+[2/463] analysis-01 × azure/gpt-5.3-codex... score=9
+[3/463] analysis-01 × claude-haiku-4-5... score=9
+[4/463] analysis-01 × claude-opus-4-6-1m... score=9
+[5/463] analysis-01 × claude-opus-4-6... score=8
+[6/463] analysis-01 × claude-opus-4-7... score=9
+[7/463] analysis-01 × claude-sonnet-4-5... score=9
+[8/463] analysis-01 × claude-sonnet-4-6... score=9
+[9/463] analysis-01 × gemini-3-flash-preview... score=9
+[10/463] analysis-01 × gemini-3.1-pro-preview... score=9
+[11/463] analysis-01 × gpt-5-mini... score=9
+[12/463] analysis-01 × gpt-5.2-codex... score=9
+[13/463] analysis-01 × gpt-5.2... score=9
+[14/463] analysis-01 × gpt-5.3-codex... score=9
+[15/463] analysis-01 × gpt-5.4-mini... score=9
+[16/463] analysis-01 × gpt-5.4... score=9
+[17/463] analysis-02 × azure/gpt-5.1-codex-mini... score=8
+[18/463] analysis-02 × azure/gpt-5.3-codex... score=9
+[19/463] analysis-02 × claude-haiku-4-5... score=9
+[20/463] analysis-02 × claude-opus-4-6-1m... score=9
+[21/463] analysis-02 × claude-opus-4-6... score=9
+[22/463] analysis-02 × claude-opus-4-7... score=9
+[23/463] analysis-02 × claude-sonnet-4-5... score=8
+[24/463] analysis-02 × claude-sonnet-4-6... score=9
+[25/463] analysis-02 × gemini-3-flash-preview... score=9
+[26/463] analysis-02 × gemini-3.1-pro-preview... score=8
+[27/463] analysis-02 × gpt-5-mini... score=9
+[28/463] analysis-02 × gpt-5.2-codex... score=8
+[29/463] analysis-02 × gpt-5.2... score=9
+[30/463] analysis-02 × gpt-5.3-codex... score=9
+[31/463] analysis-02 × gpt-5.4-mini... score=8
+[32/463] analysis-02 × gpt-5.4... score=9
+[33/463] analysis-03 × azure/gpt-5.1-codex-mini... score=7
+[34/463] analysis-03 × azure/gpt-5.3-codex... score=9
+[35/463] analysis-03 × claude-haiku-4-5... score=8
+[36/463] analysis-03 × claude-opus-4-6-1m... score=9
+[37/463] analysis-03 × claude-opus-4-6... score=9
+[38/463] analysis-03 × claude-opus-4-7... score=9
+[39/463] analysis-03 × claude-sonnet-4-5... score=9
+[40/463] analysis-03 × claude-sonnet-4-6... score=9
+[41/463] analysis-03 × gemini-3-flash-preview... score=8
+[42/463] analysis-03 × gemini-3.1-pro-preview... score=9
+[43/463] analysis-03 × gpt-5-mini... score=7
+[44/463] analysis-03 × gpt-5.2-codex... score=7
+[45/463] analysis-03 × gpt-5.2... score=8
+[46/463] analysis-03 × gpt-5.3-codex... score=7
+[47/463] analysis-03 × gpt-5.4-mini... score=9
+[48/463] analysis-03 × gpt-5.4... score=9
+[49/463] code-01 × azure/gpt-5.1-codex-mini... score=9
+[50/463] code-01 × azure/gpt-5.3-codex... score=9
+[51/463] code-01 × claude-haiku-4-5... score=8
+[52/463] code-01 × claude-opus-4-6-1m... score=7
+[53/463] code-01 × claude-opus-4-6... score=7
+[54/463] code-01 × claude-opus-4-7... score=8
+[55/463] code-01 × claude-sonnet-4-5... score=9
+[56/463] code-01 × claude-sonnet-4-6... score=7
+[57/463] code-01 × gemini-3-flash-preview... score=8
+[58/463] code-01 × gemini-3.1-pro-preview... score=8
+[59/463] code-01 × gpt-5-mini... score=7
+[60/463] code-01 × gpt-5.2-codex... score=8
+[61/463] code-01 × gpt-5.2... score=9
+[62/463] code-01 × gpt-5.3-codex... score=9
+[63/463] code-01 × gpt-5.4-mini... score=9
+[64/463] code-01 × gpt-5.4... score=8
+[65/463] code-02 × azure/gpt-5.1-codex-mini... score=8
+[66/463] code-02 × azure/gpt-5.3-codex... score=7
+[67/463] code-02 × claude-haiku-4-5... score=7
+[68/463] code-02 × claude-opus-4-6-1m... score=8
+[69/463] code-02 × claude-opus-4-6... score=8
+[70/463] code-02 × claude-opus-4-7... score=8
+[71/463] code-02 × claude-sonnet-4-5... score=8
+[72/463] code-02 × claude-sonnet-4-6... score=8
+[73/463] code-02 × gemini-3-flash-preview... score=7
+[74/463] code-02 × gemini-3.1-pro-preview... score=8
+[75/463] code-02 × gpt-5-mini... score=8
+[76/463] code-02 × gpt-5.2-codex... score=7
+[77/463] code-02 × gpt-5.2... score=8
+[78/463] code-02 × gpt-5.3-codex... score=7
+[79/463] code-02 × gpt-5.4-mini... score=8
+[80/463] code-02 × gpt-5.4... score=8
+[81/463] code-03 × azure/gpt-5.1-codex-mini... score=7
+[82/463] code-03 × azure/gpt-5.3-codex... score=7
+[83/463] code-03 × claude-haiku-4-5... score=6
+[84/463] code-03 × claude-opus-4-6-1m... score=7
+[85/463] code-03 × claude-opus-4-6... score=7
+[86/463] code-03 × claude-opus-4-7... score=7
+[87/463] code-03 × claude-sonnet-4-5... score=6
+[88/463] code-03 × claude-sonnet-4-6... score=7
+[89/463] code-03 × gemini-3-flash-preview... score=8
+[90/463] code-03 × gemini-3.1-pro-preview... score=7
+[91/463] code-03 × gpt-5-mini... score=6
+[92/463] code-03 × gpt-5.2-codex... score=6
+[93/463] code-03 × gpt-5.2... score=7
+[94/463] code-03 × gpt-5.3-codex... score=7
+[95/463] code-03 × gpt-5.4-mini... score=1
+[96/463] code-03 × gpt-5.4... score=6
+[97/463] code-04 × azure/gpt-5.1-codex-mini... score=1
+[98/463] code-04 × azure/gpt-5.3-codex... score=8
+[99/463] code-04 × claude-haiku-4-5... score=7
+[100/463] code-04 × claude-opus-4-6-1m... score=7
+[101/463] code-04 × claude-opus-4-6... score=7
+[102/463] code-04 × claude-opus-4-7... score=9
+[103/463] code-04 × claude-sonnet-4-5... score=7
+[104/463] code-04 × claude-sonnet-4-6... score=8
+[105/463] code-04 × gemini-3-flash-preview... score=9
+[106/463] code-04 × gemini-3.1-pro-preview... score=9
+[107/463] code-04 × gpt-5-mini... score=7
+[108/463] code-04 × gpt-5.2-codex... score=1
+[109/463] code-04 × gpt-5.2... score=7
+[110/463] code-04 × gpt-5.3-codex... score=8
+[111/463] code-04 × gpt-5.4-mini... score=1
+[112/463] code-04 × gpt-5.4... score=8
+[113/463] code-05 × azure/gpt-5.1-codex-mini... score=9
+[114/463] code-05 × azure/gpt-5.3-codex... score=9
+[115/463] code-05 × claude-haiku-4-5... score=9
+[116/463] code-05 × claude-opus-4-6-1m... score=8
+[117/463] code-05 × claude-opus-4-6... score=8
+[118/463] code-05 × claude-opus-4-7... score=9
+[119/463] code-05 × claude-sonnet-4-5... score=9
+[120/463] code-05 × claude-sonnet-4-6... score=10
+[121/463] code-05 × gemini-3-flash-preview... score=9
+[122/463] code-05 × gemini-3.1-pro-preview... score=9
+[123/463] code-05 × gpt-5-mini... score=9
+[124/463] code-05 × gpt-5.2-codex... score=9
+[125/463] code-05 × gpt-5.2... score=9
+[126/463] code-05 × gpt-5.3-codex... score=9
+[127/463] code-05 × gpt-5.4-mini... score=9
+[128/463] code-05 × gpt-5.4... score=9
+[129/463] code-h1 × azure/gpt-5.1-codex-mini... score=5
+[130/463] code-h1 × azure/gpt-5.3-codex... score=7
+[131/463] code-h1 × claude-haiku-4-5... score=6
+[132/463] code-h1 × claude-opus-4-6-1m... score=6
+[133/463] code-h1 × claude-opus-4-6... score=6
+[134/463] code-h1 × claude-opus-4-7... score=8
+[135/463] code-h1 × claude-sonnet-4-5... score=7
+[136/463] code-h1 × claude-sonnet-4-6... score=7
+[137/463] code-h1 × gemini-3-flash-preview... score=8
+[138/463] code-h1 × gemini-3.1-pro-preview... score=7
+[139/463] code-h1 × gpt-5-mini... score=7
+[140/463] code-h1 × gpt-5.2-codex... score=1
+[141/463] code-h1 × gpt-5.2... score=7
+[142/463] code-h1 × gpt-5.3-codex... score=7
+[143/463] code-h1 × gpt-5.4-mini... score=1
+[144/463] code-h1 × gpt-5.4... score=7
+[145/463] code-h2 × azure/gpt-5.1-codex-mini... score=9
+[146/463] code-h2 × azure/gpt-5.3-codex... score=8
+[147/463] code-h2 × claude-haiku-4-5... score=8
+[148/463] code-h2 × claude-opus-4-6-1m... score=5
+[149/463] code-h2 × claude-opus-4-6... score=5
+[150/463] code-h2 × claude-opus-4-7... score=5
+[151/463] code-h2 × claude-sonnet-4-5... score=8
+[152/463] code-h2 × claude-sonnet-4-6... score=7
+[153/463] code-h2 × gemini-3-flash-preview... score=8
+[154/463] code-h2 × gemini-3.1-pro-preview... score=9
+[155/463] code-h2 × gpt-5-mini... score=9
+[156/463] code-h2 × gpt-5.2-codex... score=9
+[157/463] code-h2 × gpt-5.2... score=9
+[158/463] code-h2 × gpt-5.3-codex... score=8
+[159/463] code-h2 × gpt-5.4-mini... score=1
+[160/463] code-h2 × gpt-5.4... score=7
+[161/463] code-h3 × azure/gpt-5.1-codex-mini... score=1
+[162/463] code-h3 × azure/gpt-5.3-codex... score=6
+[163/463] code-h3 × claude-haiku-4-5... score=7
+[164/463] code-h3 × claude-opus-4-6-1m... score=6
+[165/463] code-h3 × claude-opus-4-6... score=7
+[166/463] code-h3 × claude-opus-4-7... score=6
+[167/463] code-h3 × claude-sonnet-4-5... score=6
+[168/463] code-h3 × claude-sonnet-4-6... score=1
+[169/463] code-h3 × gemini-3-flash-preview... score=5
+[170/463] code-h3 × gemini-3.1-pro-preview... score=6
+[171/463] code-h3 × gpt-5-mini... score=5
+[172/463] code-h3 × gpt-5.2-codex... score=1
+[173/463] code-h3 × gpt-5.2... score=2
+[174/463] code-h3 × gpt-5.3-codex... score=4
+[175/463] code-h3 × gpt-5.4-mini... score=1
+[176/463] code-h3 × gpt-5.4... score=1
+[177/463] code-h4 × azure/gpt-5.1-codex-mini... score=6
+[178/463] code-h4 × azure/gpt-5.3-codex... score=7
+[179/463] code-h4 × claude-haiku-4-5... score=7
+[180/463] code-h4 × claude-opus-4-6-1m... score=7
+[181/463] code-h4 × claude-opus-4-6... score=6
+[182/463] code-h4 × claude-opus-4-7... score=7
+[183/463] code-h4 × claude-sonnet-4-5... score=6
+[184/463] code-h4 × claude-sonnet-4-6... score=8
+[185/463] code-h4 × gemini-3-flash-preview... score=6
+[186/463] code-h4 × gemini-3.1-pro-preview... score=7
+[187/463] code-h4 × gpt-5-mini... score=6
+[188/463] code-h4 × gpt-5.2-codex... score=7
+[189/463] code-h4 × gpt-5.2... score=7
+[190/463] code-h4 × gpt-5.3-codex... score=7
+[191/463] code-h4 × gpt-5.4-mini... score=1
+[192/463] code-h4 × gpt-5.4... score=6
+[193/463] code-h5 × azure/gpt-5.1-codex-mini... score=7
+[194/463] code-h5 × azure/gpt-5.3-codex... score=1
+[195/463] code-h5 × claude-haiku-4-5... score=6
+[196/463] code-h5 × claude-opus-4-6-1m... score=7
+[197/463] code-h5 × claude-opus-4-6... score=8
+[198/463] code-h5 × claude-opus-4-7... score=7
+[199/463] code-h5 × claude-sonnet-4-5... score=5
+[200/463] code-h5 × claude-sonnet-4-6... score=7
+[201/463] code-h5 × gemini-3-flash-preview... score=8
+[202/463] code-h5 × gemini-3.1-pro-preview... score=7
+[203/463] code-h5 × gpt-5-mini... score=7
+[204/463] code-h5 × gpt-5.2-codex... score=1
+[205/463] code-h5 × gpt-5.2... score=6
+[206/463] code-h5 × gpt-5.3-codex... score=7
+[207/463] code-h5 × gpt-5.4-mini... score=1
+[208/463] code-h5 × gpt-5.4... score=1
+[209/463] debug-01 × azure/gpt-5.1-codex-mini... score=7
+[210/463] debug-01 × azure/gpt-5.3-codex... score=8
+[211/463] debug-01 × claude-haiku-4-5... score=6
+[212/463] debug-01 × claude-opus-4-6-1m... score=6
+[213/463] debug-01 × claude-opus-4-6... score=6
+[214/463] debug-01 × claude-opus-4-7... score=9
+[215/463] debug-01 × claude-sonnet-4-5... score=8
+[216/463] debug-01 × claude-sonnet-4-6... score=8
+[217/463] debug-01 × gemini-3-flash-preview... score=8
+[218/463] debug-01 × gemini-3.1-pro-preview... score=9
+[219/463] debug-01 × gpt-5-mini... score=8
+[220/463] debug-01 × gpt-5.2-codex... score=1
+[221/463] debug-01 × gpt-5.2... score=9
+[222/463] debug-01 × gpt-5.3-codex... score=8
+[223/463] debug-01 × gpt-5.4-mini... score=8
+[224/463] debug-01 × gpt-5.4... score=9
+[225/463] debug-02 × azure/gpt-5.1-codex-mini... score=7
+[226/463] debug-02 × azure/gpt-5.3-codex... score=8
+[227/463] debug-02 × claude-haiku-4-5... score=9
+[228/463] debug-02 × claude-opus-4-6-1m... score=5
+[229/463] debug-02 × claude-opus-4-6... score=6
+[230/463] debug-02 × claude-opus-4-7... score=8
+[231/463] debug-02 × claude-sonnet-4-5... score=8
+[232/463] debug-02 × claude-sonnet-4-6... score=9
+[233/463] debug-02 × gemini-3-flash-preview... score=8
+[234/463] debug-02 × gemini-3.1-pro-preview... score=7
+[235/463] debug-02 × gpt-5-mini... score=9
+[236/463] debug-02 × gpt-5.2-codex... score=6
+[237/463] debug-02 × gpt-5.2... score=8
+[238/463] debug-02 × gpt-5.3-codex... score=8
+[239/463] debug-02 × gpt-5.4-mini... score=7
+[240/463] debug-02 × gpt-5.4... score=7
+[241/463] design-01 × azure/gpt-5.1-codex-mini... score=7
+[242/463] design-01 × azure/gpt-5.3-codex... score=8
+[243/463] design-01 × claude-haiku-4-5... score=6
+[244/463] design-01 × claude-opus-4-6-1m... score=9
+[245/463] design-01 × claude-opus-4-6... score=8
+[246/463] design-01 × claude-opus-4-7... score=8
+[247/463] design-01 × claude-sonnet-4-5... score=6
+[248/463] design-01 × claude-sonnet-4-6... score=8
+[249/463] design-01 × gemini-3-flash-preview... score=9
+[250/463] design-01 × gemini-3.1-pro-preview... score=9
+[251/463] design-01 × gpt-5-mini... score=6
+[252/463] design-01 × gpt-5.2-codex... score=8
+[253/463] design-01 × gpt-5.2... score=6
+[254/463] design-01 × gpt-5.3-codex... score=8
+[255/463] design-01 × gpt-5.4-mini... score=1
+[256/463] design-01 × gpt-5.4... score=1
+[257/463] design-02 × azure/gpt-5.1-codex-mini... score=5
+[258/463] design-02 × azure/gpt-5.3-codex... score=6
+[259/463] design-02 × claude-haiku-4-5... score=4
+[260/463] design-02 × claude-opus-4-6-1m... score=7
+[261/463] design-02 × claude-opus-4-6... score=7
+[262/463] design-02 × claude-opus-4-7... score=7
+[263/463] design-02 × claude-sonnet-4-5... score=7
+[264/463] design-02 × claude-sonnet-4-6... score=5
+[265/463] design-02 × gemini-3-flash-preview... score=9
+[266/463] design-02 × gemini-3.1-pro-preview... score=9
+[267/463] design-02 × gpt-5-mini... score=6
+[268/463] design-02 × gpt-5.2-codex... score=7
+[269/463] design-02 × gpt-5.2... score=7
+[270/463] design-02 × gpt-5.3-codex... score=7
+[271/463] design-02 × gpt-5.4-mini... score=1
+[272/463] design-02 × gpt-5.4... score=1
+[273/463] lc-1 × azure/gpt-5.1-codex-mini... score=1
+[274/463] lc-1 × azure/gpt-5.3-codex... score=8
+[275/463] lc-1 × claude-haiku-4-5... score=6
+[276/463] lc-1 × claude-opus-4-6-1m... score=9
+[277/463] lc-1 × claude-opus-4-6... score=9
+[278/463] lc-1 × claude-opus-4-7... score=8
+[279/463] lc-1 × claude-sonnet-4-5... score=7
+[280/463] lc-1 × claude-sonnet-4-6... score=9
+[281/463] lc-1 × gemini-3-flash-preview... score=8
+[282/463] lc-1 × gemini-3.1-pro-preview... score=8
+[283/463] lc-1 × gpt-5-mini... score=7
+[284/463] lc-1 × gpt-5.2-codex... score=8
+[285/463] lc-1 × gpt-5.2... score=1
+[286/463] lc-1 × gpt-5.3-codex... score=8
+[287/463] lc-1 × gpt-5.4-mini... score=1
+[288/463] lc-1 × gpt-5.4... score=1
+[289/463] lc-2 × azure/gpt-5.1-codex-mini... score=9
+[290/463] lc-2 × azure/gpt-5.3-codex... score=1
+[291/463] lc-2 × claude-haiku-4-5... score=8
+[292/463] lc-2 × claude-opus-4-6-1m... score=8
+[293/463] lc-2 × claude-opus-4-6... score=9
+[294/463] lc-2 × claude-opus-4-7... score=9
+[295/463] lc-2 × claude-sonnet-4-5... score=9
+[296/463] lc-2 × claude-sonnet-4-6... score=7
+[297/463] lc-2 × gemini-3-flash-preview... score=9
+[298/463] lc-2 × gemini-3.1-pro-preview... score=9
+[299/463] lc-2 × gpt-5.2-codex... score=1
+[300/463] lc-2 × gpt-5.2... score=1
+[301/463] lc-2 × gpt-5.3-codex... score=1
+[302/463] lc-2 × gpt-5.4-mini... score=1
+[303/463] lc-2 × gpt-5.4... score=1
+[304/463] plan-01 × azure/gpt-5.1-codex-mini... score=1
+[305/463] plan-01 × azure/gpt-5.3-codex... score=9
+[306/463] plan-01 × claude-haiku-4-5... score=7
+[307/463] plan-01 × claude-opus-4-6-1m... score=8
+[308/463] plan-01 × claude-opus-4-6... score=8
+[309/463] plan-01 × claude-opus-4-7... score=9
+[310/463] plan-01 × claude-sonnet-4-5... score=7
+[311/463] plan-01 × claude-sonnet-4-6... score=8
+[312/463] plan-01 × gemini-3-flash-preview... score=10
+[313/463] plan-01 × gemini-3.1-pro-preview... score=10
+[314/463] plan-01 × gpt-5-mini... score=8
+[315/463] plan-01 × gpt-5.2-codex... score=9
+[316/463] plan-01 × gpt-5.2... score=8
+[317/463] plan-01 × gpt-5.3-codex... score=10
+[318/463] plan-01 × gpt-5.4-mini... score=1
+[319/463] plan-01 × gpt-5.4... score=7
+[320/463] plan-02 × azure/gpt-5.1-codex-mini... score=6
+[321/463] plan-02 × azure/gpt-5.3-codex... score=8
+[322/463] plan-02 × claude-haiku-4-5... score=6
+[323/463] plan-02 × claude-opus-4-6-1m... score=8
+[324/463] plan-02 × claude-opus-4-6... score=8
+[325/463] plan-02 × claude-opus-4-7... score=8
+[326/463] plan-02 × claude-sonnet-4-5... score=7
+[327/463] plan-02 × claude-sonnet-4-6... score=7
+[328/463] plan-02 × gemini-3-flash-preview... score=8
+[329/463] plan-02 × gemini-3.1-pro-preview... score=9
+[330/463] plan-02 × gpt-5-mini... score=7
+[331/463] plan-02 × gpt-5.2-codex... score=8
+[332/463] plan-02 × gpt-5.2... score=6
+[333/463] plan-02 × gpt-5.3-codex... score=8
+[334/463] plan-02 × gpt-5.4-mini... score=7
+[335/463] plan-02 × gpt-5.4... score=6
+[336/463] plan-03 × azure/gpt-5.1-codex-mini... score=5
+[337/463] plan-03 × azure/gpt-5.3-codex... score=9
+[338/463] plan-03 × claude-haiku-4-5... score=8
+[339/463] plan-03 × claude-opus-4-6-1m... score=8
+[340/463] plan-03 × claude-opus-4-6... score=8
+[341/463] plan-03 × claude-opus-4-7... score=9
+[342/463] plan-03 × claude-sonnet-4-5... score=8
+[343/463] plan-03 × claude-sonnet-4-6... score=8
+[344/463] plan-03 × gemini-3-flash-preview... score=8
+[345/463] plan-03 × gemini-3.1-pro-preview... score=9
+[346/463] plan-03 × gpt-5-mini... score=8
+[347/463] plan-03 × gpt-5.2-codex... score=8
+[348/463] plan-03 × gpt-5.2... score=9
+[349/463] plan-03 × gpt-5.3-codex... score=9
+[350/463] plan-03 × gpt-5.4-mini... score=9
+[351/463] plan-03 × gpt-5.4... score=9
+[352/463] tool-1 × azure/gpt-5.1-codex-mini... score=3
+[353/463] tool-1 × azure/gpt-5.3-codex... score=6
+[354/463] tool-1 × claude-haiku-4-5... score=3
+[355/463] tool-1 × claude-opus-4-6-1m... score=6
+[356/463] tool-1 × claude-opus-4-6... score=8
+[357/463] tool-1 × claude-opus-4-7... score=8
+[358/463] tool-1 × claude-sonnet-4-5... score=1
+[359/463] tool-1 × claude-sonnet-4-6... score=8
+[360/463] tool-1 × gemini-3-flash-preview... score=7
+[361/463] tool-1 × gemini-3.1-pro-preview... score=2
+[362/463] tool-1 × gpt-5-mini... score=2
+[363/463] tool-1 × gpt-5.2-codex... score=8
+[364/463] tool-1 × gpt-5.2... score=5
+[365/463] tool-1 × gpt-5.3-codex... score=7
+[366/463] tool-1 × gpt-5.4-mini... score=5
+[367/463] tool-1 × gpt-5.4... score=3
+[368/463] tool-2 × azure/gpt-5.1-codex-mini... score=9
+[369/463] tool-2 × azure/gpt-5.3-codex... score=9
+[370/463] tool-2 × claude-haiku-4-5... score=8
+[371/463] tool-2 × claude-opus-4-6-1m... score=9
+[372/463] tool-2 × claude-opus-4-6... score=9
+[373/463] tool-2 × claude-opus-4-7... score=9
+[374/463] tool-2 × claude-sonnet-4-5... score=9
+[375/463] tool-2 × claude-sonnet-4-6... score=9
+[376/463] tool-2 × gemini-3-flash-preview... score=9
+[377/463] tool-2 × gemini-3.1-pro-preview... score=9
+[378/463] tool-2 × gpt-5-mini... score=9
+[379/463] tool-2 × gpt-5.2-codex... score=9
+[380/463] tool-2 × gpt-5.2... score=9
+[381/463] tool-2 × gpt-5.3-codex... score=9
+[382/463] tool-2 × gpt-5.4-mini... score=9
+[383/463] tool-2 × gpt-5.4... score=9
+[384/463] tool-3 × azure/gpt-5.1-codex-mini... score=6
+[385/463] tool-3 × azure/gpt-5.3-codex... score=6
+[386/463] tool-3 × claude-haiku-4-5... score=6
+[387/463] tool-3 × claude-opus-4-6-1m... score=7
+[388/463] tool-3 × claude-opus-4-6... score=6
+[389/463] tool-3 × claude-opus-4-7... score=7
+[390/463] tool-3 × claude-sonnet-4-5... score=7
+[391/463] tool-3 × claude-sonnet-4-6... score=7
+[392/463] tool-3 × gemini-3-flash-preview... score=8
+[393/463] tool-3 × gemini-3.1-pro-preview... score=6
+[394/463] tool-3 × gpt-5-mini... score=7
+[395/463] tool-3 × gpt-5.2-codex... score=7
+[396/463] tool-3 × gpt-5.2... score=7
+[397/463] tool-3 × gpt-5.3-codex... score=7
+[398/463] tool-3 × gpt-5.4-mini... score=1
+[399/463] tool-3 × gpt-5.4... score=1
+[400/463] writing-01 × azure/gpt-5.1-codex-mini... score=7
+[401/463] writing-01 × azure/gpt-5.3-codex... score=8
+[402/463] writing-01 × claude-haiku-4-5... score=7
+[403/463] writing-01 × claude-opus-4-6-1m... score=8
+[404/463] writing-01 × claude-opus-4-6... score=8
+[405/463] writing-01 × claude-opus-4-7... score=7
+[406/463] writing-01 × claude-sonnet-4-5... score=7
+[407/463] writing-01 × claude-sonnet-4-6... score=8
+[408/463] writing-01 × gemini-3-flash-preview... score=9
+[409/463] writing-01 × gemini-3.1-pro-preview... score=8
+[410/463] writing-01 × gpt-5-mini... score=7
+[411/463] writing-01 × gpt-5.2-codex... score=8
+[412/463] writing-01 × gpt-5.2... score=8
+[413/463] writing-01 × gpt-5.3-codex... score=7
+[414/463] writing-01 × gpt-5.4-mini... score=1
+[415/463] writing-01 × gpt-5.4... score=1
+[416/463] writing-02 × azure/gpt-5.1-codex-mini... score=9
+[417/463] writing-02 × azure/gpt-5.3-codex... score=9
+[418/463] writing-02 × claude-haiku-4-5... score=9
+[419/463] writing-02 × claude-opus-4-6-1m... score=9
+[420/463] writing-02 × claude-opus-4-6... score=9
+[421/463] writing-02 × claude-opus-4-7... score=9
+[422/463] writing-02 × claude-sonnet-4-5... score=8
+[423/463] writing-02 × claude-sonnet-4-6... score=9
+[424/463] writing-02 × gemini-3-flash-preview... score=9
+[425/463] writing-02 × gemini-3.1-pro-preview... score=9
+[426/463] writing-02 × gpt-5-mini... score=9
+[427/463] writing-02 × gpt-5.2-codex... score=8
+[428/463] writing-02 × gpt-5.2... score=9
+[429/463] writing-02 × gpt-5.3-codex... score=9
+[430/463] writing-02 × gpt-5.4-mini... score=9
+[431/463] writing-02 × gpt-5.4... score=9
+[432/463] writing-03 × azure/gpt-5.1-codex-mini... score=8
+[433/463] writing-03 × azure/gpt-5.3-codex... score=8
+[434/463] writing-03 × claude-haiku-4-5... score=8
+[435/463] writing-03 × claude-opus-4-6-1m... score=8
+[436/463] writing-03 × claude-opus-4-6... score=9
+[437/463] writing-03 × claude-opus-4-7... score=9
+[438/463] writing-03 × claude-sonnet-4-5... score=9
+[439/463] writing-03 × claude-sonnet-4-6... score=9
+[440/463] writing-03 × gemini-3-flash-preview... score=9
+[441/463] writing-03 × gemini-3.1-pro-preview... score=9
+[442/463] writing-03 × gpt-5-mini... score=9
+[443/463] writing-03 × gpt-5.2-codex... score=9
+[444/463] writing-03 × gpt-5.2... score=9
+[445/463] writing-03 × gpt-5.3-codex... score=9
+[446/463] writing-03 × gpt-5.4-mini... score=9
+[447/463] writing-03 × gpt-5.4... score=9
+[448/463] writing-04 × azure/gpt-5.1-codex-mini... score=8
+[449/463] writing-04 × azure/gpt-5.3-codex... score=9
+[450/463] writing-04 × claude-haiku-4-5... score=8
+[451/463] writing-04 × claude-opus-4-6-1m... score=9
+[452/463] writing-04 × claude-opus-4-6... score=9
+[453/463] writing-04 × claude-opus-4-7... score=9
+[454/463] writing-04 × claude-sonnet-4-5... score=8
+[455/463] writing-04 × claude-sonnet-4-6... score=9
+[456/463] writing-04 × gemini-3-flash-preview... score=9
+[457/463] writing-04 × gemini-3.1-pro-preview... score=9
+[458/463] writing-04 × gpt-5-mini... score=9
+[459/463] writing-04 × gpt-5.2-codex... score=9
+[460/463] writing-04 × gpt-5.2... score=9
+[461/463] writing-04 × gpt-5.3-codex... score=9
+[462/463] writing-04 × gpt-5.4-mini... score=9
+[463/463] writing-04 × gpt-5.4... score=9
+
+============================================================
+Relevance judge complete: results/v4-20260418-224048/relevance_scores.json
+  Scored: 463/463
+  Errors: 0
+
+Relevance Leaderboard:
+ # Model                                 Avg  Min  Max   N
+------------------------------------------------------------
+ 1 gemini-3-flash-preview                8.2    5   10  29
+ 2 claude-opus-4-7                       8.1    5    9  29
+ 3 gemini-3.1-pro-preview                8.1    2   10  29
+ 4 claude-sonnet-4-6                     7.8    1   10  29
+ 5 claude-opus-4-6                       7.7    5    9  29
+ 6 gpt-5.3-codex                         7.7    1   10  29
+ 7 claude-opus-4-6-1m                    7.6    5    9  29
+ 8 azure/gpt-5.3-codex                   7.4    1    9  29
+ 9 gpt-5-mini                            7.4    2    9  28
+10 claude-sonnet-4-5                     7.3    1    9  29
+11 gpt-5.2                               7.2    1    9  29
+12 claude-haiku-4-5                      7.1    3    9  29
+13 gpt-5.2-codex                         6.5    1    9  29
+14 azure/gpt-5.1-codex-mini              6.3    1    9  29
+15 gpt-5.4                               5.9    1    9  29
+16 gpt-5.4-mini                          4.8    1    9  29
+score=9
+[461/463] writing-04 × gpt-5.3-codex... score=9
+[462/463] writing-04 × gpt-5.4-mini... score=9
+[463/463] writing-04 × gpt-5.4... score=9
+
+============================================================
+Relevance judge complete: results/v4-20260418-224048/relevance_scores.json
+  Scored: 463/463
+  Errors: 0
+
+Relevance Leaderboard:
+ # Model                                 Avg  Min  Max   N
+------------------------------------------------------------
+ 1 gemini-3-flash-preview                8.3    5    9  29
+ 2 gemini-3.1-pro-preview                8.1    2   10  29
+ 3 claude-opus-4-7                       8.1    5    9  29
+ 4 claude-sonnet-4-6                     7.8    1   10  29
+ 5 gpt-5.3-codex                         7.7    1   10  29
+ 6 claude-opus-4-6-1m                    7.6    5    9  29
+ 7 claude-opus-4-6                       7.5    5    9  29
+ 8 claude-sonnet-4-5                     7.4    1    9  29
+ 9 gpt-5-mini                            7.4    2    9  28
+10 azure/gpt-5.3-codex                   7.3    1    9  29
+11 claude-haiku-4-5                      7.2    3    9  29
+12 gpt-5.2                               7.2    1    9  29
+13 azure/gpt-5.1-codex-mini              6.4    1    9  29
+14 gpt-5.2-codex                         6.4    1    9  29
+15 gpt-5.4                               5.9    1    9  29
+16 gpt-5.4-mini                          4.8    1    9  29

@@ -1,0 +1,15 @@
+{
+  "category": "writing",
+  "difficulty": "medium",
+  "grading": "llm_judge",
+  "criteria": [
+    {"name": "title_quality", "weight": 10, "description": "Engaging, specific title that captures attention"},
+    {"name": "problem_framing", "weight": 15, "description": "Clear, concise problem statement (2-3 sentences)"},
+    {"name": "technical_clarity", "weight": 20, "description": "5-layer architecture explained clearly for non-domain audience"},
+    {"name": "impact_metrics", "weight": 15, "description": "Plausible, specific metrics (CTR, revenue, latency)"},
+    {"name": "team_callouts", "weight": 10, "description": "Names 3-4 people with specific contributions"},
+    {"name": "future_work", "weight": 10, "description": "Concrete next steps (2-3 bullets)"},
+    {"name": "tone", "weight": 15, "description": "Professional, warm, celebratory, technically accurate — not jargon-heavy or vague"},
+    {"name": "length", "weight": 5, "description": "500-800 words as requested"}
+  ]
+}

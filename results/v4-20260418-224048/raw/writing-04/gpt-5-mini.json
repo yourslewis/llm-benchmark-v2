@@ -1,0 +1,19 @@
+{
+  "task_id": "writing-04",
+  "model_id": "gpt-5-mini",
+  "status": "ok",
+  "response_text": "Subject: 1:1 to discuss recent performance and support\n\nHi Alex,\n\nI\u2019d like to schedule a 45-minute 1:1 to discuss some concerns about recent work and to figure out how I can support you. I don\u2019t want to blindside you \u2014 this meeting will be about recent performance and next steps.\n\nOver the last quarter I\u2019ve noticed a few specific issues:\n- Persona V3 integration was due March 15 and shipped March 28 (13 days late).\n- The evaluation pipeline due April 1 is still incomplete.\n- Several teammates have said your code reviews have become very brief (e.g., one-line \u201cLGTM\u201d on complex PRs).\n- You missed two team standups without notice and were unresponsive on Teams for 3+ hours on multiple occasions.\n\nI want to be clear: I know you were a top performer last year \u2014 you led the Persona V2 launch, mentored two junior engineers, and received an \u201cExceeds\u201d rating. Because of that track record, I want to understand what changed and help you get back to that level. This is a conversation to understand and support you, not a disciplinary meeting.\n\nIn the 1:1 I\u2019d like to hear your perspective on the items above, any obstacles (workload, blockers, personal), what support you need, and to agree on concrete expectations and a short plan with measurable commitments and a two-week check-in.\n\nCan you do 45 minutes on Tuesday at 2:00pm or Wednesday at 11:00am? If neither works, please propose two times. If now is not a good time for a performance discussion, tell me and we\u2019ll reschedule.\n\nThanks,\n[Your Name]\nEngineering Manager",
+  "metrics": {
+    "input_tokens": 410,
+    "output_tokens": 382,
+    "ttft_ms": 34392.6,
+    "total_latency_ms": 37060.2,
+    "tokens_per_sec": 143.2,
+    "thinking_skipped": false,
+    "cost_usd": 0.000775,
+    "code_pass_rate": null
+  },
+  "category": "writing",
+  "difficulty": "hard",
+  "family": "openai"
+}

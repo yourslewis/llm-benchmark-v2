@@ -1,0 +1,13 @@
+{
+  "category": "tool-use",
+  "difficulty": "hard",
+  "grading": "judge",
+  "criteria": [
+    {"name": "architecture", "weight": 15, "description": "Clear architecture with component responsibilities"},
+    {"name": "parallel_dispatch", "weight": 20, "description": "Correct batching of independent calls from dependency graph"},
+    {"name": "rate_limiting", "weight": 20, "description": "Proper rate limiter implementation per provider"},
+    {"name": "error_degradation", "weight": 20, "description": "Graceful degradation with retry and fallback logic"},
+    {"name": "pseudocode_quality", "weight": 15, "description": "Detailed, implementable pseudocode"},
+    {"name": "edge_cases", "weight": 10, "description": "Handles circular deps, starvation, all-limited scenarios"}
+  ]
+}

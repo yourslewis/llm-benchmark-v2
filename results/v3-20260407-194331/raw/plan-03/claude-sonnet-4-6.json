@@ -1,0 +1,18 @@
+{
+  "task_id": "plan-03",
+  "model_id": "claude-sonnet-4-6",
+  "status": "ok",
+  "response_text": "**Subject:** Receipt Request \u2013 Business Lunch on March 12, 2026\n\n---\n\nHi Boardwalk Restaurant Team,\n\nI hope this message finds you well! I'm reaching out because I misplaced the receipt from a lunch visit and need a copy for a business expense reimbursement.\n\nHere are the details that should help you locate the transaction:\n\n- **Date:** March 12, 2026\n- **Time:** approximately 1:58 PM\n- **Amount:** $515.56\n- **Payment method:** American Express\n\nI was hosting a client lunch that afternoon, so I want to make sure I have the proper documentation to submit through our expense process.\n\nIf you're able to send over a copy of the receipt or a brief written confirmation of the transaction, that would be incredibly helpful. I'm working against an end-of-month deadline for expense report submissions, so any time you can spare before then would be greatly appreciated.\n\nPlease don't hesitate to reach out if you need any additional information to track down the record \u2014 happy to provide whatever helps.\n\nThank you so much for your time!\n\n---\n\n**Alex Chen**\nAccount Manager\nContoso Technologies\n\ud83d\udce7 alex.chen@contoso.com\n\ud83d\udcde (555) 0147",
+  "metrics": {
+    "input_tokens": 456,
+    "output_tokens": 280,
+    "ttft_ms": 2380.1,
+    "total_latency_ms": 13206.0,
+    "tokens_per_sec": 25.9,
+    "cost_usd": 0.005568,
+    "code_pass_rate": null
+  },
+  "category": "plan",
+  "difficulty": "easy",
+  "family": "claude"
+}

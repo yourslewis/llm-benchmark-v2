@@ -1,0 +1,12 @@
+{
+  "category": "plan",
+  "difficulty": "hard",
+  "grading": "llm_judge",
+  "criteria": [
+    {"name": "itinerary_completeness", "weight": 25, "description": "Day-by-day itinerary covers all 8 days with specific activities; respects April 10 arrival and April 18 departure"},
+    {"name": "hotel_recommendations", "weight": 20, "description": "Provides 2-3 concrete hotel options for each city with prices, pros/cons; San Antonio near Riverwalk, Austin near downtown/SoCo"},
+    {"name": "budget_realism", "weight": 20, "description": "Budget breakdown adds up correctly; total is at or near $3,000; flags cuts if over budget"},
+    {"name": "kid_friendliness", "weight": 20, "description": "Activities are genuinely appropriate for ages 8-11; at least 5 per city; includes mix of outdoor, cultural, and fun"},
+    {"name": "logistics_accuracy", "weight": 15, "description": "Drive times are realistic; rental car pickup/dropoff locations correct (SAT→HOU/IAH); route recommendations are practical"}
+  ]
+}

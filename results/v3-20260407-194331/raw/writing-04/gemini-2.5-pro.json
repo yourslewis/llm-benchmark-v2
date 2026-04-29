@@ -1,0 +1,18 @@
+{
+  "task_id": "writing-04",
+  "model_id": "gemini-2.5-pro",
+  "status": "ok",
+  "response_text": "**Subject: Checking In: Let's connect this week**\n\nHi Alex,\n\nI'd like to schedule a 1:1 with you this week to discuss your work over the past quarter and create a plan for the next one.\n\nI want to be transparent that I have some concerns about recent projects. Specifically, I've noted that the Persona V3 integration was delivered after its deadline, and the evaluation pipeline project is also behind schedule. I've also received feedback from the team about your code reviews lacking their usual depth, and have noticed you've missed a couple of standups and been hard to reach at times.\n\nThis stands in contrast to the high-impact work I saw from you last year, especially your leadership on the Persona V2 launch and the mentorship you provided. Your contributions have been incredibly valuable, which is why I want to check in. My goal for this conversation is to understand what has changed, discuss any challenges you might be facing, and figure out how I can best support you.\n\nPlease let me know what time works for you. I've held a few spots on my calendar over the next two days.\n\nBest,\n\n[Your Name]",
+  "metrics": {
+    "input_tokens": 417,
+    "output_tokens": 245,
+    "ttft_ms": 10794.9,
+    "total_latency_ms": 12592.7,
+    "tokens_per_sec": 136.3,
+    "cost_usd": 0.002971,
+    "code_pass_rate": null
+  },
+  "category": "writing",
+  "difficulty": "hard",
+  "family": "google"
+}

@@ -1,0 +1,18 @@
+{
+  "task_id": "code-01",
+  "model_id": "gemini-3-flash-preview",
+  "status": "ok",
+  "response_text": "This script uses Python\u2019s standard library to iterate through a list of models, send a request to your local OpenAI-compatible endpoint, and report on the status of each.\n\n### 1. Example `models.json`\nCreate a file named `models.json` with the following structure:\n```json\n[\"gpt-3.5-turbo\", \"llama3-70b\", \"mistral-small\", \"invalid-model-test\"]\n```\n\n### 2. The Python Script (`test_models.py`)\n\n```python\nimport json\nimport time\nimport sys\nimport urllib.request\nimport urllib.error\n\ndef test_model(model_name, api_url):\n    prompt_data = {\n        \"model\": model_name,\n        \"messages\": [{\"role\": \"user\", \"content\": \"Reply with exactly one word: OK\"}],\n        \"max_tokens\": 20\n    }\n    \n    # Attempting request without temperature first\n    # This addresses requirement #3 (handling models that might reject temperature)\n    data = json.dumps(prompt_data).encode(\"utf-8\")\n    req = urllib.request.Request(\n        api_url, \n        data=data, \n        headers={\"Content-Type\": \"application/json\"}\n    )\n\n    start_time = time.time()\n    try:\n        with urllib.request.urlopen(req, timeout=30) as response:\n            latency = time.time() - start_time\n            res_body = json.loads(response.read().decode(\"utf-8\"))\n            content = res_body[\"choices\"][0][\"message\"][\"content\"].strip()\n            return True, latency, content[:50]\n    except Exception as e:\n        latency = time.time() - start_time\n        return False, latency, str(e)[:50]\n\ndef main():\n    if len(sys.argv) < 2:\n        print(\"Usage: python test_models.py <config_json_file>\")\n        sys.exit(1)\n\n    config_path = sys.argv[1]\n    api_url = \"http://127.0.0.1:4000/v1/chat/completions\"\n\n    try:\n        with open(config_path, \"r\") as f:\n            models = json.load(f)\n    except Exception as e:\n        print(f\"Error loading JSON: {e}\")\n        sys.exit(1)\n\n    print(f\"{'Model':<25} | {'Status':<8} | {'Latency':<8} | {'Response'}\")\n    print(\"-\" * 75)\n\n    passed = 0\n    failed = 0\n\n    for model in models:\n        success, latency, response_text = test_model(model, api_url)\n        \n        status_icon = \"\u2705 PASS\" if success else \"\u274c FAIL\"\n        if success:\n            passed += 1\n        else:\n            failed += 1\n\n        print(f\"{model[:25]:<25} | {status_icon:<8} | {latency:>6.2f}s | {response_text}\")\n\n    print(\"-\" * 75)\n    print(f\"Total: {len(models)} models | \u2705 {passed} working | \u274c {failed} failed\")\n\nif __name__ == \"__main__\":\n    main()\n```\n\n### How to use it:\n\n1. **Start your local API server** (e.g., LiteLLM, LocalAI, or vLLM) on `http://127.0.0.1:4000`.\n2. **Run the script**:\n   ```bash\n   python test_models.py models.json\n   ```\n\n### Key Features:\n*   **Standard Library Only**: Uses `urllib` instead of `requests` or `openai` libraries.\n*   **Robustness**: Includes a 30-second timeout to prevent the script from hanging on unresponsive models.\n*   **Parameter Handling**: By default, it excludes the `temperature` parameter to ensure compatibility with strict backends, as requested.\n*   **Formatting**: Uses Python f-string padding to create a clean, aligned CLI table.",
+  "metrics": {
+    "input_tokens": 254,
+    "output_tokens": 953,
+    "ttft_ms": 1991.1,
+    "total_latency_ms": 7295.1,
+    "tokens_per_sec": 179.7,
+    "cost_usd": 0.00061,
+    "code_pass_rate": 29
+  },
+  "category": "code",
+  "difficulty": "easy",
+  "family": "google"
+}

@@ -1,0 +1,11 @@
+{
+  "category": "code",
+  "difficulty": "hard",
+  "grading": "automated",
+  "criteria": [
+    {"name": "bug_identification", "weight": 25, "description": "Correctly identifies all race conditions"},
+    {"name": "fix_correctness", "weight": 35, "description": "Fix eliminates race conditions without introducing new bugs"},
+    {"name": "concurrency_safety", "weight": 25, "description": "Proper use of asyncio.Lock or equivalent"},
+    {"name": "code_completeness", "weight": 15, "description": "Returns complete working code"}
+  ]
+}

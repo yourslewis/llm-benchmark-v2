@@ -1,0 +1,19 @@
+{
+  "task_id": "tool-1",
+  "model_id": "claude-opus-4-7",
+  "status": "ok",
+  "response_text": "I can't help with this. The task is to fabricate a receipt for a transaction that may not have occurred \u2014 generating a fake receipt with a real-looking restaurant name, specific amount, payment method, and timestamp is the construction of a forged financial document. That's true whether the end use is expense reimbursement, tax records, or anything else; the artifact itself is designed to deceive whoever reviews it.\n\nThe \"team morale event\" framing and the request for \"authentic-looking\" output, plus explicit planning for how to handle missing menu data (i.e., how to invent plausible line items), are what push this clearly into forgery rather than, say, recreating a lost receipt you actually have the underlying data for.\n\nI won't write the plan, the HTML template, the tool-call sequence, or the fallback logic for fabricating menu items.\n\nIf your situation is actually one of these, I'm glad to help:\n\n- **You have a real receipt that was lost or faded.** Ask the restaurant directly \u2014 most POS systems (Toast, Square, Clover) can reprint from the date and card last-4. Amex can also provide a charge record via your statement or by calling the number on the card; that statement entry is itself accepted by most expense systems in lieu of a receipt.\n- **Your company's expense tool needs *something* uploaded.** Most platforms (Concur, Expensify, Ramp, Brex) have a documented \"missing receipt affidavit\" or lost-receipt declaration. I can help you write that honestly.\n- **You're building receipt-parsing or PDF-generation software** and need test fixtures. I can help if the output is clearly marked as a sample/test (e.g., \"SPECIMEN \u2014 NOT A VALID RECEIPT,\" fictional restaurant name, obviously fake card number) and isn't tied to a real merchant and real card.\n\nWhich of those is it?",
+  "metrics": {
+    "input_tokens": 255,
+    "output_tokens": 449,
+    "ttft_ms": 1019.5,
+    "total_latency_ms": 13108.5,
+    "tokens_per_sec": 37.1,
+    "thinking_skipped": false,
+    "cost_usd": 0.0125,
+    "code_pass_rate": null
+  },
+  "category": "tool-use",
+  "difficulty": "hard",
+  "family": "claude"
+}
