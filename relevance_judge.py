@@ -43,12 +43,18 @@ Reply with ONLY a JSON object: {{"relevance_score": <1-10>, "missed_aspects": ["
 
 
 def extract_responses_text(data):
+    """
+    Safely extracts plain text from model responses, handling both 
+    flat text and rich structured content (e.g., from reasoning models).
+    """
     response_text = data.get("output_text", "")
     if response_text:
         return response_text.strip()
     texts = []
+    # Iterate through structured output blocks if output_text is missing
     for item in data.get("output", []) or []:
         if not isinstance(item, dict) or item.get("type") == "reasoning":
+            # Skip internal reasoning steps for the relevance judge
             continue
         content = item.get("content", [])
         if isinstance(content, str):
@@ -61,6 +67,10 @@ def extract_responses_text(data):
 
 
 def ensure_consensus_entry(existing, task_id, model_id):
+    """
+    Initializes or migrates a result entry to the new 3-judge consensus format.
+    Handles migration from legacy single-model scores if present.
+    """
     if task_id not in existing:
         existing[task_id] = {}
     entry = existing[task_id].get(model_id)
@@ -68,6 +78,7 @@ def ensure_consensus_entry(existing, task_id, model_id):
         entry = {}
         existing[task_id][model_id] = entry
     if "judges" not in entry:
+        # Migrate legacy single-judge score to a protected field
         legacy = {k: entry.get(k) for k in ("score", "missed_aspects", "missed", "justification") if k in entry}
         entry.clear()
         entry["judges"] = []
@@ -216,13 +227,15 @@ def main():
 
     for task_id, model_id, task_prompt, response_text in tasks:
         print(f"Judging {task_id} × {model_id}...", end=" ", flush=True)
+        # Ensure the output data structure is ready for 3-judge consensus
         entry = ensure_consensus_entry(existing, task_id, model_id)
         
         for judge_model in JUDGE_MODELS:
-            # Resume at score(task, model, eval_model) granularity.
+            # Resume at score(task, model, eval_model) granularity to avoid redundant API calls
             if any(j.get("judge") == judge_model and j.get("score") is not None for j in entry["judges"]):
                 continue
             
+            # Format the grading prompt with the task context discovered during load_task_prompts
             prompt = RELEVANCE_PROMPT.format(task_id=task_id, model_id=model_id, task_prompt=task_prompt, response_text=response_text)
             raw = send_with_retry(judge_model, prompt)
             parsed = parse_response(raw)
@@ -234,14 +247,18 @@ def main():
                     "missed": parsed.get("missed_aspects", [])
                 })
         
+        # Calculate final consensus metrics
         all_scores = [j["score"] for j in entry["judges"] if j.get("score") is not None]
         if all_scores:
+            # Use median to resist outlier bias in the 3-model panel
             entry["score"] = round(statistics.median(all_scores), 1)
             entry["judge_count"] = len(all_scores)
+            # Track disagreement (spread); flag for review if models differ by >= 3 points
             entry["spread"] = max(all_scores) - min(all_scores)
             entry["flagged"] = entry["spread"] >= 3
             print(f"median_score={entry['score']} judges={entry['judge_count']} spread={entry['spread']}")
         
+        # Incremental save after each task-model pair is judged
         with open(output_file, "w") as f: json.dump(existing, f, indent=2)
 
     print(f"\nRelevance consensus complete: {output_file}")
