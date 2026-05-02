@@ -138,35 +138,45 @@ def parse_response(text):
 
 
 def load_task_prompts(results_dir):
+    """
+    Loads the original task prompts to provide context for the relevance judge.
+    Prioritizes the local tasks/ directory which contains v4 prompt.md files.
+    """
     task_prompts = {}
     
-    # 1. Check tasks/ directory (Primary source for v4)
+    # 1. Check tasks/ directory (Primary source for v4 prompts)
+    # Each task is a folder containing a prompt.md file.
     tasks_dir = BENCHMARK_DIR / "tasks"
     if tasks_dir.exists():
         for task_path in tasks_dir.iterdir():
             if task_path.is_dir():
                 prompt_file = task_path / "prompt.md"
                 if prompt_file.exists():
+                    # Map task folder name (e.g., 'analysis-01') to its markdown content
                     task_prompts[task_path.name] = prompt_file.read_text().strip()
 
-    # 2. Check tasks.json (Secondary/Legacy)
+    # 2. Check tasks.json (Secondary/Legacy source)
+    # Fallback for tasks not found in the directory structure.
     tasks_file = BENCHMARK_DIR / "tasks.json"
     if tasks_file.exists():
         try:
             tasks_data = json.loads(tasks_file.read_text())
+            # Handle both list and object-wrapped task lists
             tasks_list = tasks_data.get("tasks", []) if isinstance(tasks_data, dict) else tasks_data
             for t in tasks_list:
                 if t.get("id") and t.get("id") not in task_prompts:
                     task_prompts[t["id"]] = t.get("prompt", "")
         except: pass
 
-    # 3. Check result dirs for prompt.txt (Tertiary)
+    # 3. Check result dirs for prompt.txt (Tertiary/In-situ source)
+    # Some older runs copied the prompt directly into the results folder.
     raw_dir = results_dir / "raw"
     if raw_dir.exists():
         for task_dir in raw_dir.iterdir():
             if task_dir.is_dir() and task_dir.name not in task_prompts:
                 prompt_file = task_dir / "prompt.txt"
                 if prompt_file.exists():
+                    # Truncate to avoid blowing out judge context windows
                     task_prompts[task_dir.name] = prompt_file.read_text()[:4000]
     
     return task_prompts
