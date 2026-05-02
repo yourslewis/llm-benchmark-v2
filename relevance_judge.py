@@ -42,6 +42,40 @@ Response to evaluate:
 Reply with ONLY a JSON object: {{"relevance_score": <1-10>, "missed_aspects": ["list of specific parts of the question not addressed"], "justification": "one paragraph"}}"""
 
 
+def extract_responses_text(data):
+    response_text = data.get("output_text", "")
+    if response_text:
+        return response_text.strip()
+    texts = []
+    for item in data.get("output", []) or []:
+        if not isinstance(item, dict) or item.get("type") == "reasoning":
+            continue
+        content = item.get("content", [])
+        if isinstance(content, str):
+            texts.append(content)
+        elif isinstance(content, list):
+            for c in content:
+                if isinstance(c, dict) and c.get("text"):
+                    texts.append(c["text"])
+    return "\n".join(texts).strip()
+
+
+def ensure_consensus_entry(existing, task_id, model_id):
+    if task_id not in existing:
+        existing[task_id] = {}
+    entry = existing[task_id].get(model_id)
+    if not isinstance(entry, dict):
+        entry = {}
+        existing[task_id][model_id] = entry
+    if "judges" not in entry:
+        legacy = {k: entry.get(k) for k in ("score", "missed_aspects", "missed", "justification") if k in entry}
+        entry.clear()
+        entry["judges"] = []
+        if legacy:
+            entry["legacy_single_model_score"] = legacy
+    return entry
+
+
 def send_request(judge_model, prompt_text):
     if judge_model == "gpt-5.5":
         body = {"model": judge_model, "input": prompt_text, "reasoning": {"effort": "high"}}
@@ -50,7 +84,7 @@ def send_request(judge_model, prompt_text):
         try:
             with urllib.request.urlopen(req, timeout=300) as resp:
                 data = json.loads(resp.read())
-                return data.get("output_text", "").strip()
+                return extract_responses_text(data)
         except: return None
     else:
         body = {
@@ -105,17 +139,36 @@ def parse_response(text):
 
 def load_task_prompts(results_dir):
     task_prompts = {}
+    
+    # 1. Check tasks/ directory (Primary source for v4)
+    tasks_dir = BENCHMARK_DIR / "tasks"
+    if tasks_dir.exists():
+        for task_path in tasks_dir.iterdir():
+            if task_path.is_dir():
+                prompt_file = task_path / "prompt.md"
+                if prompt_file.exists():
+                    task_prompts[task_path.name] = prompt_file.read_text().strip()
+
+    # 2. Check tasks.json (Secondary/Legacy)
     tasks_file = BENCHMARK_DIR / "tasks.json"
     if tasks_file.exists():
-        tasks = json.loads(tasks_file.read_text())
-        if isinstance(tasks, list):
-            for t in tasks: task_prompts[t["id"]] = t.get("prompt", "")
-    # Check task dirs for prompt files
+        try:
+            tasks_data = json.loads(tasks_file.read_text())
+            tasks_list = tasks_data.get("tasks", []) if isinstance(tasks_data, dict) else tasks_data
+            for t in tasks_list:
+                if t.get("id") and t.get("id") not in task_prompts:
+                    task_prompts[t["id"]] = t.get("prompt", "")
+        except: pass
+
+    # 3. Check result dirs for prompt.txt (Tertiary)
     raw_dir = results_dir / "raw"
-    for task_dir in raw_dir.iterdir():
-        if task_dir.is_dir():
-            prompt_file = task_dir / "prompt.txt"
-            if prompt_file.exists(): task_prompts[task_dir.name] = prompt_file.read_text()[:4000]
+    if raw_dir.exists():
+        for task_dir in raw_dir.iterdir():
+            if task_dir.is_dir() and task_dir.name not in task_prompts:
+                prompt_file = task_dir / "prompt.txt"
+                if prompt_file.exists():
+                    task_prompts[task_dir.name] = prompt_file.read_text()[:4000]
+    
     return task_prompts
 
 
@@ -140,8 +193,11 @@ def main():
             result = json.loads(result_file.read_text())
             if result.get("status") != "ok": continue
             model_id = result["model_id"]
-            if task_id in existing and model_id in existing[task_id] and len(existing[task_id][model_id].get("judges", [])) >= len(JUDGE_MODELS):
-                continue
+            if task_id in existing and model_id in existing[task_id]:
+                entry = ensure_consensus_entry(existing, task_id, model_id)
+                judged = {j.get("judge") for j in entry.get("judges", []) if j.get("score") is not None}
+                if all(j in judged for j in JUDGE_MODELS):
+                    continue
             task_prompt = task_prompts.get(task_id, f"[Task: {task_id}]")[:4000]
             tasks.append((task_id, model_id, task_prompt, result.get("response_text", "")[:8000]))
 
@@ -150,28 +206,31 @@ def main():
 
     for task_id, model_id, task_prompt, response_text in tasks:
         print(f"Judging {task_id} × {model_id}...", end=" ", flush=True)
-        if task_id not in existing: existing[task_id] = {}
-        if model_id not in existing[task_id]: existing[task_id][model_id] = {"judges": []}
+        entry = ensure_consensus_entry(existing, task_id, model_id)
         
         for judge_model in JUDGE_MODELS:
-            if any(j["judge"] == judge_model for j in existing[task_id][model_id]["judges"]):
+            # Resume at score(task, model, eval_model) granularity.
+            if any(j.get("judge") == judge_model and j.get("score") is not None for j in entry["judges"]):
                 continue
             
             prompt = RELEVANCE_PROMPT.format(task_id=task_id, model_id=model_id, task_prompt=task_prompt, response_text=response_text)
             raw = send_with_retry(judge_model, prompt)
             parsed = parse_response(raw)
             if parsed:
-                existing[task_id][model_id]["judges"].append({
+                entry["judges"].append({
                     "judge": judge_model,
                     "score": parsed["relevance_score"],
                     "justification": parsed.get("justification", ""),
                     "missed": parsed.get("missed_aspects", [])
                 })
         
-        all_scores = [j["score"] for j in existing[task_id][model_id]["judges"] if j.get("score") is not None]
+        all_scores = [j["score"] for j in entry["judges"] if j.get("score") is not None]
         if all_scores:
-            existing[task_id][model_id]["score"] = round(statistics.median(all_scores), 1)
-            print(f"median_score={existing[task_id][model_id]['score']}")
+            entry["score"] = round(statistics.median(all_scores), 1)
+            entry["judge_count"] = len(all_scores)
+            entry["spread"] = max(all_scores) - min(all_scores)
+            entry["flagged"] = entry["spread"] >= 3
+            print(f"median_score={entry['score']} judges={entry['judge_count']} spread={entry['spread']}")
         
         with open(output_file, "w") as f: json.dump(existing, f, indent=2)
 
